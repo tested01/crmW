@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, Image, TouchableHighlight } from 'react-native';
 import { CrmHeader, CrmHeaderOld } from '../common/CrmHeader';
 import { RegStyles } from './registerConf';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { regRole } from '../../actions/index';
 
 class SelectRole extends Component {
   constructor(props){
@@ -20,22 +23,32 @@ class SelectRole extends Component {
       selectedRole: ''
     }
   }
+  /*
+  When user hits back, filled data will be retrieved and filled automatically
+  */
+  componentWillMount(){
+    if(this.props.registerSpec.role){
+      this.selectRole(this.props.registerSpec.role);
+    }
+  }
   selectRole(role){
     switch(role){
       case 'teacher':
-      this.setState({s_uri: this.x_student,
-                     t_uri: this.o_teacher,
-                     teacherTextStyle:{color: 'skyblue', fontWeight: 'bold'},
-                     studentTextStyle:{color: 'black'},
-                     selectedRole: 'teacher'});
-      break;
+        this.setState({s_uri: this.x_student,
+                       t_uri: this.o_teacher,
+                       teacherTextStyle:{color: 'skyblue', fontWeight: 'bold'},
+                       studentTextStyle:{color: 'black'},
+                       selectedRole: 'teacher'});
+        this.props.regRole( role );
+        break;
       case 'student':
-      this.setState({t_uri: this.x_teacher,
-                     s_uri: this.o_student,
-                     teacherTextStyle:{color: 'black'},
-                     studentTextStyle:{color: 'skyblue', fontWeight: 'bold'},
-                     selectedRole: 'student'});
-      break;
+        this.setState({t_uri: this.x_teacher,
+                       s_uri: this.o_student,
+                       teacherTextStyle:{color: 'black'},
+                       studentTextStyle:{color: 'skyblue', fontWeight: 'bold'},
+                       selectedRole: 'student'});
+        this.props.regRole( role );
+        break;
       default:
       break;
     }
@@ -127,4 +140,14 @@ class SelectRole extends Component {
   }
 }
 
-export default SelectRole;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ regRole }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+        registerSpec: state.registerSpec
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SelectRole);

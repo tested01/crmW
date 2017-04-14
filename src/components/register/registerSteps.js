@@ -35,6 +35,7 @@ class RegisterSteps extends Component {
     }
   }
   next() {
+    console.log(this.props.registerSpec, 'current reg');
     let currentState = this.state.step;
     var nextState = {};
     switch(this.state.step){
@@ -151,7 +152,8 @@ function mapStateToProps(state) {
   // Whever is returned will show up as props
   // inside of LoginForm
   return {
-        register: state.register
+        register: state.register,
+        registerSpec: state.registerSpec
   };
 }
 

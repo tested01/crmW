@@ -11,7 +11,8 @@ const rootReducer = combineReducers({
   profile: Profile,
   register: Register,
   selectedFeature: SelectedFeature,
-  registerStep: RegisterStep
+  registerStep: RegisterStep,
+  registerSpec: RegisterSpec
 });
 
 export default rootReducer;
