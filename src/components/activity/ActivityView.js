@@ -17,8 +17,8 @@ export default class TabViewExample extends Component {
   state = {
     index: 0,
     routes: [
-      { key: '1', title: '活動' },
-      { key: '2', title: '公告' },
+      { key: '1', title: '最新' },
+      { key: '2', title: '熱門' },
     ],
   };
 

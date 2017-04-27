@@ -56,6 +56,7 @@ class FillForm extends Component {
         placeholder="user@gmail.com"
         label="Email"
         value={this.state.email}
+        keyboardType='email-address'
         onChangeText={email => this.changeEmail(email)}
       />
       </TransparentCardSection>

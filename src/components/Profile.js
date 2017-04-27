@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Picker, Button } from 'react-native';
 //import update from 'immutability-helper';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { CONFIG } from '../config';
 
 class Profile extends Component {
   static navigationOptions = {
@@ -38,7 +39,7 @@ class Profile extends Component {
     console.log(this.state);
     const { email, password } = this.state;
     console.log(email, password);
-    fetch('http://localhost:3000/users', {
+    fetch(CONFIG.API_BASE_URL.concat('/users'), {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

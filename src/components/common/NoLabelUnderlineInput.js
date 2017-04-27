@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View } from 'react-native';
 
-const NoLabelUnderlineInput = ({ value, onChangeText, placeholder, secureTextEntry }) => {
+const NoLabelUnderlineInput = ({ value, onChangeText, placeholder, secureTextEntry, keyboardType }) => {
   const { inputStyle, containerStyle } = styles;
 
   return (
@@ -12,6 +12,7 @@ const NoLabelUnderlineInput = ({ value, onChangeText, placeholder, secureTextEnt
         autoCorrect={false}
         style={inputStyle}
         value={value}
+        keyboardType = {keyboardType}
         onChangeText={onChangeText}
       />
     </View>

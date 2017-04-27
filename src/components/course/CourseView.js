@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import { GLOBLE } from '../common/Globle';
-import { CourseSelector } from '../CourseSelector';
+import CourseSelector from '../CourseSelector';
 import Notification from './courseTab/notification';
 import LiteraryWork from './courseTab/literaryWork';
+import UwListView from '../common/UwListView';
 
 
 const styles = StyleSheet.create({
@@ -124,6 +125,7 @@ export default class TabViewInstance extends Component {
     case '4':
       return (<View style={[styles.page, { backgroundColor: 'gray', flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
               <ScrollView>
+              <UwListView />
               <View style={{ height: 80, margin: 1, backgroundColor: 'white',
               flex: 1, flexDirection: 'row', justifyContent: 'center' }} >
               <Image
@@ -154,17 +156,29 @@ export default class TabViewInstance extends Component {
   };
 
   render() {
-    return (
-      <View style={{ flex: 5, alignItems: 'stretch' }}>
-      <CourseSelector />
-      <TabViewAnimated
-        style={styles.container}
-        navigationState={this.state}
-        renderScene={this.renderScene}
-        renderHeader={this.renderHeader}
-        onRequestChangeTab={this.handleChangeTab}
-      />
-      </View>
-    );
+    let noCourse = true;
+    if (noCourse){
+        return (
+          <View style={{ flex: 5, alignItems: 'stretch' }}>
+          <Text>
+           test
+          </Text>
+          </View>
+        );
+    }else{
+      return (
+        <View style={{ flex: 5, alignItems: 'stretch' }}>
+        <CourseSelector />
+        <TabViewAnimated
+          style={styles.container}
+          navigationState={this.state}
+          renderScene={this.renderScene}
+          renderHeader={this.renderHeader}
+          onRequestChangeTab={this.handleChangeTab}
+        />
+        </View>
+      );
+    }
+
   }
 }

@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import PhoneInput from 'react-native-phone-input';
 import { RegStyles } from './registerConf';
 import { TransparentCardSection } from '../common';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { regPhone } from '../../actions/index';
 
 
 class Phone extends Component {
@@ -19,6 +22,13 @@ class Phone extends Component {
         type: this.refs.phone.getNumberType(),
         value: this.refs.phone.getValue()
     });
+
+    if(this.refs.phone.getValue().length > 0){
+      this.props.regPhone(this.refs.phone.getValue());
+    }else{
+      this.props.regPhone('+886');
+    }
+
   }
   renderInfo(){
     console.log(this.state, 'phone');
@@ -34,6 +44,9 @@ class Phone extends Component {
           <PhoneInput
           initialCountry='tw'
           style={{margin: 'auto'}}
+          cancelText='取消'
+          confirmText='選取'
+          value={this.props.registerSpec.phone}
           onChangePhoneNumber={this.updateInfo}
           onSelectCountry={this.updateInfo}
           ref='phone'
@@ -60,4 +73,14 @@ let styles = StyleSheet.create({
     },
 });
 
-export default Phone ;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ regPhone }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+        registerSpec: state.registerSpec
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Phone);

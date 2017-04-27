@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
+import { View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Text,
+  TouchableHighlight,
+  Dimensions } from 'react-native';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import LiteraryWork from './learningTab/literaryWork';
 import { GLOBLE } from '../common/Globle';
-import { CourseSelector } from '../CourseSelector';
+import CourseSelector from '../CourseSelector';
+import { CONFIG } from '../../config';
 
+const window = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -40,19 +51,38 @@ const styles = StyleSheet.create({
     right: 0,
     height: 2,
     zIndex: 2
+  },
+  circleButton: {
+    width: 100,
+    height: 100,
+    borderWidth: 3,
+    borderColor: 'red',
+    borderRadius: 100/2
   }
 });
 
-export default class TabViewInstance extends Component {
-  state = {
-    index: 0,
-    routes: [
-      { key: '1', title: '班級資訊' },
-      { key: '2', title: '教務通知' },
-      { key: '3', title: '作品' },
-      { key: '4', title: '成員' }
-    ],
-  };
+class LearningView extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      index: 0,
+      routes: [
+        { key: '1', title: '班級資訊' },
+        { key: '2', title: '教務通知' },
+        { key: '3', title: '作品' },
+        { key: '4', title: '成員' }
+      ],
+      classOperation: false
+    };
+  }
+
+  componentWillMount(){
+    this.updateCourses(this.props.loginState.xAuth);
+  }
+  joinClass(){
+    console.log('click join')
+  }
 
   handleChangeTab = (index) => {
     this.setState({ index });
@@ -114,7 +144,8 @@ export default class TabViewInstance extends Component {
         </View>
     );
     case '4':
-      return (<View style={[styles.page, { backgroundColor: 'gray', flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
+      return (<View style={[styles.page, { backgroundColor: 'gray',
+      flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
               <ScrollView>
               <View style={{ height: 80, margin: 1, backgroundColor: 'white' }} >
                 <Image
@@ -147,18 +178,110 @@ export default class TabViewInstance extends Component {
     }
   };
 
-  render() {
+  updateCourses(token){
+    fetch(CONFIG.API_BASE_URL.concat('/courses'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': token
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                console.log(json.courses, 'user courses');
+                                console.log(json.courses.length, 'user courses count');
+                                this.setState(Object.assign({}, this.state, json));
+                                console.log(this.state);
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  renderNoCourse() {
     return (
-      <View style={{ flex: 5, alignItems: 'stretch' }}>
-      <CourseSelector />
-      <TabViewAnimated
-        style={styles.container}
-        navigationState={this.state}
-        renderScene={this.renderScene}
-        renderHeader={this.renderHeader}
-        onRequestChangeTab={this.handleChangeTab}
-      />
+      <View style={{ flex: 5, alignItems: 'center', justifyContent: 'center'}}>
+        <TouchableHighlight onPress={this.joinClass}>
+            <Image
+              style={styles.circleButton}
+              source={require('../../img/love-logo.png')}
+            />
+          </TouchableHighlight>
+          <Text style={{ marginTop: 20 }}>
+          加入班級，擁有更多學習！
+          </Text>
+          <View style={{ height: window.height/5 , width:20 }}></View>
       </View>
     );
   }
+
+  render() {
+    if(this.state.courses){
+      let noCourse = (this.state.courses.length == 0);
+      //console.log(this.props.loginState.xAuth,'xa');
+
+      if (noCourse){ // When no existing course, show this page
+
+        return this.renderNoCourse();
+
+      }else
+      {
+        return (
+          <View style={{ flex: 5, alignItems: 'stretch' }}>
+          <CourseSelector courses={this.state.courses} />
+          <TabViewAnimated
+            style={styles.container}
+            navigationState={this.state}
+            renderScene={this.renderScene}
+            renderHeader={this.renderHeader}
+            onRequestChangeTab={this.handleChangeTab}
+          />
+          </View>
+        );
+      }
+    }else{
+      return (
+        <View style={styles.page}>
+        <Text>
+        載入中...
+        </Text>
+        </View>
+      );
+    }
+
+
+  }
 }
+
+// Anything returned from this function will end up as props
+// on the LoginForm container
+/*
+function mapDispatchToProps(dispatch) {
+  // Whenever loginSuccess is called, the result should be passed
+  // to all of our reducers
+  return bindActionCreators({ selectTabBarItem }, dispatch);
+}*/
+
+function mapStateToProps(state) {
+  // Whever is returned will show up as props
+  // inside of LoginForm
+  return {
+    //selectedFeature: state.selectedFeature,
+    loginState: state.loginState
+  };
+}
+
+// Promote BoxList from a component to a container - it
+// needs to know about this new dispatch method, selectedNumBox & answerNum.
+// Make it available as a prop.
+//export default connect(mapStateToProps, mapDispatchToProps)(LearningView);
+export default connect(mapStateToProps)(LearningView);

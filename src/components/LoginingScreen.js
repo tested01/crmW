@@ -12,7 +12,14 @@ import Dashboard from './Dashboard';
 import { GLOBLE } from './common/Globle';
 
 class LoginingScreen extends Component {
-
+  conditionalHeaderRender(){
+    var noHeaderList = ['我'];
+    if(noHeaderList.indexOf(this.props.selectedFeature.title)){
+      return(
+        <Header headerText={this.props.selectedFeature.title} />
+      );
+    }
+  }
   render() {
     const { viewStyle, blockStyle, colorlessViewStyle } = styles;
     //<MainScreen style={screenStyle} />
@@ -30,7 +37,7 @@ class LoginingScreen extends Component {
         case true:
           return (
                   <View style={colorlessViewStyle}>
-                    <Header headerText={this.props.selectedFeature.title} />
+                    {this.conditionalHeaderRender()}
                     <Dashboard />
                  </View>);
         default:

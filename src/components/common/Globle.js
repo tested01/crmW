@@ -10,6 +10,7 @@ const GLOBLE = {
     YELLOW: '#f7b822'
 
   },
+  HEADER_FONTSIZE: 16
 };
 
 

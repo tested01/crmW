@@ -2,39 +2,63 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import ModalPicker from 'react-native-modal-picker';
 import { RegStyles } from './registerConf';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName } from '../../actions/index';
 
 class SchoolInfo extends Component {
   constructor(props){
     super(props);
     this.state = {
         schoolType: '',
-        level: '',
+        schoolLevel: '',
         schoolName: '',
         schoolCity: ''
     };
-    this.fetchData = this.fetchData.bind(this);
+
   }
-  fetchData(){
-    let index = 0;
-    const data = [
-        { key: index++, section: true, label: 'Fruits' },
-        { key: index++, label: 'Red Apples' },
-        { key: index++, label: 'Cherries' },
-        { key: index++, label: 'Cranberries' },
-        { key: index++, label: 'Pink Grapefruit' },
-        { key: index++, label: 'Raspberries' },
-        { key: index++, section: true, label: 'Vegetables' },
-        { key: index++, label: 'Beets' },
-        { key: index++, label: 'Red Peppers' },
-        { key: index++, label: 'Radishes' },
-        { key: index++, label: 'Radicchio' },
-        { key: index++, label: 'Red Onions' },
-        { key: index++, label: 'Red Potatoes' },
-        { key: index++, label: 'Rhubarb' },
-        { key: index++, label: 'Tomatoes' }
-    ];
-    return data;
+  componentWillMount(){
+
+    if(this.props.registerSpec.schoolType){
+      this.setSchoolType({schoolType:this.props.registerSpec.schoolType});
+    }
+    if(this.props.registerSpec.schoolName){
+      this.setSchoolName({schoolName:this.props.registerSpec.schoolName});
+    }
+    if(this.props.registerSpec.schoolLevel){
+      this.setSchoolLevel({schoolLevel:this.props.registerSpec.schoolLevel});
+    }
+    if(this.props.registerSpec.schoolCity){
+      this.setSchoolCity({schoolCity:this.props.registerSpec.schoolCity});
+    }
+
   }
+
+  setSchoolType(schoolType){
+    this.setState(schoolType);
+    console.log(schoolType, schoolType.schoolType, this.props.registerSpec)
+    this.props.regSchoolType(schoolType.schoolType);
+  }
+
+  setSchoolLevel(schoolLevel){
+    this.setState(schoolLevel);
+    console.log(schoolLevel,this.props.registerSpec);
+    this.props.regSchoolLevel(schoolLevel.schoolLevel);
+  }
+
+  setSchoolCity(schoolCity){
+    this.setState(schoolCity);
+    console.log(schoolCity,this.props.registerSpec);
+    this.props.regSchoolCity(schoolCity.schoolCity);
+  }
+
+  setSchoolName(schoolName){
+    this.setState(schoolName);
+    console.log(schoolName,schoolName.schoolName);
+    console.log(this.props.registerSpec);
+    this.props.regSchoolName(schoolName.schoolName);
+  }
+
   fetchCity(){
     let index = 0;
     const data = [
@@ -108,7 +132,7 @@ class SchoolInfo extends Component {
                 data={this.fetchCity()}
                 style={styles.container}
                 initValue=""
-                onChange={(option)=>{ this.setState({schoolCity:option.label})}}>
+                onChange={(option)=>{ this.setSchoolCity({schoolCity:option.label})}}>
 
                 <TextInput
                     style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
@@ -122,7 +146,7 @@ class SchoolInfo extends Component {
                 data={this.fetchSchoolType()}
                 style={styles.container}
                 initValue=""
-                onChange={(option)=>{ this.setState({schoolType:option.label})}}>
+                onChange={(option)=>{ this.setSchoolType({schoolType:option.label})}}>
 
                 <TextInput
                     style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
@@ -136,13 +160,13 @@ class SchoolInfo extends Component {
                 data={this.fetchLevel()}
                 style={styles.container}
                 initValue=""
-                onChange={(option)=>{ this.setState({level:option.label})}}>
+                onChange={(option)=>{ this.setSchoolLevel({schoolLevel:option.label})}}>
 
                 <TextInput
                     style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
                     editable={false}
                     placeholder="年級"
-                    value={this.state.level} />
+                    value={this.state.schoolLevel} />
 
             </ModalPicker>
 
@@ -150,7 +174,7 @@ class SchoolInfo extends Component {
                   data={this.fetchSchool()}
                   style={styles.container}
                   initValue=""
-                  onChange={(option)=>{ this.setState({schoolName:option.label})}}>
+                  onChange={(option)=>{ this.setSchoolName({schoolName:option.label})}}>
 
                   <TextInput
                       style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
@@ -163,6 +187,14 @@ class SchoolInfo extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName }, dispatch);
+}
 
+function mapStateToProps(state) {
+  return {
+        registerSpec: state.registerSpec
+  };
+}
 
-export default SchoolInfo;
+export default connect(mapStateToProps, mapDispatchToProps)(SchoolInfo);

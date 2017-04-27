@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loginSuccess } from '../actions/index';
 import { CustomizedButton, MaterialCard, TransparentCardSection, NoLabelInput, Spinner } from './common';
+import { CONFIG } from '../config';
 
 class LoginForm extends Component {
 
@@ -19,28 +20,29 @@ class LoginForm extends Component {
 
     this.setState({ error: '', loading: true });
 
+    let login_uri = CONFIG.API_BASE_URL.concat('/users/login');
 
-    fetch('http://localhost:3000/users/login', {
+    fetch(login_uri , {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email,
-        password,
+        email: 'a@gmail.com',//email, //fixme2
+        password: '123456'//password,
       }) })
       .then((response) => {
         if (response.status === 200) {
           console.log(response.headers.get('x-auth'));
+          response.json().then((data) => {
+            this.props.loginSuccess(true, response.headers.get('x-auth'), data.email, data.role);
+
+          });
           this.onLoginSuccess();
-          console.log(this.props.loginState, 'success1');
-          this.props.loginSuccess(true, response.headers.get('x-auth'));
-          console.log(response.status);
-          console.log(this.props.loginState, 'success2');
         } else {
           this.onLoginFail();
-          this.props.loginSuccess(false, '');
+          this.props.loginSuccess(false, '', '');
           console.log(this.props.loginState);
         }
       })

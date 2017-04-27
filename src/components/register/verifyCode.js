@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { RegStyles } from './registerConf';
 import { NoLabelInput, TransparentCardSection } from '../common';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { regVerifyCode } from '../../actions/index';
 
 class VerifyCode extends Component {
   constructor(props){
@@ -26,9 +29,13 @@ class VerifyCode extends Component {
               <NoLabelInput
                 placeholder="請於此輸入驗證碼"
                 label="VerifyCode"
+                maxLength={4}
                 value={this.state.verifyCode}
-                maxLength = {4}
-                onChangeText={verifyCode => this.setState({ verifyCode })}
+                keyboardType="phone-pad"
+                onChangeText={verifyCode => {
+                  this.props.regVerifyCode(verifyCode);
+                  this.setState({ verifyCode });
+                }}
               />
             </TransparentCardSection>
             <TouchableHighlight onPress={this.onResendRequest}>
@@ -40,4 +47,14 @@ class VerifyCode extends Component {
   }
 }
 
-export default  VerifyCode ;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ regVerifyCode }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+        registerSpec: state.registerSpec
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VerifyCode);

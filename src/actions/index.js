@@ -12,6 +12,7 @@ export const TABBAR = {
   PROFILE: { id: 'PROFILE', text: '我' }
 };
 
+export const CURRENT_COURSE = 'CURRENT_COURSE';
 export const REGISTERNEXT = 'REGISTERNEXT';
 export const REGISTERLAST = 'REGISTERLAST';
 
@@ -20,8 +21,12 @@ export const REG_EMAIL = 'REG_EMAIL';
 export const REG_PASSWORD = 'REG_PASSWORD';
 export const REG_FIRSTNAME = 'REG_FIRSTNAME';
 export const REG_LASTNAME = 'REG_LASTNAME';
-export const REG_SCHOOL = 'REG_SCHOOL';
+export const REG_SCHOOLTYPE = 'REG_SCHOOLTYPE';
+export const REG_SCHOOLLEVEL = 'REG_SCHOOLLEVEL';
+export const REG_SCHOOLNAME = 'REG_SCHOOLNAME';
+export const REG_SCHOOLCITY = 'REG_SCHOOLCITY';
 export const REG_PHONE = 'REG_PHONE';
+export const REG_VERIFYCODE = 'REG_VERIFYCODE';
 
 //SECTION: Register-related action creators start below
 export function regRole(role) {
@@ -69,11 +74,38 @@ export function regLastname(lastname) {
   };
 }
 
-export function regSchool(school) {
+export function regSchoolType(schoolType) {
   return {
-    type: REG_SCHOOL,
+    type: REG_SCHOOLTYPE,
     payload: {
-      school
+      schoolType
+    }
+  };
+}
+
+export function regSchoolCity(schoolCity) {
+  return {
+    type: REG_SCHOOLCITY,
+    payload: {
+      schoolCity
+    }
+  };
+}
+
+export function regSchoolLevel(schoolLevel) {
+  return {
+    type: REG_SCHOOLLEVEL,
+    payload: {
+      schoolLevel
+    }
+  };
+}
+
+export function regSchoolName(schoolName) {
+  return {
+    type: REG_SCHOOLNAME,
+    payload: {
+      schoolName
     }
   };
 }
@@ -86,9 +118,18 @@ export function regPhone(phone) {
     }
   };
 }
+
+export function regVerifyCode(code){
+  return {
+    type: REG_VERIFYCODE,
+    payload: {
+      code
+    }
+  };
+}
 //SECTION: Register-related action creators end above
 
-export function loginSuccess(success = false, xAuth) {
+export function loginSuccess(success = false, xAuth, email, role) {
   // loginSuccess is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
 
@@ -96,7 +137,9 @@ export function loginSuccess(success = false, xAuth) {
     type: LOGIN_SUCCESS,
     payload: {
       success,
-      xAuth
+      email,
+      xAuth,
+      role
     }
   };
 }
@@ -131,7 +174,6 @@ export function setProfile(profile = {}) {
 export function registerRequest() {
   // registerRequest is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
-  console.log('registerRequest');
   return {
     type: REGISTER,
     payload: {
@@ -186,4 +228,13 @@ export function selectTabBarItem(tabBar = TABBAR.ACTIVITY) {
   // selectTabBarItem is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
   return genericTabBarSelector(tabBar);
+}
+
+export function setCurrentCourse(code=''){
+  //TODO: Maybe add some check for code format
+  console.log('someone set the course code');
+  return {
+    type: CURRENT_COURSE,
+    payload: code
+  };
 }

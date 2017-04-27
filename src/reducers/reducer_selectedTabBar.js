@@ -20,10 +20,10 @@ export default function (state, action) {
       case TABBAR.PROFILE.id:
         return action.payload;
       case TABBAR.ACTIVITY.id:
-        console.log('77');
+        
         return action.payload;
       default:
-        console.log('ss');
+
         return defaultState.payload;
     }
   }

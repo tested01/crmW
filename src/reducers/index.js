@@ -5,6 +5,7 @@ import Register from './reducer_register';
 import SelectedFeature from './reducer_selectedTabBar';
 import RegisterStep from './reducer_regSteps';
 import RegisterSpec from './reducer_registerSpec';
+import CurrentCourse from './reducer_currentCourse';
 
 const rootReducer = combineReducers({
   loginState: LoginReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   register: Register,
   selectedFeature: SelectedFeature,
   registerStep: RegisterStep,
-  registerSpec: RegisterSpec
+  registerSpec: RegisterSpec,
+  currentCourse: CurrentCourse
 });
 
 export default rootReducer;

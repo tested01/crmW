@@ -10,6 +10,7 @@ import SchoolInfo from './schoolInfo';
 import SelectRole from './selectRole';
 import VerifyCode from './verifyCode';
 import RegisterSuccess from './registerSuccess';
+import { CONFIG } from '../../config';
 
 class RegisterSteps extends Component {
   constructor(props){
@@ -49,20 +50,21 @@ class RegisterSteps extends Component {
         case 4:
           nextState = Object.assign({}, this.state, { step: currentState + 1});
           //this.setState(nextState);
-          this.props.registeredRequest(); //Set as register completed
-          fetch('http://localhost:3000/users/login', { //auto log in
+
+          /*
+          fetch(CONFIG.API_BASE_URL.concat('/users/login'), { //auto log in
             method: 'POST',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              email: 'stevenwu66@gmail.com',
-              password: '123456',
+              email: this.props.registerSpec.email,
+              password: this.props.registerSpec.password
             }) })
             .then((response) => {
               if (response.status === 200) {
-                this.props.loginSuccess(true, response.headers.get('x-auth'));
+                this.props.loginSuccess(true, response.headers.get('x-auth'), this.props.registerSpec.role);
               } else {
                 this.props.loginSuccess(false, '');
               }
@@ -70,6 +72,43 @@ class RegisterSteps extends Component {
             .catch((error) => {
               console.log(error);
             });
+           */
+            fetch(CONFIG.API_BASE_URL.concat('/users'), { //auto log in
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                email: this.props.registerSpec.email,
+                password: this.props.registerSpec.password,
+                role: this.props.registerSpec.role,
+                firstName: this.props.registerSpec.firstname,
+                lastName: this.props.registerSpec.lastname,
+                phone: this.props.registerSpec.phone,
+                schoolName: this.props.registerSpec.schoolName,
+                schoolType: this.props.registerSpec.schoolType,
+                schoolLevel: this.props.registerSpec.schoolLevel,
+                schoolCity: this.props.registerSpec.schoolCity
+
+              }) })
+              .then((response) => {
+                if (response.status === 200) {
+                  this.props.loginSuccess(true, response.headers.get('x-auth'), this.props.registerSpec.email, this.props.registerSpec.role);
+                  this.props.registeredRequest(); //Set as register completed
+                  console.log('reging...');
+                } else {
+                  this.props.loginSuccess(false, '', '');
+
+                  console.log('not reging...');
+                  response.json().then(json => {
+                                        console.log(json);
+                                      });
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           break;
       case 5:
         //TODO: add a button to call this.props.registeredRequest(); ==> Login page
