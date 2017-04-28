@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Select, Option } from './react-native-chooser';
 import { setCurrentCourse } from '../actions/index';
+import { CONFIG } from '../config';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,8 +32,32 @@ class CourseSelector extends Component {
   /*
     When the course selected,
     Set the course context to the course's code*/
-  onSelect(data) {
-    this.props.setCurrentCourse(data);
+  onSelect(currentCourseCode) {
+    //TODO: fetch the course data here
+    fetch(CONFIG.API_BASE_URL.concat('/courses/').concat(currentCourseCode), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                this.props.setCurrentCourse(json.course);
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
   /*
   The way to get data is encapsulated here
@@ -67,6 +92,7 @@ class CourseSelector extends Component {
   }
 
   render() {
+    console.log(this.props.selectedFeature.title, 'q');
     return (
       <View style={styles.container}>
         <Select
@@ -76,8 +102,11 @@ class CourseSelector extends Component {
             style={{ borderWidth: 0, alignItems: 'stretch', width: window.width }}
             indicatorColor='gray'
             textStyle={{ color: 'gray' }}
-            backdropStyle={{ backgroundColor: '#d3d5d6', opacity: 0.99 }}
-            optionListStyle={{ backgroundColor: '#F5FCFF', width: window.width, height: window.height - 200 }}
+            backdropStyle={{ backgroundColor: '#d3d5d6', opacity: 0.95 }}
+            optionListStyle={{ backgroundColor: '#F5FCFF',
+              width: window.width - 20,
+              height: window.height - 200
+            }}
         >
 
           {this.renderOptions()}
@@ -101,6 +130,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     //currentCourse: state.currentCourse
+    selectedFeature: state.selectedFeature,
+    loginState: state.loginState
   };
 }
 

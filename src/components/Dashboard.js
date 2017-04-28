@@ -16,7 +16,9 @@ class Dashboard extends Component {
     super();
     this.state = {
       selectedTab: 'Activity'
+
     };
+    //this.roleBasedRender();
   }
   roleBasedRender() {
 

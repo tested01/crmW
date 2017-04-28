@@ -134,16 +134,23 @@ class ProfileView extends Component {
   }
   renderProfile() {
       var {height, width} = Dimensions.get('window');
+      let fullName = '';
+      if(this.state.lastName){
+        fullName = this.state.lastName.concat(this.state.firstName)
+      }
       return (
         <ScrollView
                    style={{ flex: 5 }}
         >
         <View
-          style={{ backgroundColor: 'green',
+          style={{ backgroundColor: 'white',
                    justifyContent: 'center',
                    alignItems: 'center' }}
         >
-        <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'stretch' }}>
+        <View style={{ flex: 1,
+          backgroundColor: 'white',
+          alignItems: 'stretch',
+          marginBottom: 15 }}>
         <Image
           style={{width: width, height: height/3}}
           source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
@@ -152,12 +159,14 @@ class ProfileView extends Component {
          style={{ width: config.headerSize,
                   height: config.headerSize,
                   marginTop: -(config.headerSize/2),
+                  marginBottom: 10,
                   borderRadius: config.headerSize / 2,
                   alignSelf: 'center',
                   borderWidth: 2 }}
                   source={require('../../img/color-logo.png')}
         />
-        <Text style={{textAlign: 'center', fontWeight: 'bold'}}> 吳福仔 </Text>
+
+        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 16}}> { fullName } </Text>
 
         </View>
         </View>
@@ -197,7 +206,7 @@ class ProfileView extends Component {
   renderEditProfile(){
     return (
       <View>
-         {this.renderHeader('個人資料')}
+         { this.renderHeader('個人資料')}
          { this.renderEditButton('真實姓名', this.state.lastName.concat(this.state.firstName))}
          { this.renderEditButton('暱稱', this.state.nickName)}
          { this.renderEditButton('電話號碼', this.state.phone)}

@@ -14,3 +14,4 @@ export * from './Globle';
 export * from './CrmHeader';
 export * from './CrmHeaderOld';
 export * from './NoLabelUnderlineInput';
+export * from './StudentCard';

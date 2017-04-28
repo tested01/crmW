@@ -27,6 +27,8 @@ export const REG_SCHOOLNAME = 'REG_SCHOOLNAME';
 export const REG_SCHOOLCITY = 'REG_SCHOOLCITY';
 export const REG_PHONE = 'REG_PHONE';
 export const REG_VERIFYCODE = 'REG_VERIFYCODE';
+export const HIDE_HEADER = 'HIDE_HEADER';
+export const COURSE_OPERATION = 'COURSE_OPERATION';
 
 //SECTION: Register-related action creators start below
 export function regRole(role) {
@@ -37,6 +39,26 @@ export function regRole(role) {
     }
   };
 }
+
+export function hideHeader(hide) {
+  return {
+    type: HIDE_HEADER,
+    payload: {
+      hide
+    }
+  };
+}
+
+export function courseOperation(open) {
+  return {
+    type: COURSE_OPERATION,
+    payload: {
+      open
+    }
+  };
+}
+
+
 
 export function regEmail(email) {
   return {
@@ -230,11 +252,11 @@ export function selectTabBarItem(tabBar = TABBAR.ACTIVITY) {
   return genericTabBarSelector(tabBar);
 }
 
-export function setCurrentCourse(code=''){
+export function setCurrentCourse(course={}){
   //TODO: Maybe add some check for code format
-  console.log('someone set the course code');
+  //console.log('someone set the course code');
   return {
     type: CURRENT_COURSE,
-    payload: code
+    payload: course
   };
 }

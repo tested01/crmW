@@ -5,15 +5,19 @@ import { View,
   Image,
   Text,
   TouchableHighlight,
+  TextInput,
   Dimensions } from 'react-native';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import LiteraryWork from './learningTab/literaryWork';
 import { GLOBLE } from '../common/Globle';
 import CourseSelector from '../CourseSelector';
 import { CONFIG } from '../../config';
+import { hideHeader, courseOperation } from '../../actions/index';
+import { CustomizedButton, StudentCard } from '../common';
 
 const window = Dimensions.get('window');
 
@@ -58,6 +62,19 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: 'red',
     borderRadius: 100/2
+  },
+  viewStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: GLOBLE.COLOR.BLUE,
+    alignItems: 'center',
+    height: 60,
+    paddingTop: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 2,
+    position: 'relative'
   }
 });
 
@@ -73,15 +90,24 @@ class LearningView extends Component {
         { key: '3', title: '作品' },
         { key: '4', title: '成員' }
       ],
-      classOperation: false
+      //classOperation: false
     };
+    this.joinClass = this.joinClass.bind(this);
+    this.concealCreateCourse = this.concealCreateCourse.bind(this);
+    this.createCourse = this.createCourse.bind(this);
+    this.fetchOneCourses = this.fetchOneCourses.bind(this);
+    this.renderCourseAndJoinButton = this.renderCourseAndJoinButton.bind(this);
+    this.joinCourseAPI = this.joinCourseAPI.bind(this);
   }
 
   componentWillMount(){
     this.updateCourses(this.props.loginState.xAuth);
+    this.props.courseOperation(false);
   }
   joinClass(){
-    console.log('click join')
+
+    this.props.courseOperation(true);
+    this.props.hideHeader(true);
   }
 
   handleChangeTab = (index) => {
@@ -144,6 +170,16 @@ class LearningView extends Component {
         </View>
     );
     case '4':
+      console.log(this.props.currentCourse, 'courses current students');
+      let notLoadingYet = (this.props.currentCourse.code.length != 10);
+      if(notLoadingYet){
+        console.log('notLoadingYet');
+      }else{
+        console.log(this.props.currentCourse.members.students);
+        //StudentCard
+        let st = {name: 'j6ru04zj6'};
+        return(<StudentCard student={st}/>);
+      }
       return (<View style={[styles.page, { backgroundColor: 'gray',
       flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
               <ScrollView>
@@ -177,6 +213,38 @@ class LearningView extends Component {
       return null;
     }
   };
+  //TODO: import <studentCard />
+  // use each items in this.props.currentCourse.members.students
+  // as property to render
+
+  fetchOneCourses(code){
+    fetch(CONFIG.API_BASE_URL.concat('/courses/').concat(code), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                //console.log(json.course, 'user courses qq');
+                                this.setState({fetchCourse: json.course});
+                                //this.setState(Object.assign({}, this.state, json));
+                                //console.log(this.state);
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   updateCourses(token){
     fetch(CONFIG.API_BASE_URL.concat('/courses'), {
@@ -224,39 +292,198 @@ class LearningView extends Component {
     );
   }
 
+  renderNewCourseHeader(headerTitle) {
+    const { viewStyle } = styles;
+    /*
+    <Icon.Button
+      name="angle-left"
+      size={30}
+      color='white'
+      backgroundColor='transparent'
+      style={{ marginLeft: 20, marginTop: 15}}
+      onPress={this.backToLearning}
+      />
+    */
+    return (
+      <View style={viewStyle}>
+        <TouchableHighlight onPress={this.concealCreateCourse}>
+          <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+        </TouchableHighlight>
+        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}> {headerTitle} </Text>
+        <TouchableHighlight onPress={this.createCourse}>
+          <Text style={{ marginTop: 15, color: 'white'}}>  </Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+  createCourse(){
+    console.log('createCourse');
+    //this.props.hideHeader(false); //call this when exit 建立班級
+  }
+  concealCreateCourse(){
+    console.log('concealCreateCourse');
+    //this.setState({classOperation: false});
+    this.props.courseOperation(false);
+    this.props.hideHeader(false);
+  }
+
+  renderCourseAndJoinButton(){
+    if (this.state.fetchCourse){
+      return(<View style={{
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+      }}>
+        <Text style={{fontSize:50}}>圖</Text>
+        <Text>{this.state.fetchCourse.name}</Text>
+
+        <TouchableHighlight onPress={this.joinCourseAPI}>
+          <View style={{
+            width: window.width-40,
+            height: 30,
+            backgroundColor: '#F9C00C',
+            borderRadius: 5,
+            margin: 5
+          }}>
+          <Text style={{textAlign: 'center', color: 'white'}}>加入</Text>
+          </View>
+        </TouchableHighlight>
+
+        </View>)
+    }else{
+      return(<View/>);
+    }
+  }
+
+  joinCourseAPI(){
+    //this.state.courseCode;
+    //courses/:code/students
+    //state.loginState.xAuth
+    //TODO
+    fetch(CONFIG.API_BASE_URL.concat('/courses/')
+    .concat(this.state.courseCode).concat('/students'), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+
+                                this.props.courseOperation(false);
+                                this.props.hideHeader(false);
+                                this.updateCourses(this.props.loginState.xAuth); //update
+
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
+
+  renderCourseCreationPage(){
+    return(
+      <View style={{flex:1,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: 25
+      }}>
+        <Text style={{fontSize: 17}}> 輸入你想加入的班級代碼 </Text>
+        <Text style={{fontSize: 14}}> 欲想了解班級代碼，可詢問班級老師</Text>
+        <View>
+        <TextInput
+          style={{height: 40,
+            width: 300,
+            borderColor: 'gray',
+            borderWidth: 1,
+            marginTop: 20
+          }}
+          autoFocus={true}
+          keyboardType= 'numeric'
+          maxLength={10}
+          onChangeText={(courseCode) => {
+            this.setState({courseCode});
+            //console.log(this.state.courseCode);
+            if(courseCode.length === 10){
+              console.log('10~', courseCode);
+              this.fetchOneCourses(courseCode);
+              //fetch by the courseCode
+              //set the state
+              //render below
+              // -> /courses/:CourseCode
+            }
+          }}
+        value={this.state.courseCode}
+      />
+      </View>
+        {this.renderCourseAndJoinButton()}
+      </View>
+    );
+  }
   render() {
-    if(this.state.courses){
-      let noCourse = (this.state.courses.length == 0);
-      //console.log(this.props.loginState.xAuth,'xa');
-
-      if (noCourse){ // When no existing course, show this page
-
-        return this.renderNoCourse();
-
-      }else
-      {
+    //console.log(this.props.currentCourse);
+    if(this.props.courseOperationState){
+      if(this.props.courseOperationState.open){
         return (
-          <View style={{ flex: 5, alignItems: 'stretch' }}>
-          <CourseSelector courses={this.state.courses} />
-          <TabViewAnimated
-            style={styles.container}
-            navigationState={this.state}
-            renderScene={this.renderScene}
-            renderHeader={this.renderHeader}
-            onRequestChangeTab={this.handleChangeTab}
-          />
+          <View>
+          {this.renderNewCourseHeader('加入班級')}
+          {this.renderCourseCreationPage()}
           </View>
         );
+      }else{
+        if(this.state.courses){
+          let noCourse = (this.state.courses.length == 0);
+          //console.log(this.props.loginState.xAuth,'xa');
+
+          if (noCourse){ // When no existing course, show this page
+
+            return this.renderNoCourse();
+
+          }else
+          {
+            return (
+              <View style={{ flex: 5, alignItems: 'stretch' }}>
+              <CourseSelector courses={this.state.courses} />
+              <TabViewAnimated
+                style={styles.container}
+                navigationState={this.state}
+                renderScene={this.renderScene}
+                renderHeader={this.renderHeader}
+                onRequestChangeTab={this.handleChangeTab}
+              />
+              </View>
+            );
+          }
+        }else{
+          return (
+            <View style={{ flex: 5,
+                           backgroundColor: 'white' }}>
+            <Text>
+            .
+            </Text>
+            </View>
+          );
+        }
       }
     }else{
       return (
-        <View style={styles.page}>
-        <Text>
-        載入中...
-        </Text>
-        </View>
-      );
+        <View style={{ flex: 5,
+                       backgroundColor: 'white' }}>
+                  <Text>
+                  .
+                  </Text>
+                  </View>);
     }
+
+
 
 
   }
@@ -264,19 +491,22 @@ class LearningView extends Component {
 
 // Anything returned from this function will end up as props
 // on the LoginForm container
-/*
+
 function mapDispatchToProps(dispatch) {
   // Whenever loginSuccess is called, the result should be passed
   // to all of our reducers
-  return bindActionCreators({ selectTabBarItem }, dispatch);
-}*/
+  return bindActionCreators({ hideHeader, courseOperation }, dispatch);
+}
 
 function mapStateToProps(state) {
   // Whever is returned will show up as props
   // inside of LoginForm
   return {
     //selectedFeature: state.selectedFeature,
-    loginState: state.loginState
+    loginState: state.loginState,
+    currentCourse: state.currentCourse,
+    hideHeader: state.hideHeader,
+    courseOperationState: state.courseOperation
   };
 }
 
@@ -284,4 +514,4 @@ function mapStateToProps(state) {
 // needs to know about this new dispatch method, selectedNumBox & answerNum.
 // Make it available as a prop.
 //export default connect(mapStateToProps, mapDispatchToProps)(LearningView);
-export default connect(mapStateToProps)(LearningView);
+export default connect(mapStateToProps, mapDispatchToProps)(LearningView);

@@ -8,8 +8,10 @@ const defaultState = {
   }
 };
 
-export default function (state, action) {
+export default function (state = defaultState, action) {
+
   if (action) {
+    console.log(action.type, '123');
     switch (action.type) {
       case TABBAR.COURSE.id:
         return action.payload;
@@ -20,11 +22,10 @@ export default function (state, action) {
       case TABBAR.PROFILE.id:
         return action.payload;
       case TABBAR.ACTIVITY.id:
-        
         return action.payload;
       default:
 
-        return defaultState.payload;
+        return state;
     }
   }
   return state;

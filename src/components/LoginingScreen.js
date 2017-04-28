@@ -14,7 +14,9 @@ import { GLOBLE } from './common/Globle';
 class LoginingScreen extends Component {
   conditionalHeaderRender(){
     var noHeaderList = ['我'];
-    if(noHeaderList.indexOf(this.props.selectedFeature.title)){
+    let currentTitleAppear = (noHeaderList.indexOf(this.props.selectedFeature.title) < 0);
+    console.log(this.props.hideHeader.hide, 'this.props.hideHeader.hide');
+    if(currentTitleAppear && !(this.props.hideHeader.hide)){
       return(
         <Header headerText={this.props.selectedFeature.title} />
       );
@@ -23,7 +25,7 @@ class LoginingScreen extends Component {
   render() {
     const { viewStyle, blockStyle, colorlessViewStyle } = styles;
     //<MainScreen style={screenStyle} />
-    console.log(this.props.register);
+    //console.log(this.props.register);
      /*
      <CustomizedButton
      onPress={() => this.props.signOut(false, '')}
@@ -32,7 +34,7 @@ class LoginingScreen extends Component {
      </CustomizedButton>
      */
     if (!this.props.register.regStatus) {
-      console.log(this.props.loginState, 'init');
+      //console.log(this.props.loginState, 'init');
       switch (this.props.loginState.success) { //fixme2
         case true:
           return (
@@ -92,7 +94,8 @@ function mapStateToProps(state) {
   return {
     loginState: state.loginState,
     register: state.register,
-    selectedFeature: state.selectedFeature
+    selectedFeature: state.selectedFeature,
+    hideHeader: state.hideHeader
   };
 }
 

@@ -6,6 +6,8 @@ import SelectedFeature from './reducer_selectedTabBar';
 import RegisterStep from './reducer_regSteps';
 import RegisterSpec from './reducer_registerSpec';
 import CurrentCourse from './reducer_currentCourse';
+import HideHeader from './reducer_hideHeader';
+import CourseOperation from './reducer_courseOperation';
 
 const rootReducer = combineReducers({
   loginState: LoginReducer,
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
   selectedFeature: SelectedFeature,
   registerStep: RegisterStep,
   registerSpec: RegisterSpec,
-  currentCourse: CurrentCourse
+  currentCourse: CurrentCourse,
+  hideHeader: HideHeader,
+  courseOperation: CourseOperation
 });
 
 export default rootReducer;
