@@ -54,7 +54,7 @@ class Dashboard extends Component {
           }
           selected={this.state.selectedTab === 'Course'}
           >
-            <CourseView />
+            <LearningView />
         </Icon.TabBarItem>
       );
     }

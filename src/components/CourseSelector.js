@@ -32,8 +32,8 @@ class CourseSelector extends Component {
   /*
     When the course selected,
     Set the course context to the course's code*/
-  onSelect(currentCourseCode) {
-    //TODO: fetch the course data here
+  updateCurrentCourse(currentCourseCode) {
+
     fetch(CONFIG.API_BASE_URL.concat('/courses/').concat(currentCourseCode), {
       method: 'GET',
       headers: {
@@ -96,7 +96,7 @@ class CourseSelector extends Component {
     return (
       <View style={styles.container}>
         <Select
-            onSelect={this.onSelect.bind(this)}
+            onSelect={this.updateCurrentCourse.bind(this)}
             defaultText='請選擇你的班級'
             indicator='down'
             style={{ borderWidth: 0, alignItems: 'stretch', width: window.width }}

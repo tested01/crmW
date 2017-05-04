@@ -10,16 +10,40 @@ import RegisterSteps from './register/registerSteps';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard';
 import { GLOBLE } from './common/Globle';
-
+/*
+<Icon.Button
+ name={props.buttonType}
+ size={20}
+ color='white'
+ style={{marginRight: 10}}
+ backgroundColor='transparent'
+ onPress={props.delegatedFunction}
+ >
+</Icon.Button>
+*/
 class LoginingScreen extends Component {
   conditionalHeaderRender(){
-    var noHeaderList = ['我'];
+    var noHeaderList = ['我']; //hide the header
+    var rightButtonList = ['學習'];
     let currentTitleAppear = (noHeaderList.indexOf(this.props.selectedFeature.title) < 0);
+    let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
     console.log(this.props.hideHeader.hide, 'this.props.hideHeader.hide');
     if(currentTitleAppear && !(this.props.hideHeader.hide)){
-      return(
-        <Header headerText={this.props.selectedFeature.title} />
-      );
+      if(currentHasRightButton){
+        return(
+          <Header
+          headerText={this.props.selectedFeature.title}
+          buttonType='plus'
+          delegatedFunction={()=>console.log('plus')}
+          rightButton
+          />
+        );
+      }else{
+        return(
+          <Header headerText={this.props.selectedFeature.title} />
+        );
+      }
+
     }
   }
   render() {
