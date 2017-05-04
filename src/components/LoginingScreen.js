@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signOut, registerRequest, selectTabBarItem } from '../actions/index';
+import { signOut,
+         registerRequest,
+         selectTabBarItem,
+         courseOperation,
+         hideHeader } from '../actions/index';
 import { BigHeader, CustomizedButton, Header, Footer } from './common';
 import CustomerFooter from './common/CustomerFooter';
 //import MainScreen from './MainScreen';
@@ -22,19 +26,23 @@ import { GLOBLE } from './common/Globle';
 </Icon.Button>
 */
 class LoginingScreen extends Component {
+  constructor(props){
+    super(props);
+    this.joinCourse = this.joinCourse.bind(this);
+  }
   conditionalHeaderRender(){
     var noHeaderList = ['我']; //hide the header
-    var rightButtonList = ['學習'];
+    var rightButtonList = ['學習','課務'];
     let currentTitleAppear = (noHeaderList.indexOf(this.props.selectedFeature.title) < 0);
     let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
-    console.log(this.props.hideHeader.hide, 'this.props.hideHeader.hide');
-    if(currentTitleAppear && !(this.props.hideHeader.hide)){
+    console.log(this.props.hideHeaderOperation.hide, 'this.props.hideHeader.hide');
+    if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){
       if(currentHasRightButton){
         return(
           <Header
           headerText={this.props.selectedFeature.title}
           buttonType='plus'
-          delegatedFunction={()=>console.log('plus')}
+          delegatedFunction={()=>this.joinCourse}
           rightButton
           />
         );
@@ -45,6 +53,10 @@ class LoginingScreen extends Component {
       }
 
     }
+  }
+  joinCourse(){
+    this.props.courseOperation(true);
+    this.props.hideHeader(true);
   }
   render() {
     const { viewStyle, blockStyle, colorlessViewStyle } = styles;
@@ -109,7 +121,11 @@ const styles = {
 function mapDispatchToProps(dispatch) {
   // Whenever loginSuccess is called, the result should be passed
   // to all of our reducers
-  return bindActionCreators({ signOut, registerRequest, selectTabBarItem }, dispatch);
+  return bindActionCreators({ signOut,
+    registerRequest,
+    selectTabBarItem,
+    courseOperation,
+    hideHeader }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -119,7 +135,7 @@ function mapStateToProps(state) {
     loginState: state.loginState,
     register: state.register,
     selectedFeature: state.selectedFeature,
-    hideHeader: state.hideHeader
+    hideHeaderOperation: state.hideHeaderOperation
   };
 }
 

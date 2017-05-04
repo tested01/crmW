@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   registerStep: RegisterStep,
   registerSpec: RegisterSpec,
   currentCourse: CurrentCourse,
-  hideHeader: HideHeader,
+  hideHeaderOperation: HideHeader,
   courseOperation: CourseOperation
 });
 

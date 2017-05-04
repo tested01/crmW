@@ -965,7 +965,7 @@ function mapStateToProps(state) {
     //selectedFeature: state.selectedFeature,
     loginState: state.loginState,
     currentCourse: state.currentCourse,
-    hideHeader: state.hideHeader,
+    hideHeaderOperation: state.hideHeaderOperation,
     courseOperationState: state.courseOperation
   };
 }

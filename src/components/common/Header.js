@@ -27,7 +27,7 @@ const Header = (props) => {
          size={20}
          color='white'
          backgroundColor='transparent'
-         onPress={props.delegatedFunction}
+         onPress={props.delegatedFunction()}
          >
         </Icon.Button>
       </View>
