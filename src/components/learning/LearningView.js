@@ -362,35 +362,7 @@ class LearningView extends Component {
         </View>
       );
     }
-    return (<View style={[styles.page, { backgroundColor: 'gray',
-    flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
-            <ScrollView>
-            <View style={{ height: 80, margin: 1, backgroundColor: 'white' }} >
-              <Image
-               style={{width: 80, height: 80}}
-               source={require('../../img/react-logo.png')}
-              />
-            </View>
-            <View style={{ height: 80, margin: 1, backgroundColor: 'white',
-            flex: 1, flexDirection: 'row', justifyContent: 'center' }} >
-            <Image
-             style={{width: 80, height: 80, flex: 1}}
-             source={require('../../img/color-logo.png')}
-            />
-            <Text style={{ flex: 3, fontSize: 20, lineHeight: 80, textAlign: 'left'}}> 蔡英文 </Text>
-            </View>
-            { this.renderMockStudents()}
-            { this.renderMockStudents2()}
-            { this.renderMockStudents()}
-            { this.renderMockStudents2()}
-            { this.renderMockStudents()}
-            { this.renderMockStudents2()}
-            { this.renderMockStudents2()}
-            { this.renderMockStudents()}
-            { this.renderMockStudents()}
-            { this.renderMockStudents2()}
-            </ScrollView>
-            </View>);
+
   }
 
   renderNotification(){
@@ -691,7 +663,8 @@ class LearningView extends Component {
     if (this.state.fetchCourse){
       return(<View style={{
         alignItems: 'center',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        height: 100
       }}>
         <Text style={{fontSize:50}}>圖</Text>
         <Text>{this.state.fetchCourse.name}</Text>
@@ -789,6 +762,7 @@ class LearningView extends Component {
           style={{
             borderColor: 'gray',
             width: 300,
+            height: 50,
             borderBottomWidth: 1,
             display:'flex',
             flexDirection: 'row',
@@ -816,6 +790,7 @@ class LearningView extends Component {
       />
       </View>
         <View style={{width: 300,
+          height: 50,
           borderBottomWidth: 1,
           borderColor: 'gray',
           display:'flex',
@@ -826,6 +801,7 @@ class LearningView extends Component {
           {this.renderDatePicker('班級開始時間', this.state.startDate, 'startDate')}
         </View>
         <View style={{width: 300,
+          height: 50,
           borderBottomWidth: 1,
           borderColor: 'gray',
           display:'flex',
@@ -846,8 +822,10 @@ class LearningView extends Component {
         justifyContent: 'flex-start',
         marginTop: 25
       }}>
+        <View style={{height: 50}}>
         <Text style={{fontSize: 17}}> 輸入你想加入的班級代碼 </Text>
         <Text style={{fontSize: 14}}> 欲想了解班級代碼，可詢問班級老師</Text>
+        </View>
         <View>
         <TextInput
           style={{height: 40,
@@ -890,7 +868,9 @@ class LearningView extends Component {
   }
   render() {
     //console.log(this.props.currentCourse);
+    console.log(this.props.courseOperationState, '@@@@this.props.courseOperationState');
     if(this.props.courseOperationState){
+      console.log(this.props.courseOperationState.open, '@@@@this.props.courseOperationState.open');
       if(this.props.courseOperationState.open){
         return (
           <View>
@@ -927,7 +907,7 @@ class LearningView extends Component {
             <View style={{ flex: 5,
                            backgroundColor: 'white' }}>
             <Text>
-            .
+
             </Text>
             </View>
           );
@@ -938,7 +918,7 @@ class LearningView extends Component {
         <View style={{ flex: 5,
                        backgroundColor: 'white' }}>
                   <Text>
-                  .
+                  載入最新資訊...
                   </Text>
                   </View>);
     }

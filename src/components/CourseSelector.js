@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
   }
 });
 
-const window = Dimensions.get('window')
+const window = Dimensions.get('window');
 
 class CourseSelector extends Component {
 
   constructor(props){
     super(props);
-
+    this.state = { defaultText: '請選擇你的班級'};
   }
 
   componentDidMount(){
@@ -33,7 +33,11 @@ class CourseSelector extends Component {
     When the course selected,
     Set the course context to the course's code*/
   updateCurrentCourse(currentCourseCode) {
-
+    if(this.props.currentCourse.name){
+      this.setState({defaultText: this.props.currentCourse.name});
+    }else{
+      this.setState({ defaultText: '請選擇你的班級'});
+    }
     fetch(CONFIG.API_BASE_URL.concat('/courses/').concat(currentCourseCode), {
       method: 'GET',
       headers: {
@@ -92,16 +96,18 @@ class CourseSelector extends Component {
   }
 
   render() {
-    console.log(this.props.selectedFeature.title, 'q');
+    //
+    //selected=
     return (
       <View style={styles.container}>
         <Select
             onSelect={this.updateCurrentCourse.bind(this)}
-            defaultText='請選擇你的班級'
+            defaultText={this.state.defaultText}
             indicator='down'
             style={{ borderWidth: 0, alignItems: 'stretch', width: window.width }}
             indicatorColor='gray'
             textStyle={{ color: 'gray' }}
+            selected={this.props.currentCourse.code}
             backdropStyle={{ backgroundColor: '#d3d5d6', opacity: 0.95 }}
             optionListStyle={{ backgroundColor: '#F5FCFF',
               width: window.width - 20,
@@ -131,7 +137,8 @@ function mapStateToProps(state) {
   return {
     //currentCourse: state.currentCourse
     selectedFeature: state.selectedFeature,
-    loginState: state.loginState
+    loginState: state.loginState,
+    currentCourse: state.currentCourse
   };
 }
 

@@ -29,8 +29,8 @@ class LoginForm extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: 'w@gmail.com',//email, //fixme2
-        password: '123456'//password,
+        email: email, //'w@gmail.com', //fixme2
+        password: password //'123456'
       }) })
       .then((response) => {
         if (response.status === 200) {

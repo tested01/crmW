@@ -54,7 +54,7 @@ class Phone extends Component {
         </View>
         <TouchableHighlight
         onPress={this.renderInfo}>
-        <Text>get info</Text>
+        <Text style={{fontSize: 5}}> phone info </Text>
         </TouchableHighlight>
 
       </View>);
