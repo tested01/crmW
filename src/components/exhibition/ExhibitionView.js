@@ -8,6 +8,7 @@ import {
   StyleSheet
 } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import ImgCard from '../common/ImgCard';
 import Header from '../common/Header';
 import { GLOBLE } from '../common/Globle';
@@ -34,7 +35,6 @@ const styles = StyleSheet.create({
   },
   label: {
     backgroundColor: 'transparent',
-    fontSize: 12,
     color: 'black',
     margin: 8,
   },
@@ -59,8 +59,8 @@ export default class TabViewExample extends Component {
     routes: [
       { key: '1', title: '最新' },
       { key: '2', title: '熱門' },
-      { key: '3', title: '聯合報之星' },
-      { key: '4', title: '聯合報\n寫作教室' },
+      { key: '3', title: '聯合報\n  之星' },
+      { key: '4', title: '  聯合報\n寫作教室' },
     ],
     selectedIndex: 0
   };
@@ -69,17 +69,25 @@ export default class TabViewExample extends Component {
     this.setState({ index });
   };
 
+/*
+_renderIcon = ({ route }) => {
+    return <Ionicons name={route.icon} size={24} color="white" />;
+  };
+*/
 
-    renderHeader = (props) => {
-      return (
-        <TabBar
-            {...props}
-            style={styles.tabBar}
-            labelStyle={styles.label}
-            indicatorStyle={styles.indicator}
-        />
-      );
-    };
+  renderHeader = (props) => {
+    //<Icon name="rocket" size={30} color="#900" />
+    //renderIcon={this._renderIcon}
+
+    return (
+      <TabBar
+          {...props}
+          style={styles.tabBar}
+          labelStyle={styles.label}
+          indicatorStyle={styles.indicator}
+      />
+    );
+  };
 
   renderSt(){
     return(
