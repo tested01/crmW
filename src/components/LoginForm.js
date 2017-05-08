@@ -94,6 +94,7 @@ class LoginForm extends Component {
           <NoLabelInput
             placeholder="user@gmail.com"
             label="Email"
+            keyboardType="email-address"
             value={this.state.email.toLowerCase()}
             onChangeText={email => this.setState({ email: email.toLowerCase() })}
           />

@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   label: {
     backgroundColor: 'transparent',
     color: 'black',
-    margin: 8,
+    margin: 0,
   },
   indicator: {
     //backgroundColor: 'black'
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class TabViewExample extends Component {
+export default class ExhibitionView extends Component {
   constructor(props){
     super(props);
   }
@@ -89,28 +89,48 @@ _renderIcon = ({ route }) => {
     );
   };
 
-  renderSt(){
+  renderNew(){
     return(
-      <View style={{ flex: 1, alignItems: 'center' }}>
+      <ScrollView style={{ flex: 1 }}>
         <Text>s</Text>
-      </View>
+      </ScrollView>
     );
   }
 
-  renderTe(){
+  renderHot(){
     return(
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        <Text>t</Text>
-      </View>
+      <ScrollView style={{ flex: 1}}>
+        <Text>hot</Text>
+      </ScrollView>
+    );
+  }
+
+  renderStar(){
+    return(
+      <ScrollView style={{ flex: 1 }}>
+        <Text>star</Text>
+      </ScrollView>
+    );
+  }
+
+  renderClassRoom(){
+    return(
+      <ScrollView style={{ flex: 1 }}>
+        <Text>classroom</Text>
+      </ScrollView>
     );
   }
 
   renderScene = ({ route }) => {
     switch (route.key) {
     case '1':
-      return this.renderTe();
+      return this.renderNew();
     case '2':
-      return this.renderSt();
+      return this.renderHot();
+    case '3':
+      return this.renderStar();
+    case '4':
+      return this.renderClassRoom();
     default:
       return null;
     }

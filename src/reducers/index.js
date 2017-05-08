@@ -8,6 +8,7 @@ import RegisterSpec from './reducer_registerSpec';
 import CurrentCourse from './reducer_currentCourse';
 import HideHeader from './reducer_hideHeader';
 import CourseOperation from './reducer_courseOperation';
+import LiteraryWorksState from './reducer_literary_works_state';
 
 const rootReducer = combineReducers({
   loginState: LoginReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   registerSpec: RegisterSpec,
   currentCourse: CurrentCourse,
   hideHeaderOperation: HideHeader,
-  courseOperation: CourseOperation
+  courseOperation: CourseOperation,
+  literaryWorksState: LiteraryWorksState
 });
 
 export default rootReducer;

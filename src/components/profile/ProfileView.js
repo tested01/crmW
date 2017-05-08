@@ -13,6 +13,7 @@ import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { GLOBLE } from '../common/Globle';
 import { CONFIG } from '../../config';
+import MyWorkScreen from './MyWorkScreen';
 
 const config = {
   headerSize: 100
@@ -221,8 +222,11 @@ class ProfileView extends Component {
   }
   renderMyWorks(){
     return (
-      <View>
+      <View style={{display: 'flex', flex: 1}}>
         {this.renderHeader('我的作品')}
+        <View style={{ flex: 1 }}>
+          <MyWorkScreen />
+        </View>
       </View>
     );
   }

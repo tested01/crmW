@@ -29,6 +29,77 @@ export const REG_PHONE = 'REG_PHONE';
 export const REG_VERIFYCODE = 'REG_VERIFYCODE';
 export const HIDE_HEADER = 'HIDE_HEADER';
 export const COURSE_OPERATION = 'COURSE_OPERATION';
+//literaryWork related actions (start)
+export const ADD_NEW_TASK = 'ADD_NEW_TASK';
+export const END_ADD_NEW_TASK = 'END_ADD_NEW_TASK';
+export const EDIT_TASK = 'EDIT_TASK';
+export const END_EDIT_TASK = 'END_EDIT_TASK';
+export const VIEW_TASK = 'VIEW_TASK';
+export const END_VIEW_TASK = 'END_VIEW_TASK';
+export const RECOMMEND_TASK = 'RECOMMEND_TASK';
+export const END_RECOMMEND_WORK = 'END_RECOMMEND_WORK';
+//literaryWork related actions (end)
+
+//SECTION: literaryWork related action creators
+export function addNewTask() {
+  return {
+    type: ADD_NEW_TASK,
+    payload: {
+    }
+  };
+}
+
+export function endAddNewTask() {
+  return {
+    type: END_ADD_NEW_TASK,
+    payload: {
+    }
+  };
+}
+
+export function editTask() {
+  return {
+    type: EDIT_TASK,
+    payload: {
+    }
+  };
+}
+
+export function viewTask() {
+  return {
+    type: VIEW_TASK,
+    payload: {
+    }
+  };
+}
+
+
+export function endViewTask() {
+  return {
+    type: END_VIEW_TASK,
+    payload: {
+    }
+  };
+}
+
+export function recommendTask() {
+  return {
+    type: RECOMMEND_TASK,
+    payload: {
+    }
+  };
+}
+
+export function endRecommendWork() {
+  return {
+    type: END_RECOMMEND_WORK,
+    payload: {
+    }
+  };
+}
+
+
+
 
 //SECTION: Register-related action creators start below
 export function regRole(role) {
