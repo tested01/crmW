@@ -21,6 +21,7 @@ import { CONFIG } from '../../config';
 import { hideHeader, courseOperation, setCurrentCourse } from '../../actions/index';
 import { CustomizedButton } from '../common';
 import StudentCard from '../common/StudentCard';
+import Notification from './learningTab/notification';
 
 const window = Dimensions.get('window');
 
@@ -365,15 +366,18 @@ class LearningView extends Component {
 
   }
 
+/*
+<View style={[styles.leftPage, { backgroundColor: 'white' }]} >
+<Text style={{ fontSize: 18}}> 海綿颱風停課通知 </Text>
+<Text style={{ marginTop: 10 }}> 親愛的 同學 你好: </Text>
+<Text style={{ marginTop: 10 }}> 本校因受「海綿颱風」來襲影響，配合人事行政局停止上班上課公告，於7/12(五)18:00起當天停止上課。
+       且7/13(六)後之停課與否，同『人事行政局天然災害停止上班及上課情形』網站公告http://www.cpa.gov.tw/。
+       請各位師生留意公告動態，並做好防颱準備，保持一切平安~~ </Text>
+</View>
+*/
   renderNotification(){
     return (
-            <View style={[styles.leftPage, { backgroundColor: 'white' }]} >
-            <Text style={{ fontSize: 18}}> 海綿颱風停課通知 </Text>
-            <Text style={{ marginTop: 10 }}> 親愛的 同學 你好: </Text>
-            <Text style={{ marginTop: 10 }}> 本校因受「海綿颱風」來襲影響，配合人事行政局停止上班上課公告，於7/12(五)18:00起當天停止上課。
-                   且7/13(六)後之停課與否，同『人事行政局天然災害停止上班及上課情形』網站公告http://www.cpa.gov.tw/。
-                   請各位師生留意公告動態，並做好防颱準備，保持一切平安~~ </Text>
-            </View>
+          <Notification />
           );
   }
 
@@ -868,9 +872,7 @@ class LearningView extends Component {
   }
   render() {
     //console.log(this.props.currentCourse);
-    console.log(this.props.courseOperationState, '@@@@this.props.courseOperationState');
     if(this.props.courseOperationState){
-      console.log(this.props.courseOperationState.open, '@@@@this.props.courseOperationState.open');
       if(this.props.courseOperationState.open){
         return (
           <View>
@@ -889,18 +891,39 @@ class LearningView extends Component {
 
           }else
           {
-            return (
-              <View style={{ flex: 5, alignItems: 'stretch' }}>
-              <CourseSelector courses={this.state.courses} />
-              <TabViewAnimated
-                style={styles.container}
-                navigationState={this.state}
-                renderScene={this.renderScene}
-                renderHeader={this.renderHeader}
-                onRequestChangeTab={this.handleChangeTab}
-              />
-              </View>
-            );
+            //如果進入課務的新增作品繳交項目
+            //refresh 這一頁
+            if(this.props.literaryWorksState === 'O_Course_Task'){
+              return (
+                <View style={{ flex: 5, alignItems: 'stretch' }}>
+                <CourseSelector courses={this.state.courses} />
+                <TabViewAnimated
+                  style={styles.container}
+                  navigationState={this.state}
+                  renderScene={this.renderScene}
+                  renderHeader={this.renderHeader}
+                  onRequestChangeTab={this.handleChangeTab}
+                />
+                </View>
+              );
+            }else{
+              /*
+              O_Course_Task
+              A_New_Task
+              B_Edit_Task
+              C_Nth_Task
+              D_Recommend_Work
+              */
+              return (
+                <View style={{ display: 'flex',
+                               flex: 1,
+                               backgroundColor: 'gray'
+
+                              }}>
+                    <LiteraryWork />
+                </View>
+              );
+            }
           }
         }else{
           return (
@@ -935,7 +958,11 @@ class LearningView extends Component {
 function mapDispatchToProps(dispatch) {
   // Whenever loginSuccess is called, the result should be passed
   // to all of our reducers
-  return bindActionCreators({ hideHeader, courseOperation, setCurrentCourse }, dispatch);
+  return bindActionCreators({
+    hideHeader,
+    courseOperation,
+    setCurrentCourse
+   }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -946,7 +973,8 @@ function mapStateToProps(state) {
     loginState: state.loginState,
     currentCourse: state.currentCourse,
     hideHeaderOperation: state.hideHeaderOperation,
-    courseOperationState: state.courseOperation
+    courseOperationState: state.courseOperation,
+    literaryWorksState: state.literaryWorksState
   };
 }
 

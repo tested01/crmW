@@ -9,6 +9,7 @@ import {
   END_RECOMMEND_WORK
       } from '../actions';
 
+//states
 export const O_Course_Task = 'O_Course_Task';
 export const A_New_Task = 'A_New_Task';
 export const B_Edit_Task = 'B_Edit_Task';
