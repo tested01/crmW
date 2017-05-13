@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { GLOBLE } from '../../common/Globle';
 
 class TaskCard extends Component{
   constructor(props){
     super(props);
     this.state = {};
+    this.editTask = this.editTask.bind(this);
+  }
+
+  editTask(){
+    this.props.editTask();
   }
   render(){
      // st stands for submit
@@ -46,7 +52,7 @@ class TaskCard extends Component{
            display: 'flex',
            flexDirection: 'row',
            marginRight: 5,
-           padding: 3,
+           padding: 1,
            justifyContent: 'center',
            alignItems: 'center'
          },
@@ -83,6 +89,7 @@ class TaskCard extends Component{
          }
        };
     return(
+      <TouchableHighlight onPress={this.props.viewTask}>
       <View style={styles.taskCard}>
         <View style={styles.DateInfo}>
           <View style={{ flex: 1, alignSelf: 'flex-start'}}>
@@ -105,8 +112,17 @@ class TaskCard extends Component{
             </View>
             <Text style={{color: 'gray'}}> 未繳交 </Text>
           </View>
+          <View style={{alignSelf: 'flex-start'}}>
+            <Icon.Button name="edit"
+              color='gray'
+              backgroundColor='transparent'
+              onPress={this.editTask}
+            >
+            </Icon.Button>
+          </View>
         </View>
       </View>
+      </TouchableHighlight>
     );
   }
 }

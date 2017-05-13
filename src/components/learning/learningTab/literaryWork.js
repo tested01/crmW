@@ -5,7 +5,8 @@ import { View,
   TouchableHighlight,
   Dimensions,
   ScrollView,
-  TextInput
+  TextInput,
+  SegmentedControlIOS
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-datepicker';
@@ -14,11 +15,19 @@ import { bindActionCreators } from 'redux';
 import {
   addNewTask,
   endAddNewTask,
+  editTask,
+  endEditTask,
+  viewTask,
+  endViewTask,
+  recommendTask,
+  endRecommendWork,
   hideHeader
  } from '../../../actions';
 import { GLOBLE } from '../../common/Globle';
 import WorkCard from './workCard';
 import TaskCard from './taskCard';
+import { StudentCardList } from './studentCard';
+import { StudentOptionList } from './studentOption';
 
 
 //import ExhibitionView from '../../exhibition/ExhibitionView';
@@ -48,7 +57,12 @@ class LiteraryWork extends Component{
     super(props);
     this.createNewTask = this.createNewTask.bind(this);
     this.resetLiteraryWork = this.resetLiteraryWork.bind(this);
-    this.state = {taskName: '', currentTaskId: ''};
+    this.editTask = this.editTask.bind(this);
+    this.viewTask = this.viewTask.bind(this);
+    this.enderC_Nth_Task_Content = this.renderC_Nth_Task_Content.bind(this);
+    this.renderD_Recommend_Work = this.renderD_Recommend_Work.bind(this);
+    this.state = {taskName: '', currentTaskId: '', selectedIndex: 0};
+    //this.state.selectedIndex
   }
   renderCreateTaskButton(){
     return(
@@ -71,8 +85,19 @@ class LiteraryWork extends Component{
     //change the literaryWork state
     this.props.hideHeader(true);
     this.props.addNewTask();
-
   }
+
+  editTask(){
+    this.props.hideHeader(true);
+    this.props.editTask();
+  }
+
+  viewTask(){
+    this.props.hideHeader(true);
+    this.props.viewTask();
+  }
+
+
   //TODO: taskCard Factory
   taskCardFactory(){
 
@@ -84,7 +109,13 @@ class LiteraryWork extends Component{
       margin: 5,
       }}>
        {this.renderCreateTaskButton()}
-       <TaskCard title='第一篇作品' submit={1} notYet={31} duration='2017/3/22 ~2017/3/25'/>
+       <TaskCard title='第一篇作品'
+       submit={1}
+       notYet={31}
+       duration='2017/3/22 ~2017/3/25'
+       editTask = {this.editTask}
+       viewTask = {this.viewTask}
+       />
        <TaskCard title='第二篇作品' submit={12} notYet={21} duration='2017/4/22 ~2017/4/25'/>
        <TaskCard title='第三篇作品' submit={15} notYet={11} duration='2017/5/22 ~2017/5/25'/>
       </ScrollView>
@@ -122,7 +153,9 @@ class LiteraryWork extends Component{
     return (
       <View style={viewStyle}>
         {this.renderHeaderLeft()}
-        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}> {headerTitle} </Text>
+        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
+          {headerTitle}
+        </Text>
         {this.renderHeaderRight()}
       </View>
     );
@@ -138,20 +171,25 @@ class LiteraryWork extends Component{
         );
       case 'B_Edit_Task':
         return(
-          <TouchableHighlight onPress={()=>console.log('ww')}>
+          <TouchableHighlight onPress={this.resetLiteraryWork}>
             <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
           </TouchableHighlight>
         );
       case 'C_Nth_Task':
         return(
-          <TouchableHighlight onPress={()=>console.log('ww')}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
-          </TouchableHighlight>
+          <Icon.Button
+           name='angle-left'
+           size={30}
+           color='white'
+           style={{marginTop: 15, marginRight: 10}}
+           backgroundColor='transparent'
+           onPress={this.resetLiteraryWork}
+           />
         );
       case 'D_Recommend_Work':
         return(
-          <TouchableHighlight onPress={()=>console.log('ww')}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+          <TouchableHighlight onPress={()=>console.log('nothing')}>
+            <Text style={{ marginTop: 15, color: 'transparent', fontSize:30}}> no </Text>
           </TouchableHighlight>
         );
       default:
@@ -182,20 +220,32 @@ class LiteraryWork extends Component{
       case 'B_Edit_Task':
         return(
           <TouchableHighlight onPress={()=>console.log('ww')}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+            <Text style={{ marginTop: 15, color: 'white'}}> 完成 </Text>
           </TouchableHighlight>
         );
       case 'C_Nth_Task':
         return(
-          <TouchableHighlight onPress={()=>console.log('ww')}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+          <TouchableHighlight onPress={
+            ()=>{
+              console.log('ww');
+              this.props.recommendTask();
+            }
+          }>
+            <Text style={{ marginTop: 15, color: 'white'}}> 選取 </Text>
           </TouchableHighlight>
         );
       case 'D_Recommend_Work':
         return(
-          <TouchableHighlight onPress={()=>console.log('ww')}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
-          </TouchableHighlight>
+
+          <Icon.Button
+           name='close'
+           size={20}
+           color='white'
+           style={{marginRight: 0, marginTop: 15}}
+           backgroundColor='transparent'
+           onPress={this.props.endRecommendWork}
+           />
+
         );
       default:
         return(
@@ -210,14 +260,13 @@ class LiteraryWork extends Component{
   resetLiteraryWork(){
     this.props.hideHeader(false);
     this.props.endAddNewTask();
+    this.props.endEditTask();
+    this.props.endViewTask();
   }
-
-  renderA_New_Task(){
-    //style={styles.taskNameInputStyle}
-    //{this.renderNewTaskHeader('繳交項目')}
+  editOrCreateTask(featureTitle, rightButtonTitle){
     return(
       <View style={{flex: 1, backgroundColor: 'white'}}>
-      {this.renderNewTaskHeader('繳交項目')}
+      {this.renderNewTaskHeader(featureTitle)}
       <View style={{borderBottomWidth: 1, margin: 20}}>
       <TextInput
         multiline={false}
@@ -292,19 +341,72 @@ class LiteraryWork extends Component{
                 this.setState({endDate: date});
                 }
               }
-
         />
       </View>
       </View>
     );
   }
 
+  renderA_New_Task(){
+    //style={styles.taskNameInputStyle}
+    //{this.renderNewTaskHeader('繳交項目')}
+    return this.editOrCreateTask('繳交項目');
+  }
+
+  renderB_Edit_Task(){
+    return this.editOrCreateTask('編輯');
+  }
+
+  renderC_Nth_Task(){
+    console.log('c');
+    return (
+      <View style={{flex: 1, backgroundColor: 'white' }}>
+        {this.renderNewTaskHeader('第二篇作品')}
+        <SegmentedControlIOS
+              values={['作品繳交', '班級作品']}
+              selectedIndex={this.state.selectedIndex}
+              style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
+              onChange={(event) => {
+                this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+              }}
+            />
+        <ScrollView>
+        <View style={{ flex: 1, alignItems: 'center' }}>
+            {this.renderC_Nth_Task_Content()}
+        </View>
+        </ScrollView>
+      </View>
+    );
+  }
+
+  //selectedIndex
+  renderC_Nth_Task_Content(){
+    if(this.state.selectedIndex === 0){
+      return(<StudentCardList />)
+      //studentCard
+    }
+
+    if(this.state.selectedIndex === 1){
+      return(<Text> 班級作品 </Text>)
+      //studentOption
+    }
+
+    return(<Text></Text>);
+  }
+
+  renderD_Recommend_Work(){
+    return(
+      <View style={{flex: 1, backgroundColor: 'white' }}>
+        {this.renderNewTaskHeader('選取作品')}
+        <StudentOptionList />
+      </View>
+    );
+  }
 
   render(){
     const role = this.props.loginState.role;
     console.log('literaryWorksState', this.props.literaryWorksState);
     if( role == 'teacher'){
-
       if(this.props.literaryWorksState === 'O_Course_Task'){
           return this.renderTeacherPage();
       }else{
@@ -313,13 +415,13 @@ class LiteraryWork extends Component{
             return this.renderA_New_Task();
           case 'B_Edit_Task':
             console.log('B_Edit_Task');
-            return(<Text>B_Edit_Task</Text>);
+            return this.renderB_Edit_Task();
           case 'C_Nth_Task':
             console.log('C_Nth_Task');
-            return(<Text>C_Nth_Task</Text>);
+            return this.renderC_Nth_Task();
           case 'D_Recommend_Work':
             console.log('D_Recommend_Work');
-            return(<Text>D_Recommend_Work</Text>);
+            return this.renderD_Recommend_Work();
           default:
             console.log('unknownState');
             return (<Text>unknownState</Text>);
@@ -346,6 +448,12 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     addNewTask,
     endAddNewTask,
+    editTask,
+    endEditTask,
+    viewTask,
+    endViewTask,
+    recommendTask,
+    endRecommendWork,
     hideHeader }, dispatch);
 }
 

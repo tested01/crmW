@@ -65,6 +65,14 @@ export function editTask() {
   };
 }
 
+export function endEditTask() {
+  return {
+    type: END_EDIT_TASK,
+    payload: {
+    }
+  };
+}
+
 export function viewTask() {
   return {
     type: VIEW_TASK,
