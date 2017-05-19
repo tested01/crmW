@@ -21,6 +21,8 @@ import {
   endViewTask,
   recommendTask,
   endRecommendWork,
+  submitWork,
+  endSubmitWork,
   hideHeader
  } from '../../../actions';
 import { GLOBLE } from '../../common/Globle';
@@ -28,6 +30,7 @@ import WorkCard from './workCard';
 import TaskCard from './taskCard';
 import { StudentCardList } from './studentCard';
 import { StudentOptionList } from './studentOption';
+import { StudentWorkSubmit } from './studentWorkSubmit';
 
 
 //import ExhibitionView from '../../exhibition/ExhibitionView';
@@ -61,8 +64,19 @@ class LiteraryWork extends Component{
     this.viewTask = this.viewTask.bind(this);
     this.enderC_Nth_Task_Content = this.renderC_Nth_Task_Content.bind(this);
     this.renderD_Recommend_Work = this.renderD_Recommend_Work.bind(this);
-    this.state = {taskName: '', currentTaskId: '', selectedIndex: 0};
+    this.submitWork=this.submitWork.bind(this);
+    this.courseWorks=this.courseWorks.bind(this);
+
     //this.state.selectedIndex
+  }
+  componentWillMount(){
+    this.state = {
+      taskName: '',
+      currentTaskId: '',
+      selectedIndex: 0,
+      studentSubmitStatus: 'Overview', //Overview, submitWork, courseWorks
+      currentTaskId: 0 //the id of selecting task
+  };
   }
   renderCreateTaskButton(){
     return(
@@ -98,6 +112,33 @@ class LiteraryWork extends Component{
   }
 
 
+  submitWork(){
+    this.props.hideHeader(true);
+    this.setState({studentSubmitStatus: 'submitWork'});
+    this.setState({selectedIndex: 0});
+    this.props.submitWork();
+
+    console.log('sw');
+  }
+  /*
+  this.setState({value: event.target.value}, function () {
+    console.log(this.state.value);
+  });
+  */
+  courseWorks(){
+    this.setState({selectedIndex: 1}, function () {
+      this.courseWorksSync();
+    });
+  }
+  courseWorksSync(){
+    this.props.hideHeader(true);
+    this.setState({studentSubmitStatus: 'courseWorks'});
+    console.log(this.state.selectedIndex, 'selectedIndex');
+    this.props.submitWork();
+  }
+
+
+
   //TODO: taskCard Factory
   taskCardFactory(){
 
@@ -128,6 +169,8 @@ class LiteraryWork extends Component{
                  hasCourseWorks='yes'
                  title='第一篇作品'
                  subtitle='期限 | 2017/03/31 ~ 2017/05/06'
+                 submitWork={this.submitWork}
+                 courseWorks={this.courseWorks}
        />
        <WorkCard submitted='yes'
                  hasCourseWorks='no'
@@ -148,6 +191,60 @@ class LiteraryWork extends Component{
     );
   }
 
+  renderSubmitWorkPage(){
+    let ww = '第三次繳交作品';
+    return (
+      <View style={{display: 'flex', flex: 1, backgroundColor: 'white'}}>
+      {this.renderSubmitWorkPageHeader(ww)}
+      <SegmentedControlIOS
+            values={['作品繳交', '班級作品']}
+            selectedIndex={this.state.selectedIndex}
+            style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
+            onChange={(event) => {
+              this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+            }}
+          />
+        <ScrollView>
+          {this.renderSubmitWorkPageContent()}
+        </ScrollView>
+      </View>
+    );
+  }
+
+  renderSubmitWorkPageContent(){
+    if(this.state.selectedIndex === 0){
+      return(<StudentWorkSubmit/>)
+      //studentCard
+    }
+
+    if(this.state.selectedIndex === 1){
+      return(<Text> 班級作品 </Text>)
+      //studentOption
+    }
+
+    return(<Text></Text>);
+  }
+
+  renderSubmitWorkPageHeader(headerTitle) {
+    const { viewStyle } = styles;
+    return (
+      <View style={viewStyle}>
+        <Icon.Button
+         name='angle-left'
+         size={30}
+         color='white'
+         style={{marginTop: 15, marginRight: 10}}
+         backgroundColor='transparent'
+         onPress={this.resetLiteraryWork}
+         />
+        <Text style={{ marginTop: 15, marginLeft: -35, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
+          {headerTitle}
+        </Text>
+        {this.renderHeaderRight()}
+      </View>
+    );
+  }
+
   renderNewTaskHeader(headerTitle) {
     const { viewStyle } = styles;
     return (
@@ -156,7 +253,7 @@ class LiteraryWork extends Component{
         <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
           {headerTitle}
         </Text>
-        {this.renderHeaderRight()}
+        <View style={{width: 30}}></View>
       </View>
     );
   }
@@ -259,9 +356,16 @@ class LiteraryWork extends Component{
   //回到本頁初始狀態
   resetLiteraryWork(){
     this.props.hideHeader(false);
-    this.props.endAddNewTask();
-    this.props.endEditTask();
-    this.props.endViewTask();
+    if(this.props.loginState.role === 'teacher'){
+      this.props.endAddNewTask();
+      this.props.endEditTask();
+      this.props.endViewTask();
+    }
+    if(this.props.loginState.role === 'student'){
+      this.setState({studentSubmitStatus: 'Overview'});
+      this.props.endSubmitWork();
+    }
+
   }
   editOrCreateTask(featureTitle, rightButtonTitle){
     return(
@@ -429,8 +533,18 @@ class LiteraryWork extends Component{
       }
     }
 
-    if( role == 'student'){
-      return this.renderStudentPage();
+    if( role === 'student'){
+      /*
+      if(this.state.studentSubmitStatus === 'Overview'){
+        return this.renderStudentPage();
+      }else{
+        return this.renderSubmitWorkPage();
+      }*/
+      if(this.props.literaryWorksState === 'O_Course_Task'){
+        return this.renderStudentPage();
+      }else{
+        return this.renderSubmitWorkPage();
+      }
     }
 
     return this.renderOtherPage();
@@ -454,6 +568,8 @@ function mapDispatchToProps(dispatch) {
     endViewTask,
     recommendTask,
     endRecommendWork,
+    submitWork,
+    endSubmitWork,
     hideHeader }, dispatch);
 }
 

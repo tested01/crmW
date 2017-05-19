@@ -6,7 +6,9 @@ import {
   VIEW_TASK,
   END_VIEW_TASK,
   RECOMMEND_TASK,
-  END_RECOMMEND_WORK
+  END_RECOMMEND_WORK,
+  SUBMIT_WORK,
+  END_SUBMIT_WORK
       } from '../actions';
 
 //states
@@ -15,8 +17,10 @@ export const A_New_Task = 'A_New_Task';
 export const B_Edit_Task = 'B_Edit_Task';
 export const C_Nth_Task = 'C_Nth_Task';
 export const D_Recommend_Work = 'D_Recommend_Work';
+export const E_Submit_Work = 'E_Submit_Work';
 
 export default function (state = O_Course_Task, action) {
+  
   if (action) {
     switch (action.type) {
       case ADD_NEW_TASK:
@@ -57,6 +61,18 @@ export default function (state = O_Course_Task, action) {
       case END_RECOMMEND_WORK:
         if(state === D_Recommend_Work){
           return C_Nth_Task;
+        }
+        return state;
+      case SUBMIT_WORK:
+
+        if(state === O_Course_Task){
+          return E_Submit_Work;
+        }
+        return state;
+      case END_SUBMIT_WORK:
+
+        if(state === E_Submit_Work){
+          return O_Course_Task;
         }
         return state;
       default:

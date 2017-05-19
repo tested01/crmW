@@ -89,7 +89,7 @@ class ActivityView extends Component {
   }
 
   enterDetail(){
-    //this.setState({inDetail: true});
+    this.setState({inDetail: true});
     console.log('ww');
   }
   renderActivityCard(activityId){
@@ -105,10 +105,9 @@ class ActivityView extends Component {
           borderRadius: 5,
           justifyContent: 'flex-start'
          }}>
-         <TouchableHighlight value='5' onPress={()=>{
-           this.enterDetail();
-           console.log(activityId);
-         }}>
+         <TouchableHighlight value='5' onPress={()=>
+           this.enterDetail()
+         }>
          <Image
            source={require('../../img/act2.png')}
            fadeDuration={0}
@@ -148,6 +147,7 @@ class ActivityView extends Component {
   }
   leftDetail(){
     this.setState({inDetail: false});
+    this.props.hideHeader(false);
   }
   renderActivityHeaderLeft(){
     return(
@@ -156,7 +156,7 @@ class ActivityView extends Component {
       size={30}
       backgroundColor='transparent'
       color="white"
-      onPress={this.leftDetail}
+      onPress={()=>this.leftDetail()}
        />
     );
   }

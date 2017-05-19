@@ -37,6 +37,7 @@ class LoginingScreen extends Component {
     let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
     console.log(this.props.hideHeaderOperation.hide, 'this.props.hideHeader.hide');
     if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){
+      
       if(currentHasRightButton){
         return(
           <Header

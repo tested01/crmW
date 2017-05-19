@@ -62,6 +62,7 @@ class ProfileView extends Component {
     };
     this.backToProfile = this.backToProfile.bind(this);
     this.renderEditButton = this.renderEditButton.bind(this);
+    this.renderMyworksButton = this.renderMyworksButton.bind(this);
   }
   componentDidMount(){
     this.updateState();
@@ -133,6 +134,17 @@ class ProfileView extends Component {
       </View>
     );
   }
+  renderMyworksButton(){
+    if(this.props.loginState.role == 'teacher'){
+      return (<Text></Text>);
+    }
+    if(this.props.loginState.role === 'student')
+    {
+      return renderButton('我的作品', () => {this.setState({pageLocation:'myWorks'});
+                                      console.log('my works');});
+    }
+
+  }
   renderProfile() {
       var {height, width} = Dimensions.get('window');
       let fullName = '';
@@ -173,8 +185,7 @@ class ProfileView extends Component {
         </View>
 
         { renderButton('個人資料', () => this.setState({pageLocation:'editProfile'}))}
-        { renderButton('我的作品', () => {this.setState({pageLocation:'myWorks'});
-                                        console.log('my works');})}
+        { this.renderMyworksButton() }
 
         </ScrollView>
       );

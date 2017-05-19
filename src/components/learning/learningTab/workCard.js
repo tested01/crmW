@@ -75,28 +75,37 @@ class WorkCard extends Component{
             </View>
         </View>
         <View style={styles.buttons}>
-        <View style={{backgroundColor: st.submitColor,
-        width: window.width/2-8,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 2
-      }}>
-          <TouchableHighlight>
+
+        <TouchableHighlight onPress={this.props.submitWork}>
+          <View style={{
+          backgroundColor: st.submitColor,
+          width: window.width/2-8,
+          height: 25,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: 2
+        }}>
+
             <Text style={{color: 'white'}}>{st.submitText}</Text>
-          </TouchableHighlight>
-        </View>
-        <View style={{backgroundColor: hcw.courseWorkColor,
-        width: window.width/2-8,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 2
-    }}>
-          <TouchableHighlight>
+
+          </View>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={this.props.courseWorks}>
+          <View style={{backgroundColor: hcw.courseWorkColor,
+          width: window.width/2-8,
+          height: 25,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: 2
+          }}>
+
             <Text style={{color: 'white'}}>{hcw.courseWorkText}</Text>
-          </TouchableHighlight>
-        </View>
+
+          </View>
+        </TouchableHighlight>
       </View>
     </View>
     );

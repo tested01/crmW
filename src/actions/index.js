@@ -38,6 +38,8 @@ export const VIEW_TASK = 'VIEW_TASK';
 export const END_VIEW_TASK = 'END_VIEW_TASK';
 export const RECOMMEND_TASK = 'RECOMMEND_TASK';
 export const END_RECOMMEND_WORK = 'END_RECOMMEND_WORK';
+export const SUBMIT_WORK = 'SUBMIT_WORK';
+export const END_SUBMIT_WORK = 'END_SUBMIT_WORK';
 //literaryWork related actions (end)
 
 //SECTION: literaryWork related action creators
@@ -106,7 +108,21 @@ export function endRecommendWork() {
   };
 }
 
+export function submitWork() {
+  return {
+    type: SUBMIT_WORK,
+    payload: {
+    }
+  };
+}
 
+export function endSubmitWork() {
+  return {
+    type: END_SUBMIT_WORK,
+    payload: {
+    }
+  };
+}
 
 
 //SECTION: Register-related action creators start below
