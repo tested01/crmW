@@ -66,6 +66,7 @@ class LiteraryWork extends Component{
     this.renderD_Recommend_Work = this.renderD_Recommend_Work.bind(this);
     this.submitWork=this.submitWork.bind(this);
     this.courseWorks=this.courseWorks.bind(this);
+    this.renderHeaderRight=this.renderHeaderRight.bind(this);
 
     //this.state.selectedIndex
   }
@@ -240,10 +241,12 @@ class LiteraryWork extends Component{
         <Text style={{ marginTop: 15, marginLeft: -35, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
           {headerTitle}
         </Text>
-        {this.renderHeaderRight()}
+        <View style={{width: 30}}></View>
+
       </View>
     );
   }
+
 
   renderNewTaskHeader(headerTitle) {
     const { viewStyle } = styles;
@@ -253,7 +256,7 @@ class LiteraryWork extends Component{
         <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
           {headerTitle}
         </Text>
-        <View style={{width: 30}}></View>
+        {this.renderHeaderRight()}
       </View>
     );
   }
@@ -324,7 +327,6 @@ class LiteraryWork extends Component{
         return(
           <TouchableHighlight onPress={
             ()=>{
-              console.log('ww');
               this.props.recommendTask();
             }
           }>

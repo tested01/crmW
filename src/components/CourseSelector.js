@@ -13,7 +13,8 @@ import { CONFIG } from '../config';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    justifyContent: 'flex-start'
   }
 });
 
@@ -91,13 +92,25 @@ class CourseSelector extends Component {
 
   renderOptions() {
     return this.fetchCourses().map(
-        (courses) => (<Option key={courses.code} value={courses.code}>{courses.name}</Option>)
+        //(courses) => (<Option key={courses.code} value={courses.code}>{courses.name}</Option>)
+        function(courses, index){
+          if (index % 2 === 0) {
+              return (<Option key={courses.code} value={courses.code}>{courses.name}</Option>);
+          } else {
+              return (<Option
+                key={courses.code}
+                value={courses.code}
+                style={{backgroundColor: '#f2f2f2'}}
+                >{courses.name}</Option>);
+          }
+
+        }
     );
   }
 
   render() {
     //
-    //selected=
+    //backdropStyle={{ backgroundColor: '#d3d5d6', opacity: 0.8 }}
     return (
       <View style={styles.container}>
         <Select
@@ -108,9 +121,10 @@ class CourseSelector extends Component {
             indicatorColor='gray'
             textStyle={{ color: 'gray' }}
             selected={this.props.currentCourse.code}
-            backdropStyle={{ backgroundColor: '#d3d5d6', opacity: 0.95 }}
-            optionListStyle={{ backgroundColor: '#F5FCFF',
-              width: window.width - 20,
+            optionListStyle={{ backgroundColor: 'white',
+              borderColor: '#f2f2f2',
+              borderWidth: 1.5,
+              width: window.width - 10,
               height: window.height - 200
             }}
         >
