@@ -10,8 +10,19 @@ const GLOBLE = {
     YELLOW: '#f7b822'
 
   },
-  HEADER_FONTSIZE: 16
+  HEADER_FONTSIZE: 16,
+  formatDateString: function(mongoDate, split){
+    let dateObj = new Date(mongoDate);
+    let month = String(dateObj.getMonth() + 1);
+    let day = String(dateObj.getDate());
+    let year = String(dateObj.getFullYear());
+    //We can change format here, current format: year/month/day
+    return  year.
+            concat(split).
+            concat(month).
+            concat(split).
+            concat(day);
+  }
 };
-
 
 export { GLOBLE };

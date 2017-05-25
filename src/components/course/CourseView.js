@@ -114,14 +114,12 @@ export default class TabViewInstance extends Component {
   renderScene = ({ route }) => {
     switch (route.key) {
     case '1':
-      return <View style={[styles.page, { backgroundColor: '#ff4081' }]} />;
+      return <View style={[styles.page, { backgroundColor: 'white' }]} />;
     case '2':
       return (<Notification />);
     case '3':
-      return (<View style={[styles.page, { backgroundColor: 'white' }]} >
-              <LiteraryWork />
-              </View>
-             );
+      //<View style={[styles.page, { backgroundColor: 'white' }]} > </View>
+      return (<LiteraryWork />);
     case '4':
       return (<View style={[styles.page, { backgroundColor: 'gray', flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
               <ScrollView>

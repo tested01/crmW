@@ -15,3 +15,4 @@ export * from './CrmHeader';
 export * from './CrmHeaderOld';
 export * from './NoLabelUnderlineInput';
 export * from './StudentCard';
+export * from './PleaseSelectCourseFirst';

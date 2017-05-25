@@ -5,6 +5,29 @@ class WorkCard extends Component{
   constructor(props){
     super(props);
     this.state = {};
+    this.setCurrentMission=this.setCurrentMission.bind(this);
+    this.submitWork=this.submitWork.bind(this);
+    this.courseWorks=this.courseWorks.bind(this);
+  }
+  setCurrentMission(){
+    let mission = {
+      title: this.props.title,
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
+      id: this.props.missionId
+    };
+    this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
+    this.props.setCurrentMission(mission);
+  }
+  submitWork(){
+    this.props.setWorkPageIndex(0);
+    this.setCurrentMission();
+    this.props.submitWork();
+  }
+  courseWorks(){
+    this.props.setWorkPageIndex(1);
+    this.setCurrentMission();
+    this.props.courseWorks();
   }
   render(){
      // st stands for submit
@@ -76,7 +99,7 @@ class WorkCard extends Component{
         </View>
         <View style={styles.buttons}>
 
-        <TouchableHighlight onPress={this.props.submitWork}>
+        <TouchableHighlight onPress={this.submitWork}>
           <View style={{
           backgroundColor: st.submitColor,
           width: window.width/2-8,
@@ -92,7 +115,7 @@ class WorkCard extends Component{
           </View>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={this.props.courseWorks}>
+        <TouchableHighlight onPress={this.courseWorks}>
           <View style={{backgroundColor: hcw.courseWorkColor,
           width: window.width/2-8,
           height: 25,

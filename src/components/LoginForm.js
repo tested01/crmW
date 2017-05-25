@@ -29,7 +29,7 @@ class LoginForm extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email:  'w@gmail.com',//email, //fixme2
+        email:  'as@gmail.com',//email, //fixme2
         password: '123456'//password
       }) })
       .then((response) => {

@@ -6,6 +6,8 @@ import SelectedFeature from './reducer_selectedTabBar';
 import RegisterStep from './reducer_regSteps';
 import RegisterSpec from './reducer_registerSpec';
 import CurrentCourse from './reducer_currentCourse';
+import CurrentMissions from './reducer_currentMissions';
+import CurrentMission from './reducer_currentMission';
 import HideHeader from './reducer_hideHeader';
 import CourseOperation from './reducer_courseOperation';
 import LiteraryWorksState from './reducer_literary_works_state';
@@ -18,9 +20,11 @@ const rootReducer = combineReducers({
   registerStep: RegisterStep,
   registerSpec: RegisterSpec,
   currentCourse: CurrentCourse,
+  currentMissions: CurrentMissions,
   hideHeaderOperation: HideHeader,
   courseOperation: CourseOperation,
-  literaryWorksState: LiteraryWorksState
+  literaryWorksState: LiteraryWorksState,
+  currentMission: CurrentMission
 });
 
 export default rootReducer;

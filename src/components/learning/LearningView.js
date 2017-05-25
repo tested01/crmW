@@ -18,8 +18,11 @@ import LiteraryWork from './learningTab/literaryWork';
 import { GLOBLE } from '../common/Globle';
 import CourseSelector from '../CourseSelector';
 import { CONFIG } from '../../config';
-import { hideHeader, courseOperation, setCurrentCourse } from '../../actions/index';
-import { CustomizedButton } from '../common';
+import {
+  hideHeader,
+  courseOperation,
+  setCurrentCourse } from '../../actions';
+import { CustomizedButton, PleaseSelectCourseFirst } from '../common';
 import StudentCard from '../common/StudentCard';
 import Notification from './learningTab/notification';
 
@@ -161,30 +164,6 @@ class LearningView extends Component {
     );
   };
 
-  renderMockStudents = () => {
-    return (
-
-      <View style={{ height: 80, margin: 1, backgroundColor: 'white' }} >
-      <Image
-       style={{width: 80, height: 80}}
-       source={require('../../img/color-logo.png')}
-      />
-      </View>
-    );
-  }
-
-  renderMockStudents2 = () => {
-    return (
-
-      <View style={{ height: 80, margin: 1, backgroundColor: 'white' }} >
-      <Image
-       style={{width: 80, height: 80}}
-       source={require('../../img/love-logo.png')}
-      />
-      </View>
-    );
-  }
-
   renderDatePicker(reminder, ref, key){
     switch(key){
       case 'startDate':
@@ -252,8 +231,6 @@ class LearningView extends Component {
               this.setState({endDate: date});
               }
             }
-
-
           />
         );
       default:
@@ -261,25 +238,14 @@ class LearningView extends Component {
   }
 
   }
-  formatDateString(mongoDate){
-    let dateObj = new Date(mongoDate);
-    let month = String(dateObj.getMonth());
-    let day = String(dateObj.getDate());
-    let year = String(dateObj.getFullYear());
-    //We can change format here, current format: year/month/day
-    return  year.
-            concat('/').
-            concat(month).
-            concat('/').
-            concat(day);
-  }
+
   renderCourseInfo(){
     console.log(this.props.currentCourse);
-    if(this.props.currentCourse._creator){
+    if(this.props.currentCourse.code != ''){
       let teacherName = this.props.currentCourse._creator.lastName +
                          this.props.currentCourse._creator.firstName;
-      let startDate = this.formatDateString(this.props.currentCourse.courseDuration.startDate);
-      let endDate = this.formatDateString(this.props.currentCourse.courseDuration.endDate);
+      let startDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.startDate, '/');
+      let endDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.endDate, '/');
       const courseInfoStyle = {
         display: 'flex',
         flexDirection: 'row',
@@ -321,9 +287,7 @@ class LearningView extends Component {
         );
     }else{
         return (
-          <View>
-            <Text> 請先選擇班級 </Text>
-          </View>
+          <PleaseSelectCourseFirst />
         );
     }
 
@@ -333,7 +297,7 @@ class LearningView extends Component {
     let notLoadingYet = (this.props.currentCourse.code.length != 10);
     if(notLoadingYet){
       console.log('notLoadingYet');
-      return (<Text> 請先選擇班級或加入班級 </Text>)
+      return (<PleaseSelectCourseFirst />)
     }else{
       const currentStudents = this.props.currentCourse.members.students;
       console.log(currentStudents);
@@ -382,10 +346,11 @@ class LearningView extends Component {
   }
 
   renderLiteraryWorks(){
+    //<View style={[styles.page, { backgroundColor: 'white' }]} ></View>
     return (
-      <View style={[styles.page, { backgroundColor: 'white' }]} >
+
         <LiteraryWork />
-      </View>
+
   );
   }
 
@@ -891,6 +856,8 @@ class LearningView extends Component {
 
           }else
           {
+            console.log('..this.props.currentCourse', this.props.currentCourse);
+
             //如果進入課務的新增作品繳交項目
             //refresh 這一頁
             if(this.props.literaryWorksState === 'O_Course_Task'){

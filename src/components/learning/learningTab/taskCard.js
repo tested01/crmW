@@ -8,10 +8,39 @@ class TaskCard extends Component{
     super(props);
     this.state = {};
     this.editTask = this.editTask.bind(this);
+    this.updatCurrentMission = this.updatCurrentMission.bind(this);
+    this.mission =
+       {
+         title: this.props.title,
+         startDate: this.props.startDate,
+         endDate: this.props.endDate
+       };
   }
 
   editTask(){
+    let mission = {
+      title: this.props.title,
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
+      id: this.props.missionId
+    };
+    this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
+    
+    this.props.setCurrentMission(mission);
     this.props.editTask();
+  }
+
+  updatCurrentMission(){
+    let mission = {
+      title: this.props.title,
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
+      id: this.props.missionId
+    };
+    this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
+    console.log('setInitMissionInfo');
+    this.props.setCurrentMission(mission);
+    this.props.viewTask();
   }
   render(){
      // st stands for submit
@@ -88,8 +117,9 @@ class TaskCard extends Component{
            alignItems: 'center'
          }
        };
+    //
     return(
-      <TouchableHighlight onPress={this.props.viewTask}>
+      <TouchableHighlight onPress={this.updatCurrentMission}>
       <View style={styles.taskCard}>
         <View style={styles.DateInfo}>
           <View style={{ flex: 1, alignSelf: 'flex-start'}}>

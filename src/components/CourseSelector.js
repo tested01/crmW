@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Select, Option } from './react-native-chooser';
-import { setCurrentCourse } from '../actions/index';
+import { setCurrentCourse, setCurrentMissions } from '../actions/index';
 import { CONFIG } from '../config';
 
 const styles = StyleSheet.create({
@@ -24,12 +24,19 @@ class CourseSelector extends Component {
 
   constructor(props){
     super(props);
-    this.state = { defaultText: '請選擇你的班級'};
-  }
-
-  componentDidMount(){
 
   }
+
+  componentWillMount(){
+    //重新載入時, 保留原有選擇的 course
+
+    if(this.props.currentCourse.name){
+      this.setState({defaultText: this.props.currentCourse.name});
+    }else{
+      this.state = { defaultText: '請選擇你的班級'};
+    }
+  }
+
   /*
     When the course selected,
     Set the course context to the course's code*/
@@ -53,6 +60,32 @@ class CourseSelector extends Component {
           response.json().then(json => {
                                 //this.setState(Object.assign({}, this.state, json));
                                 this.props.setCurrentCourse(json.course);
+                                let currentCourseId = json.course._id;
+                                fetch(CONFIG.API_BASE_URL.concat('/missions/courses/').concat(currentCourseId), {
+                                  method: 'GET',
+                                  headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                    'x-auth': this.props.loginState.xAuth
+                                  }
+                                 })
+                                  .then((response) => {
+                                    if (response.status === 200) {
+
+                                      response.json().then(json => {
+                                                            //this.setState(Object.assign({}, this.state, json));
+
+                                                            this.props.setCurrentMissions(json.missions);
+                                                            //this.setState(Object.assign({}, this.state, {currentMissions: json.missions}));
+                                                          });
+
+                                    } else {
+                                      console.log(response.status);
+                                    }
+                                  })
+                                  .catch((error) => {
+                                    console.log(error);
+                                  });
                               });
 
         } else {
@@ -109,7 +142,6 @@ class CourseSelector extends Component {
   }
 
   render() {
-    //
     //backdropStyle={{ backgroundColor: '#d3d5d6', opacity: 0.8 }}
     return (
       <View style={styles.container}>
@@ -144,7 +176,7 @@ class CourseSelector extends Component {
 function mapDispatchToProps(dispatch) {
   // Whenever loginSuccess is called, the result should be passed
   // to all of our reducers
-  return bindActionCreators({ setCurrentCourse }, dispatch);
+  return bindActionCreators({ setCurrentCourse, setCurrentMissions }, dispatch);
 }
 
 function mapStateToProps(state) {

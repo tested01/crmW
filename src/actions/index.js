@@ -42,6 +42,9 @@ export const SUBMIT_WORK = 'SUBMIT_WORK';
 export const END_SUBMIT_WORK = 'END_SUBMIT_WORK';
 //literaryWork related actions (end)
 
+export const CURRENT_MISSIONS = 'CURRENT_MISSIONS';
+export const CURRENT_MISSION = 'CURRENT_MISSION';
+
 //SECTION: literaryWork related action creators
 export function addNewTask() {
   return {
@@ -123,7 +126,6 @@ export function endSubmitWork() {
     }
   };
 }
-
 
 //SECTION: Register-related action creators start below
 export function regRole(role) {
@@ -345,6 +347,24 @@ export function selectTabBarItem(tabBar = TABBAR.ACTIVITY) {
   // selectTabBarItem is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
   return genericTabBarSelector(tabBar);
+}
+
+export function setCurrentMissions(missions=[]){
+  //TODO: Maybe add some check for code format
+  //console.log('someone set the course code');
+  return {
+    type: CURRENT_MISSIONS,
+    payload: missions
+  };
+}
+
+export function setCurrentMission(missions={}){
+  //TODO: Maybe add some check for code format
+  //console.log('someone set the course code');
+  return {
+    type: CURRENT_MISSION,
+    payload: missions
+  };
 }
 
 export function setCurrentCourse(course={}){

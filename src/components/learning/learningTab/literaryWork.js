@@ -23,14 +23,16 @@ import {
   endRecommendWork,
   submitWork,
   endSubmitWork,
-  hideHeader
+  hideHeader,
+  setCurrentMission
  } from '../../../actions';
-import { GLOBLE } from '../../common/Globle';
+import { PleaseSelectCourseFirst, GLOBLE } from '../../common';
 import WorkCard from './workCard';
 import TaskCard from './taskCard';
 import { StudentCardList } from './studentCard';
 import { StudentOptionList } from './studentOption';
 import { StudentWorkSubmit } from './studentWorkSubmit';
+import { CONFIG } from '../../../config';
 
 
 //import ExhibitionView from '../../exhibition/ExhibitionView';
@@ -67,21 +69,32 @@ class LiteraryWork extends Component{
     this.submitWork=this.submitWork.bind(this);
     this.courseWorks=this.courseWorks.bind(this);
     this.renderHeaderRight=this.renderHeaderRight.bind(this);
-
-    //this.state.selectedIndex
+    this.taskCardFactory = this.taskCardFactory.bind(this);
+    this.taskCardTemplate = this.taskCardTemplate.bind(this);
+    this.setInitMissionInfo = this.setInitMissionInfo.bind(this);
+    this.setWorkPageIndex = this.setWorkPageIndex.bind(this);
   }
   componentWillMount(){
     this.state = {
-      taskName: '',
-      currentTaskId: '',
+      currentTaskId: 0, //the id of selecting task
       selectedIndex: 0,
-      studentSubmitStatus: 'Overview', //Overview, submitWork, courseWorks
-      currentTaskId: 0 //the id of selecting task
+      studentSubmitStatus: 'Overview' //Overview, submitWork, courseWorks
+
   };
+  }
+  setInitMissionInfo(taskName, startDate, endDate){
+    console.log('setInitMissionInfo...');
+    this.taskName = taskName;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.setState({taskName});
+    console.log(this.taskName, this.startDate, this.endDate, 'tn');
+    this.setState({startDate});
+    this.setState({endDate});
   }
   renderCreateTaskButton(){
     return(
-
+      <View style={{backgroundColor: 'white', margin: 5}}>
       <Icon.Button
        name='pencil'
        size={20}
@@ -92,10 +105,10 @@ class LiteraryWork extends Component{
        >
        <Text style={{fontFamily: 'Arial', fontSize: 15, color: 'gray'}}>新增作品繳交項目</Text>
       </Icon.Button>
+      </View>
     );
   }
   createNewTask(){
-
     //hide original headerText
     //change the literaryWork state
     this.props.hideHeader(true);
@@ -118,8 +131,6 @@ class LiteraryWork extends Component{
     this.setState({studentSubmitStatus: 'submitWork'});
     this.setState({selectedIndex: 0});
     this.props.submitWork();
-
-    console.log('sw');
   }
   /*
   this.setState({value: event.target.value}, function () {
@@ -142,28 +153,107 @@ class LiteraryWork extends Component{
 
   //TODO: taskCard Factory
   taskCardFactory(){
+    /*
+    <TaskCard title='第一篇作品'
+    submit={1}
+    notYet={31}
+    duration='2017/3/22 ~2017/3/25'
+    editTask = {this.editTask}
+    viewTask = {this.viewTask}
+    />
+    */
+    //fetch missions based on currentCourse
+    return (
+      <View>
+        {this.props.currentMissions.map((mission)=>this.taskCardTemplate(mission))}
+      </View>
+    );
 
+  }
+  taskCardTemplate(mission){
+    let startDay = GLOBLE.formatDateString(mission.missionDuration.startDate, '/');
+    let endDay = GLOBLE.formatDateString(mission.missionDuration.endDate, '/');
+    return(
+      <TaskCard title={mission.title}
+      submit={ 1 }
+      notYet={ 31 }
+      key={ mission._id }
+      missionId={ mission._id }
+      setInitMissionInfo={ this.setInitMissionInfo }
+      startDate={ mission.missionDuration.startDate }
+      endDate={ mission.missionDuration.endDate }
+      setCurrentMission={ this.props.setCurrentMission }
+      duration={ startDay + '~' + endDay}
+      editTask = { this.editTask }
+      viewTask = { this.viewTask }
+      />
+    );
   }
   renderTeacherPage(){
     return (
-      <ScrollView style={{display: 'flex',
+      <View style={{display: 'flex',
       flex: 1,
-      margin: 5,
+      margin: 5
       }}>
-       {this.renderCreateTaskButton()}
-       <TaskCard title='第一篇作品'
-       submit={1}
-       notYet={31}
-       duration='2017/3/22 ~2017/3/25'
-       editTask = {this.editTask}
-       viewTask = {this.viewTask}
-       />
-       <TaskCard title='第二篇作品' submit={12} notYet={21} duration='2017/4/22 ~2017/4/25'/>
-       <TaskCard title='第三篇作品' submit={15} notYet={11} duration='2017/5/22 ~2017/5/25'/>
+      {this.renderCreateTaskButton()}
+      <ScrollView style={{
+      }}>
+       {this.taskCardFactory()}
       </ScrollView>
+      <View style={{height: 50, width:window.width}}></View>
+      </View>
     );
   }
+  studentCardTemplate(mission){
+    let startDay = GLOBLE.formatDateString(mission.missionDuration.startDate, '/');
+    let endDay = GLOBLE.formatDateString(mission.missionDuration.endDate, '/');
+    return(
+      <WorkCard submitted='yes'
+                hasCourseWorks='yes'
+                title={mission.title}
+                key={mission._id}
+                missionId={ mission._id }
+                setInitMissionInfo={ this.setInitMissionInfo }
+                startDate={ mission.missionDuration.startDate }
+                endDate={ mission.missionDuration.endDate }
+                setCurrentMission={this.props.setCurrentMission}
+                subtitle={'期限 | '.concat(startDay).concat(' ~ ').concat(endDay)}
+                submitWork={this.submitWork}
+                courseWorks={this.courseWorks}
+                setWorkPageIndex={this.setWorkPageIndex}
+      />
+    );
+
+  }
+  studentCardFactory(){
+    /*
+    <TaskCard title='第一篇作品'
+    submit={1}
+    notYet={31}
+    duration='2017/3/22 ~2017/3/25'
+    editTask = {this.editTask}
+    viewTask = {this.viewTask}
+    />
+    */
+    //fetch missions based on currentCourse
+    return (
+      <View>
+        {this.props.currentMissions.map((mission)=>this.studentCardTemplate(mission))}
+      </View>
+    );
+
+  }
   renderStudentPage(){
+    //this.props.currentMissions;
+    return(
+      <View style={{display: 'flex', flex: 1}}>
+      <ScrollView style={{display: 'flex', flex: 1}}>
+      {this.studentCardFactory()}
+      </ScrollView>
+      <View style={{height: 50, width:window.width}}></View>
+      </View>
+    );
+    /*
     return(
       <ScrollView style={{display: 'flex', flex: 1}}>
        <WorkCard submitted='yes'
@@ -190,13 +280,19 @@ class LiteraryWork extends Component{
        />
       </ScrollView>
     );
+    */
   }
 
+  setWorkPageIndex(index){
+    //TODO: 把以下 selectedIndex 改成 redux state
+    this.setState({selectedIndex: index});
+  }
   renderSubmitWorkPage(){
-    let ww = '第三次繳交作品';
+    let title = this.props.currentMission.title;
+    console.log(this.props.currentMission, 'currentMission');
     return (
       <View style={{display: 'flex', flex: 1, backgroundColor: 'white'}}>
-      {this.renderSubmitWorkPageHeader(ww)}
+      {this.renderSubmitWorkPageHeader(title)}
       <SegmentedControlIOS
             values={['作品繳交', '班級作品']}
             selectedIndex={this.state.selectedIndex}
@@ -205,16 +301,18 @@ class LiteraryWork extends Component{
               this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
             }}
           />
-        <ScrollView>
+
+        <View style={{flex: 1}}>
           {this.renderSubmitWorkPageContent()}
-        </ScrollView>
+        </View>
+
       </View>
     );
   }
 
   renderSubmitWorkPageContent(){
     if(this.state.selectedIndex === 0){
-      return(<StudentWorkSubmit/>)
+      return(<StudentWorkSubmit/>);
       //studentCard
     }
 
@@ -306,11 +404,41 @@ class LiteraryWork extends Component{
       case 'A_New_Task':
         return(
           <TouchableHighlight onPress={()=>{
-            console.log(this.state.taskName, this.state.startDate, this.state.endDate);
+            console.log('##', this.state.taskName, this.state.startDate, this.state.endDate);
             //TODO:check if the task creation data are correct
 
             //TODO:call API save the task creatation data
+            let body = {
+              title: this.state.taskName,
+              startDate: this.state.startDate,
+              endDate: this.state.endDate,
+              target: this.props.currentCourse._id
+            };
+            fetch(CONFIG.API_BASE_URL.concat('/missions/'), {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'x-auth': this.props.loginState.xAuth
+              },
+              body: JSON.stringify(body)
+             })
+              .then((response) => {
+                if (response.status === 200) {
 
+                  response.json().then(json => {
+                                        //this.setState(Object.assign({}, this.state, json));
+                                        //TODO: update current missions
+                                        console.log('!!!mission added!!!');
+                                      });
+
+                } else {
+                  console.log(response.status, 'mission');
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
             //return to original view
             this.resetLiteraryWork();
           }}>
@@ -319,7 +447,71 @@ class LiteraryWork extends Component{
         );
       case 'B_Edit_Task':
         return(
-          <TouchableHighlight onPress={()=>console.log('ww')}>
+          <TouchableHighlight onPress={()=>{
+            //TODO: save the change
+            console.log(this.props.currentMission, 'this.props.currentMission');
+            let tName = '';
+            let sDate = '';
+            let eDate = '';
+
+            if(this.state.taskName){
+              tName = this.state.taskName;
+            }
+            if(this.state.startDate){
+              sDate = this.state.startDate;
+            }
+            if(this.state.endDate){
+              eDate = this.state.endDate;
+            }
+            let updateFields = {
+              "target": this.props.currentCourse._id
+            };
+            //如果是空字串, 不更新, 用原來的資料寫回
+            if(tName.length > 0){
+              updateFields['title'] = tName;
+            }else{
+              updateFields['title'] = this.props.currentMission.title;
+            }
+            if(sDate.length > 0){
+              updateFields['startDate'] = sDate;
+            }else{
+              updateFields['startDate'] = GLOBLE.formatDateString(this.props.currentMission.startDate, '-');
+            }
+            if(eDate.length > 0){
+              updateFields['endDate'] = eDate;
+            }else{
+              updateFields['endDate'] = GLOBLE.formatDateString(this.props.currentMission.endDate, '-');
+            }
+            fetch(CONFIG.API_BASE_URL.concat('/missions/').concat(this.props.currentMission.id), {
+              method: 'PATCH',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'x-auth': this.props.loginState.xAuth //FIXME:teachauth
+                //'x-auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OGVjNzBkY2E5NTZhMjdiMTk5YmNkOTEiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNDkxODkwMzk3fQ._5J7xKENI4jsX8--0EtEnFV195SySjSfVyze_rcxewQ'
+              },
+              body: JSON.stringify(updateFields)
+             })
+              .then((response) => {
+                if (response.status === 200) {
+
+                  response.json().then(json => {
+                                        //this.setState(Object.assign({}, this.state, json));
+                                        console.log('patch success?', json);
+                                      });
+                } else {
+                  console.log(response.status);
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+
+            this.resetLiteraryWork();
+
+
+
+          }}>
             <Text style={{ marginTop: 15, color: 'white'}}> 完成 </Text>
           </TouchableHighlight>
         );
@@ -369,7 +561,8 @@ class LiteraryWork extends Component{
     }
 
   }
-  editOrCreateTask(featureTitle, rightButtonTitle){
+  renderEmptyForm(featureTitle, title, startDate, endDate){
+    console.log(this.props.currentMission, 'tn2');
     return(
       <View style={{flex: 1, backgroundColor: 'white'}}>
       {this.renderNewTaskHeader(featureTitle)}
@@ -377,7 +570,7 @@ class LiteraryWork extends Component{
       <TextInput
         multiline={false}
         maxLength={100}
-        placeholder='項目名稱'
+        placeholder={this.props.currentMission.title}
         onChangeText={(taskName) => {
           this.setState({taskName});
         }}
@@ -390,7 +583,9 @@ class LiteraryWork extends Component{
           style={{width: 150}}
           date={this.state.startDate}
           mode="date"
-          placeholder="繳交開始時間"
+          placeholder={
+            GLOBLE.formatDateString(this.props.currentMission.startDate, '-')
+          }
           format="YYYY-MM-DD"
           minDate="2017-03-31"
           maxDate="2100-02-12"
@@ -406,8 +601,6 @@ class LiteraryWork extends Component{
             },
             placeholderText: {
               fontSize: 16,
-
-
             }
             // ... You can check the source to find the other keys.
           }}
@@ -415,7 +608,6 @@ class LiteraryWork extends Component{
                 this.setState({startDate: date});
                 }
               }
-
         />
       </View>
       <View style={{borderBottomWidth: 1, margin: 20}}>
@@ -423,7 +615,9 @@ class LiteraryWork extends Component{
           style={{width: 150}}
           date={this.state.endDate}
           mode="date"
-          placeholder="繳交結束時間"
+          placeholder={
+            GLOBLE.formatDateString(this.props.currentMission.endDate, '-')
+          }
           format="YYYY-MM-DD"
           minDate="2017-03-31"
           maxDate="2100-02-12"
@@ -452,6 +646,19 @@ class LiteraryWork extends Component{
       </View>
     );
   }
+  editOrCreateTask(featureTitle, type){
+    if(type==='edit'){
+      console.log(this.props.currentMission, 'ccccmmmm');
+      return this.renderEmptyForm(featureTitle,
+        this.taskName,
+        this.startDate,
+        this.endDate);
+    }else{
+      return this.renderEmptyForm(featureTitle,
+      '項目名稱','繳交開始時間', '繳交結束時間');
+    }
+
+  }
 
   renderA_New_Task(){
     //style={styles.taskNameInputStyle}
@@ -460,14 +667,14 @@ class LiteraryWork extends Component{
   }
 
   renderB_Edit_Task(){
-    return this.editOrCreateTask('編輯');
+    return this.editOrCreateTask('編輯', 'edit');
   }
 
   renderC_Nth_Task(){
-    console.log('c');
+
     return (
       <View style={{flex: 1, backgroundColor: 'white' }}>
-        {this.renderNewTaskHeader('第二篇作品')}
+        {this.renderNewTaskHeader(this.props.currentMission.title)}
         <SegmentedControlIOS
               values={['作品繳交', '班級作品']}
               selectedIndex={this.state.selectedIndex}
@@ -510,47 +717,50 @@ class LiteraryWork extends Component{
   }
 
   render(){
-    const role = this.props.loginState.role;
-    console.log('literaryWorksState', this.props.literaryWorksState);
-    if( role == 'teacher'){
-      if(this.props.literaryWorksState === 'O_Course_Task'){
-          return this.renderTeacherPage();
-      }else{
-        switch(this.props.literaryWorksState){
-          case 'A_New_Task':
-            return this.renderA_New_Task();
-          case 'B_Edit_Task':
-            console.log('B_Edit_Task');
-            return this.renderB_Edit_Task();
-          case 'C_Nth_Task':
-            console.log('C_Nth_Task');
-            return this.renderC_Nth_Task();
-          case 'D_Recommend_Work':
-            console.log('D_Recommend_Work');
-            return this.renderD_Recommend_Work();
-          default:
-            console.log('unknownState');
-            return (<Text>unknownState</Text>);
+    if(this.props.currentCourse.code===''){
+      return (<PleaseSelectCourseFirst />);
+    }else{
+      const role = this.props.loginState.role;
+      console.log('literaryWorksState', this.props.literaryWorksState);
+      if( role == 'teacher'){
+        if(this.props.literaryWorksState === 'O_Course_Task'){
+            return this.renderTeacherPage();
+        }else{
+          switch(this.props.literaryWorksState){
+            case 'A_New_Task':
+              return this.renderA_New_Task();
+            case 'B_Edit_Task':
+              console.log('B_Edit_Task');
+              return this.renderB_Edit_Task();
+            case 'C_Nth_Task':
+              console.log('C_Nth_Task');
+              return this.renderC_Nth_Task();
+            case 'D_Recommend_Work':
+              console.log('D_Recommend_Work');
+              return this.renderD_Recommend_Work();
+            default:
+              console.log('unknownState');
+              return (<Text>unknownState</Text>);
+          }
         }
       }
-    }
 
-    if( role === 'student'){
-      /*
-      if(this.state.studentSubmitStatus === 'Overview'){
-        return this.renderStudentPage();
-      }else{
-        return this.renderSubmitWorkPage();
-      }*/
-      if(this.props.literaryWorksState === 'O_Course_Task'){
-        return this.renderStudentPage();
-      }else{
-        return this.renderSubmitWorkPage();
+      if( role === 'student'){
+        /*
+        if(this.state.studentSubmitStatus === 'Overview'){
+          return this.renderStudentPage();
+        }else{
+          return this.renderSubmitWorkPage();
+        }*/
+        if(this.props.literaryWorksState === 'O_Course_Task'){
+          return this.renderStudentPage();
+        }else{
+          return this.renderSubmitWorkPage();
+        }
       }
+
+      return this.renderOtherPage();
     }
-
-    return this.renderOtherPage();
-
   }
 
 }
@@ -572,13 +782,18 @@ function mapDispatchToProps(dispatch) {
     endRecommendWork,
     submitWork,
     endSubmitWork,
-    hideHeader }, dispatch);
+    hideHeader,
+    setCurrentMission
+   }, dispatch);
 }
 
 function mapStateToProps(state) {
   return {
     loginState: state.loginState,
-    literaryWorksState: state.literaryWorksState
+    literaryWorksState: state.literaryWorksState,
+    currentCourse: state.currentCourse,
+    currentMissions: state.currentMissions,
+    currentMission: state.currentMission
   };
 }
 
