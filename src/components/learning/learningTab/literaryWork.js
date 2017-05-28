@@ -561,8 +561,20 @@ class LiteraryWork extends Component{
     }
 
   }
-  renderEmptyForm(featureTitle, title, startDate, endDate){
-    console.log(this.props.currentMission, 'tn2');
+  renderEmptyForm(featureTitle, edit){
+    let titleLabel='';
+    let startDateLabel='';
+    let endDateLabel='';
+    if(edit === 'new'){
+      titleLabel='項目名稱';
+      startDateLabel='繳交開始時間';
+      endDateLabel='繳交結束時間';
+    }
+    if(edit === 'edit'){
+      titleLabel=this.props.currentMission.title;
+      startDateLabel=GLOBLE.formatDateString(this.props.currentMission.startDate, '-');
+      endDateLabel=GLOBLE.formatDateString(this.props.currentMission.endDate, '-');
+    }
     return(
       <View style={{flex: 1, backgroundColor: 'white'}}>
       {this.renderNewTaskHeader(featureTitle)}
@@ -570,7 +582,7 @@ class LiteraryWork extends Component{
       <TextInput
         multiline={false}
         maxLength={100}
-        placeholder={this.props.currentMission.title}
+        placeholder={titleLabel}
         onChangeText={(taskName) => {
           this.setState({taskName});
         }}
@@ -584,7 +596,7 @@ class LiteraryWork extends Component{
           date={this.state.startDate}
           mode="date"
           placeholder={
-            GLOBLE.formatDateString(this.props.currentMission.startDate, '-')
+            startDateLabel
           }
           format="YYYY-MM-DD"
           minDate="2017-03-31"
@@ -616,7 +628,7 @@ class LiteraryWork extends Component{
           date={this.state.endDate}
           mode="date"
           placeholder={
-            GLOBLE.formatDateString(this.props.currentMission.endDate, '-')
+            endDateLabel
           }
           format="YYYY-MM-DD"
           minDate="2017-03-31"
@@ -648,14 +660,12 @@ class LiteraryWork extends Component{
   }
   editOrCreateTask(featureTitle, type){
     if(type==='edit'){
-      console.log(this.props.currentMission, 'ccccmmmm');
+
       return this.renderEmptyForm(featureTitle,
-        this.taskName,
-        this.startDate,
-        this.endDate);
+        type);
     }else{
       return this.renderEmptyForm(featureTitle,
-      '項目名稱','繳交開始時間', '繳交結束時間');
+      type);
     }
 
   }
@@ -663,7 +673,7 @@ class LiteraryWork extends Component{
   renderA_New_Task(){
     //style={styles.taskNameInputStyle}
     //{this.renderNewTaskHeader('繳交項目')}
-    return this.editOrCreateTask('繳交項目');
+    return this.editOrCreateTask('繳交項目', 'new');
   }
 
   renderB_Edit_Task(){

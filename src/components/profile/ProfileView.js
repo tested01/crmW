@@ -14,25 +14,27 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { GLOBLE } from '../common/Globle';
 import { CONFIG } from '../../config';
 import MyWorkScreen from './MyWorkScreen';
+import { signOut } from '../../actions';
 
 const config = {
   headerSize: 100
 };
+/*
+<Image
+  source={require('../../img/react-logo.png')}
+  resizeMode="contain"
+  fadeDuration={0}
+  style={{ width: 30, height: 30, marginTop: 1  }}
+/>
+*/
+function renderButton(buttonTitle, handler, iconName, iconSize){
 
-function renderButton(buttonTitle, handler){
   return (
-
     <TouchableOpacity
       style={styles.optionsContainer}
       onPress={handler}>
       <View style={styles.option}>
         <View style={styles.optionIconContainer}>
-          <Image
-            source={require('../../img/react-logo.png')}
-            resizeMode="contain"
-            fadeDuration={0}
-            style={{ width: 30, height: 30, marginTop: 1  }}
-          />
         </View>
         <View style={styles.optionTextContainer}>
           <Text style={styles.optionText}>
@@ -40,8 +42,8 @@ function renderButton(buttonTitle, handler){
           </Text>
         </View>
         <Icon
-          name="angle-right"
-          size={30}
+          name={iconName}
+          size={iconSize}
           color='black'
           backgroundColor='transparent'
           style={{ marginLeft: 20, alignSelf: 'flex-end'}}
@@ -136,14 +138,23 @@ class ProfileView extends Component {
   }
   renderMyworksButton(){
     if(this.props.loginState.role == 'teacher'){
-      return (<Text></Text>);
+      return (
+        <View>
+        <Text></Text>
+        </View>
+      );
     }
     if(this.props.loginState.role === 'student')
     {
-      return renderButton('我的作品', () => {this.setState({pageLocation:'myWorks'});
-                                      console.log('my works');});
+      return renderButton('我的作品', () => {
+        this.setState({pageLocation:'myWorks'});
+      }, 'angle-right', 30);
     }
-
+  }
+  renderLogoutButton(){
+    return renderButton('登出', () => {
+      this.props.signOut();
+    }, 'sign-out', 30);
   }
   renderProfile() {
       var {height, width} = Dimensions.get('window');
@@ -184,8 +195,9 @@ class ProfileView extends Component {
         </View>
         </View>
 
-        { renderButton('個人資料', () => this.setState({pageLocation:'editProfile'}))}
+        { renderButton('個人資料', () => this.setState({pageLocation:'editProfile'}), 'angle-right', 30)}
         { this.renderMyworksButton() }
+        { this.renderLogoutButton() }
 
         </ScrollView>
       );
@@ -269,12 +281,14 @@ const styles = StyleSheet.create({
   option: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: 'white',//rgba(0,0,0,0.02)
-    paddingHorizontal: 15,
-    paddingVertical: 15,
+    paddingHorizontal: 5,
+    paddingVertical: 5,
   },
   optionText: {
-    fontSize: 15
+    fontSize: 15,
+    marginLeft: 30
   },
   viewStyle: {
     flexDirection: 'row',
@@ -294,12 +308,12 @@ const styles = StyleSheet.create({
 
 // Anything returned from this function will end up as props
 // on the LoginForm container
-/*
+
 function mapDispatchToProps(dispatch) {
   // Whenever loginSuccess is called, the result should be passed
   // to all of our reducers
-  return bindActionCreators({ loginSuccess }, dispatch);
-}*/
+  return bindActionCreators({ signOut }, dispatch);
+}
 
 function mapStateToProps(state) {
   // Whever is returned will show up as props
@@ -312,5 +326,4 @@ function mapStateToProps(state) {
 // Promote BoxList from a component to a container - it
 // needs to know about this new dispatch method, selectedNumBox & answerNum.
 // Make it available as a prop.
-//export default connect(mapStateToProps, mapDispatchToProps)(ProfileView);
-export default connect(mapStateToProps)(ProfileView);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileView);
