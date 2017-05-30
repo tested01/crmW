@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { GLOBLE } from '../../common/Globle';
+import { CONFIG } from '../../../config';
 
 const window = Dimensions.get('window');
 const styles = {
@@ -72,13 +73,14 @@ class StudentWorkSubmit extends Component{
   render(){
     return(
       <View style={{display: 'flex', flex: 1, backgroundColor: 'transparent'}}>
-        <View style={{ borderBottomWidth: 1, margin: 8, borderColor: '#DFDFDF'}}>
-          <TextInput
-            style={{ height: 40 }}
-            placeholder='作品名稱...'
-            onChangeText={(title) => this.setState({title})}
-            value={this.state.title}
-          />
+
+          <View style={{ borderBottomWidth: 1, margin: 8, borderColor: '#DFDFDF'}}>
+            <TextInput
+              style={{ height: 40 }}
+              placeholder='作品名稱...'
+              onChangeText={(title) => this.setState({title})}
+              value={this.state.title}
+            />
         </View>
         <ScrollView style={{ marginLeft: 8}}>
           <View style={styles.photoCard}>
@@ -91,7 +93,40 @@ class StudentWorkSubmit extends Component{
           </View>
         </ScrollView>
         <TouchableHighlight
-          onPress={()=>console.log('todo: save work to server')}
+          onPress={
+            ()=>{
+              let body = {
+                detail: {
+                  title: this.state.title
+                },
+                mission: this.props.currentMission.id
+              };
+              console.log(this.props.currentMission,'cm~');
+              fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                  'x-auth': this.props.loginState.xAuth //FIXME:teachauth
+                  //'x-auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OGVjNzBkY2E5NTZhMjdiMTk5YmNkOTEiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNDkxODkwMzk3fQ._5J7xKENI4jsX8--0EtEnFV195SySjSfVyze_rcxewQ'
+                },
+                body: JSON.stringify(body)
+               })
+                .then((response) => {
+                  if (response.status === 200) {
+                    response.json().then(json => {
+                                          //this.setState(Object.assign({}, this.state, json));
+                                          console.log('posts~', json);
+                                        });
+                  } else {
+                    console.log(response.status);
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
+          }
           style={{
             display: 'flex',
             justifyContent: 'center',

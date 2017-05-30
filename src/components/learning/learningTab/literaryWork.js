@@ -312,7 +312,10 @@ class LiteraryWork extends Component{
 
   renderSubmitWorkPageContent(){
     if(this.state.selectedIndex === 0){
-      return(<StudentWorkSubmit/>);
+      return(<StudentWorkSubmit
+        loginState={this.props.loginState}
+        currentMission={this.props.currentMission}
+         />);
       //studentCard
     }
 
