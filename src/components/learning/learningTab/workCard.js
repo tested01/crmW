@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Dimensions } from 'react-native';
+import { CONFIG } from '../../../config';
 
 class WorkCard extends Component{
   constructor(props){
@@ -14,10 +15,37 @@ class WorkCard extends Component{
       title: this.props.title,
       startDate: this.props.startDate,
       endDate: this.props.endDate,
-      id: this.props.missionId
+      id: this.props.missionId,
+      teacher: this.props.teacher
     };
     this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
     this.props.setCurrentMission(mission);
+    fetch(CONFIG.API_BASE_URL
+      .concat('/posts/missions/')
+      .concat(mission.id),
+      {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'x-auth': this.props.loginState.xAuth
+        }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                //TODO: update current missions
+                                console.log('!!!posts got!!!', json);
+                                this.props.setCurrentMissionPosts(json.posts);
+                              });
+        } else {
+          console.log(response.status, 'mission');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   submitWork(){
     this.props.setWorkPageIndex(0);

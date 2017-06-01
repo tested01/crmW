@@ -44,6 +44,7 @@ export const END_SUBMIT_WORK = 'END_SUBMIT_WORK';
 
 export const CURRENT_MISSIONS = 'CURRENT_MISSIONS';
 export const CURRENT_MISSION = 'CURRENT_MISSION';
+export const CURRENT_MISSION_POSTS = 'CURRENT_MISSION_POSTS';
 
 //SECTION: literaryWork related action creators
 export function addNewTask() {
@@ -373,5 +374,14 @@ export function setCurrentCourse(course={}){
   return {
     type: CURRENT_COURSE,
     payload: course
+  };
+}
+
+export function setCurrentMissionPosts(posts={}){
+  //TODO: Maybe add some check for code format
+  //console.log('someone set the course code');
+  return {
+    type: CURRENT_MISSION_POSTS,
+    payload: posts
   };
 }

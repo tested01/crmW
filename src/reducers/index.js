@@ -8,6 +8,7 @@ import RegisterSpec from './reducer_registerSpec';
 import CurrentCourse from './reducer_currentCourse';
 import CurrentMissions from './reducer_currentMissions';
 import CurrentMission from './reducer_currentMission';
+import CurrentMissionPosts from './reducer_currentMissionPosts';
 import HideHeader from './reducer_hideHeader';
 import CourseOperation from './reducer_courseOperation';
 import LiteraryWorksState from './reducer_literary_works_state';
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   hideHeaderOperation: HideHeader,
   courseOperation: CourseOperation,
   literaryWorksState: LiteraryWorksState,
-  currentMission: CurrentMission
+  currentMission: CurrentMission,
+  currentMissionPosts: CurrentMissionPosts
 });
 
 export default rootReducer;

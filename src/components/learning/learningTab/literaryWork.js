@@ -24,15 +24,17 @@ import {
   submitWork,
   endSubmitWork,
   hideHeader,
-  setCurrentMission
+  setCurrentMission,
+  setCurrentMissionPosts
  } from '../../../actions';
 import { PleaseSelectCourseFirst, GLOBLE } from '../../common';
 import WorkCard from './workCard';
 import TaskCard from './taskCard';
+import PhotoCard from './photoCard';
 import { StudentCardList } from './studentCard';
 import { StudentOptionList } from './studentOption';
 import { StudentWorkSubmit } from './studentWorkSubmit';
-import { CONFIG } from '../../../config';
+
 
 
 //import ExhibitionView from '../../exhibition/ExhibitionView';
@@ -73,6 +75,7 @@ class LiteraryWork extends Component{
     this.taskCardTemplate = this.taskCardTemplate.bind(this);
     this.setInitMissionInfo = this.setInitMissionInfo.bind(this);
     this.setWorkPageIndex = this.setWorkPageIndex.bind(this);
+    this.renderCourseWorksByTask = this.renderCourseWorksByTask.bind(this);
   }
   componentWillMount(){
     this.state = {
@@ -186,6 +189,9 @@ class LiteraryWork extends Component{
       duration={ startDay + '~' + endDay}
       editTask = { this.editTask }
       viewTask = { this.viewTask }
+      teacher={mission._creator}
+      setCurrentMissionPosts={this.props.setCurrentMissionPosts}
+      loginState={this.props.loginState}
       />
     );
   }
@@ -221,6 +227,9 @@ class LiteraryWork extends Component{
                 submitWork={this.submitWork}
                 courseWorks={this.courseWorks}
                 setWorkPageIndex={this.setWorkPageIndex}
+                loginState={this.props.loginState}
+                setCurrentMissionPosts={this.props.setCurrentMissionPosts}
+                teacher={mission._creator}
       />
     );
 
@@ -303,7 +312,9 @@ class LiteraryWork extends Component{
           />
 
         <View style={{flex: 1}}>
-          {this.renderSubmitWorkPageContent()}
+          {
+            this.renderSubmitWorkPageContent()
+          }
         </View>
 
       </View>
@@ -311,22 +322,63 @@ class LiteraryWork extends Component{
   }
 
   renderSubmitWorkPageContent(){
-    if(this.state.selectedIndex === 0){
-      return(<StudentWorkSubmit
-        loginState={this.props.loginState}
-        currentMission={this.props.currentMission}
-         />);
-      //studentCard
-    }
 
-    if(this.state.selectedIndex === 1){
-      return(<Text> 班級作品 </Text>)
-      //studentOption
-    }
+      if(this.state.selectedIndex === 0){
+        return(<StudentWorkSubmit
+          loginState={this.props.loginState}
+          currentMission={this.props.currentMission}
+           />);
+        //studentCard
+      }
+
+      if(this.state.selectedIndex === 1){
+        return(
+          <View>
+          {this.renderCourseWorksByTask()}
+          </View>
+          );
+      }
 
     return(<Text></Text>);
   }
 
+  renderCourseWorksByTask(){
+  /*
+  <PhotoCard
+    title='標題'
+    author={}
+    publishDate={}
+    teacher={}
+  >
+  </PhotoCard>
+  */
+  if(this.props.currentMissionPosts){
+    return(
+      <ScrollView style={{backgroundColor: 'gray'}}>
+      {this.props.currentMissionPosts.map((post)=>this.renderPost(post))}
+      </ScrollView>);
+  }else{
+    return(<Text>Loading posts</Text>);
+  }
+
+  }
+
+  renderPost(post){
+    let createdDate = post.createdDate;
+
+    let teacher = this.props.currentMission.teacher;
+    let teacherFullName = teacher.lastName.concat(teacher.firstName);
+    return(
+      <PhotoCard
+        key={post._id}
+        title={post.detail.title}
+        author={post.author.lastName.concat(post.author.firstName)}
+        publishDate={createdDate}
+        teacher={teacherFullName}
+      >
+      </PhotoCard>
+    );
+  }
   renderSubmitWorkPageHeader(headerTitle) {
     const { viewStyle } = styles;
     return (
@@ -713,7 +765,11 @@ class LiteraryWork extends Component{
     }
 
     if(this.state.selectedIndex === 1){
-      return(<Text> 班級作品 </Text>)
+      return(
+        <View>
+        {this.renderCourseWorksByTask()}
+        </View>
+        );
       //studentOption
     }
 
@@ -734,7 +790,6 @@ class LiteraryWork extends Component{
       return (<PleaseSelectCourseFirst />);
     }else{
       const role = this.props.loginState.role;
-      console.log('literaryWorksState', this.props.literaryWorksState);
       if( role == 'teacher'){
         if(this.props.literaryWorksState === 'O_Course_Task'){
             return this.renderTeacherPage();
@@ -796,7 +851,8 @@ function mapDispatchToProps(dispatch) {
     submitWork,
     endSubmitWork,
     hideHeader,
-    setCurrentMission
+    setCurrentMission,
+    setCurrentMissionPosts
    }, dispatch);
 }
 
@@ -806,7 +862,8 @@ function mapStateToProps(state) {
     literaryWorksState: state.literaryWorksState,
     currentCourse: state.currentCourse,
     currentMissions: state.currentMissions,
-    currentMission: state.currentMission
+    currentMission: state.currentMission,
+    currentMissionPosts: state.currentMissionPosts
   };
 }
 
