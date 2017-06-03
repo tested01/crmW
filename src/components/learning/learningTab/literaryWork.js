@@ -34,6 +34,7 @@ import PhotoCard from './photoCard';
 import { StudentCardList } from './studentCard';
 import { StudentOptionList } from './studentOption';
 import { StudentWorkSubmit } from './studentWorkSubmit';
+import { CONFIG } from '../../../config';
 
 
 
@@ -210,12 +211,20 @@ class LiteraryWork extends Component{
       </View>
     );
   }
+
   studentCardTemplate(mission){
     let startDay = GLOBLE.formatDateString(mission.missionDuration.startDate, '/');
     let endDay = GLOBLE.formatDateString(mission.missionDuration.endDate, '/');
+    console.log(mission, 'work card mission');
+    let submittedYet = 'no';
+    if (mission.students.submitted.indexOf(this.props.loginState.id) > -1){
+      submittedYet = 'yes';
+    }else{
+      submittedYet = 'no';
+    }
     return(
-      <WorkCard submitted='yes'
-                hasCourseWorks='yes'
+      <WorkCard submitted={submittedYet}
+                hasCourseWorks={'yes'}
                 title={mission.title}
                 key={mission._id}
                 missionId={ mission._id }
@@ -322,9 +331,10 @@ class LiteraryWork extends Component{
   }
 
   renderSubmitWorkPageContent(){
-
+      //TODO: 檢查學生是否有發布 post 了
       if(this.state.selectedIndex === 0){
-        return(<StudentWorkSubmit
+        return(
+          <StudentWorkSubmit
           loginState={this.props.loginState}
           currentMission={this.props.currentMission}
            />);
@@ -354,9 +364,18 @@ class LiteraryWork extends Component{
   */
   if(this.props.currentMissionPosts){
     return(
-      <ScrollView style={{backgroundColor: 'gray'}}>
+      <ScrollView style={{backgroundColor: '#dedfe0'}}>
       {this.props.currentMissionPosts.map((post)=>this.renderPost(post))}
-      </ScrollView>);
+      <View style={{height:50,
+        width:window.width,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }} >
+        <Text> 沒有更多文章了... </Text>
+      </View>
+      </ScrollView>
+    );
   }else{
     return(<Text>Loading posts</Text>);
   }
@@ -371,6 +390,9 @@ class LiteraryWork extends Component{
     return(
       <PhotoCard
         key={post._id}
+        _id={post._id}
+        post={post}
+        loginState={this.props.loginState}
         title={post.detail.title}
         author={post.author.lastName.concat(post.author.firstName)}
         publishDate={createdDate}
@@ -814,15 +836,11 @@ class LiteraryWork extends Component{
       }
 
       if( role === 'student'){
-        /*
-        if(this.state.studentSubmitStatus === 'Overview'){
-          return this.renderStudentPage();
-        }else{
-          return this.renderSubmitWorkPage();
-        }*/
+
         if(this.props.literaryWorksState === 'O_Course_Task'){
           return this.renderStudentPage();
         }else{
+          //TODO: has not submitted yet vs submitted (edit)
           return this.renderSubmitWorkPage();
         }
       }

@@ -77,39 +77,7 @@ export default class TabViewInstance extends Component {
     );
   };
 
-  renderMockStudents = () => {
-    return (
-      <View style={{ height: 80, margin: 1, backgroundColor: 'white',
-      flex: 1, flexDirection: 'row', justifyContent: 'center' }} >
-      <Image
-       style={{width: 80, height: 80, flex: 1}}
-       source={require('../../img/react-logo.png')}
-      />
-      <Text style={{ flex: 3, fontSize: 20, lineHeight: 80, textAlign: 'left'}}> 蔡英文 </Text>
-      <Image
-       style={{ height: 18, flex: 1, marginTop:30}}
-       source={require('../../img/dots.jpg')}
-      />
-      </View>
-    );
-  }
-
-  renderMockStudents2 = () => {
-    return (
-      <View style={{ height: 80, margin: 1, backgroundColor: 'white',
-      flex: 1, flexDirection: 'row', justifyContent: 'center' }} >
-      <Image
-       style={{width: 80, height: 80, flex: 1}}
-       source={require('../../img/color-logo.png')}
-      />
-      <Text style={{ flex: 3, fontSize: 20, lineHeight: 80, textAlign: 'left'}}> 蔡英文 </Text>
-      <Image
-       style={{ height: 18, flex: 1, marginTop:30}}
-       source={require('../../img/dots.jpg')}
-      />
-      </View>
-    );
-  }
+  
 
   renderScene = ({ route }) => {
     switch (route.key) {

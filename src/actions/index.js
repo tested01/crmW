@@ -249,7 +249,7 @@ export function regVerifyCode(code){
 }
 //SECTION: Register-related action creators end above
 
-export function loginSuccess(success = false, xAuth, email, role) {
+export function loginSuccess(success = false, xAuth, email, role, id) {
   // loginSuccess is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
 
@@ -259,7 +259,8 @@ export function loginSuccess(success = false, xAuth, email, role) {
       success,
       email,
       xAuth,
-      role
+      role,
+      id
     }
   };
 }

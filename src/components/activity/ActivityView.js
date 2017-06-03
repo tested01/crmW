@@ -90,7 +90,6 @@ class ActivityView extends Component {
 
   enterDetail(){
     this.setState({inDetail: true});
-    console.log('ww');
   }
   renderActivityCard(activityId){
       return (

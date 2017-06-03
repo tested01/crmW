@@ -29,14 +29,14 @@ class LoginForm extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email:  'w@gmail.com', //email, //fixme2
-        password: '123456' //password
+        email:  'as@gmail.com', //email, //fixme2
+        password: '123456'//password
       }) })
       .then((response) => {
         if (response.status === 200) {
           console.log(response.headers.get('x-auth'));
           response.json().then((data) => {
-            this.props.loginSuccess(true, response.headers.get('x-auth'), data.email, data.role);
+            this.props.loginSuccess(true, response.headers.get('x-auth'), data.email, data.role, data._id);
 
           });
           this.onLoginSuccess();
@@ -92,7 +92,7 @@ class LoginForm extends Component {
       <MaterialCard>
         <TransparentCardSection>
           <NoLabelInput
-            placeholder="user@gmail.com"
+            placeholder="請輸入電子信箱"
             label="Email"
             keyboardType="email-address"
             value={this.state.email.toLowerCase()}
@@ -103,7 +103,7 @@ class LoginForm extends Component {
         <TransparentCardSection>
           <NoLabelInput
             secureTextEntry
-            placeholder="password"
+            placeholder="請輸入密碼"
             label="Password"
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -113,7 +113,6 @@ class LoginForm extends Component {
         <Text style={styles.errorTextStyle}>
           {this.state.error}
         </Text>
-
         <TransparentCardSection>
           {this.renderButton()}
         </TransparentCardSection>

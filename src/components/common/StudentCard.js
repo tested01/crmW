@@ -146,7 +146,6 @@ class StudentCard extends Component {
                                 this.props.setCurrentCourse(json.course);
                                 console.log('resetCourse', json.course)
                               });
-
         } else {
           console.log(response.status);
         }
@@ -179,12 +178,18 @@ class StudentCard extends Component {
             justifyContent: 'flex-start'
           }}>
             <Image
-              style={{width: 50, height: 50}}
+            style={{
+              width: 46,
+              height: 46,
+              borderRadius: 23,
+              borderWidth: 0,
+              marginRight: 5
+             }}
               source={require('../../img/love-logo.png')}
             />
             <View style={{ marginLeft: 10, backgroundColor: 'white'}}>
               <Text>
-              { this.props.student.lastName }
+              { this.props.student.lastName.concat(this.props.student.firstName) }
               { this.isTeacher() }
               </Text>
             </View>

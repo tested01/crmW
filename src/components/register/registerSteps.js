@@ -97,12 +97,17 @@ class RegisterSteps extends Component {
                   this.props.loginSuccess(true, response.headers.get('x-auth'), this.props.registerSpec.email, this.props.registerSpec.role);
                   this.props.registeredRequest(); //Set as register completed
                   console.log('reging...');
+                  response.json().then(json => {
+                                        console.log(json, json._id, 'reg_login_info');
+                                        this.props.loginSuccess(true, response.headers.get('x-auth'), this.props.registerSpec.email, this.props.registerSpec.role, json._id);
+
+                                      });
                 } else {
                   this.props.loginSuccess(false, '', '');
 
                   console.log('not reging...');
                   response.json().then(json => {
-                                        console.log(json);
+                                        console.log(json, 'reg_login_error');
                                       });
                 }
               })

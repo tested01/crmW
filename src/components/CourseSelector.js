@@ -156,7 +156,7 @@ class CourseSelector extends Component {
             optionListStyle={{ backgroundColor: 'white',
               borderColor: '#f2f2f2',
               borderWidth: 1.5,
-              width: window.width - 10,
+              width: window.width,
               height: window.height - 200
             }}
         >

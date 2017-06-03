@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { signOut,
@@ -37,7 +37,7 @@ class LoginingScreen extends Component {
     let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
     console.log(this.props.hideHeaderOperation.hide, 'this.props.hideHeader.hide');
     if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){
-      
+
       if(currentHasRightButton){
         return(
           <Header
@@ -80,9 +80,17 @@ class LoginingScreen extends Component {
                     <Dashboard />
                  </View>);
         default:
+          //<BigHeader headerText="Student Got Talent" />
+          /*
+          <Image
+           style={{alignSelf: 'center'}}
+           source={require('../img/ushow-logo.png')}
+          />
+          */
           return (
                   <View style={viewStyle}>
-                    <BigHeader headerText="Student Got Talent" />
+                  <BigHeader headerText="UShow" />
+
                     <LoginForm />
                     <View style={blockStyle} />
                     <CustomerFooter

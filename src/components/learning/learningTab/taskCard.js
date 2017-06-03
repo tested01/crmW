@@ -61,7 +61,7 @@ class TaskCard extends Component{
           response.json().then(json => {
                                 //this.setState(Object.assign({}, this.state, json));
                                 //TODO: update current missions
-
+                                console.log('posts got taskCard', json.posts);
                                 this.props.setCurrentMissionPosts(json.posts);
                               });
         } else {

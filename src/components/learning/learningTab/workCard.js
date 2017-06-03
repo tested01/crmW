@@ -9,6 +9,8 @@ class WorkCard extends Component{
     this.setCurrentMission=this.setCurrentMission.bind(this);
     this.submitWork=this.submitWork.bind(this);
     this.courseWorks=this.courseWorks.bind(this);
+    this.firstTimeSubmittedPage=this.firstTimeSubmittedPage.bind(this);
+    
   }
   setCurrentMission(){
     let mission = {
@@ -57,57 +59,58 @@ class WorkCard extends Component{
     this.setCurrentMission();
     this.props.courseWorks();
   }
-  render(){
-     // st stands for submit
-     let st = {
-        submitText: '未繳交',
-        submitColor: 'gray'
-      };
-      if(this.props.submitted == 'yes'){
-        st = {
-           submitText: '已繳交',
-           submitColor: '#ffcc00'
-         };
+
+  firstTimeSubmittedPage(){
+    // st stands for submit
+    let st = {
+       submitText: '未繳交',
+       submitColor: 'gray'
+     };
+     if(this.props.submitted == 'yes'){
+       st = {
+          submitText: '已繳交',
+          submitColor: '#ffcc00'
+        };
+     }
+     // hcw stands for has Course Works
+     let hcw = {
+       courseWorkText: '班級作品',
+       courseWorkColor: 'gray'
+     }
+     if(this.props.hasCourseWorks == 'yes'){
+       hcw = {
+          courseWorkText: '班級作品',
+          courseWorkColor: '#ffcc00'
+        };
       }
-      // hcw stands for has Course Works
-      let hcw = {
-        courseWorkText: '班級作品',
-        courseWorkColor: 'gray'
-      }
-      if(this.props.hasCourseWorks == 'yes'){
-        hcw = {
-           courseWorkText: '班級作品',
-           courseWorkColor: '#ffcc00'
-         };
-       }
-    const styles = {
-      workCard: {
-        alignSelf: 'stretch',
-        display: 'flex',
-        backgroundColor: '#f2f2f2',
-        margin: 2,
-        height: 108,
-        justifyContent: 'space-between'
-      },
-      buttons: {
-        display: 'flex',
-        height: 30,
-        flexDirection: 'row',
-        justifyContent: 'space-around'
-      },
-      thumbnail: {
-        width: 70,
-        height: 70,
-        backgroundColor: '#bfbfbf'
-      },
-      content: {
-        display: 'flex',
-        height: 70,
-        margin: 4,
-        flexDirection: 'row'
-      }
-    };
-    const window = Dimensions.get('window');
+   const styles = {
+     workCard: {
+       alignSelf: 'stretch',
+       display: 'flex',
+       backgroundColor: '#f2f2f2',
+       margin: 2,
+       height: 108,
+       justifyContent: 'space-between'
+     },
+     buttons: {
+       display: 'flex',
+       height: 30,
+       flexDirection: 'row',
+       justifyContent: 'space-around'
+     },
+     thumbnail: {
+       width: 70,
+       height: 70,
+       backgroundColor: '#bfbfbf'
+     },
+     content: {
+       display: 'flex',
+       height: 70,
+       margin: 4,
+       flexDirection: 'row'
+     }
+   };
+   const window = Dimensions.get('window');
     return(
       <View style={styles.workCard}>
         <View style={styles.content}>
@@ -160,6 +163,12 @@ class WorkCard extends Component{
       </View>
     </View>
     );
+  }
+  render(){
+
+      return this.firstTimeSubmittedPage();
+
+
   }
 }
 

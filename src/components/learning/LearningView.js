@@ -315,13 +315,12 @@ class LearningView extends Component {
 
       //StudentCard
 
-
+      // { listTeachers }
       return(
         <View style={[styles.page, { backgroundColor: 'white',
         flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
           <Text style={{color: 'gray'}}>共 {this.state.studentNum} 位成員</Text>
           <ScrollView>
-          { listTeachers }
           { listStudents }
           </ScrollView>
         </View>

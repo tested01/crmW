@@ -27,7 +27,7 @@ const config = {
   style={{ width: 30, height: 30, marginTop: 1  }}
 />
 */
-function renderButton(buttonTitle, handler, iconName, iconSize){
+function renderButton(buttonTitle, handler, iconName, iconSize, color='black'){
 
   return (
     <TouchableOpacity
@@ -37,14 +37,18 @@ function renderButton(buttonTitle, handler, iconName, iconSize){
         <View style={styles.optionIconContainer}>
         </View>
         <View style={styles.optionTextContainer}>
-          <Text style={styles.optionText}>
+          <Text style={{
+            fontSize: 15,
+            marginLeft: 30,
+            color: color
+          }}>
             {buttonTitle}
           </Text>
         </View>
         <Icon
           name={iconName}
           size={iconSize}
-          color='black'
+          color={color}
           backgroundColor='transparent'
           style={{ marginLeft: 20, alignSelf: 'flex-end'}}
           />
@@ -154,7 +158,7 @@ class ProfileView extends Component {
   renderLogoutButton(){
     return renderButton('登出', () => {
       this.props.signOut();
-    }, 'sign-out', 30);
+    }, 'angle-right', 30, 'red');
   }
   renderProfile() {
       var {height, width} = Dimensions.get('window');
@@ -177,7 +181,7 @@ class ProfileView extends Component {
           marginBottom: 15 }}>
         <Image
           style={{width: width, height: height/3}}
-          source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+          source={require('../../img/background.png')}
         />
         <Image
          style={{ width: config.headerSize,
@@ -186,8 +190,10 @@ class ProfileView extends Component {
                   marginBottom: 10,
                   borderRadius: config.headerSize / 2,
                   alignSelf: 'center',
-                  borderWidth: 2 }}
-                  source={require('../../img/color-logo.png')}
+                  borderWidth: 2,
+                  borderColor: 'white'
+                 }}
+                  source={require('../../img/love-logo.png')}
         />
 
         <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 16}}> { fullName } </Text>

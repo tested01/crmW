@@ -81,7 +81,7 @@ export default class Notification extends Component{
           }}>
           <View style={{display: 'flex', borderBottomWidth: 1, borderColor: 'gray', height: 56}}>
             <View style={{flex: 1, justifyContent: 'center', margin: 5}}>
-              <Text>海綿颱風停課公告</Text>
+              <Text>梅姬颱風通知</Text>
             </View>
             <View style={{display: 'flex',
               flex: 1,
@@ -90,7 +90,7 @@ export default class Notification extends Component{
               alignItems: 'flex-end',
               margin: 5
             }}>
-            <Text style={{color: 'gray', fontSize: 12}}>subtitle</Text>
+            <Text style={{color: 'gray', fontSize: 12}}>請依據該校所屬之各縣市人事行政局命令判斷。</Text>
             <Text style={{color: 'gray', fontSize: 12}}>2017/03/31</Text>
             </View>
           </View>
