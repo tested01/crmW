@@ -331,7 +331,17 @@ class LiteraryWork extends Component{
   }
 
   renderSubmitWorkPageContent(){
-      //TODO: 檢查學生是否有發布 post 了
+      //TODO: check if student has post for the mission
+      // If (s)he did, fetch the post and fill in the form
+
+
+      //To check if current user has submitted for this mission:
+      //----------------------------------------------------
+      //Intersect this.props.currentMission, current users,
+      // and this.props.currentMissionPosts
+
+
+
       if(this.state.selectedIndex === 0){
         return(
           <StudentWorkSubmit

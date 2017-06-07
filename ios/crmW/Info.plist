@@ -37,8 +37,14 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>uShow</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>uShow</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>uShow</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>

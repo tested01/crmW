@@ -5,9 +5,11 @@ import {
   ScrollView,
   TextInput,
   Dimensions,
-  TouchableHighlight
+  TouchableHighlight,
+  ActionSheetIOS
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ImagePicker from 'react-native-image-crop-picker';
 import { GLOBLE } from '../../common/Globle';
 import { CONFIG } from '../../../config';
 
@@ -24,52 +26,83 @@ const styles = {
     borderWidth: 1
   }
 };
+var BUTTONS = [
+  '相機照相',
+  '相簿選取',
+  '取消',
+];
+const CAMERA_INDEX = 0;
+const GALLERY_INDEX = 1;
+const CANCEL_INDEX = 2;
+
 class StudentWorkSubmit extends Component{
   constructor(props){
     super(props);
     this.uploadImage = this.uploadImage.bind(this);
-    this.state = {title: ''};
+    this.uploadImageFromImagePicker = this.uploadImageFromImagePicker.bind(this);
+    this.uploadImageFromCamera = this.uploadImageFromCamera.bind(this);
+    this.showActionSheet = this.showActionSheet.bind(this);
+    this.state = {
+      title: '',
+      clicked: 'none'
+    };
   }
+
+  showActionSheet(){
+    ActionSheetIOS.showActionSheetWithOptions({
+      options: BUTTONS,
+      cancelButtonIndex: CANCEL_INDEX,
+      tintColor: GLOBLE.COLOR.BLUE
+    },
+    (buttonIndex) => {
+      this.setState({ clicked: BUTTONS[buttonIndex] });
+      if(buttonIndex === CAMERA_INDEX){
+        this.uploadImageFromCamera();
+      }
+      if(buttonIndex === GALLERY_INDEX){
+        this.uploadImageFromImagePicker();
+      }
+      if(buttonIndex === CANCEL_INDEX){
+        ImagePicker.clean().then(() => {
+          console.log('removed all tmp images from tmp directory');
+        }).catch(e => {
+          alert(e);
+        });
+      }
+    });
+  }
+
+  uploadImageFromCamera(){
+
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true
+    }).then(image => {
+      console.log(image);
+    });
+
+  }
+
+  uploadImageFromImagePicker(){
+
+    ImagePicker.openPicker({
+      multiple: true
+    }).then(images => {
+      console.log(images);
+    });
+
+  }
+
+  //TODO: ActionSheetIOS
   uploadImage(){
-    /*
-    var ImagePicker = require('react-native-image-picker');
-    var options = {
-        title: 'Select Avatar',
-        customButtons: [
-          {name: 'fb', title: 'Choose Photo from Facebook'},
-        ],
-        storageOptions: {
-          skipBackup: true,
-          path: 'images'
-        }
-      };
-
-
-      ImagePicker.showImagePicker(options, (response) => {
-        console.log('Response = ', response);
-
-        if (response.didCancel) {
-          console.log('User cancelled image picker');
-        }
-        else if (response.error) {
-          console.log('ImagePicker Error: ', response.error);
-        }
-        else if (response.customButton) {
-          console.log('User tapped custom button: ', response.customButton);
-        }
-        else {
-          let source = { uri: response.uri };
-
-          // You can also display the image using data:
-          // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-          this.setState({
-            avatarSource: source
-          });
-        }
-      });
-   */
+    //TODO: ActionSheetIOS
+    // 1. uploadImageFromImagePicker
+    // 2. uploadImageFromCamera
+    this.showActionSheet();
   }
+
+
   render(){
     return(
       <View style={{display: 'flex', flex: 1, backgroundColor: 'transparent'}}>
