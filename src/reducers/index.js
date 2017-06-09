@@ -12,6 +12,7 @@ import CurrentMissionPosts from './reducer_currentMissionPosts';
 import HideHeader from './reducer_hideHeader';
 import CourseOperation from './reducer_courseOperation';
 import LiteraryWorksState from './reducer_literary_works_state';
+import CurrentImages from './reducer_currentImages';
 
 const rootReducer = combineReducers({
   loginState: LoginReducer,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   courseOperation: CourseOperation,
   literaryWorksState: LiteraryWorksState,
   currentMission: CurrentMission,
-  currentMissionPosts: CurrentMissionPosts
+  currentMissionPosts: CurrentMissionPosts,
+  currentImages: CurrentImages
 });
 
 export default rootReducer;

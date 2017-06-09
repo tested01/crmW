@@ -33,7 +33,7 @@ import TaskCard from './taskCard';
 import PhotoCard from './photoCard';
 import { StudentCardList } from './studentCard';
 import { StudentOptionList } from './studentOption';
-import { StudentWorkSubmit } from './studentWorkSubmit';
+import StudentWorkSubmit from './studentWorkSubmit';
 import { CONFIG } from '../../../config';
 
 

@@ -46,6 +46,10 @@ export const CURRENT_MISSIONS = 'CURRENT_MISSIONS';
 export const CURRENT_MISSION = 'CURRENT_MISSION';
 export const CURRENT_MISSION_POSTS = 'CURRENT_MISSION_POSTS';
 
+export const ADD_IMAGES = 'ADD_IMAGES';
+export const EDIT_IMAGES = 'EDIT_IMAGES';
+export const CLEAR_IMAGES = 'CLEAR_IMAGES';
+
 //SECTION: literaryWork related action creators
 export function addNewTask() {
   return {
@@ -384,5 +388,29 @@ export function setCurrentMissionPosts(posts={}){
   return {
     type: CURRENT_MISSION_POSTS,
     payload: posts
+  };
+}
+
+//SECTION: photoGrid
+export function addImages(images={}){
+  return {
+    type: ADD_IMAGES,
+    payload: images
+  };
+}
+
+
+export function editImages(images={}){
+  //replace current images with images of given parameter
+  return {
+    type: EDIT_IMAGES,
+    payload: images
+  };
+}
+
+
+export function clearImages(){
+  return {
+    type: CLEAR_IMAGES
   };
 }
