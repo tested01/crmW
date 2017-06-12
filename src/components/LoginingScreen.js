@@ -86,15 +86,20 @@ class LoginingScreen extends Component {
            style={{alignSelf: 'center'}}
            source={require('../img/ushow-logo.png')}
           />
+
+          <BigHeader headerText="UShow" />
           */
           return (
                   <View style={viewStyle}>
-                  <BigHeader headerText="UShow" />
+                    <Image
+                     style={{alignSelf: 'center'}}
+                     source={require('../img/login/header.png')}
+                    />
 
                     <LoginForm />
                     <View style={blockStyle} />
                     <CustomerFooter
-                     footerText="還沒有帳號嗎？ 註冊。"
+                     footerText="還沒有帳號嗎？ 馬上註冊。"
                      onPress={() => this.props.registerRequest()}
                     />
                     <Footer footerText="需要協助？" />
@@ -111,7 +116,7 @@ class LoginingScreen extends Component {
 
 const styles = {
   viewStyle: {
-    backgroundColor: GLOBLE.COLOR.BLUE,
+    backgroundColor: 'white',
     flex: 1
   },
   blockStyle: {

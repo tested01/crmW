@@ -92,7 +92,7 @@ class LoginForm extends Component {
       <MaterialCard>
         <TransparentCardSection>
           <NoLabelInput
-            placeholder="請輸入電子信箱"
+            placeholder="電子信箱"
             label="Email"
             keyboardType="email-address"
             value={this.state.email.toLowerCase()}
@@ -103,7 +103,7 @@ class LoginForm extends Component {
         <TransparentCardSection>
           <NoLabelInput
             secureTextEntry
-            placeholder="請輸入密碼"
+            placeholder="密碼"
             label="Password"
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
@@ -116,7 +116,7 @@ class LoginForm extends Component {
         <TransparentCardSection>
           {this.renderButton()}
         </TransparentCardSection>
-        <Text style={styles.linkTextStyle}> 訪客登入 </Text>
+        <Text style={styles.linkTextStyle}> 訪客進入 </Text>
       </MaterialCard>
     );
   }
@@ -131,7 +131,7 @@ const styles = {
   linkTextStyle: {
     fontSize: 15,
     alignSelf: 'center',
-    color: 'white'
+    color: '#B3B3B3'
   }
 };
 

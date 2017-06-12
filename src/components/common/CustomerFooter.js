@@ -7,7 +7,7 @@ class CustomerFooter extends Component {
   render() {
     const styles = {
       viewStyle: {
-        backgroundColor: GLOBLE.COLOR.BLUE,
+        backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
@@ -15,7 +15,7 @@ class CustomerFooter extends Component {
       },
       textStyle: {
         fontSize: 15,
-        color: 'white'
+        color: GLOBLE.COLOR.BLUE
       }
     };
     const { textStyle, viewStyle } = styles;

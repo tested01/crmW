@@ -16,7 +16,7 @@ const Footer = (props) => {
 
 const styles = {
   viewStyle: {
-    backgroundColor: GLOBLE.COLOR.BLUE,
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
@@ -24,7 +24,7 @@ const styles = {
   },
   textStyle: {
     fontSize: 15,
-    color: 'white'
+    color: '#B3B3B3'
   }
 };
 
