@@ -394,7 +394,8 @@ class LiteraryWork extends Component{
 
   renderPost(post){
     let createdDate = post.createdDate;
-
+    let resources = post.detail.resources;
+    console.log(resources);
     let teacher = this.props.currentMission.teacher;
     let teacherFullName = teacher.lastName.concat(teacher.firstName);
     return(
@@ -402,6 +403,7 @@ class LiteraryWork extends Component{
         key={post._id}
         _id={post._id}
         post={post}
+        resources={resources}
         loginState={this.props.loginState}
         title={post.detail.title}
         author={post.author.lastName.concat(post.author.firstName)}

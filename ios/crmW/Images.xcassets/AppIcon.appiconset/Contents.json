@@ -33,12 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Logo0503_2-20-20.png",
+      "filename" : "applogo_ushow120x120.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "applogo_ushow180x180.png",
       "scale" : "3x"
     }
   ],

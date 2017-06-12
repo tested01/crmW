@@ -155,6 +155,10 @@ class PhotoCard extends Component{
         </Text>
       </View>
       <View style={styles.photoGrid}>
+      <Image
+        style={{width: window.width, height: window.width}}
+        source={{uri: CONFIG.API_BASE_URL + this.props.resources[0].uri}}
+      />
       </View>
       <View style={styles.footer}>
       <View styl={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>

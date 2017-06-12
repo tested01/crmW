@@ -190,7 +190,7 @@ class StudentWorkSubmit extends Component{
                     if (response.status === 200) {
                       response.json().then(json => {
                                             //this.setState(Object.assign({}, this.state, json));
-                      
+
                                             //TODO: get the post id & upload the currentImage
                                             //this.props.currentImages
 
@@ -219,6 +219,8 @@ class StudentWorkSubmit extends Component{
 
                                             //pass multiple images
 
+                                            console.log(json, 'posted post...');
+
                                             let imgs = this.props.currentImages;
                                             let serverURL = CONFIG.API_BASE_URL.concat('/upload/photos')
 
@@ -240,7 +242,8 @@ class StudentWorkSubmit extends Component{
                                             );
 
                                             //body.append('authToken', 'secret');
-
+                                            body.append('post_id', json._id);
+                                            body.append('auth_id', json.author._id);
                                             xhr.open('POST', serverURL);
                                             xhr.send(body);
 
