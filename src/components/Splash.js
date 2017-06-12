@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View
+  View,
+  Image,
+  Dimensions
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import LoginingScreen from './LoginingScreen';
 
+const window = Dimensions.get('window');
 class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      AfterSplash: true, //false, //fixme2
+      AfterSplash: false, //false, //fixme2
       DragStartState: 0
     };
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
@@ -66,6 +69,10 @@ class Splash extends Component {
           color: '#fff',
           fontSize: 30,
           fontWeight: 'bold'
+        },
+        stretch: {
+           width: window.width,
+           height: window.height
         }
       };
       return (
@@ -79,13 +86,25 @@ class Splash extends Component {
         activeDotColor='white'
         >
           <View style={styles.slide1}>
-            <Text style={styles.text}>Hello, Student Got Talent</Text>
+
+            <Image
+              style={styles.stretch}
+              source={require('../img/splash/splash_01.png')}
+            />
           </View>
           <View style={styles.slide2}>
-            <Text style={styles.text}>Beautiful</Text>
+
+            <Image
+              style={styles.stretch}
+              source={require('../img/splash/splash_02.png')}
+            />
           </View>
           <View style={styles.slide3}>
-            <Text style={styles.text}>And simple</Text>
+
+            <Image
+              style={styles.stretch}
+              source={require('../img/splash/splash_03.png')}
+            />
           </View>
         </Swiper>
       );
