@@ -5,7 +5,8 @@ import {
   ScrollView,
   Image,
   Dimensions,
-  StyleSheet
+  StyleSheet,
+  SegmentedControlIOS
 } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -53,22 +54,13 @@ const styles = StyleSheet.create({
 class MyWorkScreen extends Component {
   constructor(props){
     super(props);
+    this.renderMyWorkContent = this.renderMyWorkContent.bind(this);
   }
-  //'  聯合報\n寫作教室'
-  state = {
-    index: 0,
-    routes: [
-      { key: '1', title: '作品集' },
-      { key: '2', title: '  聯合報\n寫作教室' },
-      { key: '3', title: '活動紀錄' },
-      { key: '4', title: '通知' },
-    ],
-    selectedIndex: 0
-  };
+  componentWillMount(){
+    this.setState({selectedIndex: 0});
+  }
 
-  handleChangeTab = (index) => {
-    this.setState({ index });
-  };
+
 
 /*
 _renderIcon = ({ route }) => {
@@ -90,63 +82,42 @@ _renderIcon = ({ route }) => {
     );
   };
 
-  renderWorks(){
-    return(
-      <ScrollView style={{ flex: 1 }}>
-        <Text>renderWorks</Text>
-      </ScrollView>
-    );
-  }
-
-  renderClassRoom(){
-    return(
-      <ScrollView style={{ flex: 1}}>
-        <Text>renderClassRoom</Text>
-      </ScrollView>
-    );
-  }
-
-  renderRecords(){
-    return(
-      <ScrollView style={{ flex: 1 }}>
-        <Text>renderRecords</Text>
-      </ScrollView>
-    );
-  }
-
-  renderNotification(){
-    return(
-      <ScrollView style={{ flex: 1 }}>
-        <Text>renderNotification</Text>
-      </ScrollView>
-    );
-  }
-
-  renderScene = ({ route }) => {
-    switch (route.key) {
-    case '1':
-      return this.renderWorks();
-    case '2':
-      return this.renderClassRoom();
-    case '3':
-      return this.renderRecords();
-    case '4':
-      return this.renderNotification();
-    default:
-      return null;
+  renderMyWorkContent(){
+    if(this.state.selectedIndex === 0){
+      return(
+        <Text>1</Text>
+      );
+      //studentCard
     }
-  };
+
+    if(this.state.selectedIndex === 1){
+      return(
+        <View>
+          <Text>star</Text>
+        </View>
+        );
+    }
+  }
+
 
   render() {
     return (
-      <TabViewAnimated
-        style={styles.container}
-        navigationState={this.state}
-        renderScene={this.renderScene}
-        renderHeader={this.renderHeader}
-        onRequestChangeTab={this.handleChangeTab}
-      >
-      </TabViewAnimated>
+      <View style={{display: 'flex', flex: 1}}>
+        <SegmentedControlIOS
+              values={['個人作品', '聯合報之星']}
+              selectedIndex={this.state.selectedIndex}
+              style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
+              onChange={(event) => {
+                this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+              }}
+            />
+
+          <View style={{flex: 1}}>
+            {
+              this.renderMyWorkContent()
+            }
+          </View>
+        </View>
 
     );
   }
