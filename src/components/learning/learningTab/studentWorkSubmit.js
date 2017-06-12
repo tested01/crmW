@@ -168,7 +168,7 @@ class StudentWorkSubmit extends Component{
           <TouchableHighlight
             onPress={
               ()=>{
-                console.log(this.props.currentImages, 'ci');
+
                 let body = {
                   detail: {
                     title: this.state.title
@@ -190,7 +190,63 @@ class StudentWorkSubmit extends Component{
                     if (response.status === 200) {
                       response.json().then(json => {
                                             //this.setState(Object.assign({}, this.state, json));
-                                            console.log('posts~', json);
+                      
+                                            //TODO: get the post id & upload the currentImage
+                                            //this.props.currentImages
+
+                                            //pass single image
+
+                                            /*
+                                            let img = this.props.currentImages[0];
+                                            let serverURL = CONFIG.API_BASE_URL.concat('/upload/photo')
+
+                                            var xhr = new XMLHttpRequest();
+
+                                            let photo = {
+                                                uri: img.path,
+                                                type: 'image/jpeg',
+                                                name: 'photo.jpg',
+                                            };
+
+
+                                            let body = new FormData();
+                                            //body.append('authToken', 'secret');
+                                            body.append('article', photo);
+                                            console.log(body);
+                                            xhr.open('POST', serverURL);
+                                            xhr.send(body);
+                                            */
+
+                                            //pass multiple images
+
+                                            let imgs = this.props.currentImages;
+                                            let serverURL = CONFIG.API_BASE_URL.concat('/upload/photos')
+
+                                            var xhr = new XMLHttpRequest();
+                                            let body = new FormData();
+                                            let photos = imgs.map(
+                                              function(img, index){
+                                                body.append('article', {
+                                                    uri: img.path,
+                                                    type: 'image/jpeg',
+                                                    name: index.toString().concat('.jpg'),
+                                                });
+                                                return {
+                                                    uri: img.path,
+                                                    type: 'image/jpeg',
+                                                    name: index.toString().concat('.jpg'),
+                                                };
+                                              }
+                                            );
+
+                                            //body.append('authToken', 'secret');
+
+                                            xhr.open('POST', serverURL);
+                                            xhr.send(body);
+
+
+
+
                                           });
                     } else {
                       console.log(response.status);
