@@ -92,7 +92,7 @@ class LoginingScreen extends Component {
           return (
                   <View style={viewStyle}>
                     <Image
-                     style={{alignSelf: 'center'}}
+                     style={{alignSelf: 'center', marginBottom: 50}}
                      source={require('../img/login/header.png')}
                     />
 
