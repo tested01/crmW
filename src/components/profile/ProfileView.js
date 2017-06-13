@@ -69,6 +69,7 @@ class ProfileView extends Component {
     this.backToProfile = this.backToProfile.bind(this);
     this.renderEditButton = this.renderEditButton.bind(this);
     this.renderMyworksButton = this.renderMyworksButton.bind(this);
+    this.renderMyWorks = this.renderMyWorks.bind(this);
   }
   componentDidMount(){
     this.updateState();
@@ -254,7 +255,7 @@ class ProfileView extends Component {
       <View style={{display: 'flex', flex: 1}}>
         {this.renderHeader('我的作品')}
         <View style={{ flex: 1 }}>
-          <MyWorkScreen />
+          <MyWorkScreen loginState={this.props.loginState}/>
         </View>
       </View>
     );

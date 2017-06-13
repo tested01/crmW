@@ -173,9 +173,10 @@ class StudentWorkSubmit extends Component{
                   detail: {
                     title: this.state.title
                   },
-                  mission: this.props.currentMission.id
+                  mission: this.props.currentMission.id,
+                  advisor: this.props.currentMission.teacher._id
                 };
-                console.log(this.props.currentMission,'cm~');
+                console.log(this.props.currentMission.teacher._id, 'advisor');
                 fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
                   method: 'POST',
                   headers: {
