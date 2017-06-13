@@ -8,6 +8,7 @@ import {
   TouchableHighlight
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { CONFIG } from '../../../config';
 
 const window = Dimensions.get('window');
 
@@ -55,6 +56,40 @@ class StudentCardList extends Component{
 
   }
 
+  componentWillMount(){
+    //TODO: post '/users/list'
+    let submittedSet = this.props.currentMission.detail.students.submitted;
+    let courseSet = this.props.currentMission.detail.target.members.students;
+    let notSubmittedSet = [...courseSet].filter(x => submittedSet.indexOf(x) < 0 );
+    let list = {
+      list: notSubmittedSet
+    }
+    fetch(CONFIG.API_BASE_URL.concat('/users/list'), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      },
+      body: JSON.stringify(list)
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                console.log(json, 'notSubmittedSet Students');
+                                this.setState({notSubmitted: json.users})
+                              });
+
+        } else {
+          console.log(response.status, 'mission');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   onSubmitToggle(){
     if(this.state.submitToggle){
       this.setState({submitToggle: false});
@@ -99,14 +134,23 @@ class StudentCardList extends Component{
 
   renderNotSubmitToggle(){
     if(this.state.notSubmitToggle){
-      return(
-        <StudentCard
-        style={styles.cardList}
-        name='吳小福'
-        title='我看彎腰郵筒'
-        flag={false}
-        />
-      );
+      if(this.state.notSubmitted){
+        return(
+          this.state.notSubmitted.map(
+            std=>(
+              <StudentCard
+              key={std._id}
+              style={styles.cardList}
+              name={std.lastName+std.firstName}
+              title=''
+              flag={false}
+              />
+            )
+          )
+        );
+      }else{
+        return(<View></View>);
+      }
     }else{
       return(<View></View>);
     }

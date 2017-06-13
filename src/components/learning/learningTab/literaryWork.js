@@ -782,6 +782,7 @@ class LiteraryWork extends Component{
     if(this.state.selectedIndex === 0){
       return(
         <StudentCardList
+         loginState={this.props.loginState}
          currentMission={this.props.currentMission}
          currentMissionPosts={this.props.currentMissionPosts}
         />)
