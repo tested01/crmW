@@ -10,7 +10,7 @@ class WorkCard extends Component{
     this.submitWork=this.submitWork.bind(this);
     this.courseWorks=this.courseWorks.bind(this);
     this.firstTimeSubmittedPage=this.firstTimeSubmittedPage.bind(this);
-    
+
   }
   setCurrentMission(){
     let mission = {
@@ -18,7 +18,8 @@ class WorkCard extends Component{
       startDate: this.props.startDate,
       endDate: this.props.endDate,
       id: this.props.missionId,
-      teacher: this.props.teacher
+      teacher: this.props.teacher,
+      detail: this.props.missionDetail
     };
     this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
     this.props.setCurrentMission(mission);

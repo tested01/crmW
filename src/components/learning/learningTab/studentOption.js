@@ -46,20 +46,37 @@ class StudentOptionList extends Component{
   constructor(props){
     super(props);
   }
+  /*
+
+  <StudentOption
+    name='吳小福'
+    title='我看彎腰郵筒'
+
+  />
+
+  <StudentOption
+    name='吳小福'
+    title='我看彎腰郵筒'
+
+  />
+
+  */
   render(){
+    console.log(this.props.currentMissionPosts, '吳小福');
     return(
       <ScrollView>
-      <StudentOption
-        name='吳小福'
-        title='我看彎腰郵筒'
+      { this.props.currentMissionPosts.map(
+        function(post){
+          return(
+            <StudentOption
+              key={ post._id }
+              name={ post.author.lastName + post.author.firstName }
+              title={ post.detail.title }
+            />
+          );
 
-      />
-
-      <StudentOption
-        name='吳小福'
-        title='我看彎腰郵筒'
-
-      />
+        }
+      ) }
       </ScrollView>
     );
   }

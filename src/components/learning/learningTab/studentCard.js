@@ -4,7 +4,8 @@ import {
   View,
   Image,
   ScrollView,
-  Dimensions
+  Dimensions,
+  TouchableHighlight
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -44,24 +45,104 @@ const styles = {
 class StudentCardList extends Component{
   constructor(props){
     super(props);
+    this.state = {
+      submitToggle: true,
+      notSubmitToggle: true
+    };
+    this.onSubmitToggle=this.onSubmitToggle.bind(this);
+    this.onNotSubmitToggle=this.onNotSubmitToggle.bind(this);
+    this.renderSubmitToggle=this.renderSubmitToggle.bind(this);
+
   }
+
+  onSubmitToggle(){
+    if(this.state.submitToggle){
+      this.setState({submitToggle: false});
+    }else{
+      this.setState({submitToggle: true});
+    }
+  }
+
+
+  renderSubmitToggle(){
+      //TODO: flag is still fake(mock) data
+      if(this.state.submitToggle){
+        return(
+          <View>
+          {this.props.currentMissionPosts.map(
+            (post)=>(
+              <StudentCard
+                key={post._id}
+                style={styles.cardList}
+                name={post.author.lastName+post.author.firstName}
+                title={post.detail.title}
+                flag={true}
+            />)
+
+          )}
+          </View>
+        );
+      }else{
+        return(<View></View>);
+      }
+
+
+  }
+
+  onNotSubmitToggle(){
+    if(this.state.notSubmitToggle){
+      this.setState({notSubmitToggle: false});
+    }else{
+      this.setState({notSubmitToggle: true});
+    }
+  }
+
+  renderNotSubmitToggle(){
+    if(this.state.notSubmitToggle){
+      return(
+        <StudentCard
+        style={styles.cardList}
+        name='吳小福'
+        title='我看彎腰郵筒'
+        flag={false}
+        />
+      );
+    }else{
+      return(<View></View>);
+    }
+  }
+
   render(){
+    /*
+    //ES6: set operation example
+    let a = new Set([1,2,3,4]);
+    let b = new Set([5,4,3,2]);
+    console.log(new Set([...a].filter(x => !b.has(x)))); //a\b => {1}
+    console.log(new Set([...b].filter(x => !a.has(x)))); //b\a => {5}
+    console.log(new Set([...a].filter(x => b.has(x))));  //a∩b => {2,3,4}
+    */
+    let submittedSet = this.props.currentMission.detail.students.submitted;
+    let courseSet = this.props.currentMission.detail.target.members.students;
+    let notSubmittedSet = [...courseSet].filter(x => submittedSet.indexOf(x) < 0 );
+    console.log(submittedSet, 'B: submitted std');
+    console.log(courseSet, 'A: class members');
+    console.log(notSubmittedSet, 'C: not submitted yet');
+
     return(
       <ScrollView>
+          <TouchableHighlight onPress={this.onSubmitToggle}>
+            <Text>已繳交</Text>
+          </TouchableHighlight>
 
-          <StudentCard
-          style={styles.cardList}
-          name='吳小福'
-          title='我看彎腰郵筒'
-          flag={false}
-          />
+          {this.renderSubmitToggle()}
 
-          <StudentCard
-          style={styles.cardList}
-          name='吳小福'
-          title='我看彎腰郵筒'
-          flag={true}
-          />
+         <TouchableHighlight onPress={this.onNotSubmitToggle}>
+           <Text>未繳交</Text>
+         </TouchableHighlight>
+
+           {this.renderNotSubmitToggle()}
+
+
 
      </ScrollView>
     );

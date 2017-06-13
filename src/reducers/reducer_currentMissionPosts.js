@@ -3,7 +3,7 @@
 
 import { CURRENT_MISSION_POSTS
       } from '../actions';
-const defaultStatus = {};
+const defaultStatus = [];
 
 export default function (state = defaultStatus, action) {
 

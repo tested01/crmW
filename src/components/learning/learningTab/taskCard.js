@@ -24,7 +24,8 @@ class TaskCard extends Component{
       startDate: this.props.startDate,
       endDate: this.props.endDate,
       id: this.props.missionId,
-      teacher: this.props.teacher
+      teacher: this.props.teacher,
+      detail: this.props.missionDetail
     };
     this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
 
@@ -38,7 +39,8 @@ class TaskCard extends Component{
       startDate: this.props.startDate,
       endDate: this.props.endDate,
       id: this.props.missionId,
-      teacher: this.props.teacher
+      teacher: this.props.teacher,
+      detail: this.props.missionDetail
     };
     this.props.setInitMissionInfo(this.props.title, this.props.startDate, this.props.endDate);
     console.log('setInitMissionInfo');

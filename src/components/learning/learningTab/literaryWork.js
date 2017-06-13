@@ -157,15 +157,7 @@ class LiteraryWork extends Component{
 
   //TODO: taskCard Factory
   taskCardFactory(){
-    /*
-    <TaskCard title='第一篇作品'
-    submit={1}
-    notYet={31}
-    duration='2017/3/22 ~2017/3/25'
-    editTask = {this.editTask}
-    viewTask = {this.viewTask}
-    />
-    */
+
     //fetch missions based on currentCourse
     return (
       <View>
@@ -193,6 +185,7 @@ class LiteraryWork extends Component{
       teacher={mission._creator}
       setCurrentMissionPosts={this.props.setCurrentMissionPosts}
       loginState={this.props.loginState}
+      missionDetail={mission}
       />
     );
   }
@@ -239,20 +232,13 @@ class LiteraryWork extends Component{
                 loginState={this.props.loginState}
                 setCurrentMissionPosts={this.props.setCurrentMissionPosts}
                 teacher={mission._creator}
+                missionDetail={mission}
       />
     );
 
   }
   studentCardFactory(){
-    /*
-    <TaskCard title='第一篇作品'
-    submit={1}
-    notYet={31}
-    duration='2017/3/22 ~2017/3/25'
-    editTask = {this.editTask}
-    viewTask = {this.viewTask}
-    />
-    */
+
     //fetch missions based on currentCourse
     return (
       <View>
@@ -794,7 +780,11 @@ class LiteraryWork extends Component{
   //selectedIndex
   renderC_Nth_Task_Content(){
     if(this.state.selectedIndex === 0){
-      return(<StudentCardList />)
+      return(
+        <StudentCardList
+         currentMission={this.props.currentMission}
+         currentMissionPosts={this.props.currentMissionPosts}
+        />)
       //studentCard
     }
 
@@ -814,7 +804,9 @@ class LiteraryWork extends Component{
     return(
       <View style={{flex: 1, backgroundColor: 'white' }}>
         {this.renderNewTaskHeader('選取作品')}
-        <StudentOptionList />
+        <StudentOptionList
+         currentMissionPosts={this.props.currentMissionPosts}
+        />
       </View>
     );
   }

@@ -30,7 +30,8 @@ const appReducer = combineReducers({
   currentMissionPosts: CurrentMissionPosts,
   currentImages: CurrentImages
 });
-
+// To reset redux state after sign-out
+// reference: https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
 const rootReducer = (state, action) => {
   if (action.type === 'SIGN_OUT') {
     state = undefined
