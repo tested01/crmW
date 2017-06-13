@@ -14,7 +14,7 @@ import CourseOperation from './reducer_courseOperation';
 import LiteraryWorksState from './reducer_literary_works_state';
 import CurrentImages from './reducer_currentImages';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   loginState: LoginReducer,
   profile: Profile,
   register: Register,
@@ -30,5 +30,13 @@ const rootReducer = combineReducers({
   currentMissionPosts: CurrentMissionPosts,
   currentImages: CurrentImages
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'SIGN_OUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
 
 export default rootReducer;

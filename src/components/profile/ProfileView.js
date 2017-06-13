@@ -6,6 +6,7 @@ import {
   Dimensions,
   TouchableOpacity,
   TextInput,
+  Alert,
   StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -158,7 +159,16 @@ class ProfileView extends Component {
   }
   renderLogoutButton(){
     return renderButton('登出', () => {
-      this.props.signOut();
+
+      Alert.alert(
+        '登出',
+        '確定是否要登出',
+        [
+          {text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: '確定', onPress: () => this.props.signOut()},
+        ],
+        { cancelable: false }
+      );
     }, 'angle-right', 30, 'red');
   }
   renderProfile() {
