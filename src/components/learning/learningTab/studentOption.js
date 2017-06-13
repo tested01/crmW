@@ -94,7 +94,7 @@ class StudentOption extends Component{
     return(
       <View style={styles.avatarBox}>
         <Image
-          source={require('../../../img/react-logo.png')}
+          source={require('../../../img/love-logo.png')}
           resizeMode="contain"
           fadeDuration={0}
           style={{

@@ -786,7 +786,7 @@ class LiteraryWork extends Component{
          currentMission={this.props.currentMission}
          currentMissionPosts={this.props.currentMissionPosts}
         />)
-      //studentCard
+      
     }
 
     if(this.state.selectedIndex === 1){

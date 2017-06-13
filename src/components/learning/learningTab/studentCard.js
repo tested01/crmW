@@ -9,6 +9,7 @@ import {
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { CONFIG } from '../../../config';
+import { GLOBLE } from '../../common/Globle';
 
 const window = Dimensions.get('window');
 
@@ -105,14 +106,20 @@ class StudentCardList extends Component{
         return(
           <View>
           {this.props.currentMissionPosts.map(
-            (post)=>(
-              <StudentCard
-                key={post._id}
-                style={styles.cardList}
-                name={post.author.lastName+post.author.firstName}
-                title={post.detail.title}
-                flag={true}
-            />)
+            (post)=>{
+
+              let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
+              return(
+                <StudentCard
+                  key={post._id}
+                  style={styles.cardList}
+                  name={post.author.lastName+post.author.firstName}
+                  publishDate={publishDate}
+                  title={post.detail.title}
+                  flag={true}
+              />)
+            }
+
 
           )}
           </View>
@@ -143,6 +150,7 @@ class StudentCardList extends Component{
               style={styles.cardList}
               name={std.lastName+std.firstName}
               title=''
+              publishDate=''
               flag={false}
               />
             )
@@ -202,7 +210,7 @@ class StudentCard extends Component{
     return(
       <View style={styles.avatarBox}>
         <Image
-          source={require('../../../img/react-logo.png')}
+          source={require('../../../img/love-logo.png')}
           resizeMode="contain"
           fadeDuration={0}
           style={{
@@ -225,17 +233,18 @@ class StudentCard extends Component{
 
   }
   flag(selected){
+    //date format: 3/23 14:00
     if(selected){
       return(
         <View style={styles.flags}>
-          <Text style={{fontSize: 12, color: 'gray'}}>3/23 14:00</Text>
+          <Text style={{fontSize: 12, color: 'gray'}}>{this.props.publishDate}</Text>
           <Icon name="bookmark" size={30} color="#F9C00C" />
         </View>
       );
     }else{
       return(
         <View style={styles.flags}>
-          <Text style={{fontSize: 12, color: 'gray'}}>3/23 14:00</Text>
+          <Text style={{fontSize: 12, color: 'gray'}}>{this.props.publishDate}</Text>
           <Icon name="bookmark" size={30} color="white" />
         </View>
       );
