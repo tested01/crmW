@@ -92,7 +92,7 @@ _renderIcon = ({ route }) => {
   renderNew(){
     return(
       <ScrollView style={{ flex: 1 }}>
-        <Text>s</Text>
+        <Text>最新文章: 開發中...</Text>
       </ScrollView>
     );
   }
@@ -100,7 +100,7 @@ _renderIcon = ({ route }) => {
   renderHot(){
     return(
       <ScrollView style={{ flex: 1}}>
-        <Text>hot</Text>
+        <Text>熱門文章: 開發中...</Text>
       </ScrollView>
     );
   }
@@ -108,7 +108,7 @@ _renderIcon = ({ route }) => {
   renderStar(){
     return(
       <ScrollView style={{ flex: 1 }}>
-        <Text>star</Text>
+        <Text>聯合報之星: 開發中...</Text>
       </ScrollView>
     );
   }
@@ -116,7 +116,7 @@ _renderIcon = ({ route }) => {
   renderClassRoom(){
     return(
       <ScrollView style={{ flex: 1 }}>
-        <Text>classroom</Text>
+        <Text>聯合報寫作教室: 開發中...</Text>
       </ScrollView>
     );
   }

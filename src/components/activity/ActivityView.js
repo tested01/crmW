@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { hideHeader } from '../../actions/index';
 import { GLOBLE } from '../common/Globle';
 const window = Dimensions.get('window');
+var actId = 0;
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -42,6 +43,7 @@ class ActivityView extends Component {
     this.renderActivityDetail = this.renderActivityDetail.bind(this);
     this.leftDetail = this.leftDetail.bind(this);
     this.enterDetail = this.enterDetail.bind(this);
+
   }
   componentWillMount(){
     this.state = {
@@ -71,27 +73,40 @@ class ActivityView extends Component {
   renderNewest(){
       return(
         <ScrollView>
-          {this.renderActivityCard(1)}
-          {this.renderActivityCard(2)}
+          {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_01.png', '好讀找好文大賽')}
+          {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_02.png', '楚才盃')}
         </ScrollView>
       );
   }
   renderActivityDetail(){
     this.props.hideHeader(true);
+    if(actId == 1){
+      return(
+        <View>
+        {this.renderActivityHeader(this.state.title)}
+        {this.renderActivityCard(this.state.activityId)}
+        <Text>詳細資訊請至官網 </Text>
+        </View>
+      );
+    }
 
-    return(
-      <View>
-      {this.renderActivityHeader('activityName here')}
-      {this.renderActivityCard(5)}
-      <Text>qq</Text>
-      </View>
-    );
+    if(actId == 2){
+      return(
+        <View>
+        {this.renderActivityHeader(this.state.title)}
+        {this.renderActivityCard(this.state.activityId)}
+        <Text>詳細資訊請至官網 </Text>
+        </View>
+      );
+    }
+
   }
 
   enterDetail(){
     this.setState({inDetail: true});
   }
-  renderActivityCard(activityId){
+  renderActivityCard(activityId, title){
+    actId = 1;
       return (
         <View style={{
           display: 'flex',
@@ -105,18 +120,22 @@ class ActivityView extends Component {
           justifyContent: 'flex-start'
          }}>
          <TouchableHighlight value='5' onPress={()=>
-           this.enterDetail()
+           {
+             this.enterDetail();
+             this.setState({activityId});
+             this.setState({title});
+           }
          }>
-         <Image
-           source={require('../../img/act2.png')}
-           fadeDuration={0}
-           style={{resizeMode: 'contain',
-                   width: window.width - 10,
-                   height: 170,
-                   margin: 5,
-                   marginTop: -3
-                  }}
-         />
+         {<Image
+         source={{uri:activityId}}
+         fadeDuration={0}
+         style={{resizeMode: 'contain',
+                 width: window.width - 10,
+                 height: 170,
+                 margin: 5,
+                 marginTop: -3
+                }}
+         />}
          </TouchableHighlight>
         <View style={{flex: 1,
           alignSelf: 'stretch',
@@ -125,12 +144,13 @@ class ActivityView extends Component {
           marginBottom: 3,
           marginLeft: 3
         }}>
-        <Text style={{}}>好讀盃作文大賽</Text>
+        <Text style={{}}>{title}</Text>
         <Text style={{ color: 'gray'}}>2017/02/12~2017/03/31</Text>
         </View>
         </View>
       );
   }
+
 
   renderActivityHeader(headerTitle) {
     const { viewStyle } = styles;

@@ -14,15 +14,7 @@ const styles = StyleSheet.create({
 });
 
 export default class Notification extends Component{
-  /*
-  <View style={[styles.leftPage, { backgroundColor: 'white' }]} >
-  <Text style={{ fontSize: 18}}> 海綿颱風停課通知 </Text>
-  <Text style={{ marginTop: 10 }}> 親愛的老師 你好: </Text>
-  <Text style={{ marginTop: 10 }}> 本校因受「海綿颱風」來襲影響，配合人事行政局停止上班上課公告，於7/12(五)18:00起當天停止上課。
-         且7/13(六)後之停課與否，同『人事行政局天然災害停止上班及上課情形』網站公告http://www.cpa.gov.tw/。
-         請各位師生留意公告動態，並做好防颱準備，保持一切平安~~ </Text>
-  </View>
-  */
+
   constructor(props){
     super(props);
     this.state = {
@@ -45,7 +37,7 @@ export default class Notification extends Component{
             alignItems: 'center',
             margin: 5
           }}>
-            <Text style={{marginLeft: 10}}>Title</Text>
+            <Text style={{marginLeft: 10}}>{this.props.title}</Text>
             <Icon.Button
              name="close"
              size={25}
@@ -62,11 +54,16 @@ export default class Notification extends Component{
             marginLeft: 15,
             marginRight: 15
           }}>
-          <Text style={{color: 'gray', fontSize: 12}}>subtitle</Text>
+          <Text style={{color: 'gray', fontSize: 12}}>
+            {this.props.subtitle}
+          </Text>
           <Text style={{color: 'gray', fontSize: 12}}>2017/03/31</Text>
           </View>
-          <View style={{flex: 1}}>
+          <View style={{flex: 1, borderBottomWidth: 1}}>
             <ScrollView style={{ backgroundColor: 'white'}}>
+            <Text style={{margin: 20}}>
+              {this.props.content}
+            </Text>
             </ScrollView>
           </View>
         </View>
@@ -76,12 +73,12 @@ export default class Notification extends Component{
         <View style={{display:'flex', flex: 1, justifyContent: 'flex-start'}}>
         <ScrollView>
           <TouchableHighlight onPress={()=>{
-            console.log('颱風');
             this.setState({detail: true});
           }}>
-          <View style={{display: 'flex', borderBottomWidth: 1, borderColor: 'gray', height: 56}}>
+          <View style={{display: 'flex', backgroundColor: '#f2f2f2',
+                        borderBottomWidth: 1, borderColor: 'gray', height: 56}}>
             <View style={{flex: 1, justifyContent: 'center', margin: 5}}>
-              <Text>梅姬颱風通知</Text>
+              <Text>{this.props.title}</Text>
             </View>
             <View style={{display: 'flex',
               flex: 1,
@@ -90,7 +87,7 @@ export default class Notification extends Component{
               alignItems: 'flex-end',
               margin: 5
             }}>
-            <Text style={{color: 'gray', fontSize: 12}}>請依據該校所屬之各縣市人事行政局命令判斷。</Text>
+            <Text style={{color: 'gray', fontSize: 12}}>{this.props.subtitle}</Text>
             <Text style={{color: 'gray', fontSize: 12}}>2017/03/31</Text>
             </View>
           </View>
