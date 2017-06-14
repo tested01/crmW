@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Dimensions } from 'react-native';
+import { View, Text, Image, Dimensions,
+         Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { signOut,
@@ -90,6 +91,7 @@ class LoginingScreen extends Component {
           <BigHeader headerText="UShow" />
           */
           return (
+                  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={viewStyle}>
                     <Image
                      style={{alignSelf: 'center', marginBottom: 50}}
@@ -104,7 +106,9 @@ class LoginingScreen extends Component {
                     />
                     <Footer footerText="需要協助？" />
                     <Footer footerText="" />
-                  </View>);
+                  </View>
+                  </TouchableWithoutFeedback>
+                );
       }
     } else {
       // Here is the regerister Steps screens
