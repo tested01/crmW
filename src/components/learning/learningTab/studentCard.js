@@ -107,7 +107,9 @@ class StudentCardList extends Component{
           <View>
           {this.props.currentMissionPosts.map(
             (post)=>{
-
+              console.log(post.publicVisible.visible, 'post.publicVisible.visible~');
+              let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
+              console.log(uShow, 'uShow'); 
               let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
               return(
                 <StudentCard
@@ -116,7 +118,7 @@ class StudentCardList extends Component{
                   name={post.author.lastName+post.author.firstName}
                   publishDate={publishDate}
                   title={post.detail.title}
-                  flag={true}
+                  flag={uShow}
               />)
             }
 

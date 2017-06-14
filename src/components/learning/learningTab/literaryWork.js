@@ -786,7 +786,7 @@ class LiteraryWork extends Component{
          currentMission={this.props.currentMission}
          currentMissionPosts={this.props.currentMissionPosts}
         />)
-      
+
     }
 
     if(this.state.selectedIndex === 1){
@@ -806,6 +806,7 @@ class LiteraryWork extends Component{
       <View style={{flex: 1, backgroundColor: 'white' }}>
         {this.renderNewTaskHeader('選取作品')}
         <StudentOptionList
+         loginState={this.props.loginState}
          currentMissionPosts={this.props.currentMissionPosts}
         />
       </View>

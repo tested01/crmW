@@ -7,7 +7,7 @@ import {
   Dimensions
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import { CONFIG } from '../../../config';
 const window = Dimensions.get('window');
 
 const styles = {
@@ -46,30 +46,21 @@ class StudentOptionList extends Component{
   constructor(props){
     super(props);
   }
-  /*
 
-  <StudentOption
-    name='吳小福'
-    title='我看彎腰郵筒'
-
-  />
-
-  <StudentOption
-    name='吳小福'
-    title='我看彎腰郵筒'
-
-  />
-
-  */
   render(){
     console.log(this.props.currentMissionPosts, '吳小福');
+    let loginState = this.props.loginState;
     return(
       <ScrollView>
       { this.props.currentMissionPosts.map(
         function(post){
+          let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
           return(
             <StudentOption
               key={ post._id }
+              defaultValue={uShow}
+              loginState={loginState}
+              post={ post._id }
               name={ post.author.lastName + post.author.firstName }
               title={ post.detail.title }
             />
@@ -88,7 +79,7 @@ class StudentOption extends Component{
     this.avatar = this.avatar.bind(this);
     this.toggle = this.toggle.bind(this);
     this.option = this.option.bind(this);
-    this.state = { selected: false };
+    this.state = { selected: this.props.defaultValue };
   }
   avatar(name, title){
     return(
@@ -130,10 +121,65 @@ class StudentOption extends Component{
 
     if(this.state.selected){
       this.setState({selected: false});
+      let body = {
+        post: this.props.post,
+        operation: 'delete'
+      };
+      fetch(CONFIG.API_BASE_URL.concat('/shows'), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'x-auth': this.props.loginState.xAuth
+        },
+        body: JSON.stringify(body)
+       })
+        .then((response) => {
+          if (response.status === 200) {
+
+            response.json().then(json => {
+
+                                  console.log('!!!flag removed!!!');
+                                });
+
+          } else {
+            console.log(response.status, 'mission');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 
     }else{
       this.setState({selected: true});
+      let body = {
+        post: this.props.post,
+        operation: 'add'
+      };
+      fetch(CONFIG.API_BASE_URL.concat('/shows'), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'x-auth': this.props.loginState.xAuth
+        },
+        body: JSON.stringify(body)
+       })
+        .then((response) => {
+          if (response.status === 200) {
 
+            response.json().then(json => {
+
+                                  console.log('!!!flag added!!!');
+                                });
+
+          } else {
+            console.log(response.status, 'mission');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
   option(){
