@@ -410,6 +410,7 @@ export function editImages(images={}){
 
 
 export function clearImages(){
+
   return {
     type: CLEAR_IMAGES
   };

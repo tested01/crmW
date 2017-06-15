@@ -11,7 +11,9 @@ import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ImgCard from '../common/ImgCard';
 import Header from '../common/Header';
+import PhotoCard from '../learning/learningTab/photoCard';
 import { GLOBLE } from '../common/Globle';
+import { CONFIG } from '../../config';
 
 const styles = StyleSheet.create({
   container: {
@@ -53,17 +55,23 @@ const styles = StyleSheet.create({
 export default class ExhibitionView extends Component {
   constructor(props){
     super(props);
+    this.fetchuShowPosts=this.fetchuShowPosts.bind(this);
+    this.renderPost=this.renderPost.bind(this);
   }
-  state = {
-    index: 0,
-    routes: [
-      { key: '1', title: '最新' },
-      { key: '2', title: '熱門' },
-      { key: '3', title: '聯合報\n  之星' },
-      { key: '4', title: '  聯合報\n寫作教室' },
-    ],
-    selectedIndex: 0
-  };
+  componentWillMount(){
+    this.state = {
+      index: 0,
+      routes: [
+        { key: '1', title: '最新' },
+        { key: '2', title: '熱門' },
+        { key: '3', title: '聯合報\n  之星' },
+        { key: '4', title: '  聯合報\n寫作教室' },
+      ],
+      selectedIndex: 0
+    };
+    this.fetchuShowPosts();
+  }
+
 
   handleChangeTab = (index) => {
     this.setState({ index });
@@ -106,19 +114,94 @@ _renderIcon = ({ route }) => {
   }
 
   renderStar(){
+
     return(
       <ScrollView style={{ flex: 1 }}>
         <Text>聯合報之星: 開發中...</Text>
       </ScrollView>
     );
+
+
   }
 
+
+  //FIXME: guest doesn't have loginState...
+  //TODO: create an anonymous version of PhotoCard
+  renderPost(post){
+    let createdDate = post.createdDate;
+    let resources = post.detail.resources;
+    console.log(resources);
+    let teacher = post.advisor;
+    let teacherFullName = teacher.lastName.concat(teacher.firstName);
+    return(
+      <PhotoCard
+        key={post._id}
+        _id={post._id}
+        post={post}
+        resources={resources}
+        loginState={this.props.loginState}
+        title={post.detail.title}
+        author={post.author.lastName.concat(post.author.firstName)}
+        publishDate={createdDate}
+        teacher={teacherFullName}
+      >
+      </PhotoCard>
+    );
+  }
+
+  /*
+  <Text>(畫面開發中..)有 {this.state.uShow.length} 篇文章入選在聯合報寫作教室</Text>
+
+  */
   renderClassRoom(){
+    console.log(this.state.uShow, 'this.state.uShow');
+    if(this.state.uShow){
+
+      return(
+        <ScrollView style={{ flex: 1 }}>
+        {this.state.uShow.map(
+          (post) => this.renderPost(post)
+        )}
+        <View style={{height:50,
+          width:window.width,
+          backgroundColor: 'white',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }} >
+          <Text> 沒有更多文章了... </Text>
+        </View>
+        </ScrollView>
+      );
+    }
     return(
       <ScrollView style={{ flex: 1 }}>
         <Text>聯合報寫作教室: 開發中...</Text>
       </ScrollView>
     );
+  }
+
+  fetchuShowPosts(){
+    fetch(CONFIG.API_BASE_URL.concat('/shows/'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                this.setState({'uShow': json.posts});
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   renderScene = ({ route }) => {

@@ -90,7 +90,7 @@ class Dashboard extends Component {
           }
           selected={this.state.selectedTab === 'Exhibition'}
           >
-            <ExhibitionView />
+            <ExhibitionView loginState={this.props.loginState}/>
         </Icon.TabBarItem>
 
         <Icon.TabBarItem

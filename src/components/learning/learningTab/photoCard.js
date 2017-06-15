@@ -11,11 +11,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { GLOBLE } from '../../common/Globle';
 import { CONFIG } from '../../../config';
 
+
 class PhotoCard extends Component{
   constructor(props){
     super(props);
     this.likeOrUnlike = this.likeOrUnlike.bind(this);
-
+    this.renderFlags = this.renderFlags.bind(this);
+    this.renderUShowFlag = this.renderUShowFlag.bind(this);
+    this.renderUStarFlag = this.renderUStarFlag.bind(this);
   }
   componentWillMount(){
     this.setState({post: this.props.post.likes.users}); //點贊的人有哪些
@@ -32,9 +35,6 @@ class PhotoCard extends Component{
     }
   }
   likeOrUnlike(){
-    console.log(this.props._id);
-    console.log(this.state.post);
-    console.log(this.state.loginState);
     if(this.state.like){
       this.setState({like: false});
       this.setState({likeColor: 'gray'});
@@ -45,7 +45,7 @@ class PhotoCard extends Component{
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'x-auth': this.props.loginState.xAuth //FIXME:teachauth
+          'x-auth': this.props.loginState.xAuth //FIXME:guest has no xAuth
             }
        })
         .then((response) => {
@@ -91,6 +91,39 @@ class PhotoCard extends Component{
         });
     }
   }
+
+  renderFlags(isUShow, isUStar){
+   return(
+     <View style={{
+       display: 'flex',
+       alignSelf: 'flex-end',
+       flex: 1,
+       justifyContent: 'flex-end',
+       flexDirection: 'row'
+      }}>
+      {this.renderUShowFlag(isUShow)}
+      {this.renderUStarFlag(isUStar)}
+     </View>
+   );
+  }
+
+  renderUShowFlag(isUShow){
+    if(isUShow){
+      return(<Icon name="bookmark" size={30} color="#F9C00C" />);
+    }else{
+      return(<View />);
+    }
+
+  }
+
+  renderUStarFlag(isUStar){
+    if(isUStar){
+      return(<Icon name="star" size={30} color="#F9C00C" />);
+    }else{
+      return(<View />);
+    }
+
+  }
   render(){
     const window = Dimensions.get('window');
     const styles = {
@@ -129,6 +162,8 @@ class PhotoCard extends Component{
     };
 
     const publishDate = GLOBLE.formatDateTimeString(this.props.publishDate, '/');
+    let isUShow = this.props.post.publicVisible.visible.includes('uShow');
+    let isUStar = this.props.post.publicVisible.visible.includes('uStar');
     return(
       <View style={styles.card}>
       <View style={styles.header}>
@@ -148,6 +183,7 @@ class PhotoCard extends Component{
           <Text style={styles.authorName}> {this.props.author} </Text>
           <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
       </View>
+      { this.renderFlags(isUShow, isUStar) }
       </View>
       <View style={styles.title}>
         <Text>
