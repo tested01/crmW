@@ -150,11 +150,29 @@ _renderIcon = ({ route }) => {
   }
 
   /*
-  <Text>(畫面開發中..)有 {this.state.uShow.length} 篇文章入選在聯合報寫作教室</Text>
+renderClassRoom(){
+  console.log(this.state.uShow, 'this.state.uShow');
+  if(this.state.uShow){
 
+    return(
+      <ScrollView style={{ flex: 1 }}>
+      {this.state.uShow.map(
+        (post) => this.renderPost(post)
+      )}
+      <View style={{height:50,
+        width:window.width,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }} >
+        <Text> 沒有更多文章了... </Text>
+      </View>
+      </ScrollView>
+    );
+  }
+}
   */
   renderClassRoom(){
-    console.log(this.state.uShow, 'this.state.uShow');
     if(this.state.uShow){
 
       return(
@@ -172,12 +190,11 @@ _renderIcon = ({ route }) => {
         </View>
         </ScrollView>
       );
-    }
-    return(
-      <ScrollView style={{ flex: 1 }}>
-        <Text>聯合報寫作教室: 開發中...</Text>
-      </ScrollView>
-    );
+  }else{
+    return(<Text> Loading...</Text>);
+  }
+
+
   }
 
   fetchuShowPosts(){
