@@ -99,19 +99,66 @@ _renderIcon = ({ route }) => {
   };
 
   renderNew(){
-    return(
-      <ScrollView style={{ flex: 1 }}>
-        <Text>最新文章: 開發中...</Text>
-      </ScrollView>
-    );
+    if(this.state.uShow){
+
+      return(
+        <ScrollView style={{ flex: 1 }}>
+        {this.state.uShow
+          .filter(
+            function(post){
+              let postDate = new Date(post.createdDate);
+              
+              let d = new Date();
+              d.setDate(d.getDate() - 8);//8 is temp threshold for new posts
+
+              return (postDate > d);//the threshold of like count
+            }
+          )
+          .map((post) => this.renderPost(post))
+        }
+        <View style={{height:50,
+          width:window.width,
+          backgroundColor: 'white',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }} >
+          <Text> 沒有更多文章了... </Text>
+        </View>
+        </ScrollView>
+      );
+    }else{
+      return(<Text> 載入文章中, 需要網路開啟...</Text>);
+    }
   }
 
   renderHot(){
-    return(
-      <ScrollView style={{ flex: 1}}>
-        <Text>熱門文章: 開發中...</Text>
-      </ScrollView>
-    );
+    if(this.state.uShow){
+
+      return(
+        <ScrollView style={{ flex: 1 }}>
+        {this.state.uShow
+          .filter(
+            function(post){
+              //console.log(post, post.likes.users.length);
+              return (post.likes.users.length > 1);//the threshold of like count
+            }
+          )
+          .map((post) => this.renderPost(post))
+        }
+        <View style={{height:50,
+          width:window.width,
+          backgroundColor: 'white',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }} >
+          <Text> 沒有更多文章了... </Text>
+        </View>
+        </ScrollView>
+      );
+  }else{
+    return(<Text> 載入文章中, 需要網路開啟...</Text>);
+  }
+
   }
 
   renderStar(){
@@ -144,7 +191,7 @@ _renderIcon = ({ route }) => {
   renderPost(post){
     let createdDate = post.createdDate;
     let resources = post.detail.resources;
-    console.log(resources);
+    //console.log(resources);
     let teacher = post.advisor;
     let teacherFullName = teacher.lastName.concat(teacher.firstName);
     return(
@@ -204,11 +251,9 @@ renderClassRoom(){
         </View>
         </ScrollView>
       );
-  }else{
-    return(<Text> 載入文章中, 需要網路開啟...</Text>);
-  }
-
-
+    }else{
+      return(<Text> 載入文章中, 需要網路開啟...</Text>);
+    }
   }
 
   fetchuShowPosts(){
