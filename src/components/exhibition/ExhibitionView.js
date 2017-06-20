@@ -70,6 +70,7 @@ export default class ExhibitionView extends Component {
       selectedIndex: 0
     };
     this.fetchuShowPosts();
+    this.fetchuStarPosts();
   }
 
 
@@ -114,13 +115,26 @@ _renderIcon = ({ route }) => {
   }
 
   renderStar(){
+    if(this.state.uStar){
 
-    return(
-      <ScrollView style={{ flex: 1 }}>
-        <Text>聯合報之星: 開發中...</Text>
-      </ScrollView>
-    );
-
+      return(
+        <ScrollView style={{ flex: 1 }}>
+        {this.state.uStar.map(
+          (post) => this.renderPost(post)
+        )}
+        <View style={{height:50,
+          width:window.width,
+          backgroundColor: 'white',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }} >
+          <Text> 沒有更多文章了... </Text>
+        </View>
+        </ScrollView>
+      );
+  }else{
+    return(<Text> 載入文章中, 需要網路開啟...</Text>);
+  }
 
   }
 
@@ -191,7 +205,7 @@ renderClassRoom(){
         </ScrollView>
       );
   }else{
-    return(<Text> Loading...</Text>);
+    return(<Text> 載入文章中, 需要網路開啟...</Text>);
   }
 
 
@@ -211,6 +225,30 @@ renderClassRoom(){
           response.json().then(json => {
                                 //this.setState(Object.assign({}, this.state, json));
                                 this.setState({'uShow': json.posts});
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  fetchuStarPosts(){
+    fetch(CONFIG.API_BASE_URL.concat('/stars/'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                this.setState({'uStar': json.posts});
                               });
         } else {
           console.log(response.status);

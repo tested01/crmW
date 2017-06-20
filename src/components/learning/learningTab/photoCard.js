@@ -118,7 +118,7 @@ class PhotoCard extends Component{
 
   renderUStarFlag(isUStar){
     if(isUStar){
-      return(<Icon name="star" size={30} color="#F9C00C" />);
+      return(<Icon name="star" size={30} color="goldenrod" />);
     }else{
       return(<View />);
     }
