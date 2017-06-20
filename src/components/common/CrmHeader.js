@@ -16,20 +16,44 @@ class CrmHeader extends Component {
     const { textStyle } = styles;
     switch(prop){
       case 'left_arrow':
-        return (<Icon name="angle-left" size={30} color='gray' />);
+        return (<Icon.Button
+           name="angle-left"
+           size={30}
+           backgroundColor='transparent'
+           color={this.props.wordColor}
+           onPress={this.props.leftPress}
+           />);
       case 'right_arrow':
-        return (<Icon name="angle-right" size={30} color='gray' />);
+        return (<Icon.Button
+           name="angle-right"
+           size={30}
+           backgroundColor='transparent'
+           color={this.props.wordColor}
+           onPress={this.props.rightPress}
+            />);
       default:
-        return (<Text style={textStyle}>{prop}</Text>);
+      return (<Icon
+         name="angle-right"
+         size={30}
+         color={GLOBLE.COLOR.BLUE}
+
+          />);
     }
   }
+
   render(){
   const { viewStyle } = styles;
   return (
     <View style={viewStyle}>
+      <View style={{flex: 1, justifyContent: 'flex-start'}}>
       { this.iconParser(this.props.left) }
-      { this.iconParser(this.props.center) }
+      </View>
+      <View >
+       <Text style={styles.textStyle}>{this.props.center}</Text>
+      </View>
+      <View style={{flex: 1, justifyContent: 'flex-end'}}>
       { this.iconParser(this.props.right) }
+      </View>
     </View>
   );
  }
@@ -39,10 +63,10 @@ const styles = {
   viewStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'white',
+    backgroundColor: GLOBLE.COLOR.BLUE,
     alignItems: 'center',
-    height: 60,
-    paddingTop: 15,
+    height: 50,
+    paddingTop: 0,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -50,7 +74,8 @@ const styles = {
     position: 'relative'
   },
   textStyle: {
-    color: 'gray',
+    color: 'white',
+    marginLeft: 30,
     fontSize: 20
   }
 };

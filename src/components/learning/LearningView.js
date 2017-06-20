@@ -120,6 +120,7 @@ class LearningView extends Component {
     this.renderCourseTitle = this.renderCourseTitle.bind(this);
     this.courseDataValidator = this.courseDataValidator.bind(this);
     this.createCourseAPI = this.createCourseAPI.bind(this);
+    this.fetchAndBuildNotifications = this.fetchAndBuildNotifications.bind(this);
   }
 
   componentWillMount(){
@@ -129,6 +130,31 @@ class LearningView extends Component {
     this.setState({error_startDate: true});
     this.setState({error_endDate: true});
     this.setState({error_range: false});
+    //fetch notifications
+    fetch(CONFIG.API_BASE_URL.concat('/notifications/'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                console.log()
+                                this.setState({notifications: json});
+
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   joinClass(){
@@ -330,42 +356,61 @@ class LearningView extends Component {
   }
 
 /*
-<View style={[styles.leftPage, { backgroundColor: 'white' }]} >
-<Text style={{ fontSize: 18}}> 海綿颱風停課通知 </Text>
-<Text style={{ marginTop: 10 }}> 親愛的 同學 你好: </Text>
-<Text style={{ marginTop: 10 }}> 本校因受「海綿颱風」來襲影響，配合人事行政局停止上班上課公告，於7/12(五)18:00起當天停止上課。
-       且7/13(六)後之停課與否，同『人事行政局天然災害停止上班及上課情形』網站公告http://www.cpa.gov.tw/。
-       請各位師生留意公告動態，並做好防颱準備，保持一切平安~~ </Text>
-</View>
+<Notification
+  title='【梅姬颱風快報】'
+  subtitle='請依據該校所屬之各縣市人事行政局命令判斷。'
+  content={"\n\n" +
+  "梅姬颱風即將登陸，中央氣象局今9/26上午11時30分，已發布海上陸上颱風警報，" +
+  "因此本週二9/27、週三9/28的課程恐受颱風影響。\n\n" +
+  "最新停班停課訊息，請以行政院人事行政總處或地方縣市政府公布為準。\n\n" +
+  "如遇停課情形，後續處理方式與是否需擇期補課，請密切注意App內教務通知區。\n\n\n" +
+  "聯合報寫作教室 敬啟\n"}
+/>
+<Notification
+  title='【第32屆楚才盃作文競賽公告】'
+  subtitle=''
+  content={"\n\n" +
+  "去年第31屆楚才盃作文競賽參賽學生踴躍，各區不乏臥虎藏龍~" +
+  "今年擴大舉行~各區老師們趕快推舉您的優秀學生，一同參與作文盛事吧~~比賽題本將於下週公佈！\n\n" +
+  "【預告！預告】。\n\n" +
+  "廣發戰帖～各位老師，請各位同學齊來'比文過招'吧！" +
+  "聯合報和大陸武漢市，將攜手進行，「2016年第32屆楚才盃作文競賽」囉!\n\n" +
+  "比賽將於3/26~4/01進行，此期間要請老師們於課堂中使用比賽題本寫作。\n\n" +
+  "希望藉由老師的指導與鼓勵下學生寫出好文章，讓入圍的佳作飄洋過海至武漢，和學生們一起爭取榮譽。\n\n" +
+  "聯合報寫作教室 敬啟\n"}
+/>
 */
   renderNotification(){
     return (
           <ScrollView>
-          <Notification
-            title='【梅姬颱風快報】'
-            subtitle='請依據該校所屬之各縣市人事行政局命令判斷。'
-            content={"\n\n" +
-            "梅姬颱風即將登陸，中央氣象局今9/26上午11時30分，已發布海上陸上颱風警報，" +
-            "因此本週二9/27、週三9/28的課程恐受颱風影響。\n\n" +
-            "最新停班停課訊息，請以行政院人事行政總處或地方縣市政府公布為準。\n\n" +
-            "如遇停課情形，後續處理方式與是否需擇期補課，請密切注意App內教務通知區。\n\n\n" +
-            "聯合報寫作教室 敬啟\n"}
-          />
-          <Notification
-            title='【第32屆楚才盃作文競賽公告】'
-            subtitle=''
-            content={"\n\n" +
-            "去年第31屆楚才盃作文競賽參賽學生踴躍，各區不乏臥虎藏龍~" +
-            "今年擴大舉行~各區老師們趕快推舉您的優秀學生，一同參與作文盛事吧~~比賽題本將於下週公佈！\n\n" +
-            "【預告！預告】。\n\n" +
-            "廣發戰帖～各位老師，請各位同學齊來'比文過招'吧！" +
-            "聯合報和大陸武漢市，將攜手進行，「2016年第32屆楚才盃作文競賽」囉!\n\n" +
-            "比賽將於3/26~4/01進行，此期間要請老師們於課堂中使用比賽題本寫作。\n\n" +
-            "希望藉由老師的指導與鼓勵下學生寫出好文章，讓入圍的佳作飄洋過海至武漢，和學生們一起爭取榮譽。\n\n" +
-            "聯合報寫作教室 敬啟\n"}
-          />
+            {this.fetchAndBuildNotifications()}
           </ScrollView>
           );
+  }
+
+  fetchAndBuildNotifications(){
+
+    if(this.state.notifications){
+      return(
+        this.state.notifications.map(
+          function(notification){
+              console.log(notification, 'notif')
+              return(
+                <Notification
+                  key={notification._id}
+                  title={notification.detail.title}
+                  contentUri={notification.detail.contentUri}
+                  createdDate={notification.createdDate}
+                />
+              );
+          }
+        )
+      );
+    }else{
+      return(<Text></Text>);
+    }
+
+
   }
 
   renderLiteraryWorks(){
