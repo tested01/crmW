@@ -5,13 +5,14 @@ import {
   TouchableHighlight,
   Dimensions,
   Image,
+  Modal,
   ScrollView
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { GLOBLE } from '../../common/Globle';
+import { GLOBLE, CrmHeader } from '../../common';
 import { CONFIG } from '../../../config';
 
-
+const window = Dimensions.get('window');
 class PhotoCard extends Component{
   constructor(props){
     super(props);
@@ -19,11 +20,16 @@ class PhotoCard extends Component{
     this.renderFlags = this.renderFlags.bind(this);
     this.renderUShowFlag = this.renderUShowFlag.bind(this);
     this.renderUStarFlag = this.renderUStarFlag.bind(this);
+    this.closeDetailImage = this.closeDetailImage.bind(this);
+    this.openDetailImage = this.openDetailImage.bind(this);
+    this.renderImages = this.renderImages.bind(this);
   }
   componentWillMount(){
-    this.setState({post: this.props.post.likes.users}); //點贊的人有哪些
+    this.setState({post: this.props.post});
+    this.setState({whoLikes: this.props.post.likes.users}); //點贊的人有哪些
     this.setState({userId: this.props.loginState.id}); //裡面有登入者的 id
     this.setState({likeCount: this.props.post.likes.users.length});
+    this.setState({modalDetailImages: false});
 
     if(this.props.post.likes.users.indexOf(this.props.loginState.id)>-1){
       this.setState({like: true});
@@ -122,10 +128,45 @@ class PhotoCard extends Component{
     }else{
       return(<View />);
     }
+  }
+  closeDetailImage(){
+    this.setState({modalDetailImages: false});
+  }
+  openDetailImage(){
+    this.setState({modalDetailImages: true});
+  }
+  renderImages(){
+    let resourcesSize = this.props.resources.length;
+    return(
+      this.props.resources.map(
+        function(img, index){
+          if(index == resourcesSize - 1){
+            return(
+              <View key={index}>
+              <Image
+              style={{width: window.width - 20, height: window.width - 20, margin: 10}}
+              source={{uri: CONFIG.API_BASE_URL + img.uri}}
+            />
+            <View style={{height: 100, width: 1}}/>
+            </View>
+          );
+        }else{
+          return(
+            <Image
+            key={index}
+            style={{width: window.width - 20, height: window.width - 20, margin: 10}}
+            source={{uri: CONFIG.API_BASE_URL + img.uri}}
+          />
+        );
+        }
 
+        }
+      )
+
+    );
   }
   render(){
-    const window = Dimensions.get('window');
+
     const styles = {
       card:{
         marginBottom: 2,
@@ -166,47 +207,95 @@ class PhotoCard extends Component{
     let isUStar = this.props.post.publicVisible.visible.includes('uStar');
     return(
       <View style={styles.card}>
-      <View style={styles.header}>
-      <Image
-        source={require('../../../img/love-logo.png')}
-        resizeMode="contain"
-        fadeDuration={0}
-        style={{
-          width: 46,
-          height: 46,
-          borderRadius: 23,
-          borderWidth: 0,
-          marginRight: 5
-         }}
-      />
-      <View style={styles.headerText}>
-          <Text style={styles.authorName}> {this.props.author} </Text>
-          <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
-      </View>
-      { this.renderFlags(isUShow, isUStar) }
-      </View>
-      <View style={styles.title}>
-        <Text>
-          {this.props.title}
-        </Text>
-      </View>
-      <View style={styles.photoGrid}>
-      <Image
-        style={{width: window.width, height: window.width}}
-        source={{uri: CONFIG.API_BASE_URL + this.props.resources[0].uri}}
-      />
-      </View>
-      <View style={styles.footer}>
-      <View styl={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>
-      <Icon.Button name="thumbs-o-up"
-        color={this.state.likeColor}
-        backgroundColor='transparent'
-        onPress={this.likeOrUnlike}
-      >
-      <Text style={{color: this.state.likeColor}}>{this.state.likeCount}</Text>
-      </Icon.Button>
-      </View>
-      </View>
+        <View style={styles.header}>
+          <Image
+            source={require('../../../img/love-logo.png')}
+            resizeMode="contain"
+            fadeDuration={0}
+            style={{
+              width: 46,
+              height: 46,
+              borderRadius: 23,
+              borderWidth: 0,
+              marginRight: 5
+             }}
+          />
+          <View style={styles.headerText}>
+              <Text style={styles.authorName}> {this.props.author} </Text>
+              <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
+          </View>
+          { this.renderFlags(isUShow, isUStar) }
+        </View>
+        <View style={styles.title}>
+          <Text>
+            {this.props.title}
+          </Text>
+        </View>
+        <View style={styles.photoGrid}>
+          <TouchableHighlight onPress={this.openDetailImage}>
+            <Image
+              style={{width: window.width, height: window.width}}
+              source={{uri: CONFIG.API_BASE_URL + this.props.resources[0].uri}}
+            />
+          </TouchableHighlight>
+        </View>
+        <View style={styles.footer}>
+          <View styl={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>
+            <Icon.Button name="thumbs-o-up"
+              color={this.state.likeColor}
+              backgroundColor='transparent'
+              onPress={this.likeOrUnlike}
+            >
+              <Text style={{color: this.state.likeColor}}>{this.state.likeCount}</Text>
+            </Icon.Button>
+          </View>
+        </View>
+        <Modal
+          animationType={"fade"}
+          transparent={false}
+          visible={this.state.modalDetailImages}
+          onRequestClose={() => {alert("Modal has been closed.")}}
+          >
+         <View style={{marginTop: 22}}>
+          <View>
+            <CrmHeader
+              left='left_arrow'
+              wordColor='white'
+              leftPress={this.closeDetailImage}
+              center={this.props.author + "的作品"}
+            />
+            <ScrollView>
+              <View style={styles.header}>
+                <Image
+                  source={require('../../../img/love-logo.png')}
+                  resizeMode="contain"
+                  fadeDuration={0}
+                  style={{
+                    width: 46,
+                    height: 46,
+                    borderRadius: 23,
+                    borderWidth: 0,
+                    marginRight: 5
+                   }}
+                />
+
+                <View style={styles.headerText}>
+                    <Text style={styles.authorName}> {this.props.author} </Text>
+                    <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
+                </View>
+                { this.renderFlags(isUShow, isUStar) }
+              </View>
+              <View style={styles.title}>
+                <Text>
+                  {this.props.title}
+                </Text>
+              </View>
+              {this.renderImages()}
+            </ScrollView>
+
+          </View>
+         </View>
+        </Modal>
       </View>
 
     );
