@@ -404,7 +404,7 @@ class LiteraryWork extends Component{
     return (
       <View style={viewStyle}>
         <Icon.Button
-         name='angle-left'
+         name="angle-left"
          size={30}
          color='white'
          style={{marginTop: 15, marginRight: 10}}
@@ -451,7 +451,7 @@ class LiteraryWork extends Component{
       case 'C_Nth_Task':
         return(
           <Icon.Button
-           name='angle-left'
+           name="angle-left"
            size={30}
            color='white'
            style={{marginTop: 15, marginRight: 10}}

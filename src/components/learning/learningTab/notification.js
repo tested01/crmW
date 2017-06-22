@@ -76,8 +76,10 @@ export default class Notification extends Component{
          <View style={{marginTop: 22}}>
           <View>
             <CrmHeader
-              left='left_arrow'
+              left='angle-left'
+              right='none'
               wordColor='white'
+              theme='blue'
               leftPress={this.closeDetail}
               center='教務通知'
 

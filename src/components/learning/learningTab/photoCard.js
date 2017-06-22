@@ -9,6 +9,7 @@ import {
   ScrollView
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import { GLOBLE, CrmHeader } from '../../common';
 import { CONFIG } from '../../../config';
 
@@ -23,6 +24,10 @@ class PhotoCard extends Component{
     this.closeDetailImage = this.closeDetailImage.bind(this);
     this.openDetailImage = this.openDetailImage.bind(this);
     this.renderImages = this.renderImages.bind(this);
+    this.imageList = this.imageList.bind(this);
+    this.closeZoomImages = this.closeZoomImages.bind(this);
+    this.openZoomImages = this.openZoomImages.bind(this);
+    this.imageUrlList = this.imageUrlList.bind(this);
   }
   componentWillMount(){
     this.setState({post: this.props.post});
@@ -30,6 +35,7 @@ class PhotoCard extends Component{
     this.setState({userId: this.props.loginState.id}); //裡面有登入者的 id
     this.setState({likeCount: this.props.post.likes.users.length});
     this.setState({modalDetailImages: false});
+    this.setState({modalZoomImages: false})
 
     if(this.props.post.likes.users.indexOf(this.props.loginState.id)>-1){
       this.setState({like: true});
@@ -135,28 +141,75 @@ class PhotoCard extends Component{
   openDetailImage(){
     this.setState({modalDetailImages: true});
   }
+  //modalZoomImages
+  closeZoomImages(){
+    this.setState({modalZoomImages: false});
+  }
+  openZoomImages(){
+    console.log('openZoomImages...');
+    this.setState({modalZoomImages: true});
+  }
+  //render the image viewer, which can zoom in&out
+  renderZoomImages(){
+    <View style={{borderWidth: 5, flex: 1}}>
+    <ImageZoom cropWidth={Dimensions.get('window').width}
+                           cropHeight={Dimensions.get('window').height}
+                           imageWidth={200}
+                           imageHeight={200}>
+                           {this.imageList()}
+                </ImageZoom>
+   </View>
+  }
+  imageUrlList(){
+    return(this.props.resources.map(
+      (img)=>{
+        return{url: CONFIG.API_BASE_URL + img.uri}
+      }
+    ));
+  }
+  imageList(){
+    return(function(img, index){
+        return(
+          <View key={index}>
+          <Image
+          style={{width: window.width - 20, height: window.width - 20, margin: 10}}
+          source={{uri: CONFIG.API_BASE_URL + img.uri}}
+        />
+        <View style={{height: 100, width: 1}}/>
+        </View>
+      );
+    });
+  }
   renderImages(){
     let resourcesSize = this.props.resources.length;
     return(
       this.props.resources.map(
-        function(img, index){
+        (img, index) => {
           if(index == resourcesSize - 1){
             return(
-              <View key={index}>
+           <View key={index}>
+           <TouchableHighlight  onPress={this.openZoomImages}>
               <Image
               style={{width: window.width - 20, height: window.width - 20, margin: 10}}
               source={{uri: CONFIG.API_BASE_URL + img.uri}}
-            />
+              />
+
+            </TouchableHighlight>
             <View style={{height: 100, width: 1}}/>
             </View>
+
+
           );
         }else{
           return(
-            <Image
-            key={index}
-            style={{width: window.width - 20, height: window.width - 20, margin: 10}}
-            source={{uri: CONFIG.API_BASE_URL + img.uri}}
-          />
+
+            <TouchableHighlight key={index} onPress={this.openZoomImages}>
+              <Image
+              style={{width: window.width - 20, height: window.width - 20, margin: 10}}
+              source={{uri: CONFIG.API_BASE_URL + img.uri}}
+              />
+            </TouchableHighlight>
+
         );
         }
 
@@ -205,6 +258,7 @@ class PhotoCard extends Component{
     const publishDate = GLOBLE.formatDateTimeString(this.props.publishDate, '/');
     let isUShow = this.props.post.publicVisible.visible.includes('uShow');
     let isUStar = this.props.post.publicVisible.visible.includes('uStar');
+
     return(
       <View style={styles.card}>
         <View style={styles.header}>
@@ -259,11 +313,14 @@ class PhotoCard extends Component{
          <View style={{marginTop: 22}}>
           <View>
             <CrmHeader
-              left='left_arrow'
+              left="angle-left"
+              right="none"
               wordColor='white'
+              theme='blue'
               leftPress={this.closeDetailImage}
               center={this.props.author + "的作品"}
             />
+
             <ScrollView>
               <View style={styles.header}>
                 <Image
@@ -290,16 +347,43 @@ class PhotoCard extends Component{
                   {this.props.title}
                 </Text>
               </View>
+
               {this.renderImages()}
+
             </ScrollView>
 
           </View>
          </View>
+         <Modal
+           animationType={"fade"}
+           transparent={false}
+           visible={this.state.modalZoomImages}
+           onRequestClose={() => {alert("Modal has been closed.")}}
+           >
+           <View style={{marginTop: 22}}>
+             <CrmHeader
+               left='close'
+               wordColor='white'
+               leftPress={this.closeZoomImages}
+               right='ellipsis-h'
+               rightPress={()=>console.log('ellipsis pressed!')}
+               theme="black"
+               center={""}
+             />
+             </View>
+
+             <ImageViewer imageUrls={this.imageUrlList()}/>
+         </Modal>
         </Modal>
+
+
+
       </View>
 
     );
   }
 }
+
+
 
 export default PhotoCard;
