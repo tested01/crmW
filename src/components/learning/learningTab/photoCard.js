@@ -365,7 +365,8 @@ class PhotoCard extends Component{
                left='close'
                wordColor='white'
                leftPress={this.closeZoomImages}
-               right='ellipsis-h'
+               right='none'
+               size={20}
                rightPress={()=>console.log('ellipsis pressed!')}
                theme="black"
                center={""}

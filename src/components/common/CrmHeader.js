@@ -15,6 +15,11 @@ class CrmHeader extends Component {
     }else{
       this.tColor = this.props.theme;
     }
+    if(this.props.size){
+      this.iconSize=20;
+    }else{
+      this.iconSize=30;
+    }
     this.styles = {
       viewStyle: {
         flexDirection: 'row',
@@ -46,7 +51,7 @@ class CrmHeader extends Component {
       case 'left':
         return (<Icon.Button
            name={this.props.left}
-           size={30}
+           size={this.iconSize}
            backgroundColor='transparent'
            color={this.props.wordColor}
            onPress={this.props.leftPress}
@@ -56,7 +61,7 @@ class CrmHeader extends Component {
           console.log('none--->');
           return (<Icon.Button
              name="close"
-             size={30}
+             size={this.iconSize}
              backgroundColor='transparent'
              color='transparent'
              onPress={()=>{console.log('empty')}}
@@ -64,7 +69,7 @@ class CrmHeader extends Component {
         }else{
           return (<Icon.Button
              name={this.props.right}
-             size={30}
+             size={this.iconSize}
              backgroundColor='transparent'
              color={this.props.wordColor}
              onPress={this.props.rightPress}
@@ -74,7 +79,7 @@ class CrmHeader extends Component {
       default:
       return (
         <View
-         style={{width: 30, height: 30}}
+         style={{width: this.iconSize, height: this.iconSize}}
 
           />);
     }
