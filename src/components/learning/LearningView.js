@@ -382,7 +382,7 @@ class LearningView extends Component {
 */
   renderNotification(){
     return (
-          <ScrollView>
+          <ScrollView style={{marginTop: 10}}>
             {this.fetchAndBuildNotifications()}
           </ScrollView>
           );

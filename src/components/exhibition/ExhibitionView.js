@@ -107,7 +107,7 @@ _renderIcon = ({ route }) => {
           .filter(
             function(post){
               let postDate = new Date(post.createdDate);
-              
+
               let d = new Date();
               d.setDate(d.getDate() - 8);//8 is temp threshold for new posts
 
@@ -140,7 +140,7 @@ _renderIcon = ({ route }) => {
           .filter(
             function(post){
               //console.log(post, post.likes.users.length);
-              return (post.likes.users.length > 1);//the threshold of like count
+              return (post.likes.users.length > 4);//the threshold of like count
             }
           )
           .map((post) => this.renderPost(post))
