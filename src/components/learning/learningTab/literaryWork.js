@@ -327,14 +327,22 @@ class LiteraryWork extends Component{
       // and this.props.currentMissionPosts
 
 
+     let submittedYet = (this.props.currentMission.detail.
+                         students.submitted
+                         .indexOf(this.props.loginState.id) > -1);
+      //PhotoCard
+
 
       if(this.state.selectedIndex === 0){
-        return(
-          <StudentWorkSubmit
-          loginState={this.props.loginState}
-          currentMission={this.props.currentMission}
-           />);
-        //studentCard
+        if(submittedYet){
+          return(<Text> 已繳交 ... </Text>);
+        }else{
+          return(
+            <StudentWorkSubmit
+            loginState={this.props.loginState}
+            currentMission={this.props.currentMission}
+             />);
+        }
       }
 
       if(this.state.selectedIndex === 1){
