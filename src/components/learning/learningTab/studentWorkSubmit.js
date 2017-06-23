@@ -7,7 +7,8 @@ import {
   TextInput,
   Dimensions,
   TouchableHighlight,
-  ActionSheetIOS
+  ActionSheetIOS,
+  Switch
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ImagePicker from 'react-native-image-crop-picker';
@@ -46,20 +47,28 @@ const GALLERY_INDEX = 1;
 const CANCEL_INDEX = 2;
 
 class StudentWorkSubmit extends Component{
+
+
+
   constructor(props){
     super(props);
     this.uploadImage = this.uploadImage.bind(this);
     this.uploadImageFromImagePicker = this.uploadImageFromImagePicker.bind(this);
     this.uploadImageFromCamera = this.uploadImageFromCamera.bind(this);
     this.showActionSheet = this.showActionSheet.bind(this);
+    this.toggleSwitch = this.toggleSwitch.bind(this);
 
     this.state = {
       title: '',
-      clicked: 'none'
+      clicked: 'none',
+      switchValue: true
     };
 
   }
+  toggleSwitch(value){
+    this.setState({ switchValue: value });
 
+  }
   showActionSheet(){
     ActionSheetIOS.showActionSheetWithOptions({
       options: BUTTONS,
@@ -148,6 +157,16 @@ class StudentWorkSubmit extends Component{
                 value={this.state.title}
               />
           </View>
+          <View style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            margin: 5
+          }}>
+            <Text style={{fontSize: 14, color: 'gray'}}> 主動公開於班級作品 </Text>
+            <Switch onValueChange = {this.toggleSwitch} value = {this.state.switchValue}/>
+          </View>
           <TouchableHighlight
             style={styles.photoCard}
             onPress={this.uploadImage}
@@ -168,7 +187,9 @@ class StudentWorkSubmit extends Component{
           <TouchableHighlight
             onPress={
               ()=>{
-
+                console.log(this.state.switchValue, 'this.state.switchValue');
+                //TODO: this.state.switchValue ==> 是否要公開文章
+                //上傳此 state, 且更新相對應 API 與 展演 最新 與 最熱門 的 pool
                 let body = {
                   detail: {
                     title: this.state.title
