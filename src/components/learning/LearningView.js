@@ -703,8 +703,19 @@ class LearningView extends Component {
         justifyContent: 'flex-start',
         height: 100
       }}>
-        <Text style={{fontSize:50}}>圖</Text>
-        <Text>{this.state.fetchCourse.name}</Text>
+      <Image
+      style={{
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        borderWidth: 0,
+        margin: 20
+       }}
+        source={require('../../img/color-logo.png')}
+      />
+        <View style={{height: 50, width: window.width, alignItems: 'center'}}>
+          <Text>{this.state.fetchCourse.name}</Text>
+        </View>
 
         <TouchableHighlight onPress={this.joinCourseAPI}>
           <View style={{
@@ -712,6 +723,8 @@ class LearningView extends Component {
             height: 30,
             backgroundColor: '#F9C00C',
             borderRadius: 5,
+            alignItems: 'center',
+            justifyContent: 'center',
             margin: 5
           }}>
           <Text style={{textAlign: 'center', color: 'white'}}>加入</Text>
