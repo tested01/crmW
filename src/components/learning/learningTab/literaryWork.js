@@ -169,10 +169,15 @@ class LiteraryWork extends Component{
   taskCardTemplate(mission){
     let startDay = GLOBLE.formatDateString(mission.missionDuration.startDate, '/');
     let endDay = GLOBLE.formatDateString(mission.missionDuration.endDate, '/');
+
+    let submittedSet = mission.students.submitted;
+    let courseSet = mission.target.members.students;
+    let notSubmittedSet = [...courseSet].filter(x => submittedSet.indexOf(x) < 0 );
+
     return(
       <TaskCard title={mission.title}
-      submit={ 1 }
-      notYet={ 31 }
+      submit={ submittedSet.length }
+      notYet={ notSubmittedSet.length }
       key={ mission._id }
       missionId={ mission._id }
       setInitMissionInfo={ this.setInitMissionInfo }
