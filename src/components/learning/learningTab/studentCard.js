@@ -51,7 +51,6 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomWidth: 1
-
   }
 }
 class StudentCardList extends Component{
@@ -125,7 +124,6 @@ class StudentCardList extends Component{
           <View>
           {this.props.currentMissionPosts.map(
             (post)=>{
-              console.log(post.publicVisible.visible, 'post.publicVisible.visible~');
               let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
               console.log(uShow, 'uShow');
               let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
@@ -212,7 +210,7 @@ class StudentCardList extends Component{
           <TouchableHighlight onPress={this.onSubmitToggle}>
             <View style={styles.toggleBar}>
               <View style={{margin: 5}}>
-               <Text>已繳交</Text>
+               <Text>已繳交 ({submittedSet.length})</Text>
               </View>
               {this.renderSubmittedIcon()}
             </View>
@@ -223,7 +221,7 @@ class StudentCardList extends Component{
          <TouchableHighlight onPress={this.onNotSubmitToggle}>
            <View style={styles.toggleBar}>
              <View style={{margin: 5}}>
-             <Text>未繳交</Text>
+             <Text>未繳交 ({notSubmittedSet.length})</Text>
              </View>
              {this.renderNotSubmittedIcon()}
            </View>
