@@ -42,6 +42,16 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'flex-end'
+  },
+  toggleBar: {
+    height: 35,
+    width: window.width,
+    backgroundColor: '#ededed',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1
+
   }
 }
 class StudentCardList extends Component{
@@ -54,7 +64,8 @@ class StudentCardList extends Component{
     this.onSubmitToggle=this.onSubmitToggle.bind(this);
     this.onNotSubmitToggle=this.onNotSubmitToggle.bind(this);
     this.renderSubmitToggle=this.renderSubmitToggle.bind(this);
-
+    this.renderSubmittedIcon=this.renderSubmittedIcon.bind(this);
+    this.renderNotSubmittedIcon=this.renderNotSubmittedIcon.bind(this);
   }
 
   componentWillMount(){
@@ -99,7 +110,14 @@ class StudentCardList extends Component{
     }
   }
 
+  renderSubmittedIcon(){
+    if(this.state.submitToggle){
+      return(<Icon name="sort-up" size={30} color="black" />);
+    }else{
+      return(<Icon name="sort-down" size={30} color="black" />)
+    }
 
+  }
   renderSubmitToggle(){
       //TODO: flag is still fake(mock) data
       if(this.state.submitToggle){
@@ -109,7 +127,7 @@ class StudentCardList extends Component{
             (post)=>{
               console.log(post.publicVisible.visible, 'post.publicVisible.visible~');
               let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
-              console.log(uShow, 'uShow'); 
+              console.log(uShow, 'uShow');
               let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
               return(
                 <StudentCard
@@ -140,7 +158,13 @@ class StudentCardList extends Component{
       this.setState({notSubmitToggle: true});
     }
   }
-
+  renderNotSubmittedIcon(){
+    if(this.state.notSubmitToggle){
+      return(<Icon name="sort-up" size={30} color="black" />);
+    }else{
+      return(<Icon name="sort-down" size={30} color="black" />)
+    }
+  }
   renderNotSubmitToggle(){
     if(this.state.notSubmitToggle){
       if(this.state.notSubmitted){
@@ -178,6 +202,7 @@ class StudentCardList extends Component{
     let submittedSet = this.props.currentMission.detail.students.submitted;
     let courseSet = this.props.currentMission.detail.target.members.students;
     let notSubmittedSet = [...courseSet].filter(x => submittedSet.indexOf(x) < 0 );
+    console.log(this.props.currentMission, 'this.props.currentMission');
     console.log(submittedSet, 'B: submitted std');
     console.log(courseSet, 'A: class members');
     console.log(notSubmittedSet, 'C: not submitted yet');
@@ -185,13 +210,23 @@ class StudentCardList extends Component{
     return(
       <ScrollView>
           <TouchableHighlight onPress={this.onSubmitToggle}>
-            <Text>已繳交</Text>
+            <View style={styles.toggleBar}>
+              <View style={{margin: 5}}>
+               <Text>已繳交</Text>
+              </View>
+              {this.renderSubmittedIcon()}
+            </View>
           </TouchableHighlight>
 
           {this.renderSubmitToggle()}
 
          <TouchableHighlight onPress={this.onNotSubmitToggle}>
-           <Text>未繳交</Text>
+           <View style={styles.toggleBar}>
+             <View style={{margin: 5}}>
+             <Text>未繳交</Text>
+             </View>
+             {this.renderNotSubmittedIcon()}
+           </View>
          </TouchableHighlight>
 
            {this.renderNotSubmitToggle()}
