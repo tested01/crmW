@@ -7,8 +7,11 @@ import {
   Dimensions,
   StyleSheet
 } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { updateExhibition } from '../../actions';
 import ImgCard from '../common/ImgCard';
 import Header from '../common/Header';
 import PhotoCard from '../learning/learningTab/photoCard';
@@ -52,11 +55,12 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class ExhibitionView extends Component {
+class ExhibitionView extends Component {
   constructor(props){
     super(props);
     this.fetchuShowPosts=this.fetchuShowPosts.bind(this);
     this.renderPost=this.renderPost.bind(this);
+    this.handleScrollNewest=this.handleScrollNewest.bind(this);
   }
   componentWillMount(){
     this.state = {
@@ -98,10 +102,16 @@ _renderIcon = ({ route }) => {
     );
   };
 
+  handleScrollNewest(event: Object){
+
+    console.log('event.nativeEvent.contentOffset.y: ', event.nativeEvent.contentOffset.y);
+
+  }
+
   renderNew(){
     if(this.state.uShow){
       return(
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
         {this.state.uShow
           .filter(
             function(post){
@@ -330,3 +340,30 @@ renderClassRoom(){
     );
   }
 }
+
+
+// Anything returned from this function will end up as props
+// on the LoginForm container
+
+function mapDispatchToProps(dispatch) {
+  // Whenever loginSuccess is called, the result should be passed
+  // to all of our reducers
+  return bindActionCreators({
+    updateExhibition
+   }, dispatch);
+}
+
+function mapStateToProps(state) {
+  // Whever is returned will show up as props
+  // inside of LoginForm
+  return {
+    //selectedFeature: state.selectedFeature,
+    loginState: state.loginState
+  };
+}
+
+// Promote BoxList from a component to a container - it
+// needs to know about this new dispatch method, selectedNumBox & answerNum.
+// Make it available as a prop.
+//export default connect(mapStateToProps, mapDispatchToProps)(LearningView);
+export default connect(mapStateToProps, mapDispatchToProps)(ExhibitionView);
