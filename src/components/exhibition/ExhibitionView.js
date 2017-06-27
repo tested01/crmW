@@ -61,6 +61,7 @@ class ExhibitionView extends Component {
     this.fetchuShowPosts=this.fetchuShowPosts.bind(this);
     this.renderPost=this.renderPost.bind(this);
     this.handleScrollNewest=this.handleScrollNewest.bind(this);
+    this.updatePosts=this.updatePosts.bind(this);
   }
   componentWillMount(){
     this.state = {
@@ -75,6 +76,8 @@ class ExhibitionView extends Component {
     };
     this.fetchuShowPosts();
     this.fetchuStarPosts();
+    this.props.updateExhibition(this.props.loginState.xAuth);
+    console.log(this.props.exhibition, 'this.props.updateExhibition');
   }
 
 
@@ -103,9 +106,40 @@ _renderIcon = ({ route }) => {
   };
 
   handleScrollNewest(event: Object){
-
+    let scrollGesture = event.nativeEvent.contentOffset.y;
     console.log('event.nativeEvent.contentOffset.y: ', event.nativeEvent.contentOffset.y);
+    //if the user scrolls over the top => trigger update mechanism
+    if(scrollGesture < 0){
+      this.props.updateExhibition(this.props.loginState.xAuth);
+      //a timeout for update redux
+      console.log(this.props.exhibition, 'this.props.updateExhibition scroll');
+    }
 
+  }
+
+  updatePosts(){
+    fetch(CONFIG.API_BASE_URL.concat('/posts/filters/new'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                console.log('new posts', {'posts': json.posts});
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   renderNew(){
@@ -358,7 +392,8 @@ function mapStateToProps(state) {
   // inside of LoginForm
   return {
     //selectedFeature: state.selectedFeature,
-    loginState: state.loginState
+    loginState: state.loginState,
+    exhibition: state.exhibition
   };
 }
 

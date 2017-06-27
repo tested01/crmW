@@ -64,7 +64,7 @@ export default class Notification extends Component{
 
   }
   render(){
-      console.log(this.state.contentUri, 'this.state.contentUri');
+      
       return (
         <View style={{display:'flex', flex: 1, justifyContent: 'flex-start'}}>
         <Modal

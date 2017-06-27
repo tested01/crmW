@@ -50,6 +50,29 @@ export const ADD_IMAGES = 'ADD_IMAGES';
 export const EDIT_IMAGES = 'EDIT_IMAGES';
 export const CLEAR_IMAGES = 'CLEAR_IMAGES';
 
+export const UPDATE_EXHIBITION = 'UPDATE_EXHIBITION';
+
+//SECTION: ExhibitionView update
+export function updateExhibition(){
+
+  let currentdate = new Date();
+  let currentdatetime = "Request Exhibition @ "
+                  + currentdate.getDate() + "/"
+                  + (currentdate.getMonth()+1)  + "/"
+                  + currentdate.getFullYear() + " @ "
+                  + currentdate.getHours() + ":"
+                  + currentdate.getMinutes() + ":"
+                  + currentdate.getSeconds();
+  console.log(currentdatetime);
+  return{
+    type: UPDATE_EXHIBITION,
+    payload: {
+      requestTime: currentdate
+    }
+  }
+}
+
+
 //SECTION: literaryWork related action creators
 export function addNewTask() {
   return {
@@ -63,6 +86,7 @@ export function endAddNewTask() {
   return {
     type: END_ADD_NEW_TASK,
     payload: {
+
     }
   };
 }

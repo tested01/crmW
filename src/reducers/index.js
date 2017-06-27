@@ -13,6 +13,7 @@ import HideHeader from './reducer_hideHeader';
 import CourseOperation from './reducer_courseOperation';
 import LiteraryWorksState from './reducer_literary_works_state';
 import CurrentImages from './reducer_currentImages';
+import UpdateExhibition from './reducer_updateExhibition';
 
 const appReducer = combineReducers({
   loginState: LoginReducer,
@@ -28,7 +29,8 @@ const appReducer = combineReducers({
   literaryWorksState: LiteraryWorksState,
   currentMission: CurrentMission,
   currentMissionPosts: CurrentMissionPosts,
-  currentImages: CurrentImages
+  currentImages: CurrentImages,
+  exhibition: UpdateExhibition
 });
 // To reset redux state after sign-out
 // reference: https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
