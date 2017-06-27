@@ -266,56 +266,58 @@ class LearningView extends Component {
   }
 
   renderCourseInfo(){
-    console.log(this.props.currentCourse);
-    if(this.props.currentCourse.code != ''){
-      let teacherName = this.props.currentCourse._creator.lastName +
-                         this.props.currentCourse._creator.firstName;
-      let startDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.startDate, '/');
-      let endDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.endDate, '/');
-      const courseInfoStyle = {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        borderBottomWidth: 1,
-        borderColor: '#cccccc',
-        height: 56,
-        width: window.width-40
-      };
+  
+      if(this.props.currentCourse.code != ''){
+        let teacherName = this.props.currentCourse._creator.lastName +
+                           this.props.currentCourse._creator.firstName;
+        let startDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.startDate, '/');
+        let endDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.endDate, '/');
+        const courseInfoStyle = {
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          borderBottomWidth: 1,
+          borderColor: '#cccccc',
+          height: 56,
+          width: window.width-40
+        };
 
-      return (
-        <View style={[styles.page, { backgroundColor: 'white' }]} >
-        <Image
-         style={{width: 80, height: 80, marginBottom: 5, marginTop: -80}}
-         source={require('../../img/color-logo.png')}
-        />
-
-        <View>
-         <Text>{ this.props.currentCourse.name }</Text>
-        </View>
-        <View style={courseInfoStyle}>
-          <Text> 開始時間 </Text>
-          <Text>{ startDate }</Text>
-        </View>
-        <View style={courseInfoStyle}>
-          <Text> 結束時間 </Text>
-          <Text>{ endDate }</Text>
-        </View>
-        <View style={courseInfoStyle}>
-          <Text> 老師 </Text>
-          <Text>{ teacherName }</Text>
-        </View>
-        <View style={courseInfoStyle}>
-          <Text> 班級代碼 </Text>
-          <Text>{ this.props.currentCourse.code }</Text>
-          </View>
-        </View>
-        );
-    }else{
         return (
-          <PleaseSelectCourseFirst />
-        );
-    }
+          <View style={[styles.page, { backgroundColor: 'white' }]} >
+          <Image
+           style={{width: 80, height: 80, marginBottom: 5, marginTop: -80}}
+           source={require('../../img/color-logo.png')}
+          />
+
+          <View>
+           <Text>{ this.props.currentCourse.name }</Text>
+          </View>
+          <View style={courseInfoStyle}>
+            <Text> 開始時間 </Text>
+            <Text>{ startDate }</Text>
+          </View>
+          <View style={courseInfoStyle}>
+            <Text> 結束時間 </Text>
+            <Text>{ endDate }</Text>
+          </View>
+          <View style={courseInfoStyle}>
+            <Text> 老師 </Text>
+            <Text>{ teacherName }</Text>
+          </View>
+          <View style={courseInfoStyle}>
+            <Text> 班級代碼 </Text>
+            <Text>{ this.props.currentCourse.code }</Text>
+            </View>
+          </View>
+          );
+      }else{
+          return (
+            <Text> 請先選擇班級 </Text>
+          );
+      }
+
+
 
   }
 

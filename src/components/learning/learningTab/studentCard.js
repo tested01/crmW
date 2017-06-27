@@ -51,6 +51,11 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomWidth: 1
+  },
+  zeroNote: {
+    height: 30,
+    width: window.width,
+    justifyContent: 'center'
   }
 }
 class StudentCardList extends Component{
@@ -118,30 +123,39 @@ class StudentCardList extends Component{
 
   }
   renderSubmitToggle(){
-      //TODO: flag is still fake(mock) data
+
       if(this.state.submitToggle){
-        return(
-          <View>
-          {this.props.currentMissionPosts.map(
-            (post)=>{
-              let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
-              console.log(uShow, 'uShow');
-              let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
-              return(
-                <StudentCard
-                  key={post._id}
-                  style={styles.cardList}
-                  name={post.author.lastName+post.author.firstName}
-                  publishDate={publishDate}
-                  title={post.detail.title}
-                  flag={uShow}
-              />)
-            }
+        if(this.props.currentMissionPosts.length > 0){
+          return(
+            <View>
+            {this.props.currentMissionPosts.map(
+              (post)=>{
+                let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
+                console.log(uShow, 'uShow');
+                let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
+                return(
+                  <StudentCard
+                    key={post._id}
+                    style={styles.cardList}
+                    name={post.author.lastName+post.author.firstName}
+                    publishDate={publishDate}
+                    title={post.detail.title}
+                    flag={uShow}
+                />)
+              }
 
 
-          )}
-          </View>
-        );
+            )}
+            </View>
+          );
+        }else{
+          return(
+            <View style={styles.zeroNote}>
+              <Text> 尚未有人繳交 </Text>
+            </View>
+          );
+        }
+
       }else{
         return(<View></View>);
       }
@@ -166,20 +180,29 @@ class StudentCardList extends Component{
   renderNotSubmitToggle(){
     if(this.state.notSubmitToggle){
       if(this.state.notSubmitted){
-        return(
-          this.state.notSubmitted.map(
-            std=>(
-              <StudentCard
-              key={std._id}
-              style={styles.cardList}
-              name={std.lastName+std.firstName}
-              title=''
-              publishDate=''
-              flag={false}
-              />
+        if(this.state.notSubmitted.length > 0){
+          return(
+            this.state.notSubmitted.map(
+              std=>(
+                <StudentCard
+                key={std._id}
+                style={styles.cardList}
+                name={std.lastName+std.firstName}
+                title=''
+                publishDate=''
+                flag={false}
+                />
+              )
             )
-          )
-        );
+          );
+        }else{
+          return(
+            <View style={styles.zeroNote}>
+              <Text> 無人未繳交 </Text>
+            </View>
+          );
+        }
+
       }else{
         return(<View></View>);
       }

@@ -77,49 +77,6 @@ export default class TabViewInstance extends Component {
     );
   };
 
-  
-
-  renderScene = ({ route }) => {
-    switch (route.key) {
-    case '1':
-      return <View style={[styles.page, { backgroundColor: 'white' }]} />;
-    case '2':
-      return (<Notification />);
-    case '3':
-      //<View style={[styles.page, { backgroundColor: 'white' }]} > </View>
-      return (<LiteraryWork />);
-    case '4':
-      return (<View style={[styles.page, { backgroundColor: 'gray', flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
-              <ScrollView>
-              <UwListView />
-              <View style={{ height: 80, margin: 1, backgroundColor: 'white',
-              flex: 1, flexDirection: 'row', justifyContent: 'center' }} >
-              <Image
-               style={{width: 80, height: 80, flex: 1}}
-               source={require('../../img/color-logo.png')}
-              />
-              <Text style={{ flex: 3, fontSize: 20, lineHeight: 80, textAlign: 'left'}}> 蔡英文 </Text>
-              <Image
-               style={{ height: 18, flex: 1, marginTop:30}}
-               source={require('../../img/dots.jpg')}
-              />
-              </View>
-              { this.renderMockStudents()}
-              { this.renderMockStudents2()}
-              { this.renderMockStudents()}
-              { this.renderMockStudents2()}
-              { this.renderMockStudents()}
-              { this.renderMockStudents2()}
-              { this.renderMockStudents2()}
-              { this.renderMockStudents()}
-              { this.renderMockStudents()}
-              { this.renderMockStudents2()}
-              </ScrollView>
-              </View>);
-    default:
-      return null;
-    }
-  };
 
   render() {
     let noCourse = true;

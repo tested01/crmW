@@ -195,7 +195,8 @@ class StudentWorkSubmit extends Component{
                     title: this.state.title
                   },
                   mission: this.props.currentMission.id,
-                  advisor: this.props.currentMission.teacher._id
+                  advisor: this.props.currentMission.teacher._id,
+                  openaccess: this.state.switchValue
                 };
                 console.log(this.props.currentMission.teacher._id, 'advisor');
                 fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
