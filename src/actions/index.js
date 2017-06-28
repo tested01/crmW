@@ -51,11 +51,13 @@ export const EDIT_IMAGES = 'EDIT_IMAGES';
 export const CLEAR_IMAGES = 'CLEAR_IMAGES';
 
 export const UPDATE_EXHIBITION = 'UPDATE_EXHIBITION';
+//export const UPDATE_EXHIBITION_POSTS = 'UPDATE_EXHIBITION_POSTS';
 
 //SECTION: ExhibitionView update
 export function updateExhibition(){
 
   let currentdate = new Date();
+  /*
   let currentdatetime = "Request Exhibition @ "
                   + currentdate.getDate() + "/"
                   + (currentdate.getMonth()+1)  + "/"
@@ -63,7 +65,7 @@ export function updateExhibition(){
                   + currentdate.getHours() + ":"
                   + currentdate.getMinutes() + ":"
                   + currentdate.getSeconds();
-  console.log(currentdatetime);
+  console.log(currentdatetime);*/
   return{
     type: UPDATE_EXHIBITION,
     payload: {
@@ -71,7 +73,18 @@ export function updateExhibition(){
     }
   }
 }
+/*
+export function updateExhibitionPosts(posts){
 
+  return{
+    type: UPDATE_EXHIBITION_POSTS,
+    payload: {
+      posts
+    }
+  }
+}
+
+*/
 
 //SECTION: literaryWork related action creators
 export function addNewTask() {

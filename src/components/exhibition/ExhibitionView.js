@@ -11,7 +11,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { updateExhibition } from '../../actions';
+import {
+  updateExhibition
+ } from '../../actions';
 import ImgCard from '../common/ImgCard';
 import Header from '../common/Header';
 import PhotoCard from '../learning/learningTab/photoCard';
@@ -80,8 +82,10 @@ class ExhibitionView extends Component {
     this.props.updateExhibition(this.props.loginState.xAuth);
 
     timer.setTimeout(
-      this, 'getExhibition', () =>
-      console.log(this.props.exhibition, 'this.props.updateExhibition'),
+      this, 'getExhibition', () => {
+        console.log(this.props.exhibition, 'this.props.updateExhibition');
+        this.updatePosts();
+      },
       500
     );
 
@@ -127,10 +131,13 @@ _renderIcon = ({ route }) => {
     if(scrollGesture < 0){
       this.props.updateExhibition(this.props.loginState.xAuth);
       //a timeout for update redux
-      //REUSE: a pattern for resolving redux async delay problem 
+      //REUSE: a pattern for resolving redux async delay problem
       timer.setTimeout(
-        this, 'getExhibition', () =>
-        console.log(this.props.exhibition, 'this.props.updateExhibition scroll'),
+        this, 'getExhibition', () => {
+          console.log(this.props.exhibition, 'this.props.updateExhibition scroll');
+          //fetch the data and set it to redux
+          this.updatePosts();
+        },
         500
       );
 
@@ -152,7 +159,8 @@ _renderIcon = ({ route }) => {
 
           response.json().then(json => {
                                 //this.setState(Object.assign({}, this.state, json));
-                                console.log('new posts', {'posts': json.posts});
+                                console.log('new posts', {'newposts': json.posts});
+                                this.setState(Object.assign({}, this.state, {'newposts': json.posts}));
                               });
         } else {
           console.log(response.status);
@@ -164,16 +172,16 @@ _renderIcon = ({ route }) => {
   }
 
   renderNew(){
-    if(this.state.uShow){
+    if(this.state.newposts){
       return(
         <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
-        {this.state.uShow
+        {this.state.newposts
           .filter(
             function(post){
               let postDate = new Date(post.createdDate);
 
               let d = new Date();
-              d.setDate(d.getDate() - 8);//8 is temp threshold for new posts
+              d.setDate(d.getDate() - 80);//8 is temp threshold for new posts
 
               return (postDate > d);//the threshold of like count
             }
