@@ -18,6 +18,7 @@ import PhotoCard from '../learning/learningTab/photoCard';
 import { GLOBLE } from '../common/Globle';
 import { CONFIG } from '../../config';
 
+const timer = require('react-native-timer');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -77,9 +78,23 @@ class ExhibitionView extends Component {
     this.fetchuShowPosts();
     this.fetchuStarPosts();
     this.props.updateExhibition(this.props.loginState.xAuth);
-    console.log(this.props.exhibition, 'this.props.updateExhibition');
-  }
 
+    timer.setTimeout(
+      this, 'getExhibition', () =>
+      console.log(this.props.exhibition, 'this.props.updateExhibition'),
+      500
+    );
+
+  }
+  /*
+   When a component unmounts, these timers have to be cleared and, so that you
+   are not left with zombie timers doing things when you did not expect them
+   to be there.
+   [*] https://www.npmjs.com/package/react-native-timer
+  */
+  componentWillUnmount(){
+    timer.clearTimeout(this);
+  }
 
   handleChangeTab = (index) => {
     this.setState({ index });
@@ -112,7 +127,13 @@ _renderIcon = ({ route }) => {
     if(scrollGesture < 0){
       this.props.updateExhibition(this.props.loginState.xAuth);
       //a timeout for update redux
-      console.log(this.props.exhibition, 'this.props.updateExhibition scroll');
+      //REUSE: a pattern for resolving redux async delay problem 
+      timer.setTimeout(
+        this, 'getExhibition', () =>
+        console.log(this.props.exhibition, 'this.props.updateExhibition scroll'),
+        500
+      );
+
     }
 
   }
