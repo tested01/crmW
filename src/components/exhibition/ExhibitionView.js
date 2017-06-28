@@ -64,7 +64,8 @@ class ExhibitionView extends Component {
     this.fetchuShowPosts=this.fetchuShowPosts.bind(this);
     this.renderPost=this.renderPost.bind(this);
     this.handleScrollNewest=this.handleScrollNewest.bind(this);
-    this.updatePosts=this.updatePosts.bind(this);
+    this.updateNewPosts=this.updateNewPosts.bind(this);
+    this.updateHotPosts=this.updateHotPosts.bind(this);
   }
   componentWillMount(){
     this.state = {
@@ -79,12 +80,14 @@ class ExhibitionView extends Component {
     };
     this.fetchuShowPosts();
     this.fetchuStarPosts();
+
     this.props.updateExhibition(this.props.loginState.xAuth);
 
     timer.setTimeout(
       this, 'getExhibition', () => {
         console.log(this.props.exhibition, 'this.props.updateExhibition');
-        this.updatePosts();
+        this.updateNewPosts();
+        this.updateHotPosts();
       },
       500
     );
@@ -136,7 +139,8 @@ _renderIcon = ({ route }) => {
         this, 'getExhibition', () => {
           console.log(this.props.exhibition, 'this.props.updateExhibition scroll');
           //fetch the data and set it to redux
-          this.updatePosts();
+          this.updateNewPosts();
+          this.updateHotPosts();
         },
         500
       );
@@ -145,8 +149,8 @@ _renderIcon = ({ route }) => {
 
   }
 
-  updatePosts(){
-    fetch(CONFIG.API_BASE_URL.concat('/posts/filters/new'), {
+  updateNewPosts(){
+    fetch(CONFIG.API_BASE_URL.concat('/posts/filters/new/10'), {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -203,16 +207,42 @@ _renderIcon = ({ route }) => {
     }
   }
 
+  updateHotPosts(){
+    fetch(CONFIG.API_BASE_URL.concat('/posts/filters/hot/10'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                console.log('new posts', {'newposts': json.posts});
+                                this.setState(Object.assign({}, this.state, {'hotposts': json.posts}));
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   renderHot(){
-    if(this.state.uShow){
+    if(this.state.hotposts){
 
       return(
-        <ScrollView style={{ flex: 1 }}>
-        {this.state.uShow
+        <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
+        {this.state.hotposts
           .filter(
             function(post){
               //console.log(post, post.likes.users.length);
-              return (post.likes.users.length > 4);//the threshold of like count
+              return (post.likes.users.length > 0);//the threshold of like count
             }
           )
           .map((post) => this.renderPost(post))
