@@ -14,6 +14,14 @@ import { GLOBLE, CrmHeader } from '../../common';
 import { CONFIG } from '../../../config';
 
 const window = Dimensions.get('window');
+//Guideline sizes are based on standard ~5" screen mobile device
+//TODO: adjust all the fontsize or other size
+//      with respect to device's size
+//      based on this guideline https://blog.solutotlv.com/size-matters/
+const guidelineBaseWidth = 350;
+const guidelineBaseHeight = 680;
+const scale = size => window.width / guidelineBaseWidth * size;
+
 class PhotoCard extends Component{
   constructor(props){
     super(props);
@@ -28,6 +36,7 @@ class PhotoCard extends Component{
     this.closeZoomImages = this.closeZoomImages.bind(this);
     this.openZoomImages = this.openZoomImages.bind(this);
     this.imageUrlList = this.imageUrlList.bind(this);
+    this.renderThumbnails = this.renderThumbnails.bind(this);
   }
   componentWillMount(){
     this.setState({post: this.props.post});
@@ -218,8 +227,132 @@ class PhotoCard extends Component{
 
     );
   }
-  render(){
+  renderThumbnails(resources){
+    console.log(resources.length, 'resources.length');
+    if(resources.length > 4){
+      let restPhotoNum = resources.length - 3;
+      return(
+        <View style={{display: 'flex'}}>
+            <View style={{
+              display: 'flex',
+              flexDirection: 'row'
+            }}>
+              <Image
+                style={{width: window.width/2, height: window.width/2}}
+                source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
+              />
+              <Image
+                style={{width: window.width/2, height: window.width/2}}
+                source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
+              />
+            </View>
+            <View style={{
+              display: 'flex',
+              flexDirection: 'row'
+            }}>
+              <Image
+                style={{width: window.width/2, height: window.width/2}}
+                source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
+              />
+              <View
+                style={{
+                  width: window.width/2,
+                  height: window.width/2,
+                  backgroundColor: 'gray',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Text style={{color: 'white', fontSize: scale(30)}}>
+                  { restPhotoNum.toString() }+
+                </Text>
+              </View>
+            </View>
+        </View>
+      );
+    }else{
+      if(resources.length === 1){
+        return(
+          <Image
+            style={{width: window.width, height: window.width}}
+            source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
+          />
+        );
+      }
+      if(resources.length === 2){
+        return(
+          <View>
+            <Image
+              style={{width: window.width, height: window.width/2}}
+              source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
+            />
+            <Image
+              style={{width: window.width, height: window.width/2}}
+              source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
+            />
+          </View>
+        );
+      }
+      if(resources.length === 3){
+        return(
+          <View style={{display: 'flex'}}>
+              <Image
+                style={{width: window.width, height: window.width/2}}
+                source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
+              />
+              <View style={{
+                display: 'flex',
+                flexDirection: 'row'
+              }}>
+                <Image
+                  style={{width: window.width/2, height: window.width/2}}
+                  source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
+                />
+                <Image
+                  style={{width: window.width/2, height: window.width/2}}
+                  source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
+                />
+              </View>
+          </View>
+        );
+      }
+      if(resources.length === 4){
+        return(
+          <View style={{display: 'flex'}}>
+              <View style={{
+                display: 'flex',
+                flexDirection: 'row'
+              }}>
+                <Image
+                  style={{width: window.width/2, height: window.width/2}}
+                  source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
+                />
+                <Image
+                  style={{width: window.width/2, height: window.width/2}}
+                  source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
+                />
+              </View>
+              <View style={{
+                display: 'flex',
+                flexDirection: 'row'
+              }}>
+                <Image
+                  style={{width: window.width/2, height: window.width/2}}
+                  source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
+                />
+                <Image
+                  style={{width: window.width/2, height: window.width/2}}
+                  source={{uri: CONFIG.API_BASE_URL + resources[3].uri}}
+                />
+              </View>
+          </View>
+        );
+      }
 
+    }
+
+  }
+  render(){
     const styles = {
       card:{
         marginBottom: 2,
@@ -287,10 +420,7 @@ class PhotoCard extends Component{
         </View>
         <View style={styles.photoGrid}>
           <TouchableHighlight onPress={this.openDetailImage}>
-            <Image
-              style={{width: window.width, height: window.width}}
-              source={{uri: CONFIG.API_BASE_URL + this.props.resources[0].uri}}
-            />
+            { this.renderThumbnails(this.props.resources)}
           </TouchableHighlight>
         </View>
         <View style={styles.footer}>
