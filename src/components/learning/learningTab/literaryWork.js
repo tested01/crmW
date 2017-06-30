@@ -340,7 +340,47 @@ class LiteraryWork extends Component{
 
       if(this.state.selectedIndex === 0){
         if(submittedYet){
-          return(<Text> 已繳交 ... </Text>);
+          console.log(this.props.currentMission, 'this.props.currentMission----');
+          console.log(this.props.currentMissionPosts, 'this.props.currentMissionPosts----');
+          console.log(this.props.loginState, 'loginState====');
+
+          let myEmail = this.props.loginState.email;
+
+
+
+
+          let teacher = this.props.currentMission.teacher;
+          let teacherFullName = teacher.lastName.concat(teacher.firstName);
+          if(this.props.currentMissionPosts.length > 0){
+            //filter
+            let myPost = this.props.currentMissionPosts.filter(function(el) {
+              return el.author.email === myEmail;
+            });
+            //TODO: update delay: after image will show in a flash
+            return(
+              <PhotoCard
+                key={myPost[0]._id}
+                _id={myPost[0]._id}
+                post={myPost[0]}
+                resources={myPost[0].detail.resources}
+                loginState={this.props.loginState}
+                title={myPost[0].detail.title}
+                author={myPost[0].author.lastName.concat(myPost[0].author.firstName)}
+                publishDate={myPost[0].createdDate}
+                teacher={teacherFullName}
+              >
+              </PhotoCard>
+
+            );
+
+          }else{
+
+            return(
+              <Text></Text>
+            );
+          }
+
+
         }else{
           return(
             <StudentWorkSubmit
@@ -394,7 +434,7 @@ class LiteraryWork extends Component{
   renderPost(post){
     let createdDate = post.createdDate;
     let resources = post.detail.resources;
-    console.log(resources);
+
     let teacher = this.props.currentMission.teacher;
     let teacherFullName = teacher.lastName.concat(teacher.firstName);
     return(
