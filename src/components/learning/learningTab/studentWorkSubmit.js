@@ -8,6 +8,7 @@ import {
   Dimensions,
   TouchableHighlight,
   ActionSheetIOS,
+  Modal,
   Switch
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -57,11 +58,13 @@ class StudentWorkSubmit extends Component{
     this.uploadImageFromCamera = this.uploadImageFromCamera.bind(this);
     this.showActionSheet = this.showActionSheet.bind(this);
     this.toggleSwitch = this.toggleSwitch.bind(this);
+    this.setPostPreviewModalVisible = this.setPostPreviewModalVisible.bind(this);
 
     this.state = {
       title: '',
       clicked: 'none',
-      switchValue: true
+      switchValue: true,
+      postPreviewModalVisible: false
     };
 
   }
@@ -131,6 +134,10 @@ class StudentWorkSubmit extends Component{
     // 2. uploadImageFromCamera
     this.showActionSheet();
   }
+  //Before post submitting, users should preview their work
+  setPostPreviewModalVisible(visible){
+    this.setState({postPreviewModalVisible: visible});
+  }
 
   render(){
     /*
@@ -184,12 +191,35 @@ class StudentWorkSubmit extends Component{
 
 
           </ScrollView>
+          <Modal
+                animationType={"slide"}
+                transparent={false}
+                visible={this.state.postPreviewModalVisible}
+                onRequestClose={() => {alert("Modal has been closed.")}}
+                >
+               <View style={{marginTop: 22}}>
+                <View>
+                  <Text>Hello World!</Text>
+
+                  <TouchableHighlight onPress={() => {
+                    this.setPostPreviewModalVisible(!this.state.postPreviewModalVisible)
+                  }}>
+                    <Text>Hide Modal</Text>
+                  </TouchableHighlight>
+
+                </View>
+               </View>
+          </Modal>
           <TouchableHighlight
             onPress={
               ()=>{
+                this.setPostPreviewModalVisible(true)
                 console.log(this.state.switchValue, 'this.state.switchValue');
-                //TODO: this.state.switchValue ==> 是否要公開文章
+                //this.state.switchValue ==> 是否要公開文章
                 //上傳此 state, 且更新相對應 API 與 展演 最新 與 最熱門 的 pool
+                //TODO: 點擊上傳 post 按鈕後, 需要能夠 預覽 post (利用 Modal)
+                //TODO: 確定送出後, 需要可以跳轉到該 post 個別頁面, 是可以修改的!
+
                 let body = {
                   detail: {
                     title: this.state.title
@@ -199,6 +229,9 @@ class StudentWorkSubmit extends Component{
                   openaccess: this.state.switchValue
                 };
                 console.log(this.props.currentMission.teacher._id, 'advisor');
+
+                /* //start real post
+
                 fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
                   method: 'POST',
                   headers: {
@@ -216,30 +249,6 @@ class StudentWorkSubmit extends Component{
 
                                             //TODO: get the post id & upload the currentImage
                                             //this.props.currentImages
-
-                                            //pass single image
-
-                                            /*
-                                            let img = this.props.currentImages[0];
-                                            let serverURL = CONFIG.API_BASE_URL.concat('/upload/photo')
-
-                                            var xhr = new XMLHttpRequest();
-
-                                            let photo = {
-                                                uri: img.path,
-                                                type: 'image/jpeg',
-                                                name: 'photo.jpg',
-                                            };
-
-
-                                            let body = new FormData();
-                                            //body.append('authToken', 'secret');
-                                            body.append('article', photo);
-                                            console.log(body);
-                                            xhr.open('POST', serverURL);
-                                            xhr.send(body);
-                                            */
-
                                             //pass multiple images
 
                                             console.log(json, 'posted post...');
@@ -281,6 +290,8 @@ class StudentWorkSubmit extends Component{
                   .catch((error) => {
                     console.log(error);
                   });
+
+                  */  //end real post
               }
             }
             style={{
@@ -321,7 +332,27 @@ function mapStateToProps(state) {
   };
 }
 
-// Promote BoxList from a component to a container - it
-// needs to know about this new dispatch method, selectedNumBox & answerNum.
-// Make it available as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(StudentWorkSubmit);
+
+//[backup-code-fragment] pass single image
+
+/*
+let img = this.props.currentImages[0];
+let serverURL = CONFIG.API_BASE_URL.concat('/upload/photo')
+
+var xhr = new XMLHttpRequest();
+
+let photo = {
+    uri: img.path,
+    type: 'image/jpeg',
+    name: 'photo.jpg',
+};
+
+
+let body = new FormData();
+//body.append('authToken', 'secret');
+body.append('article', photo);
+console.log(body);
+xhr.open('POST', serverURL);
+xhr.send(body);
+*/
