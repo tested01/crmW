@@ -340,14 +340,8 @@ class LiteraryWork extends Component{
 
       if(this.state.selectedIndex === 0){
         if(submittedYet){
-          console.log(this.props.currentMission, 'this.props.currentMission----');
-          console.log(this.props.currentMissionPosts, 'this.props.currentMissionPosts----');
-          console.log(this.props.loginState, 'loginState====');
 
           let myEmail = this.props.loginState.email;
-
-
-
 
           let teacher = this.props.currentMission.teacher;
           let teacherFullName = teacher.lastName.concat(teacher.firstName);
@@ -356,7 +350,7 @@ class LiteraryWork extends Component{
             let myPost = this.props.currentMissionPosts.filter(function(el) {
               return el.author.email === myEmail;
             });
-            //TODO: update delay: after image will show in a flash
+            //FIXME: update delay: after image will show in a flash
             return(
               <PhotoCard
                 key={myPost[0]._id}

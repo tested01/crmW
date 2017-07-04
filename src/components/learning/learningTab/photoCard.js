@@ -254,19 +254,24 @@ class PhotoCard extends Component{
                 style={{width: window.width/2, height: window.width/2}}
                 source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
               />
-              <View
-                style={{
-                  width: window.width/2,
-                  height: window.width/2,
-                  backgroundColor: 'gray',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <Text style={{color: 'white', fontSize: scale(30)}}>
-                  { restPhotoNum.toString() }+
-                </Text>
-              </View>
+
+              <Image
+                style={{width: window.width/2, height: window.width/2}}
+                source={{uri: CONFIG.API_BASE_URL + resources[3].uri}}>
+                <View
+                  style={{
+                    width: window.width/2,
+                    height: window.width/2,
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                >
+                  <Text style={{color: 'white', fontSize: scale(30)}}>
+                    { restPhotoNum.toString() }+
+                  </Text>
+                </View>
+              </Image>
             </View>
         </View>
       );

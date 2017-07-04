@@ -11,18 +11,20 @@ import {
   Modal,
   Switch
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import ImagePicker from 'react-native-image-crop-picker';
-import { GLOBLE } from '../../common/Globle';
-import { CONFIG } from '../../../config';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import ImagePicker from 'react-native-image-crop-picker';
+
+import { GLOBLE } from '../../common/Globle';
+import { CONFIG } from '../../../config';
 import {
   addImages,
   editImages,
   clearImages
  } from '../../../actions';
 import PhotoGrid from './photoGrid';
+
 
 const window = Dimensions.get('window');
 const styles = {
@@ -199,7 +201,8 @@ class StudentWorkSubmit extends Component{
                 >
                <View style={{marginTop: 22}}>
                 <View>
-                  <Text>Hello World!</Text>
+
+                  <Text> 這是預覽的 Modal, 要做 post 的 preview, 要接 確定上傳 的按鈕 => (start real post) </Text>
 
                   <TouchableHighlight onPress={() => {
                     this.setPostPreviewModalVisible(!this.state.postPreviewModalVisible)
@@ -213,8 +216,8 @@ class StudentWorkSubmit extends Component{
           <TouchableHighlight
             onPress={
               ()=>{
-                this.setPostPreviewModalVisible(true)
-                console.log(this.state.switchValue, 'this.state.switchValue');
+                this.setPostPreviewModalVisible(true); //開啟預覽的 Modal
+
                 //this.state.switchValue ==> 是否要公開文章
                 //上傳此 state, 且更新相對應 API 與 展演 最新 與 最熱門 的 pool
                 //TODO: 點擊上傳 post 按鈕後, 需要能夠 預覽 post (利用 Modal)
@@ -228,9 +231,9 @@ class StudentWorkSubmit extends Component{
                   advisor: this.props.currentMission.teacher._id,
                   openaccess: this.state.switchValue
                 };
-                console.log(this.props.currentMission.teacher._id, 'advisor');
 
-                /* //start real post
+
+                 /* //start real post
 
                 fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
                   method: 'POST',
