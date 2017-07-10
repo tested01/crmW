@@ -22,17 +22,17 @@ class RegisterSteps extends Component {
   conditionalRender(){
     switch(this.state.step){
       case 0:
-        return (< SelectRole />);
+        return (< SelectRole next={this.next}/>);
       case 1:
-        return (< FillForm />);
+        return (< FillForm next={this.next}/>);
       case 2:
-        return (< SchoolInfo />);
+        return (< SchoolInfo next={this.next}/>);
       case 3:
-        return (< Phone />);
+        return (< Phone next={this.next}/>);
       case 4:
-        return (< VerifyCode />);
+        return (< VerifyCode next={this.next}/>);
       case 5:
-        return (< RegisterSuccess />)
+        return (< RegisterSuccess next={this.next}/>)
     }
   }
   next() {

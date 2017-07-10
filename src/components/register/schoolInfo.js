@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableHighlight,
+  Dimensions
+ } from 'react-native';
 import ModalPicker from 'react-native-modal-picker';
 import { RegStyles } from './registerConf';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName } from '../../actions/index';
+
+const window = Dimensions.get('window');
 
 class SchoolInfo extends Component {
   constructor(props){
@@ -121,6 +130,19 @@ class SchoolInfo extends Component {
         container: {
             margin: 8
         },
+        nextButton: {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: window.height - 250,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }
     });
     return (
           <View>
@@ -183,6 +205,12 @@ class SchoolInfo extends Component {
                       value={this.state.schoolName} />
 
               </ModalPicker>
+              <TouchableHighlight
+                style={styles.nextButton}
+                onPress={this.props.next}
+                >
+                <Text style={{color: '#00B9F1'}}>繼續</Text>
+              </TouchableHighlight>
           </View>);
   }
 }

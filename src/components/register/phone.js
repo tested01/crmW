@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableHighlight } from 'react-native';
 import PhoneInput from 'react-native-phone-input';
 import { RegStyles } from './registerConf';
 import { TransparentCardSection } from '../common';
@@ -7,7 +12,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regPhone } from '../../actions/index';
 
-
+const window = Dimensions.get('window');
 class Phone extends Component {
 
   constructor(props){
@@ -56,12 +61,30 @@ class Phone extends Component {
         onPress={this.renderInfo}>
         <Text style={{fontSize: 5}}> phone info </Text>
         </TouchableHighlight>
-
+        <TouchableHighlight
+          style={styles.nextButton}
+          onPress={this.props.next}
+          >
+          <Text style={{color: '#00B9F1'}}>繼續</Text>
+        </TouchableHighlight>
       </View>);
   }
 }
 
 let styles = StyleSheet.create({
+    nextButton: {
+      position: 'absolute',
+      display: 'flex',
+      borderWidth: 2,
+      borderRadius: 10,
+      width: 320,
+      height: 50,
+      borderColor: '#00B9F1',
+      marginTop: window.height - 250,
+      alignSelf: 'center',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
     container: {
         flex: 1,
         alignItems: 'center',

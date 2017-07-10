@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { View, Text, Image, TouchableHighlight, Dimensions } from 'react-native';
 import { CrmHeader, CrmHeaderOld } from '../common/CrmHeader';
 import { RegStyles } from './registerConf';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regRole } from '../../actions/index';
+
+const window = Dimensions.get('window');
 
 class SelectRole extends Component {
   constructor(props){
@@ -56,13 +58,16 @@ class SelectRole extends Component {
   render() {
     const styles = {
       externalContainerStyle: {
+
         flex: 3,
         flexDirection: 'column',
-        justifyContent: 'space-around'
+
+        justifyContent: 'space-between'
       },
       cotainerStyle: {
         flex: 1,
         flexDirection: 'row',
+
         justifyContent: 'space-around'
       },
       viewStyle: {
@@ -99,14 +104,29 @@ class SelectRole extends Component {
         height: 150,
         lineHeight: 150,
         fontSize: 25
+      },
+      nextButton: {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        width: 320,
+        height: 50,
+        marginTop: window.height - 250,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
       }
     };
     return (
-      <View>
+
+      <View style={{display: 'flex', flex: 3}}>
         <Text style={RegStyles.headerStyle}>
           選擇身份
         </Text>
           <View style={styles.externalContainerStyle}>
+
           <View style={styles.cotainerStyle}>
               <TouchableHighlight onPress={() => this.selectRole('teacher')}>
                 <Image
@@ -135,7 +155,14 @@ class SelectRole extends Component {
        <View style={styles.textViewStyle}><Text style={this.state.studentTextStyle}>學生</Text></View>
        <View style={styles.textViewStyle}><Text style={{color:'gray'}}>家長</Text></View>
        </View>
+       <TouchableHighlight
+        style={styles.nextButton}
+        onPress={this.props.next}
+       >
+         <Text style={{color: '#00B9F1'}}>繼續</Text>
+       </TouchableHighlight>
        </View>
+
     );
   }
 }

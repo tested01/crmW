@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, Dimensions } from 'react-native';
 import { RegStyles } from './registerConf';
 import { NoLabelInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regVerifyCode } from '../../actions/index';
+
+const window = Dimensions.get('window');
+const styles = {
+  nextButton: {
+    position: 'absolute',
+    display: 'flex',
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#00B9F1',
+    width: 320,
+    height: 50,
+    marginTop: window.height - 250,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+}
 
 class VerifyCode extends Component {
   constructor(props){
@@ -42,6 +59,12 @@ class VerifyCode extends Component {
               <Text style={{textAlign: 'center'}}>
                尚未收到驗證碼，再傳送一次
               </Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.nextButton}
+              onPress={this.props.next}
+              >
+              <Text style={{color: '#00B9F1'}}>繼續</Text>
             </TouchableHighlight>
           </View>);
   }

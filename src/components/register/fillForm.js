@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight, Dimensions } from 'react-native';
 import { RegStyles } from './registerConf';
 import { NoLabelUnderlineInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regFirstname, regLastname, regEmail, regPassword } from '../../actions/index';
 
+const window = Dimensions.get('window');
+const styles = {
+  nextButton: {
+    position: 'absolute',
+    display: 'flex',
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#00B9F1',
+    width: 320,
+    height: 50,
+    marginTop: window.height - 250,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+}
 class FillForm extends Component {
   constructor(props) {
     super(props);
@@ -99,6 +115,12 @@ class FillForm extends Component {
          為了你的使用權利及安全，請務必填寫真實姓名。
         </Text>
       </TransparentCardSection>
+      <TouchableHighlight
+        style={styles.nextButton}
+        onPress={this.props.next}
+        >
+        <Text style={{color: '#00B9F1'}}>繼續</Text>
+      </TouchableHighlight>
       </View>);
   }
 }
