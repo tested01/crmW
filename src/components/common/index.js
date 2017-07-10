@@ -16,3 +16,4 @@ export * from './CrmHeaderOld';
 export * from './NoLabelUnderlineInput';
 export * from './StudentCard';
 export * from './PleaseSelectCourseFirst';
+export * from './HoverableView';

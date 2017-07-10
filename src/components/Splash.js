@@ -3,17 +3,19 @@ import {
   Text,
   View,
   Image,
+  TouchableOpacity,
   Dimensions
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import LoginingScreen from './LoginingScreen';
+import { HoverableView } from './common';
 
 const window = Dimensions.get('window');
 class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      AfterSplash: true, //false, //fixme2
+      AfterSplash: false, //fixme2
       DragStartState: 0
     };
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
@@ -33,7 +35,7 @@ class Splash extends Component {
     const endIndex = context.state.total - 1;
     const currentIndex = context.state.index;
     if (currentIndex === endIndex) {
-      this.setState({ AfterSplash: true });
+      //this.setState({ AfterSplash: true }); //改成確認按鈕
     }
   }
 
@@ -46,6 +48,8 @@ class Splash extends Component {
     renderSplash() {
       const styles = {
         wrapper: {
+          display: 'flex',
+          justifyContent: 'center',
         },
         slide1: {
           flex: 1,
@@ -73,17 +77,32 @@ class Splash extends Component {
         stretch: {
            width: window.width,
            height: window.height
-        }
+        },
+        lastPage: {
+           width: window.width,
+           height: window.height
+        },
+        ghostButton: {
+          width: 220,
+          height: 50,
+          backgroundColor: '#0077B5',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderWidth: 5,
+          borderColor: '#00B9F1',
+          borderRadius: 10,
+          marginBottom: 70
+}
       };
       return (
         <Swiper
-        style={styles.wrapper}
+        contentContainerStyle={styles.wrapper}
         onMomentumScrollEnd={this.onMomentumScrollEnd}
         onScrollBeginDrag={this.onScrollBeginDrag}
         onTouchStart={this.onTouchStart}
         loop={false}
         dotColor='gray'
-        activeDotColor='white'
+        activeDotColor='#0077b5'
         >
           <View style={styles.slide1}>
 
@@ -100,11 +119,31 @@ class Splash extends Component {
             />
           </View>
           <View style={styles.slide3}>
-
             <Image
-              style={styles.stretch}
+              style={styles.lastPage}
               source={require('../img/splash/splash_03.png')}
             />
+            <HoverableView
+              style={{
+                position: 'absolute',
+                width: window.width,
+                height: window.height,
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'center'
+              }
+          }>
+              <TouchableOpacity
+                style={styles.ghostButton}
+                onPress={()=>this.setState({ AfterSplash: true })}>
+
+              <Text style={{
+                color: 'white',
+                fontSize: 18,
+                fontWeight: 'bold'}}> 進入 uShow </Text>
+              </TouchableOpacity>
+
+            </HoverableView>
           </View>
         </Swiper>
       );
