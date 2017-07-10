@@ -157,7 +157,7 @@ class LiteraryWork extends Component{
 
   //TODO: taskCard Factory
   taskCardFactory(){
-
+     
     //fetch missions based on currentCourse
     return (
       <View>

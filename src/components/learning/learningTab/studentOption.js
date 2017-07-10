@@ -48,7 +48,7 @@ class StudentOptionList extends Component{
   }
 
   render(){
-    console.log(this.props.currentMissionPosts, '吳小福');
+    
     let loginState = this.props.loginState;
     return(
       <ScrollView>

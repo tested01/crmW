@@ -25,6 +25,7 @@ import {
 import { CustomizedButton, PleaseSelectCourseFirst } from '../common';
 import StudentCard from '../common/StudentCard';
 import Notification from './learningTab/notification';
+import CourseInfo from './learningTab/courseInfo';
 
 const window = Dimensions.get('window');
 
@@ -158,7 +159,6 @@ class LearningView extends Component {
   }
 
   joinClass(){
-
     this.props.courseOperation(true);
     this.props.hideHeader(true);
   }
@@ -266,8 +266,15 @@ class LearningView extends Component {
   }
 
   renderCourseInfo(){
-  
+
       if(this.props.currentCourse.code != ''){
+        //currentCourse={this.props.currentCourse}
+        return(
+          <CourseInfo />
+        );
+
+
+        /*
         let teacherName = this.props.currentCourse._creator.lastName +
                            this.props.currentCourse._creator.firstName;
         let startDate = GLOBLE.formatDateString(this.props.currentCourse.courseDuration.startDate, '/');
@@ -311,12 +318,13 @@ class LearningView extends Component {
             </View>
           </View>
           );
-      }else{
-          return (
-            <Text> 請先選擇班級 </Text>
-          );
-      }
+       */
 
+      }else{
+        return (
+          <Text> 請先選擇班級 </Text>
+        );
+      }
 
 
   }
@@ -564,7 +572,9 @@ class LearningView extends Component {
       </View>
     );
   }
+
   createCourse(){
+    //設立 currentCourse 為新建立的那個班級
 
     let { error_courseName,
           error_startDate,

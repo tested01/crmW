@@ -80,6 +80,15 @@ class StudentCardList extends Component{
     let list = {
       list: notSubmittedSet
     }
+    /*
+    let uShowFlags = []
+    this.props.currentMissionPosts.map(
+      (post, postIndex)=>{
+        let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);
+         uShowFlags.push(uShow);
+      });
+    this.setState({uShowFlags});
+    */
     fetch(CONFIG.API_BASE_URL.concat('/users/list'), {
       method: 'POST',
       headers: {
@@ -129,9 +138,9 @@ class StudentCardList extends Component{
           return(
             <View>
             {this.props.currentMissionPosts.map(
-              (post)=>{
+              (post, postIndex)=>{
                 let uShow = (post.publicVisible.visible.indexOf('uShow') > -1);//TODO: refactoring to constant
-                console.log(uShow, 'uShow');
+
                 let publishDate = GLOBLE.formatDateTimeString(post.createdDate, '/');
                 return(
                   <StudentCard
