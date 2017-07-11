@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight, Dimensions } from 'react-native';
+import { View, Text, Image, TouchableHighlight, Dimensions,
+         Alert } from 'react-native';
 import { CrmHeader, CrmHeaderOld } from '../common/CrmHeader';
 import { RegStyles } from './registerConf';
 import { connect } from 'react-redux';
@@ -24,13 +25,54 @@ class SelectRole extends Component {
       studentTextStyle:{color: 'black'},
       selectedRole: ''
     }
+    this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
+    this.onHandleCont = this.onHandleCont.bind(this);
   }
   /*
   When user hits back, filled data will be retrieved and filled automatically
   */
   componentWillMount(){
+    let buttonHeight = window.height - 150;
     if(this.props.registerSpec.role){
       this.selectRole(this.props.registerSpec.role);
+      this.state.nextButton
+      = {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          backgroundColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: buttonHeight,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        };
+        this.setState({'nextButtonText': {
+          color: 'white'
+          }
+        });
+    }else{
+      this.state.nextButton
+      = {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: buttonHeight,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        };
+        this.setState({'nextButtonText': {
+          color: '#00B9F1'
+          }
+        });
     }
   }
   selectRole(role){
@@ -42,6 +84,7 @@ class SelectRole extends Component {
                        studentTextStyle:{color: 'black'},
                        selectedRole: 'teacher'});
         this.props.regRole( role );
+        this.setCurrentButtonStyle();
         break;
       case 'student':
         this.setState({t_uri: this.x_teacher,
@@ -50,11 +93,51 @@ class SelectRole extends Component {
                        studentTextStyle:{color: 'skyblue', fontWeight: 'bold'},
                        selectedRole: 'student'});
         this.props.regRole( role );
+        this.setCurrentButtonStyle();
         break;
       default:
       break;
     }
   }
+  setCurrentButtonStyle(){
+    let buttonHeight = window.height - 150;
+    this.setState({
+      'nextButton': {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: '#00B9F1',
+        width: 320,
+        height: 50,
+        marginTop: buttonHeight,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      'nextButtonText': {
+        color: 'white'
+      }
+    }
+    );
+  }
+
+  onHandleCont(){
+    if(this.state.nextButtonText.color === 'white'){
+      this.props.next();
+    }else{
+      Alert.alert(
+        '請先選擇您的身份',
+        '\n選擇老師或學生身份後繼續',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      );
+    }
+  }
+
   render() {
     const styles = {
       externalContainerStyle: {
@@ -113,7 +196,21 @@ class SelectRole extends Component {
         borderColor: '#00B9F1',
         width: 320,
         height: 50,
-        marginTop: window.height - 250,
+        marginTop: window.height - 150,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      nextButtonActive: {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: '#00B9F1',
+        width: 320,
+        height: 50,
+        marginTop: window.height - 150,
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center'
@@ -156,10 +253,10 @@ class SelectRole extends Component {
        <View style={styles.textViewStyle}><Text style={{color:'gray'}}>家長</Text></View>
        </View>
        <TouchableHighlight
-        style={styles.nextButton}
-        onPress={this.props.next}
+        style={this.state.nextButton}
+        onPress={this.onHandleCont}
        >
-         <Text style={{color: '#00B9F1'}}>繼續</Text>
+         <Text style={this.state.nextButtonText}>繼續</Text>
        </TouchableHighlight>
        </View>
 

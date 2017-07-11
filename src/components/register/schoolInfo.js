@@ -138,7 +138,7 @@ class SchoolInfo extends Component {
           borderColor: '#00B9F1',
           width: 320,
           height: 50,
-          marginTop: window.height - 250,
+          marginTop: window.height - 150,
           alignSelf: 'center',
           alignItems: 'center',
           justifyContent: 'center'
