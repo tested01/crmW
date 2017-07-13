@@ -22,6 +22,7 @@ class Phone extends Component {
   }
 
   updateInfo(){
+
     this.setState({
         valid: this.refs.phone.isValidNumber(),
         type: this.refs.phone.getNumberType(),
@@ -33,6 +34,8 @@ class Phone extends Component {
     }else{
       this.props.regPhone('+886');
     }
+    console.log(this.refs.phone.getValue(), 'type phone');
+    console.log(this.state, 'phone');
 
   }
   renderInfo(){
@@ -40,6 +43,12 @@ class Phone extends Component {
   }
 
   render() {
+    /*
+    <TouchableHighlight
+    onPress={this.renderInfo}>
+    <Text style={{fontSize: 5}}> phone info </Text>
+    </TouchableHighlight>
+    */
     return (
       <View>
         <Text style={RegStyles.headerStyle}>
@@ -57,10 +66,7 @@ class Phone extends Component {
           ref='phone'
           />
         </View>
-        <TouchableHighlight
-        onPress={this.renderInfo}>
-        <Text style={{fontSize: 5}}> phone info </Text>
-        </TouchableHighlight>
+
         <TouchableHighlight
           style={styles.nextButton}
           onPress={this.props.next}

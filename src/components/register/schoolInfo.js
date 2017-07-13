@@ -5,6 +5,7 @@ import {
   TextInput,
   StyleSheet,
   TouchableHighlight,
+  Alert,
   Dimensions
  } from 'react-native';
 import ModalPicker from 'react-native-modal-picker';
@@ -16,6 +17,7 @@ import {
  } from '../../actions/index';
 
 const window = Dimensions.get('window');
+const buttonHeight = window.height - 150;
 
 class SchoolInfo extends Component {
   constructor(props){
@@ -30,6 +32,12 @@ class SchoolInfo extends Component {
     };
     this.setCurrentSchoolsList = this.setCurrentSchoolsList.bind(this);
     this.isFullFillment = this.isFullFillment.bind(this);
+    this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
+    this.onHandleCont = this.onHandleCont.bind(this);
+    this.verifyTheFormRedux = this.verifyTheFormRedux.bind(this);
+    this.verifyTheForm = this.verifyTheForm.bind(this);
+    this.checkAndUpdateButton = this.checkAndUpdateButton.bind(this);
+    this.resetCurrentButtonStyle = this.resetCurrentButtonStyle.bind(this);
     this.elementarySchools = require('../../json/elementary_schools.json');
     this.juniorHighSchools = require('../../json/junior_high_schools.json');
     this.seniorHighSchools = require('../../json/senior_high_schools.json');
@@ -59,6 +67,100 @@ class SchoolInfo extends Component {
       this.setSchoolName({schoolName:this.props.registerSpec.schoolName});
     }
 
+    if(this.verifyTheFormRedux().overallCondition){
+      this.state.nextButton
+      = {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          backgroundColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: buttonHeight,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        };
+        this.setState({'nextButtonText': {
+          color: 'white'
+          }
+        });
+    }else{
+      this.state.nextButton
+      = {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: buttonHeight,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        };
+        this.setState({'nextButtonText': {
+          color: '#00B9F1'
+          }
+        });
+
+      }
+  }
+  verifyTheFormRedux(){
+    if(this.props.registerSpec.schoolType&&this.props.registerSpec.schoolLevel&&
+      this.props.registerSpec.schoolName&&this.props.registerSpec.schoolCity)
+      {
+      return({overallCondition: true});
+      }else{
+        return({overallCondition: false});
+      }
+    }
+  setCurrentButtonStyle(){
+    this.setState({
+      'nextButton': {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: '#00B9F1',
+        width: 320,
+        height: 50,
+        marginTop: buttonHeight,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      'nextButtonText': {
+        color: 'white'
+      }
+    }
+    );
+  }
+  resetCurrentButtonStyle(){
+    this.setState({
+      'nextButton': {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: 'white',
+        width: 320,
+        height: 50,
+        marginTop: buttonHeight,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      'nextButtonText': {
+        color: '#00B9F1'
+      }
+    }
+    );
   }
 
   setCurrentSchoolsList(schoolType, schoolCity){
@@ -123,9 +225,9 @@ class SchoolInfo extends Component {
     console.log(hasCity, hasType, hasName, hasLevel, 'wwwwwww@@');
   }
   setSchoolType(schoolType){
-    this.setState(schoolType);
-    this.setState({schoolLevel: ''})//reset schoolLevel
-    this.setState({schoolName: ''});//reset schoolName
+    this.setState(schoolType, this.checkAndUpdateButton);
+    this.setState({schoolLevel: ''}, this.checkAndUpdateButton)//reset schoolLevel
+    this.setState({schoolName: ''}, this.checkAndUpdateButton);//reset schoolName
     //check if completed
     this.isFullFillment();
 
@@ -182,20 +284,18 @@ class SchoolInfo extends Component {
   }
 
   setSchoolLevel(schoolLevel){
-    this.setState(schoolLevel);
-
-    console.log(schoolLevel,this.props.registerSpec);
+    this.setState(schoolLevel, this.checkAndUpdateButton);
     this.props.regSchoolLevel(schoolLevel.schoolLevel);
     //check if completed
     this.isFullFillment();
+
   }
 
   setSchoolCity(schoolCity){
-    this.setState(schoolCity);
-    this.setState({schoolName: ''});//reset schoolName
+    this.setState(schoolCity, this.checkAndUpdateButton);
+    this.setState({schoolName: ''}, this.checkAndUpdateButton);//reset schoolName
 
     if(this.state.schoolType != ''){
-
       this.setCurrentSchoolsList(this.state.schoolType, schoolCity.schoolCity);
     }else{
       console.log('no~~~~~~~st')
@@ -212,10 +312,16 @@ class SchoolInfo extends Component {
   }
 
   setSchoolName(schoolName){
-    this.setState(schoolName);
-    console.log(schoolName,schoolName.schoolName);
-    console.log(this.props.registerSpec);
+    this.setState(schoolName, this.checkAndUpdateButton);
     this.props.regSchoolName(schoolName.schoolName);
+  }
+
+  checkAndUpdateButton(){
+    if(this.verifyTheForm().condition){
+      this.setCurrentButtonStyle();
+    }else{
+      this.resetCurrentButtonStyle();
+    }
   }
 
   fetchCity(){
@@ -282,6 +388,50 @@ class SchoolInfo extends Component {
     */
     return data;
   }
+  verifyTheForm(){
+    let errorMsg = '\n';
+    let condition = true;
+    if (this.state.schoolType == ''){
+      condition = false;
+      errorMsg+='請選擇學制\n'
+    }
+    if(this.state.schoolLevel == ''){
+      condition = false;
+      errorMsg+='請選擇年級\n'
+    }
+    if(this.state.schoolName ==''){
+      condition = false;
+      errorMsg+='請選擇學校名稱\n'
+    }
+    if(this.state.schoolCity == ''){
+      condition = false;
+      errorMsg+='請選擇學校縣市\n'
+    }
+    console.log({ errorMsg, condition }, 'asdfasdf');
+    return { errorMsg, condition };
+  }
+  onHandleCont(){
+    //this.props.next
+    //this.verifyTheForm();
+    let { condition, errorMsg } = this.verifyTheForm();
+
+    if(condition){
+      //TODO: change the button color
+
+      this.props.next();
+
+    }else{
+      Alert.alert(
+        '填寫學校資料',
+        errorMsg,
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      );
+    }
+
+  }
   render() {
     let styles = StyleSheet.create({
         container: {
@@ -311,6 +461,7 @@ class SchoolInfo extends Component {
                 data={this.fetchCity()}
                 style={styles.container}
                 initValue=""
+                cancelText="取消"
                 onChange={(option)=>{ this.setSchoolCity({schoolCity:option.label})}}>
 
                 <TextInput
@@ -325,6 +476,7 @@ class SchoolInfo extends Component {
                 data={this.fetchSchoolType()}
                 style={styles.container}
                 initValue=""
+                cancelText="取消"
                 onChange={(option)=>{ this.setSchoolType({schoolType:option.label})}}>
 
                 <TextInput
@@ -339,6 +491,7 @@ class SchoolInfo extends Component {
                 data={this.state.levelData}
                 style={styles.container}
                 initValue=""
+                cancelText="取消"
                 onChange={(option)=>{ this.setSchoolLevel({schoolLevel:option.label})}}>
 
                 <TextInput
@@ -353,6 +506,7 @@ class SchoolInfo extends Component {
                   data={this.fetchSchool()}
                   style={styles.container}
                   initValue=""
+                  cancelText="取消"
                   onChange={(option)=>{ this.setSchoolName({schoolName:option.label})}}>
 
                   <TextInput
@@ -363,10 +517,10 @@ class SchoolInfo extends Component {
 
               </ModalPicker>
               <TouchableHighlight
-                style={styles.nextButton}
-                onPress={this.props.next}
+                style={this.state.nextButton}
+                onPress={this.onHandleCont}
                 >
-                <Text style={{color: '#00B9F1'}}>繼續</Text>
+                <Text style={this.state.nextButtonText}>繼續</Text>
               </TouchableHighlight>
           </View>);
   }

@@ -278,8 +278,6 @@ class FillForm extends Component {
         { cancelable: false }
       );
     }
-
-
   }
   render() {
     /*
