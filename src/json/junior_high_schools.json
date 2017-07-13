@@ -1,0 +1,6628 @@
+{
+  "schools": [
+  {
+    "code": 14501,
+    "schoolName": "市立板橋國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區中正路437號",
+    "tel": "(02)29666498#234",
+    "url": "http://www.pcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14503,
+    "schoolName": "市立重慶國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區國慶路221號",
+    "tel": "(02)29543001",
+    "url": "http://www.ccjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14504,
+    "schoolName": "市立江翠國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區松江街63號",
+    "tel": "(02)22513256",
+    "url": "http://www.ctjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14505,
+    "schoolName": "市立中山國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區文化路一段188巷56號",
+    "tel": "(02)22508250#201",
+    "url": "http://www.csjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14506,
+    "schoolName": "市立新埔國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區新海路181號",
+    "tel": "(02)22572275",
+    "url": "http://www.hpjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14507,
+    "schoolName": "市立新莊國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[242]新北市新莊區中正路211號",
+    "tel": "(02)22766326",
+    "url": "http://www.hcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14508,
+    "schoolName": "市立新泰國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[242]新北市新莊區新泰路359號",
+    "tel": "(02)29960745",
+    "url": "http://www.htjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14509,
+    "schoolName": "市立福營國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[242]新北市新莊區富國路105號",
+    "tel": "(02)22045556",
+    "url": "http://www.fyjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14510,
+    "schoolName": "市立頭前國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[242]新北市新莊區中原路2號",
+    "tel": "(02)85222862",
+    "url": "http://www.tcjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14512,
+    "schoolName": "市立光榮國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[241]新北市三重區介壽路26號",
+    "tel": "(02)29721430",
+    "url": "http://www.grjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14513,
+    "schoolName": "市立明志國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[241]新北市三重區中正北路107號",
+    "tel": "(02)29844132",
+    "url": "http://www.mcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14514,
+    "schoolName": "市立碧華國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[241]新北市三重區自強路五段66號",
+    "tel": "(02)29851121",
+    "url": "http://www.bhjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14516,
+    "schoolName": "市立永和國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[234]新北市永和區國中路111號",
+    "tel": "(02)29214209",
+    "url": "http://www.jhjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14517,
+    "schoolName": "市立福和國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[234]新北市永和區永利路71號",
+    "tel": "(02)29261836",
+    "url": "http://www.fhjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14518,
+    "schoolName": "市立中和國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[235]新北市中和區興南路二段3巷17號",
+    "tel": "(02)29422270",
+    "url": "http://www.chjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14519,
+    "schoolName": "市立積穗國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[235]新北市中和區民安街66號",
+    "tel": "(02)22234747",
+    "url": "http://www.gsjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14520,
+    "schoolName": "市立漳和國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[235]新北市中和區廣福路39號",
+    "tel": "(02)22488616",
+    "url": "http://www.chjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14521,
+    "schoolName": "市立鶯歌國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[239]新北市鶯歌區尖山埔路108號",
+    "tel": "(02)26701461",
+    "url": "http://www.ykjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14523,
+    "schoolName": "市立柑園國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[238]新北市樹林區柑園街二段125號",
+    "tel": "(02)26801958",
+    "url": "http://www.gyjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14524,
+    "schoolName": "市立土城國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[236]新北市土城區永寧路18號",
+    "tel": "(02)22675135#102",
+    "url": "http://www.tcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14525,
+    "schoolName": "市立三峽國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[237]新北市三峽區復興路238號",
+    "tel": "(02)26711043",
+    "url": "http://www.shjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14527,
+    "schoolName": "市立八里國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[249]新北市八里區荖阡坑路15號",
+    "tel": "(02)26102016",
+    "url": "http://www.pljhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14528,
+    "schoolName": "市立泰山國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[243]新北市泰山區泰林路二段498號",
+    "tel": "(02)2296-2519",
+    "url": "http://www.ttcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14529,
+    "schoolName": "市立五股國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[248]新北市五股區成泰路二段49巷15號",
+    "tel": "(02)22915224",
+    "url": "http://www.wkjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14530,
+    "schoolName": "市立蘆洲國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[247]新北市蘆洲區中正路265號",
+    "tel": "(02)22811571",
+    "url": "http://www.lcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14531,
+    "schoolName": "市立林口國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[244]新北市林口區民治路25號",
+    "tel": "(02)26011014",
+    "url": "http://www.lkjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14533,
+    "schoolName": "市立汐止國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[221]新北市汐止區禮門里大同路二段394號",
+    "tel": "(02)26412065",
+    "url": "http://www.hcjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14534,
+    "schoolName": "市立淡水國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[251]新北市淡水區文化里真理街10號",
+    "tel": "(02)26218821",
+    "url": "http://www.tsjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14536,
+    "schoolName": "市立三芝國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[252]新北市三芝區淡金路一段38號",
+    "tel": "(02)26362004",
+    "url": "http://www.szjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14537,
+    "schoolName": "市立石門國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[253]新北市石門區中央路1之9號",
+    "tel": "(02)26381273",
+    "url": "http://www.smjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14539,
+    "schoolName": "市立萬里國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[207]新北市萬里區獅頭路24號",
+    "tel": "(02)24922053",
+    "url": "http://www.wljhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14540,
+    "schoolName": "市立坪林國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[232]新北市坪林區國中路4號",
+    "tel": "(02)26656210",
+    "url": "http://www.pljh.ntpc.edu.tw"
+  },
+  {
+    "code": 14541,
+    "schoolName": "市立文山國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[231]新北市新店區文中路38號",
+    "tel": "(02)29111672",
+    "url": "http://www.wsjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14542,
+    "schoolName": "市立五峰國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[231]新北市新店區中興路一段253號",
+    "tel": "(02)29112005",
+    "url": "http://www.wfjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14544,
+    "schoolName": "市立瑞芳國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[224]新北市瑞芳區三爪子坑路1號",
+    "tel": "(02)24972145",
+    "url": "http://www.rfjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14545,
+    "schoolName": "市立欽賢國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[224]新北市瑞芳區崙頂路3之1號",
+    "tel": "(02)24972261",
+    "url": "http://www.cejh.ntpc.edu.tw"
+  },
+  {
+    "code": 14546,
+    "schoolName": "市立貢寮國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[228]新北市貢寮區嵩陽街42號",
+    "tel": "(02)24941941",
+    "url": "http://www.kljh.ntpc.edu.tw"
+  },
+  {
+    "code": 14549,
+    "schoolName": "市立深坑國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[222]新北市深坑區文化街41號",
+    "tel": "(02)26621455",
+    "url": "http://www.skjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14550,
+    "schoolName": "市立平溪國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[226]新北市平溪區石底街92號",
+    "tel": "(02)24951010",
+    "url": "http://www.phjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14551,
+    "schoolName": "市立烏來國中(小)",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[233]新北市烏來區啦卡路5號",
+    "tel": "(02)26616482",
+    "url": "http://www.wujh.ntpc.edu.tw"
+  },
+  {
+    "code": 14552,
+    "schoolName": "市立溪崑國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區大觀路三段50巷30號",
+    "tel": "(02)26869727",
+    "url": "http://www.ckjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14554,
+    "schoolName": "市立自強國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[235]新北市中和區莒光路191號",
+    "tel": "(02)22259469",
+    "url": "http://www.zcjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14555,
+    "schoolName": "市立中正國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[236]新北市土城區金城路二段247號",
+    "tel": "(02)22628456",
+    "url": "http://www.ccjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14558,
+    "schoolName": "市立義學國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[243]新北市泰山區民生路33號",
+    "tel": "(02)22961168",
+    "url": "http://www.yhjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14559,
+    "schoolName": "市立中平國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[242]新北市新莊區中平路385號",
+    "tel": "(02)29908092",
+    "url": "http://www.cpjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14560,
+    "schoolName": "市立鳳鳴國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[239]新北市鶯歌區永和街33號",
+    "tel": "(02)26780609",
+    "url": "http://www.fmjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14561,
+    "schoolName": "市立三和國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[241]新北市三重區三和路四段216號",
+    "tel": "(02)22879890",
+    "url": "http://www.shjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14565,
+    "schoolName": "市立尖山國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[239]新北市鶯歌區國中街1號",
+    "tel": "(02)26781670",
+    "url": "http://www.jsjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14566,
+    "schoolName": "市立正德國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[251]新北市淡水區北新路109號",
+    "tel": "(02)26205136",
+    "url": "http://www.jdjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14567,
+    "schoolName": "市立安溪國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[237]新北市三峽區大同路135號",
+    "tel": "(02)26717851",
+    "url": "http://www.asjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14568,
+    "schoolName": "市立樟樹國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[221]新北市汐止區樟樹二路135號",
+    "tel": "(02)26430686",
+    "url": "http://www.ctjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14569,
+    "schoolName": "市立育林國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[238]新北市樹林區復興路395號",
+    "tel": "(02)26841160",
+    "url": "http://www.yljh.ntpc.edu.tw"
+  },
+  {
+    "code": 14570,
+    "schoolName": "市立青山國中(小)",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[221]新北市汐止區莊敬街33號",
+    "tel": "(02)26917877",
+    "url": "http://www.csjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14571,
+    "schoolName": "市立崇林國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[244]新北市林口區文化一路一段20號",
+    "tel": "(02)26095829",
+    "url": "http://www.ttcjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14572,
+    "schoolName": "市立二重國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[241]新北市三重區忠孝路三段89號",
+    "tel": "(02)29800164",
+    "url": "http://www.ecjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14573,
+    "schoolName": "市立大觀國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區僑中一街1號",
+    "tel": "(02)22725015",
+    "url": "http://www.tkjhs.ntpc.edu.tw"
+  },
+  {
+    "code": 14574,
+    "schoolName": "市立三多國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[238]新北市樹林區三多路101號",
+    "tel": "(02)86881501",
+    "url": "http://www.sdjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14575,
+    "schoolName": "市立忠孝國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[220]新北市板橋區成都街30號",
+    "tel": "(02)29631350",
+    "url": "http://www.chjs.ntpc.edu.tw"
+  },
+  {
+    "code": 14576,
+    "schoolName": "市立鷺江國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[247]新北市蘆洲區長樂路235號",
+    "tel": "(02)82862517",
+    "url": "http://www.ljjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14577,
+    "schoolName": "市立桃子腳國中(小)",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[238]新北市樹林區學勤路555號",
+    "tel": "(02)89703225",
+    "url": "http://www.tykjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14578,
+    "schoolName": "市立豐珠國中(小)",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[228]新北市貢寮區美豐里雞母嶺街6-6號",
+    "tel": "(02)24903727",
+    "url": "http://www.fjjh.ntpc.edu.tw"
+  },
+  {
+    "code": 14579,
+    "schoolName": "市立佳林國中",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[244]新北市林口區中山路268號",
+    "tel": "(02)26028555",
+    "url": "http://www.jljh.ntpc.edu.tw/default.asp"
+  },
+  {
+    "code": 14580,
+    "schoolName": "市立達觀國中(小)",
+    "pub_pri": "公立",
+    "city": "新北市",
+    "address": "[231]新北市新店區僑信路1號",
+    "tel": "(02)22159013",
+    "url": "http://www.dgejh.ntpc.edu.tw"
+  },
+  {
+    "code": 313501,
+    "schoolName": "市立介壽國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[105]臺北市松山區介壽里延壽街401號",
+    "tel": "(02)27674496",
+    "url": "http://www.csjh.tp.edu.tw"
+  },
+  {
+    "code": 313502,
+    "schoolName": "市立民生國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[105]臺北市松山區新東里新東街30巷1號",
+    "tel": "(02)27653433",
+    "url": "http://www.msjh.tp.edu.tw"
+  },
+  {
+    "code": 313504,
+    "schoolName": "市立中山國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[105]臺北市松山區復興北路361巷7號",
+    "tel": "(02)27126701",
+    "url": "http://www.csjhs.tp.edu.tw"
+  },
+  {
+    "code": 313505,
+    "schoolName": "市立敦化國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[105]臺北市松山區南京東路三段300號",
+    "tel": "(02)87717890",
+    "url": "http://www.thjh.tp.edu.tw"
+  },
+  {
+    "code": 323502,
+    "schoolName": "市立興雅國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[110]臺北市信義區松德路168巷15號",
+    "tel": "(02)27232771",
+    "url": "http://www.syajh.tp.edu.tw"
+  },
+  {
+    "code": 323503,
+    "schoolName": "市立永吉國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[110]臺北市信義區四育里8鄰松隆路161號",
+    "tel": "(02)27649066",
+    "url": "http://www.yjjh.tp.edu.tw"
+  },
+  {
+    "code": 323504,
+    "schoolName": "市立瑠公國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[110]臺北市信義區福德街221巷15號",
+    "tel": "(02)27261481",
+    "url": "http://www.lkjh.tp.edu.tw"
+  },
+  {
+    "code": 323505,
+    "schoolName": "市立信義國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[110]臺北市信義區松仁路158巷1號",
+    "tel": "(02)27236771",
+    "url": "http://www.syijh.tp.edu.tw"
+  },
+  {
+    "code": 331502,
+    "schoolName": "私立立人國中(小)",
+    "pub_pri": "私立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區義榮里安和路二段99號",
+    "tel": "(02)27381188",
+    "url": "http://www.ljjhps.tp.edu.tw"
+  },
+  {
+    "code": 333501,
+    "schoolName": "市立仁愛國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區敦安里仁愛路4段130號",
+    "tel": "(02)23255823",
+    "url": "http://www.jajh.tp.edu.tw"
+  },
+  {
+    "code": 333502,
+    "schoolName": "市立大安國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區大安路2段63號",
+    "tel": "(02)27557131",
+    "url": "http://www.tajh.tp.edu.tw"
+  },
+  {
+    "code": 333504,
+    "schoolName": "市立芳和國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區芳和里臥龍街170號",
+    "tel": "(02)27321961",
+    "url": "http://www.fhjhs.tp.edu.tw"
+  },
+  {
+    "code": 333505,
+    "schoolName": "市立金華國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區福住里新生南路2段32號",
+    "tel": "(02)33931799",
+    "url": "http://www.chwjh.tp.edu.tw"
+  },
+  {
+    "code": 333506,
+    "schoolName": "市立懷生國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區忠孝東路三段248巷30號",
+    "tel": "(02)27215078",
+    "url": "http://www.hsjh.tp.edu.tw"
+  },
+  {
+    "code": 333507,
+    "schoolName": "市立民族國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區羅斯福路4段113巷13號",
+    "tel": "(02)27322935",
+    "url": "http://www.mtjh.tp.edu.tw"
+  },
+  {
+    "code": 333508,
+    "schoolName": "市立龍門國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[106]臺北市大安區建國南路二段269號",
+    "tel": "(02)27330299",
+    "url": "http://www.lmjh.tp.edu.tw"
+  },
+  {
+    "code": 343502,
+    "schoolName": "市立長安國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[104]臺北市中山區興亞里松江路70巷11號",
+    "tel": "(02)25112382",
+    "url": "http://www.cajh.tp.edu.tw"
+  },
+  {
+    "code": 343504,
+    "schoolName": "市立北安國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[104]臺北市中山區劍潭里明水路325號",
+    "tel": "(02)25333888",
+    "url": "http://www.pajh.tp.edu.tw"
+  },
+  {
+    "code": 343505,
+    "schoolName": "市立新興國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[104]臺北市中山區聚葉里林森北路511號",
+    "tel": "(02)25714211",
+    "url": "http://www.hhjh.tp.edu.tw/"
+  },
+  {
+    "code": 343506,
+    "schoolName": "市立五常國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[104]臺北市中山區下埤里復興北路430巷1號",
+    "tel": "(02)25014320",
+    "url": "http://www.wcjhs.tp.edu.tw"
+  },
+  {
+    "code": 343507,
+    "schoolName": "市立濱江國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[104]臺北市中山區樂群二路262號",
+    "tel": "(02)85020126",
+    "url": "http://www.bjjh.tp.edu.tw"
+  },
+  {
+    "code": 353501,
+    "schoolName": "市立螢橋國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[100]臺北市中正區林興里汀州街3段4號",
+    "tel": "(02)23688667",
+    "url": "http://www.ycjh.tp.edu.tw"
+  },
+  {
+    "code": 353502,
+    "schoolName": "市立古亭國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[100]臺北市中正區中華路2段465號",
+    "tel": "(02)23090986",
+    "url": "http://www.ktjh.tp.edu.tw"
+  },
+  {
+    "code": 353503,
+    "schoolName": "市立南門國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[100]臺北市中正區南門里廣州街6號",
+    "tel": "(02)23142775",
+    "url": "http://www.nmjh.tp.edu.tw"
+  },
+  {
+    "code": 353504,
+    "schoolName": "市立弘道國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[100]臺北市中正區公園路21號",
+    "tel": "(02)23715520",
+    "url": "http://www.htjh.tp.edu.tw"
+  },
+  {
+    "code": 353505,
+    "schoolName": "市立中正國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[100]臺北市中正區新營里愛國東路158號",
+    "tel": "(02)23916697",
+    "url": "http://www.ccjhs.tp.edu.tw"
+  },
+  {
+    "code": 363501,
+    "schoolName": "市立建成國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[103]臺北市大同區長安西路37之1號",
+    "tel": "(02)25587042",
+    "url": "http://www.jcjh.tp.edu.tw"
+  },
+  {
+    "code": 363502,
+    "schoolName": "市立忠孝國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[103]臺北市大同區玉泉里西寧北路32號",
+    "tel": "(02)25524890",
+    "url": "http://www.chjh.tp.edu.tw"
+  },
+  {
+    "code": 363504,
+    "schoolName": "市立民權國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[103]臺北市大同區重慶北路三段1號",
+    "tel": "(02)25931951",
+    "url": "http://www.mqjh.tp.edu.tw"
+  },
+  {
+    "code": 363506,
+    "schoolName": "市立蘭州國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[103]臺北市大同區至聖里大龍街187巷1號",
+    "tel": "(02)25918269",
+    "url": "http://www.lcjh.tp.edu.tw"
+  },
+  {
+    "code": 363507,
+    "schoolName": "市立重慶國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[103]臺北市大同區重慶里敦煌路19號",
+    "tel": "(02)25948631",
+    "url": "http://www.cchs.tp.edu.tw"
+  },
+  {
+    "code": 373501,
+    "schoolName": "市立萬華國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[108]臺北市萬華區日善里西藏路201號",
+    "tel": "(02)23394567",
+    "url": "http://www.whjhs.tp.edu.tw"
+  },
+  {
+    "code": 373503,
+    "schoolName": "市立雙園國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[108]臺北市萬華區和德里興義街2號",
+    "tel": "(02)23030827",
+    "url": "http://www.syjhs.tp.edu.tw"
+  },
+  {
+    "code": 373505,
+    "schoolName": "市立龍山國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[108]臺北市萬華區富裕里南寧路46號",
+    "tel": "(02)23362789",
+    "url": "http://www.lsjh.tp.edu.tw"
+  },
+  {
+    "code": 381501,
+    "schoolName": "私立靜心國中",
+    "pub_pri": "私立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區興福里興隆路2段46號",
+    "tel": "(02)29323118",
+    "url": "http://www.chjhs.tp.edu.tw"
+  },
+  {
+    "code": 383501,
+    "schoolName": "市立木柵國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區木柵路3段102巷12號",
+    "tel": "(02)29393031",
+    "url": "http://www.mcjhs.tp.edu.tw"
+  },
+  {
+    "code": 383502,
+    "schoolName": "市立實踐國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區樟林里辛亥路七段67號",
+    "tel": "(02)22362852",
+    "url": "http://www.sjjh.tp.edu.tw"
+  },
+  {
+    "code": 383503,
+    "schoolName": "市立北政國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區指南里指南路3段2巷14號",
+    "tel": "(02)29393651",
+    "url": "http://www.pcjh.tp.edu.tw"
+  },
+  {
+    "code": 383504,
+    "schoolName": "市立景美國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區景華里景中街27號",
+    "tel": "(02)89353130",
+    "url": "http://www.cmjh.tp.edu.tw"
+  },
+  {
+    "code": 383505,
+    "schoolName": "市立興福國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區興旺里福興路80號",
+    "tel": "(02)29322024",
+    "url": "http://www.hfjh.tp.edu.tw"
+  },
+  {
+    "code": 383507,
+    "schoolName": "市立景興國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[116]臺北市文山區景華里景興路46巷2號",
+    "tel": "(02)29323794",
+    "url": "http://www.chhs.tp.edu.tw"
+  },
+  {
+    "code": 393501,
+    "schoolName": "市立誠正國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[115]臺北市南港區新富里富康街1巷24號",
+    "tel": "(02)27828094",
+    "url": "http://163.21.132.5"
+  },
+  {
+    "code": 393503,
+    "schoolName": "市立成德國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[115]臺北市南港區成福里東新街108巷23號",
+    "tel": "(02)26515635",
+    "url": "http://www.cdjh.tp.edu.tw"
+  },
+  {
+    "code": 403501,
+    "schoolName": "市立內湖國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[114]臺北市內湖區紫陽里陽光街1號",
+    "tel": "(02)27900843",
+    "url": "http://www.nhjh.tp.edu.tw"
+  },
+  {
+    "code": 403502,
+    "schoolName": "市立麗山國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[114]臺北市內湖區內湖路1段629巷42號",
+    "tel": "(02)27991867",
+    "url": "http://www.lsjhs.tp.edu.tw"
+  },
+  {
+    "code": 403503,
+    "schoolName": "市立三民國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[114]臺北市內湖區湖興里民權東路6段45號",
+    "tel": "(02)27924772",
+    "url": "http://www.smjh.tp.edu.tw"
+  },
+  {
+    "code": 403504,
+    "schoolName": "市立西湖國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[114]臺北市內湖區西湖里環山路1段27號",
+    "tel": "(02)27991817",
+    "url": "http://www.xhjhs.tp.edu.tw"
+  },
+  {
+    "code": 403505,
+    "schoolName": "市立東湖國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[114]臺北市內湖區樂康里康樂街131號",
+    "tel": "(02)26330373",
+    "url": "http://www.dhjh.tp.edu.tw"
+  },
+  {
+    "code": 403506,
+    "schoolName": "市立明湖國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[114]臺北市內湖區葫洲里康寧路3段60號",
+    "tel": "(02)26320616",
+    "url": "http://www.mhjh.tp.edu.tw"
+  },
+  {
+    "code": 413501,
+    "schoolName": "市立士林國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[111]臺北市士林區福德里中正路345號",
+    "tel": "(02)88613411",
+    "url": "http://www.sljh.tp.edu.tw"
+  },
+  {
+    "code": 413502,
+    "schoolName": "市立蘭雅國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[111]臺北市士林區三玉里忠誠路2段51號",
+    "tel": "(02)28329377",
+    "url": "http://163.21.26.20/enable01/"
+  },
+  {
+    "code": 413504,
+    "schoolName": "市立至善國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[111]臺北市士林區臨溪里至善路2段360號",
+    "tel": "(02)28411350",
+    "url": "http://www.jsjh.tp.edu.tw"
+  },
+  {
+    "code": 413505,
+    "schoolName": "市立格致國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[111]臺北市士林區陽明里仰德大道四段75號",
+    "tel": "(02)28610079",
+    "url": "http://www.gjjh.tp.edu.tw"
+  },
+  {
+    "code": 413506,
+    "schoolName": "市立福安國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[111]臺北市士林區福安里延平北路7段250號",
+    "tel": "(02)28108766",
+    "url": "http://www.fajh.tp.edu.tw"
+  },
+  {
+    "code": 413508,
+    "schoolName": "市立天母國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[111]臺北市士林區天和里天母東路120號",
+    "tel": "(02)28754864",
+    "url": "http://www.tmjh.tp.edu.tw"
+  },
+  {
+    "code": 423501,
+    "schoolName": "市立北投國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[112]臺北市北投區溫泉里溫泉路62號",
+    "tel": "(02)28912091",
+    "url": "http://www.ptjh.tp.edu.tw"
+  },
+  {
+    "code": 423502,
+    "schoolName": "市立新民國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[112]臺北市北投區林泉里新民路10號",
+    "tel": "(02)28979001",
+    "url": "http://www.hmjh.tp.edu.tw"
+  },
+  {
+    "code": 423503,
+    "schoolName": "市立明德國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[112]臺北市北投區建民里明德路50號",
+    "tel": "(02)28232539",
+    "url": "http://www.mdjh.tp.edu.tw"
+  },
+  {
+    "code": 423504,
+    "schoolName": "市立桃源國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[112]臺北市北投區一德里中央北路4段48號",
+    "tel": "(02)28929633",
+    "url": "http://www.tyjh.tp.edu.tw"
+  },
+  {
+    "code": 423505,
+    "schoolName": "市立石牌國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[112]臺北市北投區吉利里石牌路1段139號",
+    "tel": "(02)28224682",
+    "url": "http://www.spjh.tp.edu.tw"
+  },
+  {
+    "code": 423506,
+    "schoolName": "市立關渡國中",
+    "pub_pri": "公立",
+    "city": "臺北市",
+    "address": "[112]臺北市北投區關渡里知行路212號",
+    "tel": "(02)28581770",
+    "url": "http://www.ktjhs.tp.edu.tw"
+  },
+  {
+    "code": 31502,
+    "schoolName": "私立有得國中(小)",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區長春一路288號",
+    "tel": "(03)4522789",
+    "url": "http://www.yoder.tyc.edu.tw/"
+  },
+  {
+    "code": 34501,
+    "schoolName": "市立桃園國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區莒光街2號",
+    "tel": "(03)3358282",
+    "url": "http://www.tyjh.tyc.edu.tw"
+  },
+  {
+    "code": 34502,
+    "schoolName": "市立青溪國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區中山東路124號",
+    "tel": "(03)3392400",
+    "url": "http://www.chjh.tyc.edu.tw"
+  },
+  {
+    "code": 34503,
+    "schoolName": "市立文昌國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區民生路729號",
+    "tel": "(03)3552776",
+    "url": "http://www.wcjhs.tyc.edu.tw/"
+  },
+  {
+    "code": 34504,
+    "schoolName": "市立建國國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區介新街20號",
+    "tel": "(03)3630081",
+    "url": "http://www.ckjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34505,
+    "schoolName": "市立中興國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區文中路122號",
+    "tel": "(03)3601392",
+    "url": "http://www.chjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34506,
+    "schoolName": "市立南崁國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[338]桃園市蘆竹區五福六路1號",
+    "tel": "(03)3525590",
+    "url": "http:// www.nkjh.tyc.edu.tw"
+  },
+  {
+    "code": 34507,
+    "schoolName": "市立山腳國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[338]桃園市蘆竹區海山路319號",
+    "tel": "(03)3241995",
+    "url": "http://www.sjjh.tyc.edu.tw"
+  },
+  {
+    "code": 34508,
+    "schoolName": "市立大竹國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[338]桃園市蘆竹區大竹里四鄰國中巷35號",
+    "tel": "(03)3232764",
+    "url": "http://www.dcjh.tyc.edu.tw"
+  },
+  {
+    "code": 34509,
+    "schoolName": "市立大園國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[337]桃園市大園區中華路298號",
+    "tel": "(03)3862029",
+    "url": "http://163.30.71.1"
+  },
+  {
+    "code": 34510,
+    "schoolName": "市立竹圍國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[337]桃園市大園區沙崙里下海湖4之5號",
+    "tel": "(03)3835026",
+    "url": "http://www.cwjh.tyc.edu.tw"
+  },
+  {
+    "code": 34511,
+    "schoolName": "市立大溪國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[335]桃園市大溪區民權東路210號",
+    "tel": "(03)3882024",
+    "url": "http://www.dsjh.tyc.edu.tw"
+  },
+  {
+    "code": 34513,
+    "schoolName": "市立仁和國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[335]桃園市大溪區仁和里仁和七街55號",
+    "tel": "(03)3906626",
+    "url": "http://www.jhjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34515,
+    "schoolName": "市立大崗國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[333]桃園市龜山區文化里文化二路168號",
+    "tel": "(03)3280888",
+    "url": "http://www.dgjh.tyc.edu.tw"
+  },
+  {
+    "code": 34516,
+    "schoolName": "市立八德國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[334]桃園市八德區興豐路321號",
+    "tel": "(03)3685322",
+    "url": "http://www.ptjh.tyc.edu.tw"
+  },
+  {
+    "code": 34517,
+    "schoolName": "市立大成國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[334]桃園市八德區大勇里忠勇街12號",
+    "tel": "(03)3625633",
+    "url": "http://www.tcjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34518,
+    "schoolName": "市立中壢國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[324]桃園市平鎮區德育路180號",
+    "tel": "(03)4222886",
+    "url": "http://www.cljhs.tyc.edu.tw"
+  },
+  {
+    "code": 34520,
+    "schoolName": "市立平南國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[324]桃園市平鎮區中豐路南勢二段340號",
+    "tel": "(03)4392164",
+    "url": "http://www.pnjh.tyc.edu.tw/"
+  },
+  {
+    "code": 34521,
+    "schoolName": "市立新明國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區中正路487巷18號",
+    "tel": "(03)4936194",
+    "url": "http://www.hmjh.tyc.edu.tw"
+  },
+  {
+    "code": 34522,
+    "schoolName": "市立內壢國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區復華里復華一街108號",
+    "tel": "(03)4522494",
+    "url": "http://www.nljh.tyc.edu.tw"
+  },
+  {
+    "code": 34523,
+    "schoolName": "市立大崙國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區月眉路一段50號",
+    "tel": "(03)4982840",
+    "url": "http://www.dljh.tyc.edu.tw"
+  },
+  {
+    "code": 34524,
+    "schoolName": "市立龍岡國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區龍東路147號",
+    "tel": "(03)4562137",
+    "url": "http://www.lkjh.tyc.edu.tw"
+  },
+  {
+    "code": 34525,
+    "schoolName": "市立興南國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區育英路55號",
+    "tel": "(03)4629991",
+    "url": "http://163.30.149.133"
+  },
+  {
+    "code": 34526,
+    "schoolName": "市立自強國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區榮民路80號",
+    "tel": "(03)4553494",
+    "url": "http://www.tcjh.tyc.edu.tw"
+  },
+  {
+    "code": 34527,
+    "schoolName": "市立東興國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區廣州路25號",
+    "tel": "(03)34583500",
+    "url": "http://www.dsjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34528,
+    "schoolName": "市立楊梅國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區校前路149號",
+    "tel": "(03)4782024",
+    "url": "http://www.ymjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34529,
+    "schoolName": "市立仁美國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區高榮里11鄰東高山頂9-8號",
+    "tel": "(03)4641123",
+    "url": "http://www.zmjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34530,
+    "schoolName": "市立富岡國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區豐野里中正路456號",
+    "tel": "(03)4721113",
+    "url": "http://www.fkjh.tyc.edu.tw"
+  },
+  {
+    "code": 34531,
+    "schoolName": "市立瑞原國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區民豐路69號",
+    "tel": "(03)4782242#11",
+    "url": "http://www.ryjh.tyc.edu.tw"
+  },
+  {
+    "code": 34533,
+    "schoolName": "市立觀音國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[328]桃園市觀音區白玉里下庄子53之1號",
+    "tel": "(03)4732034",
+    "url": "http://www.gijh.tyc.edu.tw"
+  },
+  {
+    "code": 34534,
+    "schoolName": "市立草漯國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[328]桃園市觀音區草漯里28鄰四維路73號",
+    "tel": "(03)4830146#71",
+    "url": "http://www.ttjh.tyc.edu.tw"
+  },
+  {
+    "code": 34535,
+    "schoolName": "市立新屋國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[327]桃園市新屋區中興路111號",
+    "tel": "(03)4772029",
+    "url": "http://www.swjh.tyc.edu.tw"
+  },
+  {
+    "code": 34536,
+    "schoolName": "市立大坡國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[327]桃園市新屋區大坡里五鄰156號",
+    "tel": "(03)4768350",
+    "url": "http://www.dpjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34537,
+    "schoolName": "市立永安國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[327]桃園市新屋區中山西路三段96號",
+    "tel": "(03)4862507",
+    "url": "http://www.yajh.tyc.edu.tw"
+  },
+  {
+    "code": 34538,
+    "schoolName": "市立龍潭國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[325]桃園市龍潭區中正里龍華路460號",
+    "tel": "(03)4792075",
+    "url": "http://www.ltjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34539,
+    "schoolName": "市立凌雲國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[325]桃園市龍潭區中豐路上林段418號",
+    "tel": "(03)4792604",
+    "url": "http://www.lyjh.tyc.edu.tw"
+  },
+  {
+    "code": 34540,
+    "schoolName": "市立石門國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[325]桃園市龍潭區佳安里文化路137號",
+    "tel": "(03)4713610",
+    "url": "http://www.smjh.tyc.edu.tw"
+  },
+  {
+    "code": 34541,
+    "schoolName": "市立介壽國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[336]桃園市復興區澤仁里中正路248號",
+    "tel": "(03)3822315",
+    "url": "http://www.jsjh.tyc.edu.tw"
+  },
+  {
+    "code": 34542,
+    "schoolName": "市立慈文國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區中正路835號",
+    "tel": "(03)3269340",
+    "url": "http://www.twjh.tyc.edu.tw"
+  },
+  {
+    "code": 34543,
+    "schoolName": "市立平興國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[324]桃園市平鎮區環南路300號",
+    "tel": "(03)4918239",
+    "url": "http://www.psjh.tyc.edu.tw"
+  },
+  {
+    "code": 34544,
+    "schoolName": "市立楊明國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區新農街337號",
+    "tel": "(03)4781525",
+    "url": "http://www.ymjh.tyc.edu.tw"
+  },
+  {
+    "code": 34545,
+    "schoolName": "市立龍興國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區龍勇路100號",
+    "tel": "(03)4575200",
+    "url": "http://www.lsjh.tyc.edu.tw"
+  },
+  {
+    "code": 34546,
+    "schoolName": "市立福豐國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區延平路326號",
+    "tel": "(03)3669547",
+    "url": "http://www.ffjh.tyc.edu.tw"
+  },
+  {
+    "code": 34549,
+    "schoolName": "市立東安國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[324]桃園市平鎮區平東路168號",
+    "tel": "(03)4601407",
+    "url": "http://www.tajh.tyc.edu.tw"
+  },
+  {
+    "code": 34550,
+    "schoolName": "市立光明國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[338]桃園市蘆竹區光明路一段123號",
+    "tel": "(03)3114355",
+    "url": "http://www.gmjh.tyc.edu.tw"
+  },
+  {
+    "code": 34551,
+    "schoolName": "市立同德國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區南平路487號",
+    "tel": "(03)2628955",
+    "url": "http://www.tdjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34552,
+    "schoolName": "市立幸福國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[333]桃園市龜山區中興路100巷20號",
+    "tel": "(03)3298992",
+    "url": "http://www.hfjh.tyc.edu.tw"
+  },
+  {
+    "code": 34554,
+    "schoolName": "市立大有國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區大有路215號",
+    "tel": "(03)2613298",
+    "url": "http://www.dyjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34555,
+    "schoolName": "市立龜山國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[333]桃園市龜山區自強西路66號",
+    "tel": "(03)3205681",
+    "url": "http://www.gsjh.tyc.edu.tw"
+  },
+  {
+    "code": 34556,
+    "schoolName": "市立會稽國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區大興路222號",
+    "tel": "(03)3551496",
+    "url": "http://www.kjjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34557,
+    "schoolName": "市立楊光國中(小)",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區瑞溪路1 段88號",
+    "tel": "(03)4827987",
+    "url": "http://www.ygjps.tyc.edu.tw"
+  },
+  {
+    "code": 34559,
+    "schoolName": "市立迴龍國中(小)",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[333]桃園市龜山區萬壽路一段168號",
+    "tel": "(02)82096088",
+    "url": "http://www.hles.tyc.edu.tw"
+  },
+  {
+    "code": 34560,
+    "schoolName": "市立平鎮國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[324]桃園市平鎮區新富里振興路2號",
+    "tel": "(03)4572150",
+    "url": "http://home.pjjh.tyc.edu.tw"
+  },
+  {
+    "code": 34561,
+    "schoolName": "市立武漢國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[325]桃園市龍潭區武中路227號",
+    "tel": "(03)4092810",
+    "url": "http://www.whjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34562,
+    "schoolName": "市立經國國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市桃園區經國路276號",
+    "tel": "(03)3572699",
+    "url": "http://www.jgjhs.tyc.edu.tw/web/"
+  },
+  {
+    "code": 34563,
+    "schoolName": "市立過嶺國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[320]桃園市中壢區松智路2號",
+    "tel": "(03)4200026",
+    "url": "http://www.gljh.tyc.edu.tw"
+  },
+  {
+    "code": 34564,
+    "schoolName": "市立瑞坪國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[326]桃園市楊梅區瑞坪里14鄰文化街535號",
+    "tel": "(03)4821468",
+    "url": "http://www.rpjhs.tyc.edu.tw"
+  },
+  {
+    "code": 34565,
+    "schoolName": "市立青埔國中",
+    "pub_pri": "公立",
+    "city": "桃園市",
+    "address": "[330]桃園市大園區中正東路二段539號",
+    "tel": "(03)3811802",
+    "url": "http://www.qpjh.tyc.edu.tw"
+  },
+  {
+    "code": 64501,
+    "schoolName": "市立豐原國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[420]臺中市豐原區三豐路467號",
+    "tel": "(04)25251200",
+    "url": "http://www.fyjh.tc.edu.tw"
+  },
+  {
+    "code": 64502,
+    "schoolName": "市立豐東國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[420]臺中市豐原區豐東路75號",
+    "tel": "(04)25221743",
+    "url": "http://www.ftjh.tc.edu.tw"
+  },
+  {
+    "code": 64503,
+    "schoolName": "市立豐南國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[420]臺中市豐原區豐南街151號",
+    "tel": "(04)25280185",
+    "url": "http://www.fnjh.tc.edu.tw"
+  },
+  {
+    "code": 64504,
+    "schoolName": "市立潭子國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[427]臺中市潭子區潭興路二段419巷1號",
+    "tel": "(04)25376192",
+    "url": "http://www.ttjhs.tc.edu.tw"
+  },
+  {
+    "code": 64505,
+    "schoolName": "市立大雅國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[428]臺中市大雅區學府路280號",
+    "tel": "(04)25672171",
+    "url": "http://www.tyjh.tc.edu.tw"
+  },
+  {
+    "code": 64506,
+    "schoolName": "市立神岡國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[429]臺中市神岡區社南里中山路627號",
+    "tel": "(04)25623421",
+    "url": "http://www.skjhs.tc.edu.tw"
+  },
+  {
+    "code": 64507,
+    "schoolName": "市立后里國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[421]臺中市后里區眉山里第三鄰中眉路169號",
+    "tel": "(04)25562409",
+    "url": "http://www.hljh.tc.edu.tw"
+  },
+  {
+    "code": 64509,
+    "schoolName": "市立外埔國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[438]臺中市外埔區大同里甲后路505號",
+    "tel": "(04)26833721",
+    "url": "http://www.wpjh.tc.edu.tw"
+  },
+  {
+    "code": 64510,
+    "schoolName": "市立大甲國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[437]臺中市大甲區育英路186號",
+    "tel": "(04)26872564",
+    "url": "http://www.tjjh.tc.edu.tw"
+  },
+  {
+    "code": 64511,
+    "schoolName": "市立日南國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[437]臺中市大甲區中山路二段69-11號",
+    "tel": "(04)26813721",
+    "url": "http://www.jnjh.tc.edu.tw"
+  },
+  {
+    "code": 64512,
+    "schoolName": "市立大安國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[439]臺中市大安區松雅里大安港路691號",
+    "tel": "(04)26872571",
+    "url": "http://www.tajh.tc.edu.tw"
+  },
+  {
+    "code": 64513,
+    "schoolName": "市立清水國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[436]臺中市清水區鰲峰路250號",
+    "tel": "(04)26262042",
+    "url": "http://www.csjh.tc.edu.tw"
+  },
+  {
+    "code": 64514,
+    "schoolName": "市立清泉國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[436]臺中市清水區菁埔里臨海路27之2號",
+    "tel": "(04)26113134",
+    "url": "http://www.ccjh.tc.edu.tw"
+  },
+  {
+    "code": 64515,
+    "schoolName": "市立沙鹿國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[433]臺中市沙鹿區中正街1號",
+    "tel": "(04)26622163",
+    "url": "http://www.sljh.tc.edu.tw"
+  },
+  {
+    "code": 64516,
+    "schoolName": "市立梧棲國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[435]臺中市梧棲區文化里民生街12號",
+    "tel": "(04)26562850",
+    "url": "http://www.wcjs.tc.edu.tw"
+  },
+  {
+    "code": 64517,
+    "schoolName": "市立龍井國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[434]臺中市龍井區觀光路9號",
+    "tel": "(04)26353344",
+    "url": "http://www.lcjh.tc.edu.tw"
+  },
+  {
+    "code": 64518,
+    "schoolName": "市立四箴國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[434]臺中市龍井區中沙路2號",
+    "tel": "(04)26314606",
+    "url": "http://www.scjh.tc.edu.tw"
+  },
+  {
+    "code": 64519,
+    "schoolName": "市立大道國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[432]臺中市大肚區仁德路60號",
+    "tel": "(04)26992028",
+    "url": "http://www.ttjh.tc.edu.tw"
+  },
+  {
+    "code": 64520,
+    "schoolName": "市立烏日國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[414]臺中市烏日區新興路457號",
+    "tel": "(04)23381009",
+    "url": "http://www.wjjh.tc.edu.tw"
+  },
+  {
+    "code": 64521,
+    "schoolName": "市立溪南國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[414]臺中市烏日區溪南路一段731號",
+    "tel": "(04)23353959",
+    "url": "http://www.snjh.tc.edu.tw"
+  },
+  {
+    "code": 64522,
+    "schoolName": "市立霧峰國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[413]臺中市霧峰區國中路110號",
+    "tel": "(04)23393175",
+    "url": "http://www.wfjh.tc.edu.tw"
+  },
+  {
+    "code": 64523,
+    "schoolName": "市立光復國中(小)",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[413]臺中市霧峰區南柳里柳豐路535號",
+    "tel": "(04)23393141",
+    "url": "http://www.kfjh.tc.edu.tw"
+  },
+  {
+    "code": 64525,
+    "schoolName": "市立太平國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[411]臺中市太平區中山路二段116號",
+    "tel": "(04)23922540",
+    "url": "http://www.tpjh.tc.edu.tw"
+  },
+  {
+    "code": 64526,
+    "schoolName": "市立中平國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[411]臺中市太平區中平里太平路300號",
+    "tel": "(04)22767416",
+    "url": "http://www.cpjh.tc.edu.tw"
+  },
+  {
+    "code": 64527,
+    "schoolName": "市立石岡國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[422]臺中市石岡區梅子里豐勢路國中巷1號",
+    "tel": "(04)25814191",
+    "url": "http://www.sgjh.tc.edu.tw"
+  },
+  {
+    "code": 64529,
+    "schoolName": "市立東勢國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[423]臺中市東勢區東崎路五段415號",
+    "tel": "(04)25873843",
+    "url": "http://www.tsjhs.tc.edu.tw"
+  },
+  {
+    "code": 64530,
+    "schoolName": "市立東華國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[423]臺中市東勢區東關路296號",
+    "tel": "(04)25853219",
+    "url": "http://www.thjh.tc.edu.tw"
+  },
+  {
+    "code": 64531,
+    "schoolName": "市立東新國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[423]臺中市東勢區東新里5鄰東環街123號",
+    "tel": "(04)25872684",
+    "url": "http://www.tsihs.tc.edu.tw"
+  },
+  {
+    "code": 64532,
+    "schoolName": "市立成功國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[412]臺中市大里區至善路157號",
+    "tel": "(04)24927226",
+    "url": "http://www.ckjh.tc.edu.tw"
+  },
+  {
+    "code": 64533,
+    "schoolName": "市立和平國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[424]臺中市和平區東關路三段崑崙巷62號",
+    "tel": "(04)25941512",
+    "url": "http://www.hpjh.tc.edu.tw"
+  },
+  {
+    "code": 64534,
+    "schoolName": "市立北勢國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[433]臺中市沙鹿區英才路150號",
+    "tel": "(04)26322236",
+    "url": "http://www.bsjh.tc.edu.tw"
+  },
+  {
+    "code": 64535,
+    "schoolName": "市立鹿寮國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[433]臺中市沙鹿區光華路385號",
+    "tel": "(04)26622207",
+    "url": "http://www.lljh.tc.edu.tw"
+  },
+  {
+    "code": 64537,
+    "schoolName": "市立光榮國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[412]臺中市大里區東榮路280號",
+    "tel": "(04)24831428",
+    "url": "http://www.krjh.tc.edu.tw"
+  },
+  {
+    "code": 64538,
+    "schoolName": "市立潭秀國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[427]臺中市潭子區雅潭路一段175號",
+    "tel": "(04)25343542",
+    "url": "http://www.tsjh.tc.edu.tw"
+  },
+  {
+    "code": 64539,
+    "schoolName": "市立順天國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[437]臺中市大甲區大安港路67號",
+    "tel": "(04)26864263",
+    "url": "http://www.stjh.tc.edu.tw"
+  },
+  {
+    "code": 64540,
+    "schoolName": "市立清海國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[436]臺中市清水區中央路51之60號",
+    "tel": "(04)26271902",
+    "url": "http://www.chjh.tc.edu.tw"
+  },
+  {
+    "code": 64541,
+    "schoolName": "市立大華國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[428]臺中市大雅區雅環路一段2號",
+    "tel": "(04)25688251",
+    "url": "http://www.dhjh.tc.edu.tw"
+  },
+  {
+    "code": 64543,
+    "schoolName": "市立新光國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[411]臺中市太平區樹德九街 139 號",
+    "tel": "(04)23957597",
+    "url": "http://www.skjh.tc.edu.tw"
+  },
+  {
+    "code": 64544,
+    "schoolName": "市立光正國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[412]臺中市大里區鳳凰路68號",
+    "tel": "(04)24911599",
+    "url": "http://www.gjjh.tc.edu.tw"
+  },
+  {
+    "code": 64545,
+    "schoolName": "市立豐陽國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[420]臺中市豐原區朝陽路33號",
+    "tel": "(04)25203470",
+    "url": "http://www.fyjhs.tc.edu.tw"
+  },
+  {
+    "code": 64546,
+    "schoolName": "市立光德國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[414]臺中市烏日區信義街99號",
+    "tel": "(04)23389802",
+    "url": "http://www.gdjh.tc.edu.tw"
+  },
+  {
+    "code": 64547,
+    "schoolName": "市立立新國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[412]臺中市大里區甲堤路236號",
+    "tel": "(04)22732299",
+    "url": "http://www.lsjh.tc.edu.tw"
+  },
+  {
+    "code": 64548,
+    "schoolName": "市立爽文國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[412]臺中市大里區永隆三街1號",
+    "tel": "(04)24067545",
+    "url": "http://www.swjh.tc.edu.tw"
+  },
+  {
+    "code": 64549,
+    "schoolName": "市立公明國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[433]臺中市沙鹿區公明里中清路6段567號",
+    "tel": "(04)26154262",
+    "url": "http://www.gmjh.tc.edu.tw/"
+  },
+  {
+    "code": 64550,
+    "schoolName": "市立龍津國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[434]臺中市龍井區三港路130號",
+    "tel": "(04)26304536",
+    "url": "http://www.ljjh.tc.edu.tw"
+  },
+  {
+    "code": 64551,
+    "schoolName": "市立神圳國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[429]臺中市神岡區神清路61號",
+    "tel": "(04)25624669",
+    "url": "http://www.szjh.tc.edu.tw"
+  },
+  {
+    "code": 64552,
+    "schoolName": "市立梨山國中(小)",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[424]臺中市和平區梨山里福壽路10號",
+    "tel": "(04)25981510",
+    "url": "http://www.lses.tc.edu.tw"
+  },
+  {
+    "code": 191503,
+    "schoolName": "私立麗喆國中(小)",
+    "pub_pri": "私立",
+    "city": "臺中市",
+    "address": "[407]臺中市西屯區國安二路242巷199號",
+    "tel": "(04)24613099",
+    "url": "http://www.litze.tc.edu.tw/"
+  },
+  {
+    "code": 193501,
+    "schoolName": "市立居仁國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[403]臺中市西區自由路一段97號",
+    "tel": "(04)22223620",
+    "url": "http://www.cjjh.tc.edu.tw"
+  },
+  {
+    "code": 193502,
+    "schoolName": "市立雙十國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[404]臺中市北區力行路258號",
+    "tel": "(04)22334445",
+    "url": "http://www.ssjh.tc.edu.tw"
+  },
+  {
+    "code": 193504,
+    "schoolName": "市立崇倫國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[402]臺中市南區忠明南路653號",
+    "tel": "(04)23712324",
+    "url": "http://www.cljh.tc.edu.tw"
+  },
+  {
+    "code": 193505,
+    "schoolName": "市立大德國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[406]臺中市北屯區雷中街2之23號",
+    "tel": "(04)22916984",
+    "url": "http://www.ttjh.tc.edu.tw"
+  },
+  {
+    "code": 193506,
+    "schoolName": "市立北新國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[406]臺中市北屯區柳楊東街180號",
+    "tel": "(04)22449374",
+    "url": "http://www.phjh.tc.edu.tw"
+  },
+  {
+    "code": 193507,
+    "schoolName": "市立東峰國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[401]臺中市東區仁和路330號",
+    "tel": "(04)22825133",
+    "url": "http://www.tfjh.tc.edu.tw"
+  },
+  {
+    "code": 193508,
+    "schoolName": "市立黎明國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[408]臺中市南屯區三義里一鄰干城街88號",
+    "tel": "(04)22510983",
+    "url": "http://www.lmjh.tc.edu.tw"
+  },
+  {
+    "code": 193509,
+    "schoolName": "市立光明國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[403]臺中市西區自由路一段75號",
+    "tel": "(04)23756287",
+    "url": "http://140.128.161.19/kmjh"
+  },
+  {
+    "code": 193510,
+    "schoolName": "市立向上國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[403]臺中市西區美村路一段389號",
+    "tel": "(04)23726085",
+    "url": "http://www.hsjh.tc.edu.tw"
+  },
+  {
+    "code": 193511,
+    "schoolName": "市立育英國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[401]臺中市東區育英路30號",
+    "tel": "(04)22115313",
+    "url": "http://www.yejh.tc.edu.tw"
+  },
+  {
+    "code": 193512,
+    "schoolName": "市立四育國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[402]臺中市南區復興路二段152號",
+    "tel": "(04)22633229",
+    "url": "http://www.syjhs.tc.edu.tw"
+  },
+  {
+    "code": 193514,
+    "schoolName": "市立五權國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[404]臺中市北區英才路1號",
+    "tel": "(04)22012180",
+    "url": "http://www.wcjh.tc.edu.tw"
+  },
+  {
+    "code": 193516,
+    "schoolName": "市立中山國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[407]臺中市西屯區寧夏路179號",
+    "tel": "(04)23132003",
+    "url": "http://www.csjhs.tc.edu.tw"
+  },
+  {
+    "code": 193517,
+    "schoolName": "市立崇德國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[406]臺中市北屯區崇德路二段227號",
+    "tel": "(04)22454081",
+    "url": "http://www.ctjh.tc.edu.tw"
+  },
+  {
+    "code": 193518,
+    "schoolName": "市立立人國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[404]臺中市北區北平路一段62號",
+    "tel": "(04)22963999",
+    "url": "http://www.ljjh.tc.edu.tw"
+  },
+  {
+    "code": 193519,
+    "schoolName": "市立漢口國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[407]臺中市西屯區漢口路一段54之1號",
+    "tel": "(04)23130511",
+    "url": "http://www.hkjh.tc.edu.tw"
+  },
+  {
+    "code": 193520,
+    "schoolName": "市立安和國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[407]臺中市西屯區天助街1號",
+    "tel": "(04)23589779",
+    "url": "http://www.ahjh.tc.edu.tw"
+  },
+  {
+    "code": 193521,
+    "schoolName": "市立至善國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[407]臺中市西屯區青海路二段308號",
+    "tel": "(04)27057587",
+    "url": "http://www.csjh.tc.edu.tw"
+  },
+  {
+    "code": 193522,
+    "schoolName": "市立萬和國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[408]臺中市南屯區永春東路885號",
+    "tel": "(04)23817264",
+    "url": "http://www.whjh.tc.edu.tw"
+  },
+  {
+    "code": 193523,
+    "schoolName": "市立大業國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[408]臺中市南屯區大業路100號",
+    "tel": "(04)23279458",
+    "url": "http://www.dyjh.tc.edu.tw"
+  },
+  {
+    "code": 193524,
+    "schoolName": "市立三光國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[406]臺中市北屯區三光一街77號",
+    "tel": "(04)22313699",
+    "url": "http://www.sgjh.tc.edu.tw"
+  },
+  {
+    "code": 193525,
+    "schoolName": "市立四張犁國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[406]臺中市北屯區同榮里后庄路699號",
+    "tel": "(04)24210380",
+    "url": "http://www.scljh.tc.edu.tw"
+  },
+  {
+    "code": 193526,
+    "schoolName": "市立福科國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[407]臺中市西屯區福林路333號",
+    "tel": "(04)24618112",
+    "url": "http://www.fcjh.tc.edu.tw"
+  },
+  {
+    "code": 193527,
+    "schoolName": "市立大墩國中",
+    "pub_pri": "公立",
+    "city": "臺中市",
+    "address": "[408]臺中市南屯區惠中路三段98號",
+    "tel": "(04)23826178#712",
+    "url": "http://www.ddjh.tc.edu.tw"
+  },
+  {
+    "code": 111501,
+    "schoolName": "私立城光國中",
+    "pub_pri": "私立",
+    "city": "臺南市",
+    "address": "[717]臺南市仁德區文華路三段593號",
+    "tel": "(06)2703301",
+    "url": "http://www.cgjh.tnc.edu.tw"
+  },
+  {
+    "code": 111502,
+    "schoolName": "私立昭明國中",
+    "pub_pri": "私立",
+    "city": "臺南市",
+    "address": "[724]臺南市七股區大埕里315號",
+    "tel": "(06)7872053",
+    "url": "http://www.jmjh.tnc.edu.tw"
+  },
+  {
+    "code": 114501,
+    "schoolName": "市立仁德國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[717]臺南市仁德區民安路一段363號",
+    "tel": "(06)2682724",
+    "url": "http://s2.rdjh.tnc.edu.tw/xoops/index.php"
+  },
+  {
+    "code": 114502,
+    "schoolName": "市立仁德文賢國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[717]臺南市仁德區保安里中正路一段185號",
+    "tel": "(06)2662392",
+    "url": "http://163.26.153.1/xoops2/"
+  },
+  {
+    "code": 114503,
+    "schoolName": "市立歸仁國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[711]臺南市歸仁區文化里文化街二段2號",
+    "tel": "(06)2301873",
+    "url": "http://www.grjh.tnc.edu.tw"
+  },
+  {
+    "code": 114504,
+    "schoolName": "市立關廟國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[718]臺南市關廟區中山路二段172號",
+    "tel": "(06)5951181",
+    "url": "http://gmjh.tn.edu.tw"
+  },
+  {
+    "code": 114505,
+    "schoolName": "市立永康國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[710]臺南市永康區中山路43號",
+    "tel": "(06)2015247",
+    "url": "http://www.ykjh.tn.edu.tw"
+  },
+  {
+    "code": 114508,
+    "schoolName": "市立龍崎國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[719]臺南市龍崎區新市子258號",
+    "tel": "(06)5941475",
+    "url": "http://www.lcjh.tnc.edu.tw"
+  },
+  {
+    "code": 114509,
+    "schoolName": "市立新化國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[712]臺南市新化區中興路722號",
+    "tel": "(06)5902269",
+    "url": "http://www.sh2jh.tnc.edu.tw"
+  },
+  {
+    "code": 114510,
+    "schoolName": "市立善化國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[741]臺南市善化區溪美里656號",
+    "tel": "(06)5817043",
+    "url": "http://www.sh1jh.tnc.edu.tw"
+  },
+  {
+    "code": 114511,
+    "schoolName": "市立玉井國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[714]臺南市玉井區大成路152號",
+    "tel": "(06)5742214",
+    "url": "http://www.yjjh.tn.edu.tw"
+  },
+  {
+    "code": 114512,
+    "schoolName": "市立山上國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[743]臺南市山上區山上里130號",
+    "tel": "(06)5781023",
+    "url": "http://ssjh.tn.edu.tw/"
+  },
+  {
+    "code": 114513,
+    "schoolName": "市立安定國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[745]臺南市安定區安加里262之1號",
+    "tel": "(06)5922003",
+    "url": "http://www.adjh.tn.edu.tw"
+  },
+  {
+    "code": 114514,
+    "schoolName": "市立楠西國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[715]臺南市楠西區中興路107號",
+    "tel": "(06)5751712",
+    "url": "http://163.26.154.1/xoops/"
+  },
+  {
+    "code": 114515,
+    "schoolName": "市立新市國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[744]臺南市新市區民族路76號",
+    "tel": "(06)5991420",
+    "url": "http://www.ssjhs.tn.edu.tw/"
+  },
+  {
+    "code": 114516,
+    "schoolName": "市立南化國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[716]臺南市南化區南化里227號",
+    "tel": "(06)5771105",
+    "url": "http://www.nhjh.tn.edu.tw"
+  },
+  {
+    "code": 114517,
+    "schoolName": "市立左鎮國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[713]臺南市左鎮區中正里170號",
+    "tel": "(06)5731015",
+    "url": "http://www.tjjh.tn.edu.tw"
+  },
+  {
+    "code": 114518,
+    "schoolName": "市立麻豆國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[721]臺南市麻豆區南勢里36號",
+    "tel": "(06)5722128",
+    "url": "http://www.mdjh.tn.edu.tw"
+  },
+  {
+    "code": 114519,
+    "schoolName": "市立下營國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[735]臺南市下營區中山路一段412號",
+    "tel": "(06)6891105",
+    "url": "http://163.26.159.6/wordpress/"
+  },
+  {
+    "code": 114520,
+    "schoolName": "市立六甲國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[734]臺南市六甲區民權街43號",
+    "tel": "(06)6982040",
+    "url": "http://www.ljjh.tn.edu.tw"
+  },
+  {
+    "code": 114521,
+    "schoolName": "市立官田國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[720]臺南市官田區隆田里三民路29號",
+    "tel": "(06)5791371",
+    "url": "http://www.gtjh.tn.edu.tw"
+  },
+  {
+    "code": 114522,
+    "schoolName": "市立大內國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[742]臺南市大內區內江里319之1號",
+    "tel": "(06)5761010",
+    "url": "http://www.dnjh.tn.edu.tw"
+  },
+  {
+    "code": 114523,
+    "schoolName": "市立佳里國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[722]臺南市佳里區安南路523號",
+    "tel": "(06)7222244",
+    "url": "http://web.jljh.tn.edu.tw/wwwxoops2/"
+  },
+  {
+    "code": 114524,
+    "schoolName": "市立佳興國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[722]臺南市佳里區民安里新宅34之1號",
+    "tel": "(06)7260291",
+    "url": "http://www.jsjh.tn.edu.tw"
+  },
+  {
+    "code": 114525,
+    "schoolName": "市立學甲國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[726]臺南市學甲區華宗路540號",
+    "tel": "(06)7832128",
+    "url": "http://www.sjjh.tn.edu.tw"
+  },
+  {
+    "code": 114526,
+    "schoolName": "市立西港國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[723]臺南市西港區文化路41號",
+    "tel": "(06)7952071",
+    "url": "http://www.sgjh.tn.edu.tw"
+  },
+  {
+    "code": 114527,
+    "schoolName": "市立將軍國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[725]臺南市將軍區嘉昌里昌平1之1號",
+    "tel": "(06)7942042",
+    "url": "http://www.jjjh.tn.edu.tw"
+  },
+  {
+    "code": 114528,
+    "schoolName": "市立後港國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[724]臺南市七股區大潭里頂潭93號",
+    "tel": "(06)7941357",
+    "url": "http://www.hgjh.tn.edu.tw"
+  },
+  {
+    "code": 114529,
+    "schoolName": "市立竹橋國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[724]臺南市七股區義合里74之2號",
+    "tel": "(06)7891733",
+    "url": "http://163.26.155.1/htdocs/"
+  },
+  {
+    "code": 114530,
+    "schoolName": "市立北門國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[727]臺南市北門區永華里1之1號",
+    "tel": "(06)7862014",
+    "url": "http://www.bmjh.tn.edu.tw"
+  },
+  {
+    "code": 114531,
+    "schoolName": "市立南新國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[730]臺南市新營區民治路65號",
+    "tel": "(06)6563129",
+    "url": "http://www.nsjh.tn.edu.tw/"
+  },
+  {
+    "code": 114532,
+    "schoolName": "市立太子國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[730]臺南市新營區太北里140-21號",
+    "tel": "(06)6524762",
+    "url": "http://www.ttjh.tn.edu.tw"
+  },
+  {
+    "code": 114533,
+    "schoolName": "市立新東國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[730]臺南市新營區民治東路30號",
+    "tel": "(06)6322954",
+    "url": "http://www.sdjh.tn.edu.tw"
+  },
+  {
+    "code": 114534,
+    "schoolName": "市立鹽水國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[737]臺南市鹽水區三福路63號",
+    "tel": "(06)6521146",
+    "url": "http://www.ysjh.tn.edu.tw"
+  },
+  {
+    "code": 114535,
+    "schoolName": "市立白河國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[732]臺南市白河區昇安里三間厝220號",
+    "tel": "(06)6852067",
+    "url": "http://www.bhjh.tn.edu.tw"
+  },
+  {
+    "code": 114536,
+    "schoolName": "市立柳營國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[736]臺南市柳營區東昇里中山東路二段956號",
+    "tel": "(06)6223209",
+    "url": "http://www.lyjh.tn.edu.tw"
+  },
+  {
+    "code": 114537,
+    "schoolName": "市立東山國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[733]臺南市東山區東中里青葉路一段132號",
+    "tel": "(06)6802175",
+    "url": "http://www.dsjh.tn.edu.tw"
+  },
+  {
+    "code": 114538,
+    "schoolName": "市立東原國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[733]臺南市東山區東原里瓦厝70號",
+    "tel": "(06)6861009",
+    "url": "http://www.dyjh.tn.edu.tw"
+  },
+  {
+    "code": 114539,
+    "schoolName": "市立後壁國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[731]臺南市後壁區嘉苳里124之20號",
+    "tel": "(06)6871974",
+    "url": "http://www.hbjh.tn.edu.tw"
+  },
+  {
+    "code": 114540,
+    "schoolName": "市立菁寮國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[731]臺南市後壁區頂長里8之3號",
+    "tel": "(06)6621974",
+    "url": "http://www.jljhs.tn.edu.tw/"
+  },
+  {
+    "code": 114543,
+    "schoolName": "市立大橋國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[710]臺南市永康區東橋十街1號",
+    "tel": "(06)3021793",
+    "url": "http://www.dcjh.tn.edu.tw"
+  },
+  {
+    "code": 114544,
+    "schoolName": "市立沙崙國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[711]臺南市歸仁區武東里歸仁六路2號",
+    "tel": "(06)3032062",
+    "url": "http://sljh.tn.edu.tw"
+  },
+  {
+    "code": 213501,
+    "schoolName": "市立後甲國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[701]臺南市東區東平路260號",
+    "tel": "(06)2388118",
+    "url": "http://www.hcjh.tn.edu.tw"
+  },
+  {
+    "code": 213502,
+    "schoolName": "市立忠孝國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[701]臺南市東區崇善路151號",
+    "tel": "(06)2670495",
+    "url": "http://www.chjh.tn.edu.tw"
+  },
+  {
+    "code": 213504,
+    "schoolName": "市立大成國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[702]臺南市南區西門路一段306號",
+    "tel": "(06)2630011",
+    "url": "http://www.tcjhs.tn.edu.tw"
+  },
+  {
+    "code": 213505,
+    "schoolName": "市立金城國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[708]臺南市安平區怡平路8號",
+    "tel": "(06)2975816",
+    "url": "http://www.jcjh.tn.edu.tw"
+  },
+  {
+    "code": 213506,
+    "schoolName": "市立民德國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[704]臺南市北區西門路三段223號",
+    "tel": "(06)2223014",
+    "url": "http://www.mtjh.tn.edu.tw"
+  },
+  {
+    "code": 213507,
+    "schoolName": "市立成功國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[704]臺南市北區和緯路1段2號",
+    "tel": "(06)2517906",
+    "url": "http://www.ckjh.tn.edu.tw"
+  },
+  {
+    "code": 213508,
+    "schoolName": "市立延平國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[704]臺南市北區公園路750號",
+    "tel": "(06)2514720",
+    "url": "http://www.ypjh.tn.edu.tw"
+  },
+  {
+    "code": 213509,
+    "schoolName": "市立建興國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[700]臺南市中西區府前路一段239號",
+    "tel": "(06)2139601",
+    "url": "http://www.csjh.tn.edu.tw"
+  },
+  {
+    "code": 213510,
+    "schoolName": "市立中山國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[700]臺南市中西區南寧街45號",
+    "tel": "(06)2134792",
+    "url": "http://www.csjhs.tn.edu.tw"
+  },
+  {
+    "code": 213511,
+    "schoolName": "市立安平國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[708]臺南市安平區慶平路687號",
+    "tel": "(06)2990461",
+    "url": "http://www.apjh.tn.edu.tw"
+  },
+  {
+    "code": 213512,
+    "schoolName": "市立安南國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[709]臺南市安南區安中路三段252號",
+    "tel": "(06)2567384",
+    "url": "http://www.anjh.tn.edu.tw"
+  },
+  {
+    "code": 213513,
+    "schoolName": "市立安順國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[709]臺南市安南區安和路三段227號",
+    "tel": "(06)3559652",
+    "url": "http://www.asjh.tn.edu.tw"
+  },
+  {
+    "code": 213514,
+    "schoolName": "市立復興國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[701]臺南市東區裕文路62號",
+    "tel": "(06)3310688",
+    "url": "http://www.fhjh.tn.edu.tw"
+  },
+  {
+    "code": 213515,
+    "schoolName": "市立新興國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[702]臺南市南區新孝路87號",
+    "tel": "(06)2633171",
+    "url": "http://www.hhjh.tn.edu.tw"
+  },
+  {
+    "code": 213517,
+    "schoolName": "市立文賢國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[704]臺南市北區文賢一路2號",
+    "tel": "(06)2587571",
+    "url": "http://www.whjh.tn.edu.tw"
+  },
+  {
+    "code": 213518,
+    "schoolName": "市立崇明國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[701]臺南市東區崇明路700號",
+    "tel": "(06)2907261",
+    "url": "http://www.cmjh.tn.edu.tw"
+  },
+  {
+    "code": 213519,
+    "schoolName": "市立和順國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[709]臺南市安南區安和路五段84巷66號",
+    "tel": "(06)3551440",
+    "url": "http://www.hsjh.tn.edu.tw"
+  },
+  {
+    "code": 213520,
+    "schoolName": "市立海佃國中",
+    "pub_pri": "公立",
+    "city": "臺南市",
+    "address": "[709]臺南市安南區安富街166號",
+    "tel": "(06)3507486",
+    "url": "http://www.hdjh.tn.edu.tw"
+  },
+  {
+    "code": 124501,
+    "schoolName": "市立鳳山國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區中山東路227號",
+    "tel": "(07)7462774",
+    "url": "http://www.fsm.ks.edu.tw"
+  },
+  {
+    "code": 124503,
+    "schoolName": "市立鳳西國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區興中里光華路69號",
+    "tel": "(07)7463452",
+    "url": "http://www.fxm.ks.edu.tw"
+  },
+  {
+    "code": 124504,
+    "schoolName": "市立五甲國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區龍成路111號",
+    "tel": "(07)8215239",
+    "url": "http://www.wzm.ks.edu.tw"
+  },
+  {
+    "code": 124505,
+    "schoolName": "市立鳳甲國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區輜汽路300號",
+    "tel": "(07)7675300",
+    "url": "http://www.fjm.ks.edu.tw"
+  },
+  {
+    "code": 124506,
+    "schoolName": "市立忠孝國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區國泰路二段81號",
+    "tel": "(07)7635252",
+    "url": "http://www.zxm.ks.edu.tw"
+  },
+  {
+    "code": 124507,
+    "schoolName": "市立大寮國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[831]高雄市大寮區永芳里進學路150號",
+    "tel": "(07)7818038",
+    "url": "http://www.dlm.ks.edu.tw"
+  },
+  {
+    "code": 124508,
+    "schoolName": "市立潮寮國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[831]高雄市大寮區潮寮里潮寮路51之9號",
+    "tel": "(07)7879544#10",
+    "url": "http://www.tlm.ks.edu.tw"
+  },
+  {
+    "code": 124509,
+    "schoolName": "市立大樹國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[840]高雄市大樹區九曲里九曲路500號",
+    "tel": "(07)6512026",
+    "url": "http://www.dsm.ks.edu.tw"
+  },
+  {
+    "code": 124510,
+    "schoolName": "市立溪埔國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[840]高雄市大樹區溪埔路1號",
+    "tel": "(07)6561335",
+    "url": "http://www.xpm.ks.edu.tw"
+  },
+  {
+    "code": 124512,
+    "schoolName": "市立鳥松國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[833]高雄市鳥松區松埔北巷5之1號",
+    "tel": "(07)7323977",
+    "url": "http://www.nsm.ks.edu.tw"
+  },
+  {
+    "code": 124514,
+    "schoolName": "市立大社國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[815]高雄市大社區神農里翠屏路100號",
+    "tel": "(07)3530100",
+    "url": "http://www.dam.ks.edu.tw"
+  },
+  {
+    "code": 124515,
+    "schoolName": "市立岡山國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[820]高雄市岡山區岡燕路238號",
+    "tel": "(07)6212219",
+    "url": "http://www.gsm.ks.edu.tw"
+  },
+  {
+    "code": 124516,
+    "schoolName": "市立前峰國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[820]高雄市岡山區樹人路1號",
+    "tel": "(07)6266171",
+    "url": "http://www.qfm.ks.edu.tw"
+  },
+  {
+    "code": 124517,
+    "schoolName": "市立永安國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[828]高雄市永安區保興一路3號",
+    "tel": "(07)6912064",
+    "url": "http://www.yam.ks.edu.tw"
+  },
+  {
+    "code": 124518,
+    "schoolName": "市立橋頭國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[825]高雄市橋頭區新興路70號",
+    "tel": "(07)6113559",
+    "url": "http://www.qtm.ks.edu.tw"
+  },
+  {
+    "code": 124519,
+    "schoolName": "市立梓官國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[826]高雄市梓官區中學路71號",
+    "tel": "(07)6172854",
+    "url": "http://www.zgm.ks.edu.tw"
+  },
+  {
+    "code": 124520,
+    "schoolName": "市立燕巢國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[824]高雄市燕巢區中興路267號",
+    "tel": "(07)6161267",
+    "url": "http://www.ycm.ks.edu.tw"
+  },
+  {
+    "code": 124521,
+    "schoolName": "市立阿蓮國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[822]高雄市阿蓮區民生路178號",
+    "tel": "(07)6312045",
+    "url": "http://www.alm.ks.edu.tw"
+  },
+  {
+    "code": 124523,
+    "schoolName": "市立湖內國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[829]高雄市湖內區公舘里中山路二段63號",
+    "tel": "(07)6993008",
+    "url": "http://www.hn.ks.edu.tw"
+  },
+  {
+    "code": 124524,
+    "schoolName": "市立茄萣國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[852]高雄市茄萣區白雲里濱海路四段29號",
+    "tel": "(07)6900054",
+    "url": "http://www.qdm.ks.edu.tw"
+  },
+  {
+    "code": 124525,
+    "schoolName": "市立田寮國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[823]高雄市田寮區南安里崗安路48號",
+    "tel": "(07)6361687",
+    "url": "http://www.tia.ks.edu.tw"
+  },
+  {
+    "code": 124526,
+    "schoolName": "市立彌陀國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[827]高雄市彌陀區海尾里進學路136號",
+    "tel": "(07)6178424",
+    "url": "http://www.mtm.ks.edu.tw"
+  },
+  {
+    "code": 124527,
+    "schoolName": "市立旗山國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[842]高雄市旗山區大德里中學路42號",
+    "tel": "(07)6612103",
+    "url": "http://www.csj.ks.edu.tw"
+  },
+  {
+    "code": 124528,
+    "schoolName": "市立圓富國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[842]高雄市旗山區圓富里旗甲路2段609號",
+    "tel": "(07)6691004",
+    "url": "http://www.yfm.ks.edu.tw"
+  },
+  {
+    "code": 124529,
+    "schoolName": "市立大洲國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[842]高雄市旗山區新光里新南巷5號",
+    "tel": "(07)6661378",
+    "url": "http://www.dz.ks.edu.tw"
+  },
+  {
+    "code": 124530,
+    "schoolName": "市立美濃國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[843]高雄市美濃區合和里中正路一段191號",
+    "tel": "(07)6816166",
+    "url": "http://www.mnm.ks.edu.tw"
+  },
+  {
+    "code": 124531,
+    "schoolName": "市立南隆國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[843]高雄市美濃區南中街3號",
+    "tel": "(07)6831154",
+    "url": "http://www.nl.ks.edu.tw"
+  },
+  {
+    "code": 124532,
+    "schoolName": "市立龍肚國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[843]高雄市美濃區龍山里中華路68號",
+    "tel": "(07)6851314",
+    "url": "http://www.ldm.ks.edu.tw"
+  },
+  {
+    "code": 124534,
+    "schoolName": "市立寶來國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[844]高雄市六龜區寶來里中正路137號",
+    "tel": "(07)6881258",
+    "url": "http://www.blm.ks.edu.tw"
+  },
+  {
+    "code": 124535,
+    "schoolName": "市立杉林國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[846]高雄市杉林區月眉里清水路中學巷6號",
+    "tel": "(07)6771108",
+    "url": "http://www.slm.ks.edu.tw"
+  },
+  {
+    "code": 124536,
+    "schoolName": "市立內門國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[845]高雄市內門區中正路160巷30號",
+    "tel": "(07)6671002",
+    "url": "http://www.nmm.ks.edu.tw"
+  },
+  {
+    "code": 124537,
+    "schoolName": "市立甲仙國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[847]高雄市甲仙區東安里文化南路6號",
+    "tel": "(07)6751018",
+    "url": "http://www.jxm.ks.edu.tw"
+  },
+  {
+    "code": 124538,
+    "schoolName": "市立中芸國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[832]高雄市林園區中芸里中芸路3之100號",
+    "tel": "(07)6425223",
+    "url": "http://www.zym.ks.edu.tw"
+  },
+  {
+    "code": 124539,
+    "schoolName": "市立中庄國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[831]高雄市大寮區中庄里光明路三段1437號",
+    "tel": "(07)7033166",
+    "url": "http://www.zzm.ks.edu.tw"
+  },
+  {
+    "code": 124541,
+    "schoolName": "市立蚵寮國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[826]高雄市梓官區智蚵里中正二街60號",
+    "tel": "(07)6175389",
+    "url": "http://www.klm.ks.edu.tw"
+  },
+  {
+    "code": 124542,
+    "schoolName": "市立那瑪夏國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[849]高雄市那瑪夏區瑪雅里平和巷171號",
+    "tel": "(07)6701813",
+    "url": "http://www.sm.ks.edu.tw"
+  },
+  {
+    "code": 124543,
+    "schoolName": "市立青年國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區青年路二段89號",
+    "tel": "(07)7190419",
+    "url": "http://www.qnm.ks.edu.tw"
+  },
+  {
+    "code": 124544,
+    "schoolName": "市立一甲國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[821]高雄市路竹區一甲路111號",
+    "tel": "(07)6977479",
+    "url": "http://www.yjm.ks.edu.tw"
+  },
+  {
+    "code": 124545,
+    "schoolName": "市立大灣國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[814]高雄市仁武區大灣里仁雄路99號",
+    "tel": "(07)3711715",
+    "url": "http://www.dwm.ks.edu.tw/school/web/index.php"
+  },
+  {
+    "code": 124546,
+    "schoolName": "市立嘉興國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[820]高雄市岡山區嘉興里信中街486號",
+    "tel": "(07)6221039",
+    "url": "http://www.jsm.ks.edu.tw"
+  },
+  {
+    "code": 124547,
+    "schoolName": "市立茂林國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[851]高雄市茂林區茂林里4之5號",
+    "tel": "(07)6801153",
+    "url": "http://www.ml.ks.edu.tw"
+  },
+  {
+    "code": 124548,
+    "schoolName": "市立桃源國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[848]高雄市桃源區勤和里南橫公路三段201號",
+    "tel": "(07)6861133",
+    "url": "http://www.ty.ks.edu.tw"
+  },
+  {
+    "code": 124549,
+    "schoolName": "市立中崙國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區中崙二路487號",
+    "tel": "(07)7538686",
+    "url": "http://www.zlm.ks.edu.tw"
+  },
+  {
+    "code": 124550,
+    "schoolName": "市立鳳翔國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[830]高雄市鳳山區保義街100號",
+    "tel": "(07)7929337",
+    "url": "http://www.flyjh.kh.edu.tw/"
+  },
+  {
+    "code": 513501,
+    "schoolName": "市立鹽埕國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[803]高雄市鹽埕區新樂街46號",
+    "tel": "(07)5211283",
+    "url": "http://www.yacjh.kh.edu.tw"
+  },
+  {
+    "code": 523502,
+    "schoolName": "市立壽山國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[804]高雄市鼓山區鼓山二路37巷108號",
+    "tel": "(07)5519150",
+    "url": "http://www.ssjh.kh.edu.tw"
+  },
+  {
+    "code": 523503,
+    "schoolName": "市立明華國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[804]高雄市鼓山區明誠三路582號",
+    "tel": "(07)5502002",
+    "url": "http://www.mhjh.kh.edu.tw"
+  },
+  {
+    "code": 523504,
+    "schoolName": "市立七賢國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[804]高雄市鼓山區美術東三路110號",
+    "tel": "(07)2810946",
+    "url": "http://www.chihjh.kh.edu.tw"
+  },
+  {
+    "code": 533501,
+    "schoolName": "市立左營國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[813]高雄市左營區曾子路281號",
+    "tel": "(07)3433080",
+    "url": "http://www.tyjh.kh.edu.tw"
+  },
+  {
+    "code": 533502,
+    "schoolName": "市立大義國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[813]高雄市左營區翠華路687號",
+    "tel": "(07)5820191",
+    "url": "http://www.dyjh.kh.edu.tw"
+  },
+  {
+    "code": 533503,
+    "schoolName": "市立立德國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[813]高雄市左營區實踐路101號",
+    "tel": "(07)5811985",
+    "url": "http://www.ltjh.kh.edu.tw"
+  },
+  {
+    "code": 533504,
+    "schoolName": "市立龍華國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[813]高雄市左營區自由二路2號",
+    "tel": "(07)5570720",
+    "url": "http://www.lhjh.kh.edu.tw"
+  },
+  {
+    "code": 533505,
+    "schoolName": "市立福山國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[813]高雄市左營區重信路215號",
+    "tel": "(07)3501581",
+    "url": "http://www.fsjh.kh.edu.tw"
+  },
+  {
+    "code": 533506,
+    "schoolName": "市立文府國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[813]高雄市左營區福山里文府路401號",
+    "tel": "(07)3495569",
+    "url": "http://www.zywfjh.kh.edu.tw/"
+  },
+  {
+    "code": 543501,
+    "schoolName": "市立楠梓國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[811]高雄市楠梓區楠梓路336號",
+    "tel": "(07)3517191",
+    "url": "http://www.ntjh.kh.edu.tw"
+  },
+  {
+    "code": 543502,
+    "schoolName": "市立右昌國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[811]高雄市楠梓區興昌里盛昌街161號",
+    "tel": "(07)3640451",
+    "url": "http://www.yocjh.kh.edu.tw"
+  },
+  {
+    "code": 543503,
+    "schoolName": "市立後勁國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[811]高雄市楠梓區加昌路180號",
+    "tel": "(07)3654111",
+    "url": "http://www.hpjh.kh.edu.tw"
+  },
+  {
+    "code": 543504,
+    "schoolName": "市立國昌國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[811]高雄市楠梓區德民路1010號",
+    "tel": "(07)3644300",
+    "url": "http://www.kcjh.kh.edu.tw"
+  },
+  {
+    "code": 543505,
+    "schoolName": "市立翠屏國中(小)",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[811]高雄市楠梓區翠屏路135號",
+    "tel": "(07)3683018",
+    "url": "http://www.tpjh.kh.edu.tw"
+  },
+  {
+    "code": 553501,
+    "schoolName": "市立鼎金國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[807]高雄市三民區鼎山街445號",
+    "tel": "(07)3831029",
+    "url": "http://www.djjh.kh.edu.tw"
+  },
+  {
+    "code": 553502,
+    "schoolName": "市立三民國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[807]高雄市三民區十全一路200號",
+    "tel": "(07)3227751",
+    "url": "http://www.smjh.kh.edu.tw"
+  },
+  {
+    "code": 553503,
+    "schoolName": "市立民族國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[807]高雄市三民區覺民路363號",
+    "tel": "(07)3818718",
+    "url": "http://www.mtjh.kh.edu.tw"
+  },
+  {
+    "code": 553504,
+    "schoolName": "市立陽明國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[807]高雄市三民區義華路166號",
+    "tel": "(07)3892919",
+    "url": "http://www.ymjh.kh.edu.tw"
+  },
+  {
+    "code": 553505,
+    "schoolName": "市立正興國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[807]高雄市三民區覺民路850號",
+    "tel": "(07)3809591",
+    "url": "http://www.chehjh.kh.edu.tw"
+  },
+  {
+    "code": 573501,
+    "schoolName": "市立前金國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[801]高雄市前金區六合二路278號",
+    "tel": "(07)2725981",
+    "url": "http://www.ccjh.kh.edu.tw"
+  },
+  {
+    "code": 583501,
+    "schoolName": "市立苓雅國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[802]高雄市苓雅區四維三路176號",
+    "tel": "(07)3353307",
+    "url": "http://www.lyjh.kh.edu.tw"
+  },
+  {
+    "code": 583502,
+    "schoolName": "市立五福國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[802]高雄市苓雅區五福一路12號",
+    "tel": "(07)2223036",
+    "url": "http://www.wfjh.kh.edu.tw"
+  },
+  {
+    "code": 583503,
+    "schoolName": "市立大仁國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[802]高雄市苓雅區建國一路148號",
+    "tel": "(07)7114302",
+    "url": "http://www.tjjh.kh.edu.tw"
+  },
+  {
+    "code": 583505,
+    "schoolName": "市立英明國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[802]高雄市苓雅區英明路147號",
+    "tel": "(07)7150949",
+    "url": "http://www.inmjh.kh.edu.tw"
+  },
+  {
+    "code": 593501,
+    "schoolName": "市立獅甲國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[806]高雄市前鎮區中山三路43號",
+    "tel": "(07)3331522",
+    "url": "http://www.scjh.kh.edu.tw"
+  },
+  {
+    "code": 593502,
+    "schoolName": "市立前鎮國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[806]高雄市前鎮區新衙路17號",
+    "tel": "(07)8217677",
+    "url": "http://www.qzjh.kh.edu.tw"
+  },
+  {
+    "code": 593503,
+    "schoolName": "市立瑞豐國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[806]高雄市前鎮區瑞興街99號",
+    "tel": "(07)7713181",
+    "url": "http://www.rfjh.kh.edu.tw"
+  },
+  {
+    "code": 593504,
+    "schoolName": "市立光華國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[806]高雄市前鎮區和平二路170號",
+    "tel": "(07)7222622",
+    "url": "http://www.khjh.kh.edu.tw"
+  },
+  {
+    "code": 593505,
+    "schoolName": "市立興仁國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[806]高雄市前鎮區德昌路345號",
+    "tel": "(07)8218110",
+    "url": "http://www.hjjh.kh.edu.tw"
+  },
+  {
+    "code": 603501,
+    "schoolName": "市立旗津國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[805]高雄市旗津區中洲二路207號",
+    "tel": "(07)5714595",
+    "url": "http://www.cjjh.kh.edu.tw"
+  },
+  {
+    "code": 613501,
+    "schoolName": "市立小港國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[812]高雄市小港區平和南路185號",
+    "tel": "(07)8215929",
+    "url": "http://www.hkjh.kh.edu.tw"
+  },
+  {
+    "code": 613502,
+    "schoolName": "市立鳳林國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[812]高雄市小港區龍鳳路559號",
+    "tel": "(07)8711130",
+    "url": "http://www.fljh.kh.edu.tw"
+  },
+  {
+    "code": 613503,
+    "schoolName": "市立中山國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[812]高雄市小港區漢民路352號",
+    "tel": "(07)8021765",
+    "url": "http://www.csjh.kh.edu.tw"
+  },
+  {
+    "code": 613504,
+    "schoolName": "市立明義國中",
+    "pub_pri": "公立",
+    "city": "高雄市",
+    "address": "[812]高雄市小港區明義街2號",
+    "tel": "(07)7911295",
+    "url": "http://www.myjh.kh.edu.tw"
+  },
+  {
+    "code": 24501,
+    "schoolName": "縣立宜蘭國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[260]宜蘭縣宜蘭市樹人路37號",
+    "tel": "(03)9322519",
+    "url": "http://www.iljh.ilc.edu.tw/iljhs/iljhs.htm"
+  },
+  {
+    "code": 24502,
+    "schoolName": "縣立中華國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[260]宜蘭縣宜蘭市東港路15-3號",
+    "tel": "(03)9382704",
+    "url": "http://www.chjh.ilc.edu.tw"
+  },
+  {
+    "code": 24503,
+    "schoolName": "縣立復興國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[260]宜蘭縣宜蘭市復興路二段77號",
+    "tel": "(03)9322942",
+    "url": "http://www.fsjh.ilc.edu.tw"
+  },
+  {
+    "code": 24504,
+    "schoolName": "縣立羅東國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[265]宜蘭縣羅東鎮中華路99號",
+    "tel": "(03)9542075",
+    "url": "http://www.ltjh.ilc.edu.tw"
+  },
+  {
+    "code": 24505,
+    "schoolName": "縣立東光國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[265]宜蘭縣羅東鎮興東南路201號",
+    "tel": "(03)9542603",
+    "url": "http://www.tkjh.ilc.edu.tw"
+  },
+  {
+    "code": 24506,
+    "schoolName": "縣立國華國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[265]宜蘭縣羅東鎮國華街101號",
+    "tel": "(03)9513062",
+    "url": "http://www.ghjh.ilc.edu.tw"
+  },
+  {
+    "code": 24507,
+    "schoolName": "縣立頭城國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[261]宜蘭縣頭城鎮復興路145號",
+    "tel": "(03)9771002",
+    "url": "http://www.tcjh.ilc.edu.tw"
+  },
+  {
+    "code": 24508,
+    "schoolName": "縣立蘇澳國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[270]宜蘭縣蘇澳鎮中山路二段1號",
+    "tel": "(03)9962137",
+    "url": "http://www.sajh.ilc.edu.tw"
+  },
+  {
+    "code": 24509,
+    "schoolName": "縣立文化國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[270]宜蘭縣蘇澳鎮永榮里新馬路2號",
+    "tel": "(03)9903060",
+    "url": "http://www.whjh.ilc.edu.tw"
+  },
+  {
+    "code": 24510,
+    "schoolName": "縣立南安國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[270]宜蘭縣蘇澳鎮學府路117號",
+    "tel": "(03)9962317",
+    "url": "http://www.najh.ilc.edu.tw"
+  },
+  {
+    "code": 24511,
+    "schoolName": "縣立三星國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[266]宜蘭縣三星鄉月眉村月眉街54號",
+    "tel": "(03)9892012",
+    "url": "http://www.ssjh.ilc.edu.tw"
+  },
+  {
+    "code": 24512,
+    "schoolName": "縣立礁溪國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[262]宜蘭縣礁溪鄉礁溪路4段23號",
+    "tel": "(03)9882412",
+    "url": "http://www.csjh.ilc.edu.tw"
+  },
+  {
+    "code": 24513,
+    "schoolName": "縣立吳沙國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[262]宜蘭縣礁溪鄉育英路79號",
+    "tel": "(03)9284701",
+    "url": "http://www.wsjh.ilc.edu.tw"
+  },
+  {
+    "code": 24514,
+    "schoolName": "縣立冬山國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[269]宜蘭縣冬山鄉南興村照安路26號",
+    "tel": "(03)9592076",
+    "url": "http://www.dsjh.ilc.edu.tw"
+  },
+  {
+    "code": 24515,
+    "schoolName": "縣立順安國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[269]宜蘭縣冬山鄉順安村永興路一段359號",
+    "tel": "(03)9581150",
+    "url": "http://www.sanjh.ilc.edu.tw"
+  },
+  {
+    "code": 24516,
+    "schoolName": "縣立五結國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[268]宜蘭縣五結鄉大吉村大吉路12-3號",
+    "tel": "(03)9501105",
+    "url": "http://www.wjjh.ilc.edu.tw"
+  },
+  {
+    "code": 24517,
+    "schoolName": "縣立興中國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[268]宜蘭縣五結鄉上四村中正東路50號",
+    "tel": "(03)9653453",
+    "url": "http://www.scjh.ilc.edu.tw"
+  },
+  {
+    "code": 24518,
+    "schoolName": "縣立利澤國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[268]宜蘭縣五結鄉成興村利寶路99號",
+    "tel": "(03)9504762",
+    "url": "http://www.ljjh.ilc.edu.tw"
+  },
+  {
+    "code": 24519,
+    "schoolName": "縣立員山國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[264]宜蘭縣員山鄉溫泉路92號",
+    "tel": "(03)9222331",
+    "url": "http://www.ysjh.ilc.edu.tw"
+  },
+  {
+    "code": 24520,
+    "schoolName": "縣立內城國中(小)",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[264]宜蘭縣員山鄉內城村內城路545號",
+    "tel": "(03)9221846",
+    "url": "http://www.ryjh.ilc.edu.tw"
+  },
+  {
+    "code": 24521,
+    "schoolName": "縣立壯圍國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[263]宜蘭縣壯圍鄉富祥路588號",
+    "tel": "(03)9381773",
+    "url": "http://www.cwjh.ilc.edu.tw"
+  },
+  {
+    "code": 24523,
+    "schoolName": "縣立大同國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[267]宜蘭縣大同鄉太平村一鄰泰雅路四段35號",
+    "tel": "(03)9809611",
+    "url": "http://www.dtjh.ilc.edu.tw"
+  },
+  {
+    "code": 24524,
+    "schoolName": "縣立凱旋國中",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[260]宜蘭縣宜蘭市建業里10鄰縣政7街50巷1號",
+    "tel": "(03)9255600",
+    "url": "http://www.ksjh.ilc.edu.tw"
+  },
+  {
+    "code": 24526,
+    "schoolName": "縣立人文國中(小)",
+    "pub_pri": "公立",
+    "city": "宜蘭縣",
+    "address": "[261]宜蘭縣頭城鎮拔雅里文雅路150號",
+    "tel": "(03)9773396",
+    "url": "http://www.jwps.ilc.edu.tw"
+  },
+  {
+    "code": 41501,
+    "schoolName": "私立康乃薾國中(小)",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市六家一路二段115號",
+    "tel": "(03)6589188",
+    "url": "http://w1.korrnell.com.tw"
+  },
+  {
+    "code": 44501,
+    "schoolName": "縣立竹東國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[310]新竹縣竹東鎮公園路8號",
+    "tel": "(03)5961207",
+    "url": "http://www.cdjh.hcc.edu.tw"
+  },
+  {
+    "code": 44502,
+    "schoolName": "縣立二重國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[310]新竹縣竹東鎮二重里學府路132號",
+    "tel": "(03)5823083",
+    "url": "http://www.ecjh.hcc.edu.tw"
+  },
+  {
+    "code": 44503,
+    "schoolName": "縣立員東國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[310]新竹縣竹東鎮東峰路521號",
+    "tel": "(03)5963324",
+    "url": "http://www.ydjh.hcc.edu.tw"
+  },
+  {
+    "code": 44504,
+    "schoolName": "縣立關西國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[306]新竹縣關西鎮北斗里北門口41號",
+    "tel": "(03)5872008",
+    "url": "http://www.khjh.hcc.edu.tw"
+  },
+  {
+    "code": 44505,
+    "schoolName": "縣立石光國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[306]新竹縣關西鎮石光里308巷44號",
+    "tel": "(03)5868019",
+    "url": "http://www.sgjh.hcc.edu.tw/bin/home.php"
+  },
+  {
+    "code": 44506,
+    "schoolName": "縣立富光國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[306]新竹縣關西鎮東光里十六張49號",
+    "tel": "(03)5872224",
+    "url": "http://www.fgjh.hcc.edu.tw"
+  },
+  {
+    "code": 44507,
+    "schoolName": "縣立新埔國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[305]新竹縣新埔鎮中正路792號",
+    "tel": "(03)5882026",
+    "url": "http://www.hpjh.hcc.edu.tw"
+  },
+  {
+    "code": 44508,
+    "schoolName": "縣立照門國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[305]新竹縣新埔鎮照門里照鏡7號",
+    "tel": "(03)5890214",
+    "url": "http://www.jmjh.hcc.edu.tw"
+  },
+  {
+    "code": 44509,
+    "schoolName": "縣立竹北國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市中正西路154號",
+    "tel": "(03)5552064",
+    "url": "http://www.cbjh.hcc.edu.tw"
+  },
+  {
+    "code": 44510,
+    "schoolName": "縣立鳳岡國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市大義里鳳岡路三段100號",
+    "tel": "(03)5561284",
+    "url": "http://www.fkjh.hcc.edu.tw"
+  },
+  {
+    "code": 44512,
+    "schoolName": "縣立芎林國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[307]新竹縣芎林鄉新鳳村74號",
+    "tel": "(03)5922775",
+    "url": "http://www.cljh.hcc.edu.tw"
+  },
+  {
+    "code": 44513,
+    "schoolName": "縣立新豐國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[304]新竹縣新豐鄉成德街36號",
+    "tel": "(03)5596573",
+    "url": "http://www.sfjh.hcc.edu.tw"
+  },
+  {
+    "code": 44514,
+    "schoolName": "縣立精華國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[304]新竹縣新豐鄉後湖村八鄰166號",
+    "tel": "(03)5680923",
+    "url": "http://www.ghjh.hcc.edu.tw"
+  },
+  {
+    "code": 44515,
+    "schoolName": "縣立橫山國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[312]新竹縣橫山鄉中豐路二段415號",
+    "tel": "(03)5931665",
+    "url": "http://www.hsjh.hcc.edu.tw"
+  },
+  {
+    "code": 44516,
+    "schoolName": "縣立華山國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[312]新竹縣橫山鄉橫山街一段29號",
+    "tel": "(03)5934084",
+    "url": "http://www.hwjh.hcc.edu.tw"
+  },
+  {
+    "code": 44517,
+    "schoolName": "縣立寶山國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[308]新竹縣寶山鄉三峰路二段600號",
+    "tel": "(03)5202104",
+    "url": "http://www.bsjh.hcc.edu.tw"
+  },
+  {
+    "code": 44518,
+    "schoolName": "縣立北埔國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[314]新竹縣北埔鄉埔尾村141號",
+    "tel": "(03)5802224",
+    "url": "http://www.ppjh.hcc.edu.tw"
+  },
+  {
+    "code": 44519,
+    "schoolName": "縣立峨眉國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[315]新竹縣峨眉鄉峨眉街十鄰54號",
+    "tel": "(03)5800208",
+    "url": "http://www.omjh.hcc.edu.tw"
+  },
+  {
+    "code": 44521,
+    "schoolName": "縣立新湖國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[303]新竹縣湖口鄉新湖路200號",
+    "tel": "(03)5992159",
+    "url": "http://www.hhjh.hcc.edu.tw"
+  },
+  {
+    "code": 44522,
+    "schoolName": "縣立中正國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[303]新竹縣湖口鄉仁興路一三五號",
+    "tel": "(03)5981067",
+    "url": "http://www.ccjh.hcc.edu.tw"
+  },
+  {
+    "code": 44523,
+    "schoolName": "縣立五峰國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[311]新竹縣五峰鄉大隘村六鄰113號",
+    "tel": "(03)5851006",
+    "url": "http://www.wfjh.hcc.edu.tw"
+  },
+  {
+    "code": 44524,
+    "schoolName": "縣立尖石國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[313]新竹縣尖石鄉嘉樂村三鄰八十號",
+    "tel": "(03)5841027",
+    "url": "http://www.gsjh.hcc.edu.tw"
+  },
+  {
+    "code": 44525,
+    "schoolName": "縣立忠孝國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[304]新竹縣新豐鄉員山村孝六街1號",
+    "tel": "(03)5572555",
+    "url": "http://www.chjh.hcc.edu.tw"
+  },
+  {
+    "code": 44526,
+    "schoolName": "縣立博愛國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市縣政十三路81號",
+    "tel": "(03)5530243",
+    "url": "http://www.pajh.hcc.edu.tw"
+  },
+  {
+    "code": 44527,
+    "schoolName": "縣立仁愛國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市三民路239號",
+    "tel": "(03)5530238",
+    "url": "http://www.jajh.hcc.edu.tw"
+  },
+  {
+    "code": 44528,
+    "schoolName": "縣立自強國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[310]新竹縣竹東鎮自強路169號",
+    "tel": "(03)5103291",
+    "url": "http://www.jcjh.hcc.edu.tw"
+  },
+  {
+    "code": 44529,
+    "schoolName": "縣立成功國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市成功八路99號",
+    "tel": "(03)5505924",
+    "url": "http://www.cgjh.hcc.edu.tw/bin/home.php"
+  },
+  {
+    "code": 44530,
+    "schoolName": "縣立東興國中",
+    "pub_pri": "公立",
+    "city": "新竹縣",
+    "address": "[302]新竹縣竹北市嘉豐六路一段101號",
+    "tel": "(03)5502120",
+    "url": "http://www.dxjh.hcc.edu.tw/bin/home.php"
+  },
+  {
+    "code": 54501,
+    "schoolName": "縣立苗栗國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[360]苗栗縣苗栗市高苗里木鐸山1號",
+    "tel": "(037)320226",
+    "url": "http://www.mljh.mlc.edu.tw"
+  },
+  {
+    "code": 54502,
+    "schoolName": "縣立大倫國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[360]苗栗縣苗栗市玉清里育英街82號",
+    "tel": "(037)266311",
+    "url": "http://www.taluenjh.mlc.edu.tw"
+  },
+  {
+    "code": 54503,
+    "schoolName": "縣立明仁國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[360]苗栗縣苗栗市福麗里電台10號",
+    "tel": "(037)321261",
+    "url": "http://www.mln.mlc.edu.tw"
+  },
+  {
+    "code": 54504,
+    "schoolName": "縣立頭屋國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[362]苗栗縣頭屋鄉中正街86巷14號",
+    "tel": "(037)250738",
+    "url": "http://web.twjh.mlc.edu.tw"
+  },
+  {
+    "code": 54505,
+    "schoolName": "縣立公館國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[363]苗栗縣公館鄉館中村大同路3號",
+    "tel": "(037)222729",
+    "url": "http://www.ggjh.mlc.edu.tw"
+  },
+  {
+    "code": 54506,
+    "schoolName": "縣立鶴岡國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[363]苗栗縣公館鄉鶴岡村178號",
+    "tel": "(037)226204",
+    "url": "http://web.hgjh.mlc.edu.tw"
+  },
+  {
+    "code": 54507,
+    "schoolName": "縣立文林國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[366]苗栗縣銅鑼鄉朝陽村文化街12號",
+    "tel": "(037)981018",
+    "url": "http://www.wljh.mlc.edu.tw/wenlin/"
+  },
+  {
+    "code": 54510,
+    "schoolName": "縣立致民國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[358]苗栗縣苑裡鎮舊社里九鄰96之1號",
+    "tel": "(037)744788",
+    "url": "http://www.cm.mlc.edu.tw"
+  },
+  {
+    "code": 54511,
+    "schoolName": "縣立通霄國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[357]苗栗縣通霄鎮中山路190巷1號",
+    "tel": "(037)752002",
+    "url": "http://web.tsjh.mlc.edu.tw"
+  },
+  {
+    "code": 54512,
+    "schoolName": "縣立南和國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[357]苗栗縣通霄鎮南和里9鄰112之1號",
+    "tel": "(037)782404",
+    "url": "http://web.nhes.mlc.edu.tw"
+  },
+  {
+    "code": 54513,
+    "schoolName": "縣立烏眉國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[357]苗栗縣通霄鎮內湖里1鄰5-1號",
+    "tel": "(037)752409",
+    "url": "http://web.wumeies.mlc.edu.tw"
+  },
+  {
+    "code": 54514,
+    "schoolName": "縣立啟新國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[357]苗栗縣通霄鎮白東里135之2號",
+    "tel": "(037)792804",
+    "url": "http://web.csjh.mlc.edu.tw"
+  },
+  {
+    "code": 54515,
+    "schoolName": "縣立西湖國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[368]苗栗縣西湖鄉龍洞村一鄰1之1號",
+    "tel": "(037)921016",
+    "url": "http://www.shihujh.mlc.edu.tw"
+  },
+  {
+    "code": 54516,
+    "schoolName": "縣立頭份國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[351]苗栗縣頭份市中央路275號",
+    "tel": "(037)663207",
+    "url": "http://web.toufenjh.mlc.edu.tw"
+  },
+  {
+    "code": 54518,
+    "schoolName": "縣立文英國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[351]苗栗縣頭份市尖下里200號",
+    "tel": "(037)624260",
+    "url": "http://www.wyjh.mlc.edu.tw"
+  },
+  {
+    "code": 54519,
+    "schoolName": "縣立竹南國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[350]苗栗縣竹南鎮正南里中正路92號",
+    "tel": "(037)475100",
+    "url": "http://www.junanjh.mlc.edu.tw"
+  },
+  {
+    "code": 54520,
+    "schoolName": "縣立照南國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[350]苗栗縣竹南鎮佳興里３鄰公教路2號",
+    "tel": "(037)472750",
+    "url": "http://www.jaunanjh.mlc.edu.tw"
+  },
+  {
+    "code": 54521,
+    "schoolName": "縣立三灣國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[352]苗栗縣三灣鄉三灣村忠信路17號",
+    "tel": "(037)831002",
+    "url": "http://www.sw.mlc.edu.tw"
+  },
+  {
+    "code": 54522,
+    "schoolName": "縣立南庄國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[353]苗栗縣南庄鄉東村中正路165號",
+    "tel": "(037)822027",
+    "url": "http://web.njjh.mlc.edu.tw"
+  },
+  {
+    "code": 54523,
+    "schoolName": "縣立造橋國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[361]苗栗縣造橋鄉造橋村1鄰老庄27號",
+    "tel": "(037)562773",
+    "url": "http://web.tcjh.mlc.edu.tw"
+  },
+  {
+    "code": 54524,
+    "schoolName": "縣立大西國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[361]苗栗縣造橋鄉大西村十四鄰48號",
+    "tel": "(037)541080",
+    "url": "http://web.dc.mlc.edu.tw"
+  },
+  {
+    "code": 54525,
+    "schoolName": "縣立後龍國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[356]苗栗縣後龍鎮南龍里勝利路250號",
+    "tel": "(037)722028",
+    "url": "http://www.houlungjh.mlc.edu.tw"
+  },
+  {
+    "code": 54526,
+    "schoolName": "縣立維真國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[356]苗栗縣後龍鎮大庄里中山路252號",
+    "tel": "(037)722537",
+    "url": "http://www.wjjh.mlc.edu.tw"
+  },
+  {
+    "code": 54527,
+    "schoolName": "縣立大湖國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[364]苗栗縣大湖鄉靜湖村民族路80號",
+    "tel": "(037)991022",
+    "url": "http://www.dahujh.mlc.edu.tw"
+  },
+  {
+    "code": 54528,
+    "schoolName": "縣立南湖國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[364]苗栗縣大湖鄉義和村12號",
+    "tel": "(037)992956",
+    "url": "http://www.nanhujh.mlc.edu.tw"
+  },
+  {
+    "code": 54529,
+    "schoolName": "縣立獅潭國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[354]苗栗縣獅潭鄉新店村21號",
+    "tel": "(037)931328",
+    "url": "http://web.stjh.mlc.edu.tw"
+  },
+  {
+    "code": 54531,
+    "schoolName": "縣立泰安國中(小)",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[365]苗栗縣泰安鄉大興村32之1號",
+    "tel": "(037)991224",
+    "url": "http://web.taian.mlc.edu.tw"
+  },
+  {
+    "code": 54532,
+    "schoolName": "縣立建國國中",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[351]苗栗縣頭份市成功里建國路119號",
+    "tel": "(037)691491",
+    "url": "http://www.jgjh.mlc.edu.tw/mlcxoops/"
+  },
+  {
+    "code": 54534,
+    "schoolName": "縣立福興武術國中(小)",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[357]苗栗縣通霄鎮福興里58之2號",
+    "tel": "(037)782984",
+    "url": "http://web.fushing.mlc.edu.tw/"
+  },
+  {
+    "code": 54535,
+    "schoolName": "縣立新港國中(小)",
+    "pub_pri": "公立",
+    "city": "苗栗縣",
+    "address": "[356]苗栗縣後龍鎮校椅里校椅二路168號",
+    "tel": "(037)722547",
+    "url": "http://www.skes.mlc.edu.tw"
+  },
+  {
+    "code": 74501,
+    "schoolName": "縣立北斗國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[521]彰化縣北斗鎮文苑路一段136號",
+    "tel": "(04)8882072",
+    "url": "http://www.ptjhs.chc.edu.tw"
+  },
+  {
+    "code": 74502,
+    "schoolName": "縣立鹿港國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[506]彰化縣福興鄉橋頭村復興路78號",
+    "tel": "(04)7772037",
+    "url": "http://www.lkjh.chc.edu.tw"
+  },
+  {
+    "code": 74503,
+    "schoolName": "縣立鹿鳴國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[505]彰化縣鹿港鎮頭南里頂草路三段167號",
+    "tel": "(04)7713846",
+    "url": "http://www.lmjh.chc.edu.tw"
+  },
+  {
+    "code": 74504,
+    "schoolName": "縣立線西國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[507]彰化縣線西鄉寓埔村中央路二段145號",
+    "tel": "(04)7584129",
+    "url": "http://www.hhjh.chc.edu.tw"
+  },
+  {
+    "code": 74505,
+    "schoolName": "縣立陽明國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[500]彰化縣彰化市長順街76號",
+    "tel": "(04)7222263",
+    "url": "http://www.ymsc.chc.edu.tw"
+  },
+  {
+    "code": 74506,
+    "schoolName": "縣立彰安國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[500]彰化縣彰化市中正路二段530號",
+    "tel": "(04)7236117",
+    "url": "http://www.cajh.chc.edu.tw"
+  },
+  {
+    "code": 74507,
+    "schoolName": "縣立彰德國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[500]彰化縣彰化市彰南路二段512巷97號",
+    "tel": "(04)7374461",
+    "url": "http://www.ctjh.chc.edu.tw"
+  },
+  {
+    "code": 74509,
+    "schoolName": "縣立芬園國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[502]彰化縣芬園鄉彰南路四段27巷80號",
+    "tel": "(049)2522001",
+    "url": "http://www.fyjh.chc.edu.tw"
+  },
+  {
+    "code": 74510,
+    "schoolName": "縣立員林國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[510]彰化縣員林市南興里南潭路2號",
+    "tel": "(04)8320873",
+    "url": "http://www.yljh.chc.edu.tw"
+  },
+  {
+    "code": 74511,
+    "schoolName": "縣立明倫國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[510]彰化縣員林市萬年里明倫路2號",
+    "tel": "(04)8311349",
+    "url": "http://www.mljh.chc.edu.tw"
+  },
+  {
+    "code": 74512,
+    "schoolName": "縣立萬興國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[526]彰化縣二林鎮萬興里二溪路六段626號",
+    "tel": "(04)8682978",
+    "url": "http://www.whjh.chc.edu.tw"
+  },
+  {
+    "code": 74514,
+    "schoolName": "縣立竹塘國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[525]彰化縣竹塘鄉竹塘村竹林路一段550號",
+    "tel": "(04)8972034",
+    "url": "http://www.ctjhs.chc.edu.tw"
+  },
+  {
+    "code": 74515,
+    "schoolName": "縣立大城國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[527]彰化縣大城鄉東城村南平路224號",
+    "tel": "(04)8941022",
+    "url": "http://www.tcjhs.chc.edu.tw"
+  },
+  {
+    "code": 74516,
+    "schoolName": "縣立草湖國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[528]彰化縣芳苑鄉草湖村功湖路140號",
+    "tel": "(04)8861051",
+    "url": "http://163.23.102.10"
+  },
+  {
+    "code": 74517,
+    "schoolName": "縣立芳苑國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[528]彰化縣芳苑鄉仁愛村斗苑路芳苑段211號",
+    "tel": "(04)8983264",
+    "url": "http://www.fyjhs.chc.edu.tw"
+  },
+  {
+    "code": 74518,
+    "schoolName": "縣立溪湖國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[514]彰化縣溪湖鎮彰水路四段60號",
+    "tel": "(04)8852132",
+    "url": "http://www.cfjh.chc.edu.tw"
+  },
+  {
+    "code": 74519,
+    "schoolName": "縣立埔鹽國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[516]彰化縣埔鹽鄉好修村中正路162號",
+    "tel": "(04)8653424",
+    "url": "http://www.pyjh.chc.edu.tw"
+  },
+  {
+    "code": 74520,
+    "schoolName": "縣立埔心國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[513]彰化縣埔心鄉義民村忠義北路51號",
+    "tel": "(04)8291129",
+    "url": "http://www.psjh.chc.edu.tw"
+  },
+  {
+    "code": 74521,
+    "schoolName": "縣立福興國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[506]彰化縣福興鄉西勢村員鹿路二段270號",
+    "tel": "(04)7772009",
+    "url": "http://163.23.69.129"
+  },
+  {
+    "code": 74522,
+    "schoolName": "縣立秀水國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[504]彰化縣秀水鄉安東村中山路202號",
+    "tel": "(04)7696031",
+    "url": "http://www.hsjh.chc.edu.tw"
+  },
+  {
+    "code": 74524,
+    "schoolName": "縣立伸港國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[509]彰化縣伸港鄉新港路280巷101號",
+    "tel": "(04)7988611",
+    "url": "http://www.skjh.chc.edu.tw"
+  },
+  {
+    "code": 74525,
+    "schoolName": "縣立大村國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[515]彰化縣大村鄉村上村中山路二段240號",
+    "tel": "(04)8521231",
+    "url": "http://www.ttjh.chc.edu.tw"
+  },
+  {
+    "code": 74526,
+    "schoolName": "縣立花壇國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[503]彰化縣花壇鄉長沙村彰員路二段580號",
+    "tel": "(04)7862043",
+    "url": "http://www.htjh.chc.edu.tw"
+  },
+  {
+    "code": 74527,
+    "schoolName": "縣立永靖國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[512]彰化縣永靖鄉瑚璉村錫壽路123號",
+    "tel": "(04)8221929",
+    "url": "http://www.ycjh.chc.edu.tw"
+  },
+  {
+    "code": 74529,
+    "schoolName": "縣立二水國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[530]彰化縣二水鄉源泉村月眉巷13號",
+    "tel": "(04)8791557",
+    "url": "http://www.esjh.chc.edu.tw"
+  },
+  {
+    "code": 74530,
+    "schoolName": "縣立社頭國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[511]彰化縣社頭鄉廣興村中興路1號",
+    "tel": "(04)8732047",
+    "url": "http://www.stjh.chc.edu.tw"
+  },
+  {
+    "code": 74531,
+    "schoolName": "縣立田尾國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[522]彰化縣田尾鄉饒平村中學路二段18號",
+    "tel": "(04)8832174",
+    "url": "http://www.twjh.chc.edu.tw"
+  },
+  {
+    "code": 74532,
+    "schoolName": "縣立溪州國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[524]彰化縣溪州鄉溪州村中央路三段300號",
+    "tel": "(04)8895054",
+    "url": "http://www.ccjh.chc.edu.tw"
+  },
+  {
+    "code": 74533,
+    "schoolName": "縣立溪陽國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[524]彰化縣溪州鄉成功村下柑路1號",
+    "tel": "(04)8802151",
+    "url": "http://163.23.101.189"
+  },
+  {
+    "code": 74534,
+    "schoolName": "縣立埤頭國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[523]彰化縣埤頭鄉崙腳村中學路67號",
+    "tel": "(04)8922004",
+    "url": "http://www.ptjh.chc.edu.tw"
+  },
+  {
+    "code": 74535,
+    "schoolName": "縣立和群國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[508]彰化縣和美鎮柑井里美寮路一段390號",
+    "tel": "(04)7350071",
+    "url": "http://www.hcjh.chc.edu.tw"
+  },
+  {
+    "code": 74536,
+    "schoolName": "縣立大同國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[510]彰化縣員林市大同路一段345號",
+    "tel": "(04)8358382",
+    "url": "http://www.ttjhs.chc.edu.tw"
+  },
+  {
+    "code": 74537,
+    "schoolName": "縣立原斗國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[526]彰化縣二林鎮原斗里原竹路872號",
+    "tel": "(04)8904600",
+    "url": "http://www.ydjh.chc.edu.tw"
+  },
+  {
+    "code": 74538,
+    "schoolName": "縣立彰興國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[500]彰化縣彰化市埔西街107號",
+    "tel": "(04)7110743",
+    "url": "http://www.csjh.chc.edu.tw"
+  },
+  {
+    "code": 74540,
+    "schoolName": "縣立彰泰國中",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[500]彰化縣彰化市自強路357號",
+    "tel": "(04)7369676",
+    "url": "http://www.ctsjh.chc.edu.tw"
+  },
+  {
+    "code": 74541,
+    "schoolName": "縣立信義國中(小)",
+    "pub_pri": "公立",
+    "city": "彰化縣",
+    "address": "[500]彰化縣彰化市向陽里向陽街168號",
+    "tel": "(04)7635888",
+    "url": "http://www.hyjhes.chc.edu.tw"
+  },
+  {
+    "code": 81502,
+    "schoolName": "私立均頭國中(小)",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[545]南投縣埔里鎮水頭里4鄰水頭路48號",
+    "tel": "(049)2980723",
+    "url": "http://www.jtjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84501,
+    "schoolName": "縣立南投國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[540]南投縣南投市漳和里祖祠路361號",
+    "tel": "(049)2222549",
+    "url": "http://www.ntjh.ntct.edu.tw"
+  },
+  {
+    "code": 84502,
+    "schoolName": "縣立南崗國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[540]南投縣南投市大庄路94號",
+    "tel": "(049)2222460",
+    "url": "http://www.ngjh.ntct.edu.tw"
+  },
+  {
+    "code": 84503,
+    "schoolName": "縣立中興國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[540]南投縣南投市內興里新興路309號",
+    "tel": "(049)2335283",
+    "url": "http://www.jsjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84504,
+    "schoolName": "縣立鳳鳴國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[540]南投縣南投市鳳鳴里八卦路896號",
+    "tel": "(049)2291831",
+    "url": "http://www.fmjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84505,
+    "schoolName": "縣立埔里國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[545]南投縣埔里鎮西安路一段193號",
+    "tel": "(049)2982055",
+    "url": "http://www.pljh.ntct.edu.tw"
+  },
+  {
+    "code": 84506,
+    "schoolName": "縣立大成國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[545]南投縣埔里鎮大城路169號",
+    "tel": "(049)2915550",
+    "url": "http://www.dcjh.ntct.edu.tw"
+  },
+  {
+    "code": 84507,
+    "schoolName": "縣立宏仁國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[545]南投縣埔里鎮東門里公園路20號",
+    "tel": "(049)2982548",
+    "url": "http://www.hjjh.ntct.edu.tw"
+  },
+  {
+    "code": 84508,
+    "schoolName": "縣立草屯國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[542]南投縣草屯鎮炎峰里虎山路808號",
+    "tel": "(049)2362050",
+    "url": "http://163.22.76.1"
+  },
+  {
+    "code": 84510,
+    "schoolName": "縣立日新國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[542]南投縣草屯鎮新豐里稻香路45號",
+    "tel": "(049)2333480",
+    "url": "http://www.rsjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84511,
+    "schoolName": "縣立竹山國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[557]南投縣竹山鎮中山里竹山路217號",
+    "tel": "(049)2642068",
+    "url": "http://163.22.64.2"
+  },
+  {
+    "code": 84512,
+    "schoolName": "縣立延和國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[557]南投縣竹山鎮延和里鹿山路40號",
+    "tel": "(049)2658641",
+    "url": "http://www.ehjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84513,
+    "schoolName": "縣立社寮國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[557]南投縣竹山鎮集山路一段1729號",
+    "tel": "(049)2622010",
+    "url": "http://www.sljh.ntct.edu.tw"
+  },
+  {
+    "code": 84514,
+    "schoolName": "縣立瑞竹國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[557]南投縣竹山鎮瑞竹里瑞東巷20號",
+    "tel": "(049)2711014",
+    "url": "http://ms1.rujhs.ntct.edu.tw"
+  },
+  {
+    "code": 84515,
+    "schoolName": "縣立集集國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[552]南投縣集集鎮集集里成功路200號",
+    "tel": "(049)2762013",
+    "url": "http://www.chijhs.ntct.edu.tw"
+  },
+  {
+    "code": 84516,
+    "schoolName": "縣立名間國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[551]南投縣名間鄉中山村彰南路237號",
+    "tel": "(049)2732046",
+    "url": "http://www.mjjh.ntct.edu.tw"
+  },
+  {
+    "code": 84517,
+    "schoolName": "縣立三光國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[551]南投縣名間鄉新光村名山路50號",
+    "tel": "(049)2732074",
+    "url": "http://www.sgjh.ntct.edu.tw"
+  },
+  {
+    "code": 84518,
+    "schoolName": "縣立鹿谷國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[558]南投縣鹿谷鄉彰雅村仁義路94之1號",
+    "tel": "(049)2752001",
+    "url": "http://www.lkjh.ntct.edu.tw"
+  },
+  {
+    "code": 84519,
+    "schoolName": "縣立瑞峰國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[558]南投縣鹿谷鄉仁愛路154之1號",
+    "tel": "(049)2671712",
+    "url": "http://www.rfjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84520,
+    "schoolName": "縣立中寮國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[541]南投縣中寮鄉復興村初中巷50號",
+    "tel": "(049)2691247",
+    "url": "http://www.cljh.ntct.edu.tw/bin/home.php"
+  },
+  {
+    "code": 84521,
+    "schoolName": "縣立爽文國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[541]南投縣中寮鄉爽文村4 鄰竹坪巷40號",
+    "tel": "(049)2601030",
+    "url": "http://163.22.78.1"
+  },
+  {
+    "code": 84522,
+    "schoolName": "縣立魚池國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[555]南投縣魚池鄉魚池村魚池街441-6號",
+    "tel": "(049)2895527",
+    "url": "http://www.ycjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84523,
+    "schoolName": "縣立明潭國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[555]南投縣魚池鄉水社村中山路190號",
+    "tel": "(049)2855145",
+    "url": "http://www.mtjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84524,
+    "schoolName": "縣立國姓國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[544]南投縣國姓鄉石門村國姓路237號",
+    "tel": "(049)2721144",
+    "url": "http://www.khjh.ntct.edu.tw"
+  },
+  {
+    "code": 84525,
+    "schoolName": "縣立北梅國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[544]南投縣國姓鄉北港村國姓路62號",
+    "tel": "(049)2461004",
+    "url": "http://www.bmjh.ntct.edu.tw"
+  },
+  {
+    "code": 84526,
+    "schoolName": "縣立北山國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[544]南投縣國姓鄉北山村中正路四段157號",
+    "tel": "(049)2451028#26",
+    "url": "http://www.bsjh.ntct.edu.tw"
+  },
+  {
+    "code": 84527,
+    "schoolName": "縣立水里國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[553]南投縣水里鄉民生路2號",
+    "tel": "(049)2770134",
+    "url": "http://www.sljhs.ntct.edu.tw"
+  },
+  {
+    "code": 84528,
+    "schoolName": "縣立民和國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[553]南投縣水里鄉民和村忠信巷116號",
+    "tel": "(049)2741138",
+    "url": "http://www.mhjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84529,
+    "schoolName": "縣立信義國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[556]南投縣信義鄉明德村玉山路20號",
+    "tel": "(049)2791129",
+    "url": "http://ms1.hyjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84530,
+    "schoolName": "縣立同富國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[556]南投縣信義鄉同富村同和巷7號",
+    "tel": "(049)2701317",
+    "url": "http://www.tfjhs.ntct.edu.tw"
+  },
+  {
+    "code": 84531,
+    "schoolName": "縣立仁愛國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[546]南投縣仁愛鄉大同村信義巷28號",
+    "tel": "(049)2802206",
+    "url": "http://www.jyjh.ntct.edu.tw"
+  },
+  {
+    "code": 84532,
+    "schoolName": "縣立營北國中",
+    "pub_pri": "公立",
+    "city": "南投縣",
+    "address": "[540]南投縣南投市營北里向上路2號",
+    "tel": "(049)2392683",
+    "url": "http://163.22.185.1"
+  },
+  {
+    "code": 91502,
+    "schoolName": "私立淵明國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[643]雲林縣林內鄉林中村公園3號",
+    "tel": "(05)5892027",
+    "url": "http://www.imjh.ylc.edu.tw"
+  },
+  {
+    "code": 91503,
+    "schoolName": "私立東南國中(代用)",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[648]雲林縣西螺鎮東南路326號",
+    "tel": "(05)5874176",
+    "url": "http://www.tnajh.ylc.edu.tw"
+  },
+  {
+    "code": 91505,
+    "schoolName": "私立福智國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[646]雲林縣古坑鄉麻園村4鄰平和路20號",
+    "tel": "(05)5828222",
+    "url": ""
+  },
+  {
+    "code": 94502,
+    "schoolName": "縣立東明國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[630]雲林縣斗南鎮中興路111號",
+    "tel": "(05)5965474",
+    "url": "http://www.tmjh.ylc.edu.tw"
+  },
+  {
+    "code": 94503,
+    "schoolName": "縣立大埤國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[631]雲林縣大埤鄉南和村民權路80號",
+    "tel": "(05)5912051#103",
+    "url": "http://www.dpjh.ylc.edu.tw"
+  },
+  {
+    "code": 94504,
+    "schoolName": "縣立飛沙國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[654]雲林縣四湖鄉飛沙村大同路81號",
+    "tel": "(05)7723218",
+    "url": "http://www.fsjh.ylc.edu.tw"
+  },
+  {
+    "code": 94505,
+    "schoolName": "縣立四湖國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[654]雲林縣四湖鄉湖西村中正路766號",
+    "tel": "(05)7872040",
+    "url": "http://www.shjh.ylc.edu.tw"
+  },
+  {
+    "code": 94506,
+    "schoolName": "縣立水林國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[652]雲林縣水林鄉水北村水林路2號",
+    "tel": "(05)7852618",
+    "url": "http://www.sljs.ylc.edu.tw"
+  },
+  {
+    "code": 94508,
+    "schoolName": "縣立二崙國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[649]雲林縣二崙鄉崙西村中正路88號",
+    "tel": "(05)5982020",
+    "url": "http://www.eljh.ylc.edu.tw"
+  },
+  {
+    "code": 94509,
+    "schoolName": "縣立褒忠國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[634]雲林縣褒忠鄉中勝路62號",
+    "tel": "(05)6972056",
+    "url": "http://www.pcjh.ylc.edu.tw"
+  },
+  {
+    "code": 94510,
+    "schoolName": "縣立莿桐國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[647]雲林縣莿桐鄉農校路1號",
+    "tel": "(05)5842014",
+    "url": "http://www.ttjh.ylc.edu.tw"
+  },
+  {
+    "code": 94511,
+    "schoolName": "縣立崙背國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[637]雲林縣崙背鄉大成路91號",
+    "tel": "(05)6962013",
+    "url": "http://www.lpjh.ylc.edu.tw"
+  },
+  {
+    "code": 94512,
+    "schoolName": "縣立古坑國中(小)",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[646]雲林縣古坑鄉朝陽村朝陽路2號",
+    "tel": "(05)5822201",
+    "url": "http://www.kkjh.ylc.edu.tw"
+  },
+  {
+    "code": 94513,
+    "schoolName": "縣立東勢國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[635]雲林縣東勢鄉東榮路65號",
+    "tel": "(05)6991035",
+    "url": "http://www.tsjhs.ylc.edu.tw"
+  },
+  {
+    "code": 94514,
+    "schoolName": "縣立元長國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[655]雲林縣元長鄉元南路16號",
+    "tel": "(05)7882012",
+    "url": "http://www.yjjh.ylc.edu.tw"
+  },
+  {
+    "code": 94515,
+    "schoolName": "縣立斗六國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[640]雲林縣斗六市育英北街69號",
+    "tel": "(05)5323296",
+    "url": "http://www.tljh.ylc.edu.tw"
+  },
+  {
+    "code": 94516,
+    "schoolName": "縣立雲林國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[640]雲林縣斗六市明德路599號",
+    "tel": "(05)5326071",
+    "url": "http://www.yljh.ylc.edu.tw"
+  },
+  {
+    "code": 94517,
+    "schoolName": "縣立虎尾國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[632]雲林縣虎尾鎮中溪里中興路153號",
+    "tel": "(05)6220647",
+    "url": "http://www.hwjh.ylc.edu.tw"
+  },
+  {
+    "code": 94518,
+    "schoolName": "縣立崇德國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[632]雲林縣虎尾鎮廉使里文科路1530號",
+    "tel": "(05)6322806",
+    "url": "http://www.cdjh.ylc.edu.tw"
+  },
+  {
+    "code": 94519,
+    "schoolName": "縣立西螺國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[648]雲林縣西螺鎮興農西路217號",
+    "tel": "(05)5863522",
+    "url": "http://www.sljhs.ylc.edu.tw"
+  },
+  {
+    "code": 94520,
+    "schoolName": "縣立北港國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[651]雲林縣北港鎮民生路102號",
+    "tel": "(05)7832022",
+    "url": "http://www.pljh.ylc.edu.tw"
+  },
+  {
+    "code": 94521,
+    "schoolName": "縣立建國國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[651]雲林縣北港鎮大同路468號",
+    "tel": "(05)7832724",
+    "url": "http://www.jgjh.ylc.edu.tw"
+  },
+  {
+    "code": 94522,
+    "schoolName": "縣立宜梧國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[653]雲林縣口湖鄉梧南村光明路1號",
+    "tel": "(05)7907254",
+    "url": "http://www.ywjh.ylc.edu.tw"
+  },
+  {
+    "code": 94523,
+    "schoolName": "縣立口湖國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[653]雲林縣口湖鄉湖東村3鄰文明路133巷20號",
+    "tel": "(05)7892027",
+    "url": "http://www.khjh.ylc.edu.tw"
+  },
+  {
+    "code": 94524,
+    "schoolName": "縣立臺西國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[636]雲林縣臺西鄉中山路408號",
+    "tel": "(05)6982047",
+    "url": "http://www.tsjh.ylc.edu.tw"
+  },
+  {
+    "code": 94525,
+    "schoolName": "縣立土庫國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[633]雲林縣土庫鎮復興路16號",
+    "tel": "(05)6622645",
+    "url": "http://www.tkjh.ylc.edu.tw"
+  },
+  {
+    "code": 94526,
+    "schoolName": "縣立蔦松國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[652]雲林縣水林鄉松北路1之1號",
+    "tel": "(05)7841801",
+    "url": "http://www.nsjh.ylc.edu.tw"
+  },
+  {
+    "code": 94527,
+    "schoolName": "縣立東和國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[646]雲林縣古坑鄉東和村文化路130號",
+    "tel": "(05)5263200",
+    "url": "http://www.thjh.ylc.edu.tw"
+  },
+  {
+    "code": 94528,
+    "schoolName": "縣立馬光國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[633]雲林縣土庫鎮馬光里和平街101號",
+    "tel": "(05)6653587",
+    "url": "http://www.mkjh.ylc.edu.tw"
+  },
+  {
+    "code": 94529,
+    "schoolName": "縣立石榴國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[640]雲林縣斗六市榴中里光復路66號",
+    "tel": "(05)5571713",
+    "url": "http://www.sljh.ylc.edu.tw"
+  },
+  {
+    "code": 94530,
+    "schoolName": "縣立林內國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[643]雲林縣林內鄉烏麻村長源200號",
+    "tel": "(05)5899306",
+    "url": "http://www.lnjh.ylc.edu.tw"
+  },
+  {
+    "code": 94543,
+    "schoolName": "縣立東仁國中",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[632]雲林縣虎尾鎮東仁里東明路85號",
+    "tel": "(05)6312888",
+    "url": "http://www.drjh.ylc.edu.tw"
+  },
+  {
+    "code": 94544,
+    "schoolName": "縣立樟湖生態國中(小)",
+    "pub_pri": "公立",
+    "city": "雲林縣",
+    "address": "[646]雲林縣古坑鄉石橋50-2號",
+    "tel": "(05)5811044",
+    "url": "http://sites.google.com/site/newjhanghu/"
+  },
+  {
+    "code": 104501,
+    "schoolName": "縣立朴子國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[613]嘉義縣朴子市竹圍里大同路245號",
+    "tel": "(05)3792201",
+    "url": "http://www.ptjhs.cyc.edu.tw"
+  },
+  {
+    "code": 104502,
+    "schoolName": "縣立東石國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[613]嘉義縣朴子市安福里山通路6號",
+    "tel": "(05)3792027",
+    "url": "http://www.tsjh.cyc.edu.tw"
+  },
+  {
+    "code": 104503,
+    "schoolName": "縣立布袋國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[625]嘉義縣布袋鎮光復里六棟寮40號",
+    "tel": "(05)3472044",
+    "url": "http://www.ptjh.cyc.edu.tw"
+  },
+  {
+    "code": 104504,
+    "schoolName": "縣立過溝國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[614]嘉義縣東石鄉西崙村438號",
+    "tel": "(05)3451005",
+    "url": "http://www.kkjh.cyc.edu.tw"
+  },
+  {
+    "code": 104505,
+    "schoolName": "縣立大林國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[622]嘉義縣大林鎮大糖里中學路1號",
+    "tel": "(05)2652014",
+    "url": "http://www.tljh.cyc.edu.tw"
+  },
+  {
+    "code": 104506,
+    "schoolName": "縣立新港國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[616]嘉義縣新港鄉福德村福德路106號",
+    "tel": "(05)3742024",
+    "url": "http://www.hkjh.cyc.edu.tw"
+  },
+  {
+    "code": 104507,
+    "schoolName": "縣立民雄國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[621]嘉義縣民雄鄉西安村西安路147號",
+    "tel": "(05)2262527",
+    "url": "http://www.mihjh.cyc.edu.tw"
+  },
+  {
+    "code": 104508,
+    "schoolName": "縣立大吉國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[621]嘉義縣民雄鄉大崎村內埔仔2之1號",
+    "tel": "(05)2211651",
+    "url": "http://www.djjh.cyc.edu.tw"
+  },
+  {
+    "code": 104509,
+    "schoolName": "縣立六嘉國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[615]嘉義縣六腳鄉蒜頭村樹仁路1號",
+    "tel": "(05)3801215",
+    "url": "http://www.ljjh.cyc.edu.tw"
+  },
+  {
+    "code": 104511,
+    "schoolName": "縣立太保國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[612]嘉義縣太保市太保里36號",
+    "tel": "(05)3711029",
+    "url": "http://www.tpjh.cyc.edu.tw"
+  },
+  {
+    "code": 104512,
+    "schoolName": "縣立嘉新國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[612]嘉義縣太保市中山路一段586巷7號",
+    "tel": "(05)2381479",
+    "url": "http://www.jsjh.cyc.edu.tw"
+  },
+  {
+    "code": 104513,
+    "schoolName": "縣立溪口國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[623]嘉義縣溪口鄉坪頂村中正東路103號",
+    "tel": "(05)2691050",
+    "url": "http://www.ckjh.cyc.edu.tw"
+  },
+  {
+    "code": 104514,
+    "schoolName": "縣立鹿草國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[611]嘉義縣鹿草鄉鹿草村439號",
+    "tel": "(05)3752037",
+    "url": "http://www.lsjh.cyc.edu.tw"
+  },
+  {
+    "code": 104515,
+    "schoolName": "縣立東榮國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[614]嘉義縣東石鄉永屯村39之2號",
+    "tel": "(05)3733803",
+    "url": "http://www.drjh.cyc.edu.tw"
+  },
+  {
+    "code": 104516,
+    "schoolName": "縣立水上國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[608]嘉義縣水上鄉水上村進學街45號",
+    "tel": "(05)2688700",
+    "url": "http://www.ssjh.cyc.edu.tw"
+  },
+  {
+    "code": 104517,
+    "schoolName": "縣立忠和國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[608]嘉義縣水上鄉忠和村6之2號",
+    "tel": "(05)2891026",
+    "url": "http://www.jhjh.cyc.edu.tw"
+  },
+  {
+    "code": 104518,
+    "schoolName": "縣立中埔國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[606]嘉義縣中埔鄉中埔村177號",
+    "tel": "(05)2531002",
+    "url": "http://www.cpjh.cyc.edu.tw"
+  },
+  {
+    "code": 104520,
+    "schoolName": "縣立昇平國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[604]嘉義縣竹崎鄉內埔村元興路138號",
+    "tel": "(05)2541041",
+    "url": "http://www.spjh.cyc.edu.tw"
+  },
+  {
+    "code": 104521,
+    "schoolName": "縣立義竹國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[624]嘉義縣義竹鄉岸腳村59之2號",
+    "tel": "(05)3412025",
+    "url": "http://www.icjh.cyc.edu.tw"
+  },
+  {
+    "code": 104522,
+    "schoolName": "縣立民和國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[602]嘉義縣番路鄉下坑村菜公店30號",
+    "tel": "(05)2591109",
+    "url": "http://www.mhjh.cyc.edu.tw"
+  },
+  {
+    "code": 104523,
+    "schoolName": "縣立梅山國中",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[603]嘉義縣梅山鄉梅北村健康街136號",
+    "tel": "(05)2621047",
+    "url": "http://www.msjh.cyc.edu.tw"
+  },
+  {
+    "code": 104524,
+    "schoolName": "縣立大埔國中(小)",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[607]嘉義縣大埔鄉茄苳村竹圍仔5號",
+    "tel": "(05)2521014",
+    "url": "http://www.dpjh.cyc.edu.tw"
+  },
+  {
+    "code": 104526,
+    "schoolName": "縣立阿里山國中(小)",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[605]嘉義縣阿里山鄉樂野村1鄰31號",
+    "tel": "(05)2561180",
+    "url": "http://www.aljes.cyc.edu.tw/"
+  },
+  {
+    "code": 104527,
+    "schoolName": "縣立豐山實驗國中(小)",
+    "pub_pri": "公立",
+    "city": "嘉義縣",
+    "address": "[605]嘉義縣阿里山鄉豐山村47號",
+    "tel": "(05)2661451",
+    "url": "http://www.fses.cyc.edu.tw"
+  },
+  {
+    "code": 131501,
+    "schoolName": "私立南榮國中",
+    "pub_pri": "私立",
+    "city": "屏東縣",
+    "address": "[924]屏東縣崁頂鄉園寮村田寮路1之15號",
+    "tel": "(08)8631112",
+    "url": "http://www.nzjh.ptc.edu.tw"
+  },
+  {
+    "code": 134501,
+    "schoolName": "縣立明正國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[900]屏東縣屏東市大連路70號",
+    "tel": "(08)7363078",
+    "url": "http://www.mcjh.ptc.edu.tw"
+  },
+  {
+    "code": 134502,
+    "schoolName": "縣立中正國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[900]屏東縣屏東市民學路2號",
+    "tel": "(08)7226387",
+    "url": "http://www.ccjh.ptc.edu.tw"
+  },
+  {
+    "code": 134503,
+    "schoolName": "縣立公正國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[900]屏東縣屏東市公興路11號",
+    "tel": "(08)7522097",
+    "url": "http://www.kcjh.ptc.edu.tw"
+  },
+  {
+    "code": 134505,
+    "schoolName": "縣立鶴聲國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[900]屏東縣屏東市大武路225號",
+    "tel": "(08)7520591",
+    "url": "http://www.hsjh.ptc.edu.tw"
+  },
+  {
+    "code": 134506,
+    "schoolName": "縣立至正國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[900]屏東縣屏東市公裕街300號",
+    "tel": "(08)7666394",
+    "url": "http://www.jjjh.ptc.edu.tw"
+  },
+  {
+    "code": 134507,
+    "schoolName": "縣立長治國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[908]屏東縣長治鄉德成村中興路578號",
+    "tel": "(08)7621193",
+    "url": "http://www.cjjhs.ptc.edu.tw"
+  },
+  {
+    "code": 134508,
+    "schoolName": "縣立麟洛國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[909]屏東縣麟洛鄉中山路2號",
+    "tel": "(08)7222812",
+    "url": "http://www.lljh.ptc.edu.tw"
+  },
+  {
+    "code": 134509,
+    "schoolName": "縣立九如國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[904]屏東縣九如鄉玉水路26號",
+    "tel": "(08)7392404",
+    "url": "http://www.jrjh.ptc.edu.tw"
+  },
+  {
+    "code": 134510,
+    "schoolName": "縣立里港國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[905]屏東縣里港鄉春林村里中路10號",
+    "tel": "(08)7752029",
+    "url": "http://www.lgjh.ptc.edu.tw"
+  },
+  {
+    "code": 134511,
+    "schoolName": "縣立鹽埔國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[907]屏東縣鹽埔鄉鹽南村勝利路30號",
+    "tel": "(08)7932001",
+    "url": "http://www.ypjh.ptc.edu.tw"
+  },
+  {
+    "code": 134512,
+    "schoolName": "縣立高樹國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[906]屏東縣高樹鄉高樹村南興路4號",
+    "tel": "(08)7962034",
+    "url": "http://www.ksjh.ptc.edu.tw"
+  },
+  {
+    "code": 134513,
+    "schoolName": "縣立高泰國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[906]屏東縣高樹鄉泰山村產業路225號",
+    "tel": "(08)7956073",
+    "url": "http://www.gtjh.ptc.edu.tw"
+  },
+  {
+    "code": 134514,
+    "schoolName": "縣立內埔國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[912]屏東縣內埔鄉文化路262號",
+    "tel": "(08)7792013",
+    "url": "http://www.npjh.ptc.edu.tw"
+  },
+  {
+    "code": 134515,
+    "schoolName": "縣立崇文國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[912]屏東縣內埔鄉龍潭村昭勝路438號",
+    "tel": "(08)7701864",
+    "url": "http://163.24.70.10/school/web/index.php"
+  },
+  {
+    "code": 134516,
+    "schoolName": "縣立竹田國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[911]屏東縣竹田鄉西勢村龍門路26號",
+    "tel": "(08)7792024",
+    "url": "http://www.jtjh.ptc.edu.tw"
+  },
+  {
+    "code": 134517,
+    "schoolName": "縣立潮州國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[920]屏東縣潮州鎮文化路66號",
+    "tel": "(08)7882401",
+    "url": "http://www.cjjh.ptc.edu.tw"
+  },
+  {
+    "code": 134518,
+    "schoolName": "縣立光春國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[920]屏東縣潮州鎮光春路290號",
+    "tel": "(08)7887038",
+    "url": "http://www.kcjhs.ptc.edu.tw"
+  },
+  {
+    "code": 134519,
+    "schoolName": "縣立萬巒國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[923]屏東縣萬巒鄉萬和村褒忠路5號",
+    "tel": "(08)7812537",
+    "url": "http://www.wljh.ptc.edu.tw"
+  },
+  {
+    "code": 134520,
+    "schoolName": "縣立新埤國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[925]屏東縣新埤鄉建功路190號",
+    "tel": "(08)7971014",
+    "url": "http://www.spjh.ptc.edu.tw"
+  },
+  {
+    "code": 134522,
+    "schoolName": "縣立萬丹國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[913]屏東縣萬丹鄉四維村萬丹路2段5號",
+    "tel": "(08)7772020",
+    "url": "http://www.wtjh.ptc.edu.tw"
+  },
+  {
+    "code": 134523,
+    "schoolName": "縣立新園國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[932]屏東縣新園鄉仙吉村仙吉路111號",
+    "tel": "(08)8681020",
+    "url": "http://www.syjh.ptc.edu.tw"
+  },
+  {
+    "code": 134525,
+    "schoolName": "縣立林邊國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[927]屏東縣林邊鄉光林村和平路43號",
+    "tel": "(08)8752051",
+    "url": "http://www.lpjh.ptc.edu.tw"
+  },
+  {
+    "code": 134526,
+    "schoolName": "縣立南州國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[926]屏東縣南州鄉人和路231號",
+    "tel": "(08)8642041",
+    "url": "http://www.njjh.ptc.edu.tw"
+  },
+  {
+    "code": 134527,
+    "schoolName": "縣立佳冬國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[931]屏東縣佳冬鄉玉光村大同路1號",
+    "tel": "(08)8662041",
+    "url": "http://www.jdjh.ptc.edu.tw"
+  },
+  {
+    "code": 134528,
+    "schoolName": "縣立琉球國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[929]屏東縣琉球鄉中正路158號",
+    "tel": "(08)8612509",
+    "url": "http://www.lcjh.ptc.edu.tw"
+  },
+  {
+    "code": 134530,
+    "schoolName": "縣立車城國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[944]屏東縣車城鄉新興路42號",
+    "tel": "(08)8821045",
+    "url": "http://www.ccjhs.ptc.edu.tw"
+  },
+  {
+    "code": 134531,
+    "schoolName": "縣立恆春國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[946]屏東縣恆春鎮文化路79號",
+    "tel": "(08)8892039",
+    "url": "http://www.hcjh.ptc.edu.tw"
+  },
+  {
+    "code": 134532,
+    "schoolName": "縣立滿州國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[947]屏東縣滿州鄉文化路32號",
+    "tel": "(08)8801106",
+    "url": "http://www.mjjhs.ptc.edu.tw"
+  },
+  {
+    "code": 134533,
+    "schoolName": "縣立瑪家國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[903]屏東縣瑪家鄉三和村三和巷16號",
+    "tel": "(08)7994343",
+    "url": "http://www.mjjh.ptc.edu.tw"
+  },
+  {
+    "code": 134535,
+    "schoolName": "縣立泰武國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[921]屏東縣泰武鄉佳平路120號",
+    "tel": "(08)7831025",
+    "url": "http://www.twjh.ptc.edu.tw"
+  },
+  {
+    "code": 134536,
+    "schoolName": "縣立牡丹國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[945]屏東縣牡丹鄉石門村石門路1-1號",
+    "tel": "(08)8831014",
+    "url": "http://www.mdjh.ptc.edu.tw"
+  },
+  {
+    "code": 134537,
+    "schoolName": "縣立獅子國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[941]屏東縣枋山鄉楓港村舊庄280號",
+    "tel": "(08)8771121",
+    "url": "http://www.stjh.ptc.edu.tw"
+  },
+  {
+    "code": 134538,
+    "schoolName": "縣立東新國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[928]屏東縣東港鎮興東里東新路1號",
+    "tel": "(08)8324920",
+    "url": "http://www.dsjh.ptc.edu.tw"
+  },
+  {
+    "code": 134542,
+    "schoolName": "縣立萬新國中",
+    "pub_pri": "公立",
+    "city": "屏東縣",
+    "address": "[913]屏東縣萬丹鄉新鐘村新鐘路8號",
+    "tel": "(08)7764363",
+    "url": "http://www.wsjh.ptc.edu.tw"
+  },
+  {
+    "code": 144501,
+    "schoolName": "縣立新生國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[950]臺東縣臺東市新生路641巷64號",
+    "tel": "(089)229121",
+    "url": "http://www.hsjh.ttct.edu.tw"
+  },
+  {
+    "code": 144502,
+    "schoolName": "縣立東海國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[950]臺東縣臺東市中華路一段719巷51號",
+    "tel": "(089)323271",
+    "url": "http://www.thjh.ttct.edu.tw"
+  },
+  {
+    "code": 144503,
+    "schoolName": "縣立寶桑國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[950]臺東縣臺東市仁七街1號",
+    "tel": "(089)220011",
+    "url": "http://www.tcbjh.ttct.edu.tw"
+  },
+  {
+    "code": 144504,
+    "schoolName": "縣立卑南國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[950]臺東縣臺東市更生北路766號",
+    "tel": "(089)224045",
+    "url": "http://www.pnjh.ttct.edu.tw"
+  },
+  {
+    "code": 144505,
+    "schoolName": "縣立豐田國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[950]臺東縣臺東市中興路四段611巷56弄27號",
+    "tel": "(089)380241",
+    "url": "http://www.ftjh.ttct.edu.tw"
+  },
+  {
+    "code": 144506,
+    "schoolName": "縣立知本國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[950]臺東縣臺東市青海路三段680號",
+    "tel": "(089)512203",
+    "url": "http://www.cpjh.ttct.edu.tw"
+  },
+  {
+    "code": 144507,
+    "schoolName": "縣立初鹿國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[954]臺東縣卑南鄉明峰村忠孝路2號",
+    "tel": "(08)9571125",
+    "url": "http://www.cljh.ttct.edu.tw"
+  },
+  {
+    "code": 144508,
+    "schoolName": "縣立鹿野國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[955]臺東縣鹿野鄉龍田村光榮路38號",
+    "tel": "(089)551006",
+    "url": "http://www.lyjh.ttct.edu.tw/front/bin/home.phtml"
+  },
+  {
+    "code": 144509,
+    "schoolName": "縣立瑞源國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[955]臺東縣鹿野鄉瑞和村瑞景路三段1號",
+    "tel": "(089)581425",
+    "url": "http://www.ryjh.ttct.edu.tw"
+  },
+  {
+    "code": 144510,
+    "schoolName": "縣立關山國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[956]臺東縣關山鎮崁頂路22號",
+    "tel": "(089)811114",
+    "url": "http://www.ksjh.ttct.edu.tw"
+  },
+  {
+    "code": 144511,
+    "schoolName": "縣立池上國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[958]臺東縣池上鄉新興村力學路88號",
+    "tel": "(089)862040",
+    "url": "http://www.csjh.ttct.edu.tw"
+  },
+  {
+    "code": 144512,
+    "schoolName": "縣立大王國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[963]臺東縣太麻里鄉大王村633號",
+    "tel": "(089)781324",
+    "url": "http://www.dwjh.ttct.edu.tw"
+  },
+  {
+    "code": 144513,
+    "schoolName": "縣立賓茂國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[963]臺東縣太麻里鄉金崙村77號",
+    "tel": "(089)771076",
+    "url": "http://www.bmjh.ttct.edu.tw"
+  },
+  {
+    "code": 144514,
+    "schoolName": "縣立大武國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[965]臺東縣大武鄉大武村復興路1號",
+    "tel": "(089)791023",
+    "url": "http://www.twjh.ttct.edu.tw"
+  },
+  {
+    "code": 144515,
+    "schoolName": "縣立都蘭國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[959]臺東縣東河鄉都蘭村398號",
+    "tel": "(089)531234",
+    "url": "http://www.tljh.ttct.edu.tw"
+  },
+  {
+    "code": 144516,
+    "schoolName": "縣立泰源國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[959]臺東縣東河鄉北源村三鄰30號",
+    "tel": "(089)891252",
+    "url": "http://www.tyjh.ttct.edu.tw"
+  },
+  {
+    "code": 144517,
+    "schoolName": "縣立新港國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[961]臺東縣成功鎮中正路1號",
+    "tel": "(089)851034",
+    "url": "http://www.hkjh.ttct.edu.tw"
+  },
+  {
+    "code": 144518,
+    "schoolName": "縣立長濱國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[962]臺東縣長濱鄉長濱村15鄰180號",
+    "tel": "(089)831017",
+    "url": "http://www.cpjhs.ttct.edu.tw"
+  },
+  {
+    "code": 144519,
+    "schoolName": "縣立桃源國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[953]臺東縣延平鄉桃源村昇平路178號",
+    "tel": "(089)561255",
+    "url": "http://www.tyjhs.ttct.edu.tw"
+  },
+  {
+    "code": 144520,
+    "schoolName": "縣立海端國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[957]臺東縣海端鄉海端村山界1號",
+    "tel": "(089)931390",
+    "url": "http://hdjh.boe.ttct.edu.tw/front/bin/home.phtml"
+  },
+  {
+    "code": 144521,
+    "schoolName": "縣立綠島國中",
+    "pub_pri": "公立",
+    "city": "臺東縣",
+    "address": "[951]臺東縣綠島鄉中寮村4號",
+    "tel": "(089)672506",
+    "url": "http://www.ldjh.ttct.edu.tw"
+  },
+  {
+    "code": 154501,
+    "schoolName": "縣立玉里國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[981]花蓮縣玉里鎮民族街30號",
+    "tel": "(03)8882054",
+    "url": "http://www.yljh.hlc.edu.tw"
+  },
+  {
+    "code": 154502,
+    "schoolName": "縣立玉東國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[981]花蓮縣玉里鎮松浦里松浦39號",
+    "tel": "(03)8851062",
+    "url": "http://www.ytjh.hlc.edu.tw"
+  },
+  {
+    "code": 154503,
+    "schoolName": "縣立三民國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[981]花蓮縣玉里鎮三民里151號",
+    "tel": "(03)8841198",
+    "url": "http://www.smjh.hlc.edu.tw"
+  },
+  {
+    "code": 154504,
+    "schoolName": "縣立美崙國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[970]花蓮縣花蓮市化道路40巷1號",
+    "tel": "(03)8223537",
+    "url": "http://www.mljh.hlc.edu.tw"
+  },
+  {
+    "code": 154505,
+    "schoolName": "縣立花崗國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[970]花蓮縣花蓮市公園路40號",
+    "tel": "(03)8323924",
+    "url": "http://www.hgjh.hlc.edu.tw"
+  },
+  {
+    "code": 154506,
+    "schoolName": "縣立國風國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[970]花蓮縣花蓮市國風里林政街7號",
+    "tel": "(03)8323847",
+    "url": "http://210.240.71.3"
+  },
+  {
+    "code": 154507,
+    "schoolName": "縣立秀林國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[971]花蓮縣新城鄉新城村中山路56號",
+    "tel": "(03)8611010",
+    "url": "http://www.sljh.hlc.edu.tw"
+  },
+  {
+    "code": 154508,
+    "schoolName": "縣立新城國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[971]花蓮縣新城鄉北埔村北埔路143號",
+    "tel": "(03)8263911",
+    "url": "http://www.scjh.hlc.edu.tw"
+  },
+  {
+    "code": 154509,
+    "schoolName": "縣立吉安國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[973]花蓮縣吉安鄉中山路三段662號",
+    "tel": "(03)8523136",
+    "url": "http://www.cajh.hlc.edu.tw"
+  },
+  {
+    "code": 154510,
+    "schoolName": "縣立宜昌國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[973]花蓮縣吉安鄉宜昌1街41號",
+    "tel": "(03)8520803",
+    "url": "http://www.ycjh.hlc.edu.tw"
+  },
+  {
+    "code": 154511,
+    "schoolName": "縣立壽豐國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[974]花蓮縣壽豐鄉豐裡村中山路132號",
+    "tel": "(03)8652111",
+    "url": "http://www.sfjh.hlc.edu.tw"
+  },
+  {
+    "code": 154512,
+    "schoolName": "縣立平和國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[974]花蓮縣壽豐鄉平和村平和路48號",
+    "tel": "(03)8661221",
+    "url": "http://www.phjh.hlc.edu.tw"
+  },
+  {
+    "code": 154513,
+    "schoolName": "縣立光復國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[976]花蓮縣光復鄉大馬村林森路200號",
+    "tel": "(03)8701027",
+    "url": "http://www.kfjhs.hlc.edu.tw"
+  },
+  {
+    "code": 154514,
+    "schoolName": "縣立富源國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[976]花蓮縣光復鄉大富村中山路一段2號",
+    "tel": "(03)8811002",
+    "url": "http://www.fyjh.hlc.edu.tw"
+  },
+  {
+    "code": 154515,
+    "schoolName": "縣立鳳林國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[975]花蓮縣鳳林鎮光復路8號",
+    "tel": "(03)8761101",
+    "url": "http://www.fles.hlc.edu.tw"
+  },
+  {
+    "code": 154516,
+    "schoolName": "縣立萬榮國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[975]花蓮縣鳳林鎮長橋路1號",
+    "tel": "(03)8751264",
+    "url": "http://www.wljh.hlc.edu.tw"
+  },
+  {
+    "code": 154517,
+    "schoolName": "縣立富里國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[983]花蓮縣富里鄉永安路173號",
+    "tel": "(03)8830006",
+    "url": "http://www.fljh.hlc.edu.tw"
+  },
+  {
+    "code": 154518,
+    "schoolName": "縣立富北國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[983]花蓮縣富里鄉新興村一鄰8號",
+    "tel": "(03)8821134",
+    "url": "http://www.fbjh.hlc.edu.tw"
+  },
+  {
+    "code": 154519,
+    "schoolName": "縣立豐濱國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[977]花蓮縣豐濱鄉光豐路26號",
+    "tel": "(03)8791159",
+    "url": "http://www.fpjh.hlc.edu.tw/"
+  },
+  {
+    "code": 154520,
+    "schoolName": "縣立瑞穗國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[978]花蓮縣瑞穗鄉成功北路18號",
+    "tel": "(03)8873111",
+    "url": "http://www.zsjh.hlc.edu.tw"
+  },
+  {
+    "code": 154521,
+    "schoolName": "縣立東里國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[983]花蓮縣富里鄉東里村道化路82號",
+    "tel": "(03)8861174",
+    "url": "http://www.tljh.hlc.edu.tw"
+  },
+  {
+    "code": 154522,
+    "schoolName": "縣立自強國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[970]花蓮縣花蓮市裕祥路89號",
+    "tel": "(03)8579338",
+    "url": "http://www.zcjh.hlc.edu.tw"
+  },
+  {
+    "code": 154523,
+    "schoolName": "縣立化仁國中",
+    "pub_pri": "公立",
+    "city": "花蓮縣",
+    "address": "[973]花蓮縣吉安鄉東昌村東海十街3號",
+    "tel": "(03)8543471",
+    "url": "http://www.hrjh.hlc.edu.tw"
+  },
+  {
+    "code": 164501,
+    "schoolName": "縣立馬公國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[880]澎湖縣馬公市西文里中華路326號",
+    "tel": "(06)9263367",
+    "url": "http://www.mkjh.phc.edu.tw"
+  },
+  {
+    "code": 164502,
+    "schoolName": "縣立中正國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[880]澎湖縣馬公市光華里101號",
+    "tel": "(06)9211137",
+    "url": "http://www.ccjh.phc.edu.tw"
+  },
+  {
+    "code": 164503,
+    "schoolName": "縣立澎南國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[880]澎湖縣馬公市五德里41號",
+    "tel": "(06)9951212",
+    "url": "http://www.pnjh.phc.edu.tw"
+  },
+  {
+    "code": 164504,
+    "schoolName": "縣立湖西國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[885]澎湖縣湖西鄉湖西村43之1號",
+    "tel": "(06)9921929",
+    "url": "http://www.hsjh.phc.edu.tw"
+  },
+  {
+    "code": 164505,
+    "schoolName": "縣立志清國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[885]澎湖縣湖西鄉許家村1之1號",
+    "tel": "(06)9214069",
+    "url": "http://www.jcjh.phc.edu.tw"
+  },
+  {
+    "code": 164506,
+    "schoolName": "縣立鎮海國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[884]澎湖縣白沙鄉鎮海村60號",
+    "tel": "(06)9931311",
+    "url": "http://www.jhjh.phc.edu.tw"
+  },
+  {
+    "code": 164507,
+    "schoolName": "縣立白沙國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[884]澎湖縣白沙鄉赤崁村294號",
+    "tel": "(06)9931006",
+    "url": "http://www.psjh.phc.edu.tw"
+  },
+  {
+    "code": 164508,
+    "schoolName": "縣立吉貝國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[884]澎湖縣白沙鄉吉貝村185號",
+    "tel": "(06)9911090",
+    "url": "http://www.gbjh.phc.edu.tw"
+  },
+  {
+    "code": 164509,
+    "schoolName": "縣立西嶼國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[881]澎湖縣西嶼鄉池東村213號",
+    "tel": "(06)9981110",
+    "url": "http://www.hyjh.phc.edu.tw"
+  },
+  {
+    "code": 164510,
+    "schoolName": "縣立望安國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[882]澎湖縣望安鄉西安村36之1號",
+    "tel": "(06)9991007",
+    "url": "http://www.wajh.phc.edu.tw"
+  },
+  {
+    "code": 164511,
+    "schoolName": "縣立將澳國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[882]澎湖縣望安鄉將軍村12之7號",
+    "tel": "(06)9902079",
+    "url": "http://www.jajh.phc.edu.tw"
+  },
+  {
+    "code": 164512,
+    "schoolName": "縣立七美國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[883]澎湖縣七美鄉中和村4號",
+    "tel": "(06)9971019",
+    "url": "http://www.cmjh.phc.edu.tw"
+  },
+  {
+    "code": 164513,
+    "schoolName": "縣立文光國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[880]澎湖縣馬公市文光路17號",
+    "tel": "(06)9272992",
+    "url": "http://www.wgjh.phc.edu.tw"
+  },
+  {
+    "code": 164514,
+    "schoolName": "縣立鳥嶼國中",
+    "pub_pri": "公立",
+    "city": "澎湖縣",
+    "address": "[884]澎湖縣白沙鄉鳥嶼村1號",
+    "tel": "(06)9916260",
+    "url": "http://www.nyjh.phc.edu.tw"
+  },
+  {
+    "code": 173501,
+    "schoolName": "市立明德國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[206]基隆市七堵區東新街20號",
+    "tel": "(02)24561274",
+    "url": "http://www.mdjh.kl.edu.tw"
+  },
+  {
+    "code": 173502,
+    "schoolName": "市立銘傳國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[200]基隆市仁愛區劉銘傳路132號",
+    "tel": "(02)24223120",
+    "url": "http://www.mcjh.kl.edu.tw"
+  },
+  {
+    "code": 173503,
+    "schoolName": "市立信義國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[201]基隆市信義區東信路4號",
+    "tel": "(02)24652199",
+    "url": "http://www.syjh.kl.edu.tw"
+  },
+  {
+    "code": 173505,
+    "schoolName": "市立中正國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[202]基隆市中正區中船路36巷59號",
+    "tel": "(02)24282191",
+    "url": "http://www.ccjh.kl.edu.tw"
+  },
+  {
+    "code": 173508,
+    "schoolName": "市立南榮國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[200]基隆市仁愛區南榮路319巷36號",
+    "tel": "(02)24282188",
+    "url": "http://www.nrjh.kl.edu.tw"
+  },
+  {
+    "code": 173509,
+    "schoolName": "市立成功國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[201]基隆市信義區壽山路9號",
+    "tel": "(02)24225594",
+    "url": "http://www.ckjh.kl.edu.tw"
+  },
+  {
+    "code": 173510,
+    "schoolName": "市立正濱國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[202]基隆市中正區正榮街88號",
+    "tel": "(02)24631490",
+    "url": "http://www.cbjh.kl.edu.tw"
+  },
+  {
+    "code": 173512,
+    "schoolName": "市立建德國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[204]基隆市安樂區安和一街29號",
+    "tel": "(02)24321234",
+    "url": "http://www.jdjh.kl.edu.tw"
+  },
+  {
+    "code": 173513,
+    "schoolName": "市立百福國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[206]基隆市七堵區福五街1號",
+    "tel": "(02)24511158",
+    "url": "http://www.pfjh.kl.edu.tw"
+  },
+  {
+    "code": 173515,
+    "schoolName": "市立碇內國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[205]基隆市暖暖區源遠路152巷75號",
+    "tel": "(02)24586105",
+    "url": "http://www.dnjh.kl.edu.tw"
+  },
+  {
+    "code": 173516,
+    "schoolName": "市立武崙國中",
+    "pub_pri": "公立",
+    "city": "基隆市",
+    "address": "[204]基隆市安樂區武崙街205號",
+    "tel": "(02)24342456",
+    "url": "http://www.wljh.kl.edu.tw"
+  },
+  {
+    "code": 181502,
+    "schoolName": "私立新竹市康橋國中(小)",
+    "pub_pri": "私立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區藝術路2號",
+    "tel": "(03)5192000",
+    "url": ""
+  },
+  {
+    "code": 183501,
+    "schoolName": "市立建華國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區學府路2號",
+    "tel": "(03)5238075",
+    "url": "http://www.chjh.hc.edu.tw"
+  },
+  {
+    "code": 183502,
+    "schoolName": "市立培英國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區學府路4號",
+    "tel": "(03)5721301",
+    "url": "http://www.pijh.hc.edu.tw"
+  },
+  {
+    "code": 183503,
+    "schoolName": "市立光華國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市北區光華北街10號",
+    "tel": "(03)5316605",
+    "url": "http://www.khjh.hc.edu.tw"
+  },
+  {
+    "code": 183504,
+    "schoolName": "市立育賢國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區南大路569號",
+    "tel": "(03)5223075",
+    "url": "http://www.ysjh.hc.edu.tw"
+  },
+  {
+    "code": 183505,
+    "schoolName": "市立光武國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區光復路一段512號",
+    "tel": "(03)5778784",
+    "url": "http://www.gwjh.hc.edu.tw"
+  },
+  {
+    "code": 183508,
+    "schoolName": "市立南華國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市北區海濱路55號",
+    "tel": "(03)5362204",
+    "url": "http://www.nhjh.hc.edu.tw"
+  },
+  {
+    "code": 183509,
+    "schoolName": "市立富禮國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市香山區富禮街16號",
+    "tel": "(03)5374793",
+    "url": "http://www.fljh.hc.edu.tw"
+  },
+  {
+    "code": 183510,
+    "schoolName": "市立三民國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區自由路95巷15號",
+    "tel": "(03)5339825",
+    "url": "http://www.smjh.hc.edu.tw"
+  },
+  {
+    "code": 183511,
+    "schoolName": "市立內湖國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市香山區五福路一段12號",
+    "tel": "(03)5373484",
+    "url": "http://www.nhjhs.hc.edu.tw"
+  },
+  {
+    "code": 183512,
+    "schoolName": "市立虎林國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市香山區延平路二段76號",
+    "tel": "(03)5309433",
+    "url": "http://www.hljh.hc.edu.tw"
+  },
+  {
+    "code": 183514,
+    "schoolName": "市立新科國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市東區光復路一段89巷88號",
+    "tel": "(03)6686387",
+    "url": "http://www.hkjh.hc.edu.tw"
+  },
+  {
+    "code": 183515,
+    "schoolName": "市立竹光國中",
+    "pub_pri": "公立",
+    "city": "新竹市",
+    "address": "[300]新竹市北區和平路1號",
+    "tel": "(03)5246683",
+    "url": "http://www.zgjh.hc.edu.tw"
+  },
+  {
+    "code": 203501,
+    "schoolName": "市立大業國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市東區大業街57號",
+    "tel": "(05)2223082",
+    "url": "http://www.dyjh.cy.edu.tw"
+  },
+  {
+    "code": 203502,
+    "schoolName": "市立北興國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市東區仁義里博東路262號",
+    "tel": "(05)2766602",
+    "url": "http://www.psjh.cy.edu.tw"
+  },
+  {
+    "code": 203503,
+    "schoolName": "市立嘉義國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市東區王田里圓福街86號",
+    "tel": "(05)2762625",
+    "url": "http://www.cyjh.cy.edu.tw"
+  },
+  {
+    "code": 203504,
+    "schoolName": "市立南興國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市東區芳安路111號",
+    "tel": "(05)2224383",
+    "url": "http://www.nhjh.cy.edu.tw"
+  },
+  {
+    "code": 203505,
+    "schoolName": "市立民生國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市西區新民路601號",
+    "tel": "(05)2855331",
+    "url": "http://www.msjh.cy.edu.tw"
+  },
+  {
+    "code": 203506,
+    "schoolName": "市立玉山國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市西區友忠路1號",
+    "tel": "(05)2357980",
+    "url": "http://www.ysjh.cy.edu.tw"
+  },
+  {
+    "code": 203507,
+    "schoolName": "市立蘭潭國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市東區民權東路32號",
+    "tel": "(05)2773582",
+    "url": "http://www.ltjh.cy.edu.tw"
+  },
+  {
+    "code": 203508,
+    "schoolName": "市立北園國中",
+    "pub_pri": "公立",
+    "city": "嘉義市",
+    "address": "[600]嘉義市西區雙園街280號",
+    "tel": "(05)2374673",
+    "url": "http://163.27.36.1"
+  },
+  {
+    "code": 714501,
+    "schoolName": "縣立金城國中",
+    "pub_pri": "公立",
+    "city": "金門縣",
+    "address": "[893]金門縣金城鎮民權路32號",
+    "tel": "(082)325454",
+    "url": "http://www.kcjh.km.edu.tw"
+  },
+  {
+    "code": 714502,
+    "schoolName": "縣立金湖國中",
+    "pub_pri": "公立",
+    "city": "金門縣",
+    "address": "[891]金門縣金湖鎮太湖路三段1號",
+    "tel": "(082)332612",
+    "url": "http://webkhjh.km.edu.tw/index_redir.jsp?"
+  },
+  {
+    "code": 714503,
+    "schoolName": "縣立金寧國中(小)",
+    "pub_pri": "公立",
+    "city": "金門縣",
+    "address": "[892]金門縣金寧鄉安岐1號",
+    "tel": "(082)325748",
+    "url": "http://webcnjh.km.edu.tw/index_redir.jsp?"
+  },
+  {
+    "code": 714504,
+    "schoolName": "縣立金沙國中",
+    "pub_pri": "公立",
+    "city": "金門縣",
+    "address": "[890]金門縣金沙鎮汶沙里國中路61號",
+    "tel": "(082)352560",
+    "url": "http://www.ksjh.km.edu.tw"
+  },
+  {
+    "code": 714505,
+    "schoolName": "縣立烈嶼國中",
+    "pub_pri": "公立",
+    "city": "金門縣",
+    "address": "[894]金門縣烈嶼鄉后井38號",
+    "tel": "(082)362425",
+    "url": "http://www.lyjh.km.edu.tw"
+  },
+  {
+    "code": 724501,
+    "schoolName": "縣立介壽國中(小)",
+    "pub_pri": "公立",
+    "city": "連江縣",
+    "address": "[209]連江縣南竿鄉介壽村13號",
+    "tel": "(0836)22192",
+    "url": "http://www.jsps.matsu.edu.tw"
+  },
+  {
+    "code": 724502,
+    "schoolName": "縣立中正國中(小)",
+    "pub_pri": "公立",
+    "city": "連江縣",
+    "address": "[209]連江縣南竿鄉馬祖村4號",
+    "tel": "(0836)22196",
+    "url": "http://www.jjps.matsu.edu.tw"
+  },
+  {
+    "code": 724503,
+    "schoolName": "縣立中山國中",
+    "pub_pri": "公立",
+    "city": "連江縣",
+    "address": "[210]連江縣北竿鄉芹壁村84號",
+    "tel": "(0836)55223",
+    "url": "http://www.jshjh.matsu.edu.tw"
+  },
+  {
+    "code": 724504,
+    "schoolName": "縣立敬恆國中(小)",
+    "pub_pri": "公立",
+    "city": "連江縣",
+    "address": "[211]連江縣莒光鄉青帆村19號",
+    "tel": "(0836)88179",
+    "url": "http://www.jhjh.matsu.edu.tw"
+  },
+  {
+    "code": 724505,
+    "schoolName": "縣立東引國中(小)",
+    "pub_pri": "公立",
+    "city": "連江縣",
+    "address": "[212]連江縣東引鄉中柳村94號",
+    "tel": "(0836)77210",
+    "url": "http://www.tyjh.matsu.edu.tw"
+  }
+]
+}

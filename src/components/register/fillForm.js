@@ -28,6 +28,8 @@ class FillForm extends Component {
     this.verifyTheForm = this.verifyTheForm.bind(this);
     this.onHandleCont = this.onHandleCont.bind(this);
     this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
+    this.changePasswordConfirmOffFocus = this.changePasswordConfirmOffFocus.bind(this);
+
     this.state = {
       email: '',
       password: '',
@@ -37,28 +39,52 @@ class FillForm extends Component {
     }
 
   }
+
   componentWillMount(){
 
     let buttonHeight = window.height - 150;
+    console.log(this.verifyTheForm(), 'this.verifyTheForm()');
 
-    this.state.nextButton
-    = {
-        position: 'absolute',
-        display: 'flex',
-        borderWidth: 2,
-        borderRadius: 10,
-        borderColor: '#00B9F1',
-        width: 320,
-        height: 50,
-        marginTop: buttonHeight,
-        alignSelf: 'center',
-        alignItems: 'center',
-        justifyContent: 'center'
-      };
-      this.setState({'nextButtonText': {
-        color: '#00B9F1'
-        }
-      });
+    if(this.verifyTheFormRedux().overallCondition){
+      this.state.nextButton
+      = {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          backgroundColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: buttonHeight,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        };
+        this.setState({'nextButtonText': {
+          color: 'white'
+          }
+        });
+    }else{
+      this.state.nextButton
+      = {
+          position: 'absolute',
+          display: 'flex',
+          borderWidth: 2,
+          borderRadius: 10,
+          borderColor: '#00B9F1',
+          width: 320,
+          height: 50,
+          marginTop: buttonHeight,
+          alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center'
+        };
+        this.setState({'nextButtonText': {
+          color: '#00B9F1'
+          }
+        });
+    }
 
 
     if(this.props.registerSpec.email){
@@ -88,6 +114,10 @@ class FillForm extends Component {
     this.setState({ passwordConfirm });
     this.verifyTheForm();
   }
+  changePasswordConfirmOffFocus(){
+    this.verifyTheForm();
+    this.verifyTheForm();
+  }
   changeFirstname(firstname){
     this.setState({ firstname });
     this.props.regFirstname(firstname);
@@ -110,7 +140,62 @@ class FillForm extends Component {
     let firstNameDone = this.state.firstname.length > 0;
     let emailDone = (this.state.email.length > 0); //TODO: and other checks
     let passwordDone = (this.state.password.length > 5);
-    let passwordConfirmDone = (this.state.password === this.state.passwordConfirm);
+    let passwordConfirmDone = true; //(this.state.password === this.state.passwordConfirm);
+
+    let errorMsg = '\n須先補齊以下資料再繼續流程\n -----------------------------';
+
+
+    if(!emailDone){
+      errorMsg+='\n 需填寫電子信箱'
+    }
+    if(!passwordDone){
+      errorMsg+='\n\n 密碼需介於 6 ~ 20 個英數字母'
+    }
+    if(!passwordConfirmDone){
+      errorMsg+='\n\n 密碼與確認密碼不一致'
+    }
+
+    if(!lastNameDone){
+      errorMsg+='\n\n 需填寫 姓                 '
+    }
+
+    if(!firstNameDone){
+      errorMsg+='\n\n 需填寫 名字                 '
+    }
+
+    verifiedResult['errorMsg'] = errorMsg;
+
+
+
+    let overallCondition = lastNameDone && firstNameDone &&
+                           emailDone && passwordDone && passwordConfirmDone;
+
+    verifiedResult['condition'] = overallCondition;
+
+    if(overallCondition){
+      this.setCurrentButtonStyle(); //change the button style
+    }
+
+    return verifiedResult;
+  }
+
+  verifyTheFormRedux(){
+    // criteria:
+    // ---------------------------------------------------
+    // Has the email, has the password, has the full name
+    // The email should not be duplicated
+    // FIXME: current process is not good enough without email verification mechanism
+    let verifiedResult = {};
+
+    let lastNameDone = false;
+    if(this.props.registerSpec.lastname) {this.props.registerSpec.lastname.length > 0};
+    let firstNameDone = false;
+    if(this.props.registerSpec.firstname) {this.props.registerSpec.firstname.length > 0};
+    let emailDone = false;
+    if(this.props.registerSpec.email) {(this.props.registerSpec.email.length > 0)}; //TODO: and other checks
+    let passwordDone = false;
+    if(this.props.registerSpec.password) {(this.props.registerSpec.password.length > 5)};
+    let passwordConfirmDone = true; //(this.state.password === this.state.passwordConfirm);
 
     let errorMsg = '\n須先補齊以下資料再繼續流程\n -----------------------------';
 
@@ -197,6 +282,26 @@ class FillForm extends Component {
 
   }
   render() {
+    /*
+
+    <TransparentCardSection>
+    <Text style={{fontSize: 14, color: 'gray'}}>
+     {'請再輸入一次密碼確認'}
+    </Text>
+    </TransparentCardSection>
+
+    <TransparentCardSection>
+    <NoLabelUnderlineInput
+      secureTextEntry
+      placeholder="請再輸入一次密碼確認"
+      label="Password"
+      value={this.state.passwordConfirm}
+      onChangeText={password => this.changePasswordConfirm(password)}
+      onEndEditing={this.changePasswordConfirmOffFocus}
+    />
+    </TransparentCardSection>
+
+    */
     return (<View>
       <Text style={RegStyles.headerStyle}>
       填寫帳號資料
@@ -229,20 +334,8 @@ class FillForm extends Component {
         onChangeText={password => this.changePassword(password)}
       />
       </TransparentCardSection>
-      <TransparentCardSection>
-      <Text style={{fontSize: 14, color: 'gray'}}>
-       {'請再輸入一次密碼確認'}
-      </Text>
-      </TransparentCardSection>
-      <TransparentCardSection>
-      <NoLabelUnderlineInput
-        secureTextEntry
-        placeholder="請再輸入一次密碼確認"
-        label="Password"
-        value={this.state.passwordConfirm}
-        onChangeText={password => this.changePasswordConfirm(password)}
-      />
-      </TransparentCardSection>
+
+
       <TransparentCardSection>
 
       </TransparentCardSection>

@@ -11,7 +11,9 @@ import ModalPicker from 'react-native-modal-picker';
 import { RegStyles } from './registerConf';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName } from '../../actions/index';
+import {
+  regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName, regSchoolsList
+ } from '../../actions/index';
 
 const window = Dimensions.get('window');
 
@@ -22,18 +24,30 @@ class SchoolInfo extends Component {
         schoolType: '',
         schoolLevel: '',
         schoolName: '',
-        schoolCity: ''
+        schoolCity: '',
+        levelData: [],
+        currentSchoolsList: []
     };
+    this.setCurrentSchoolsList = this.setCurrentSchoolsList.bind(this);
+    this.isFullFillment = this.isFullFillment.bind(this);
+    this.elementarySchools = require('../../json/elementary_schools.json');
+    this.juniorHighSchools = require('../../json/junior_high_schools.json');
+    this.seniorHighSchools = require('../../json/senior_high_schools.json');
+    console.log(this.elementarySchools.schools.length, 'schools');
+    console.log(this.juniorHighSchools.schools.length, 'schools');
+    console.log(this.seniorHighSchools.schools.length, 'schools');
 
   }
   componentWillMount(){
 
+    if(this.props.registerSpec.regSchoolsList){
+      this.setState({ currentSchoolsList : this.props.registerSpec.regSchoolsList})
+    }
+
     if(this.props.registerSpec.schoolType){
       this.setSchoolType({schoolType:this.props.registerSpec.schoolType});
     }
-    if(this.props.registerSpec.schoolName){
-      this.setSchoolName({schoolName:this.props.registerSpec.schoolName});
-    }
+
     if(this.props.registerSpec.schoolLevel){
       this.setSchoolLevel({schoolLevel:this.props.registerSpec.schoolLevel});
     }
@@ -41,22 +55,158 @@ class SchoolInfo extends Component {
       this.setSchoolCity({schoolCity:this.props.registerSpec.schoolCity});
     }
 
+    if(this.props.registerSpec.schoolName){
+      this.setSchoolName({schoolName:this.props.registerSpec.schoolName});
+    }
+
   }
 
+  setCurrentSchoolsList(schoolType, schoolCity){
+    let currentSchools = [];
+    console.log(this.elementarySchools.schools.length, 'wwwwwww', schoolType, schoolCity);
+    switch(schoolType){
+      case '國小':
+        currentSchools = this.elementarySchools.schools.filter(
+          (school)=>{
+            console.log((school.city == schoolCity), school.city, schoolCity)
+            return school.city == schoolCity;
+          }
+        )
+        .map(
+          (school, index)=>{
+            //Example entry: { key: 1, label: '一年級' },
+            return { key: index, label: school.schoolName }
+          }
+        );
+        break;
+      case '國中':
+        currentSchools = this.juniorHighSchools.schools.filter(
+          (school)=>{
+            return school.city === schoolCity;
+          }
+        )
+        .map(
+          (school, index)=>{
+            //Example entry: { key: 1, label: '一年級' },
+            return { key: index, label: school.schoolName }
+          }
+        );
+        break;
+      case '高中職':
+        currentSchools = this.seniorHighSchools.schools.filter(
+          (school)=>{
+            return school.city === schoolCity;
+          }
+        )
+        .map(
+          (school, index)=>{
+            //Example entry: { key: 1, label: '一年級' },
+            return { key: index, label: school.schoolName }
+          }
+        );
+        break;
+      default:
+        break;
+    }
+    this.setState({currentSchoolsList: currentSchools});
+    this.props.regSchoolsList(currentSchools);//save currentSchoolList to redux
+
+    return currentSchools;
+  }
+
+  //check if four entries are filled
+  isFullFillment(){
+    let hasCity = this.state.schoolCity;
+    let hasName = this.state.schoolName;
+    let hasType = this.state.schoolType;
+    let hasLevel = this.state.schoolLevel;
+    console.log(hasCity, hasType, hasName, hasLevel, 'wwwwwww@@');
+  }
   setSchoolType(schoolType){
     this.setState(schoolType);
-    console.log(schoolType, schoolType.schoolType, this.props.registerSpec)
+    this.setState({schoolLevel: ''})//reset schoolLevel
+    this.setState({schoolName: ''});//reset schoolName
+    //check if completed
+    this.isFullFillment();
+
+    if(this.state.schoolCity != ''){
+      console.log('yes~~~~~~sc',this.state.schoolCity, schoolType.schoolType);
+      let schoolList = this.setCurrentSchoolsList(schoolType.schoolType, this.state.schoolCity);
+      console.log(schoolList, 'schoolList');
+
+    }else{
+      console.log('no~~~~~~~sc')
+    }
+
+    if(schoolType.schoolType === '國小'){
+      this.setState(
+        {'levelData':
+        [
+            { key: 0, section: true, label: '年級' },
+            { key: 1, label: '一年級' },
+            { key: 2, label: '二年級' },
+            { key: 3, label: '三年級' },
+            { key: 4, label: '四年級' },
+            { key: 5, label: '五年級' },
+            { key: 6, label: '六年級' }
+        ]
+      }
+      );
+    }
+    if(schoolType.schoolType === '國中'){
+      this.setState(
+        {'levelData':
+        [
+            { key: 0, section: true, label: '年級' },
+            { key: 1, label: '國七' },
+            { key: 2, label: '國八' },
+            { key: 3, label: '國九' }
+        ]
+      }
+      );
+    }
+    if(schoolType.schoolType === '高中職'){
+      this.setState(
+        {'levelData':
+        [
+            { key: 0, section: true, label: '年級' },
+            { key: 1, label: '一年級' },
+            { key: 2, label: '二年級' },
+            { key: 3, label: '三年級' }
+        ]
+      }
+      );
+    }
+
     this.props.regSchoolType(schoolType.schoolType);
   }
 
   setSchoolLevel(schoolLevel){
     this.setState(schoolLevel);
+
     console.log(schoolLevel,this.props.registerSpec);
     this.props.regSchoolLevel(schoolLevel.schoolLevel);
+    //check if completed
+    this.isFullFillment();
   }
 
   setSchoolCity(schoolCity){
     this.setState(schoolCity);
+    this.setState({schoolName: ''});//reset schoolName
+
+    if(this.state.schoolType != ''){
+
+      this.setCurrentSchoolsList(this.state.schoolType, schoolCity.schoolCity);
+    }else{
+      console.log('no~~~~~~~st')
+    }
+
+    let reduceSchools = this.elementarySchools.schools.filter(
+      (school)=>{
+        return school.city === schoolCity.schoolCity;
+      }
+    );
+    console.log(reduceSchools.length, 'reduceSchools.length');
     console.log(schoolCity,this.props.registerSpec);
     this.props.regSchoolCity(schoolCity.schoolCity);
   }
@@ -72,26 +222,28 @@ class SchoolInfo extends Component {
     let index = 0;
     const data = [
         { key: index++, section: true, label: '縣市' },
-        { key: index++, label: '臺北市' },
-        { key: index++, label: '新北市' },
-        { key: index++, label: '桃園市' },
-        { key: index++, label: '臺中市' },
-        { key: index++, label: '臺南市' },
-        { key: index++, label: '高雄市' },
-        { key: index++, label: '基隆市' },
-        { key: index++, label: '新竹市' },
-        { key: index++, label: '嘉義市' },
-        { key: index++, label: '新竹縣' },
-        { key: index++, label: '苗栗縣' },
-        { key: index++, label: '彰化縣' },
-        { key: index++, label: '南投縣' },
-        { key: index++, label: '雲林縣' },
-        { key: index++, label: '嘉義縣' },
-        { key: index++, label: '屏東縣' },
-        { key: index++, label: '宜蘭縣' },
-        { key: index++, label: '花蓮縣' },
-        { key: index++, label: '臺東縣' },
-        { key: index++, label: '澎湖縣' }
+        { key: index++, label: "新北市" },
+        { key: index++, label: "臺北市" },
+        { key: index++, label: "桃園市" },
+        { key: index++, label: "臺中市" },
+        { key: index++, label: "臺南市" },
+        { key: index++, label: "高雄市" },
+        { key: index++, label: "宜蘭縣" },
+        { key: index++, label: "新竹縣" },
+        { key: index++, label: "苗栗縣" },
+        { key: index++, label: "彰化縣" },
+        { key: index++, label: "南投縣" },
+        { key: index++, label: "雲林縣" },
+        { key: index++, label: "嘉義縣" },
+        { key: index++, label: "屏東縣" },
+        { key: index++, label: "臺東縣" },
+        { key: index++, label: "花蓮縣" },
+        { key: index++, label: "澎湖縣" },
+        { key: index++, label: "基隆市" },
+        { key: index++, label: "新竹市" },
+        { key: index++, label: "嘉義市" },
+        { key: index++, label: "金門縣" },
+        { key: index++, label: "連江縣" }
     ];
     return data;
   }
@@ -117,12 +269,17 @@ class SchoolInfo extends Component {
   }
   fetchSchool(){
     let index = 0;
-    const data = [
+    //TODO: save currentSchoolList to redux
+
+    let data = this.state.currentSchoolsList;
+    /*
+    [
         { key: index++, section: true, label: '學校' },
         { key: index++, label: '立人國小' },
         { key: index++, label: '新興國中' },
         { key: index++, label: '台南一中' }
     ];
+    */
     return data;
   }
   render() {
@@ -179,7 +336,7 @@ class SchoolInfo extends Component {
             </ModalPicker>
 
             <ModalPicker
-                data={this.fetchLevel()}
+                data={this.state.levelData}
                 style={styles.container}
                 initValue=""
                 onChange={(option)=>{ this.setSchoolLevel({schoolLevel:option.label})}}>
@@ -216,7 +373,9 @@ class SchoolInfo extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName }, dispatch);
+  return bindActionCreators({
+    regSchoolType, regSchoolLevel, regSchoolCity, regSchoolName, regSchoolsList
+   }, dispatch);
 }
 
 function mapStateToProps(state) {

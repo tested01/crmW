@@ -9,7 +9,8 @@ import {
        REG_SCHOOLNAME,
        REG_SCHOOLCITY,
        REG_PHONE,
-       REG_VERIFYCODE
+       REG_VERIFYCODE,
+       REG_SCHOOLSLIST
        } from '../actions';
 const defaultStatus = {
   regStatus: false
@@ -29,6 +30,7 @@ export default function (state = defaultStatus, action) {
       case REG_SCHOOLNAME:
       case REG_ROLE:
       case REG_VERIFYCODE:
+      case REG_SCHOOLSLIST:
         return Object.assign({}, state, action.payload);
       default:
         return state;

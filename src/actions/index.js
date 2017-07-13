@@ -27,6 +27,8 @@ export const REG_SCHOOLNAME = 'REG_SCHOOLNAME';
 export const REG_SCHOOLCITY = 'REG_SCHOOLCITY';
 export const REG_PHONE = 'REG_PHONE';
 export const REG_VERIFYCODE = 'REG_VERIFYCODE';
+export const REG_SCHOOLSLIST = 'REG_SCHOOLSLIST';
+
 export const HIDE_HEADER = 'HIDE_HEADER';
 export const COURSE_OPERATION = 'COURSE_OPERATION';
 //literaryWork related actions (start)
@@ -285,6 +287,15 @@ export function regVerifyCode(code){
     type: REG_VERIFYCODE,
     payload: {
       code
+    }
+  };
+}
+
+export function regSchoolsList(regSchoolsList){
+  return {
+    type: REG_SCHOOLSLIST,
+    payload: {
+      regSchoolsList
     }
   };
 }
