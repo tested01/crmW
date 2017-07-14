@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Dimensions,
   Alert,
+  Keyboard, TouchableWithoutFeedback,
   TouchableHighlight } from 'react-native';
 import PhoneInput from 'react-native-phone-input';
 import { RegStyles } from './registerConf';
@@ -209,8 +210,8 @@ class Phone extends Component {
     }else{
       //Alert if the phone # is incorrect
       Alert.alert(
-        '填寫學校資料',
-        errorMsg,
+        '填寫手機號碼資料',
+        '手機號碼格式不符合',
         [
           {text: 'OK', onPress: () => console.log('OK Pressed')},
         ],
@@ -228,6 +229,7 @@ class Phone extends Component {
     </TouchableHighlight>
     */
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View>
         <Text style={RegStyles.headerStyle}>
         輸入手機進行驗證
@@ -251,7 +253,9 @@ class Phone extends Component {
           >
           <Text style={this.state.nextButtonText}>繼續</Text>
         </TouchableHighlight>
-      </View>);
+      </View>
+      </TouchableWithoutFeedback>
+    );
   }
 }
 

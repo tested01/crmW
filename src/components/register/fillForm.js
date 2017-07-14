@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Dimensions, Alert } from 'react-native';
+import { View, Text, TouchableHighlight, Dimensions, Alert,
+  Keyboard, TouchableWithoutFeedback
+ } from 'react-native';
 import { RegStyles } from './registerConf';
 import { NoLabelUnderlineInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
@@ -125,7 +127,7 @@ class FillForm extends Component {
   changeLastname(lastname){
     this.setState({ lastname }, this.verifyTheForm);
     this.props.regLastname(lastname);
-    
+
   }
   verifyTheForm(){
     // criteria:
@@ -321,7 +323,9 @@ class FillForm extends Component {
     </TransparentCardSection>
 
     */
-    return (<View>
+    return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View>
       <Text style={RegStyles.headerStyle}>
       填寫帳號資料
       </Text>
@@ -396,7 +400,9 @@ class FillForm extends Component {
         >
         <Text style={this.state.nextButtonText}>繼續</Text>
       </TouchableHighlight>
-      </View>);
+      </View>
+      </TouchableWithoutFeedback>
+    );
   }
 }
 
