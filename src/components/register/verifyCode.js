@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Dimensions } from 'react-native';
+import { View, Text, TouchableHighlight, Dimensions, Alert } from 'react-native';
 import { RegStyles } from './registerConf';
 import { NoLabelInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { regVerifyCode } from '../../actions/index';
 
 const window = Dimensions.get('window');
+const buttonHeight = window.height - 150;
+
 const styles = {
   nextButton: {
     position: 'absolute',
@@ -31,10 +33,124 @@ class VerifyCode extends Component {
       resendCount: 1
     }
     this.onResendRequest = this.onResendRequest.bind(this);
+    this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
+    this.resetCurrentButtonStyle = this.resetCurrentButtonStyle.bind(this);
+    this.updateButton = this.updateButton.bind(this);
+    this.onHandleCont = this.onHandleCont.bind(this);
+    this.nextStepRegister = this.nextStepRegister.bind(this);
+  }
+  componentWillMount(){
+    this.resetCurrentButtonStyle();
+  }
+  updateButton(){
+    console.log('call updateButton');
+    if(this.state.verifyCode.length == 4){
+      this.setCurrentButtonStyle();
+      console.log('call updateButton true');
+    }else{
+      this.resetCurrentButtonStyle();
+      console.log('call updateButton false');
+    }
   }
   onResendRequest(){
     this.setState(Object.assign({}, this.state, {resendCount: this.state.resendCount + 1}));
     console.log('resend....', this.state.resendCount, this.state.verifyCode);
+  }
+  setCurrentButtonStyle(){
+    this.setState({
+      'nextButton': {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: '#00B9F1',
+        width: 320,
+        height: 50,
+        marginTop: buttonHeight,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      'nextButtonText': {
+        color: 'white'
+      }
+    }
+    );
+  }
+  resetCurrentButtonStyle(){
+    this.setState({
+      'nextButton': {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: 'white',
+        width: 320,
+        height: 50,
+        marginTop: buttonHeight,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      'nextButtonText': {
+        color: '#00B9F1'
+      }
+    }
+    );
+  }
+  nextStepRegister(){
+    this.props.next();
+  }
+  onHandleCont(){
+    //this.props.next();
+    //Alert here if error
+    let nextStep = this.nextStepRegister;
+
+    if(this.state.verifyCode){
+      if(this.state.verifyCode.length == 0){
+        Alert.alert(
+          '請輸入四位數驗證碼',
+          '請檢查簡訊, 並輸入收到的四位數驗證碼',
+          [
+            {text: 'OK', onPress: () => console.log('error: no code')},
+          ],
+          { cancelable: false }
+        );
+      }else{
+        if(this.state.verifyCode.length < 4){
+          Alert.alert(
+            '輸入驗證碼不足四位數',
+            '請檢查簡訊, 並輸入收到的四位數驗證碼',
+            [
+              {text: 'OK', onPress: () =>console.log('error: code is too short')},
+            ],
+            { cancelable: false }
+          );
+        }else{
+
+          //TODO: check the input code against Redux code
+          //      and assign the check result to checkResult
+          let checkResult = true;
+          console.log('reg------------------');
+          if(checkResult){
+            nextStep();
+          }
+
+        }
+      }
+    }else{
+      Alert.alert(
+        '請輸入四位數驗證碼',
+        '請檢查簡訊, 並輸入收到的四位數驗證碼',
+        [
+          {text: 'OK', onPress: () => console.log('error: state is not ready')},
+        ],
+        { cancelable: false }
+      );
+    }
+
   }
   render() {
     return (
@@ -47,11 +163,12 @@ class VerifyCode extends Component {
                 placeholder="請於此輸入驗證碼"
                 label="VerifyCode"
                 maxLength={4}
+                inputStyle={{justifyContent: 'center', alignItems: 'center'}}
                 value={this.state.verifyCode}
                 keyboardType="phone-pad"
                 onChangeText={verifyCode => {
                   this.props.regVerifyCode(verifyCode);
-                  this.setState({ verifyCode });
+                  this.setState({ verifyCode }, this.updateButton);
                 }}
               />
             </TransparentCardSection>
@@ -61,10 +178,10 @@ class VerifyCode extends Component {
               </Text>
             </TouchableHighlight>
             <TouchableHighlight
-              style={styles.nextButton}
-              onPress={this.props.next}
+              style={this.state.nextButton}
+              onPress={this.onHandleCont}
               >
-              <Text style={{color: '#00B9F1'}}>繼續</Text>
+              <Text style={this.state.nextButtonText}>繼續</Text>
             </TouchableHighlight>
           </View>);
   }

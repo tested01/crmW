@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { regFirstname, regLastname, regEmail, regPassword } from '../../actions/index';
 
 const window = Dimensions.get('window');
+const buttonHeight = window.height - 150;
 const styles = {
   nextButton: {
     position: 'absolute',
@@ -28,6 +29,7 @@ class FillForm extends Component {
     this.verifyTheForm = this.verifyTheForm.bind(this);
     this.onHandleCont = this.onHandleCont.bind(this);
     this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
+    this.resetCurrentButtonStyle = this.resetCurrentButtonStyle.bind(this);
     this.changePasswordConfirmOffFocus = this.changePasswordConfirmOffFocus.bind(this);
 
     this.state = {
@@ -41,8 +43,6 @@ class FillForm extends Component {
   }
 
   componentWillMount(){
-
-    let buttonHeight = window.height - 150;
     console.log(this.verifyTheForm(), 'this.verifyTheForm()');
 
     if(this.verifyTheFormRedux().overallCondition){
@@ -101,14 +101,14 @@ class FillForm extends Component {
     }
   }
   changeEmail(email){
-    this.setState({ email: email.toLowerCase() });
+    this.setState({ email: email.toLowerCase() }, this.verifyTheForm);
     this.props.regEmail(email.toLowerCase());
-    this.verifyTheForm();
+
   }
   changePassword(password){
-    this.setState({ password });
+    this.setState({ password }, this.verifyTheForm);
     this.props.regPassword(password);
-    this.verifyTheForm();
+
   }
   changePasswordConfirm(passwordConfirm){
     this.setState({ passwordConfirm });
@@ -116,17 +116,16 @@ class FillForm extends Component {
   }
   changePasswordConfirmOffFocus(){
     this.verifyTheForm();
-    this.verifyTheForm();
   }
   changeFirstname(firstname){
-    this.setState({ firstname });
+    this.setState({ firstname }, this.verifyTheForm);
     this.props.regFirstname(firstname);
-    this.verifyTheForm();
+
   }
   changeLastname(lastname){
-    this.setState({ lastname });
+    this.setState({ lastname }, this.verifyTheForm);
     this.props.regLastname(lastname);
-    this.verifyTheForm();
+    
   }
   verifyTheForm(){
     // criteria:
@@ -174,6 +173,8 @@ class FillForm extends Component {
 
     if(overallCondition){
       this.setCurrentButtonStyle(); //change the button style
+    }else{
+      this.resetCurrentButtonStyle();
     }
 
     return verifiedResult;
@@ -235,7 +236,6 @@ class FillForm extends Component {
   }
 
   setCurrentButtonStyle(){
-    let buttonHeight = window.height - 150;
     this.setState({
       'nextButton': {
         position: 'absolute',
@@ -257,7 +257,28 @@ class FillForm extends Component {
     }
     );
   }
-
+  resetCurrentButtonStyle(){
+    this.setState({
+      'nextButton': {
+        position: 'absolute',
+        display: 'flex',
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#00B9F1',
+        backgroundColor: 'white',
+        width: 320,
+        height: 50,
+        marginTop: buttonHeight,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      'nextButtonText': {
+        color: '#00B9F1'
+      }
+    }
+    );
+  }
   onHandleCont(){
     //this.props.next
     //this.verifyTheForm();

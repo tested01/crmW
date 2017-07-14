@@ -41,9 +41,7 @@ class SchoolInfo extends Component {
     this.elementarySchools = require('../../json/elementary_schools.json');
     this.juniorHighSchools = require('../../json/junior_high_schools.json');
     this.seniorHighSchools = require('../../json/senior_high_schools.json');
-    console.log(this.elementarySchools.schools.length, 'schools');
-    console.log(this.juniorHighSchools.schools.length, 'schools');
-    console.log(this.seniorHighSchools.schools.length, 'schools');
+
 
   }
   componentWillMount(){
@@ -165,12 +163,12 @@ class SchoolInfo extends Component {
 
   setCurrentSchoolsList(schoolType, schoolCity){
     let currentSchools = [];
-    console.log(this.elementarySchools.schools.length, 'wwwwwww', schoolType, schoolCity);
+
     switch(schoolType){
       case '國小':
         currentSchools = this.elementarySchools.schools.filter(
           (school)=>{
-            console.log((school.city == schoolCity), school.city, schoolCity)
+            //console.log((school.city == schoolCity), school.city, schoolCity)
             return school.city == schoolCity;
           }
         )
