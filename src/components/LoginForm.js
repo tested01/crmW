@@ -117,6 +117,7 @@ class LoginForm extends Component {
           {this.renderButton()}
         </TransparentCardSection>
         <Text style={styles.linkTextStyle}> 訪客進入 </Text>
+      
       </MaterialCard>
     );
   }

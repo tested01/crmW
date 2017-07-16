@@ -94,7 +94,7 @@ class LoginingScreen extends Component {
                   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={viewStyle}>
                     <Image
-                     style={{alignSelf: 'center', marginBottom: 50}}
+                     style={{alignSelf: 'center', marginBottom: 20}}
                      source={require('../img/login/header.png')}
                     />
 

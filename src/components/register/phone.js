@@ -16,7 +16,7 @@ import { regPhone } from '../../actions/index';
 import { CONFIG } from '../../config.js';
 
 const window = Dimensions.get('window');
-const buttonHeight = window.height - 150;
+const buttonHeight = window.height - 350;
 
 class Phone extends Component {
   constructor(props){
@@ -240,13 +240,13 @@ class Phone extends Component {
           style={{margin: 'auto'}}
           cancelText='取消'
           confirmText='選取'
+          textStyle={{fontSize: 20}}
           value={this.props.registerSpec.phone}
           onChangePhoneNumber={this.updateInfo}
           onSelectCountry={this.updateInfo}
           ref='phone'
           />
         </View>
-
         <TouchableHighlight
           style={this.state.nextButton}
           onPress={this.onHandleCont}

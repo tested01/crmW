@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Dimensions, Alert,
-  Keyboard, TouchableWithoutFeedback
+  Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView
  } from 'react-native';
 import { RegStyles } from './registerConf';
 import { NoLabelUnderlineInput, TransparentCardSection } from '../common';
@@ -324,6 +324,9 @@ class FillForm extends Component {
 
     */
     return (
+      <KeyboardAvoidingView
+      behavior="padding"
+      >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View>
       <Text style={RegStyles.headerStyle}>
@@ -402,6 +405,7 @@ class FillForm extends Component {
       </TouchableHighlight>
       </View>
       </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     );
   }
 }

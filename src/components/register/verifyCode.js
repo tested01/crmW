@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Dimensions, Alert } from 'react-native';
+import { View, Text, TouchableHighlight, Dimensions, Alert,
+  Keyboard, TouchableWithoutFeedback, TextInput
+ } from 'react-native';
 import { RegStyles } from './registerConf';
-import { NoLabelInput, TransparentCardSection } from '../common';
+import { SmsVerifyInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regVerifyCode } from '../../actions/index';
 
 const window = Dimensions.get('window');
-const buttonHeight = window.height - 150;
+const buttonHeight = window.height - 350;
 
 const styles = {
   nextButton: {
@@ -154,26 +156,38 @@ class VerifyCode extends Component {
   }
   render() {
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>
             <Text style={RegStyles.headerStyle}>
             輸入4位數驗證碼
             </Text>
-            <TransparentCardSection>
-              <NoLabelInput
-                placeholder="請於此輸入驗證碼"
-                label="VerifyCode"
-                maxLength={4}
-                inputStyle={{justifyContent: 'center', alignItems: 'center'}}
-                value={this.state.verifyCode}
-                keyboardType="phone-pad"
-                onChangeText={verifyCode => {
-                  this.props.regVerifyCode(verifyCode);
-                  this.setState({ verifyCode }, this.updateButton);
-                }}
-              />
-            </TransparentCardSection>
+            <View style={{
+              position: 'absolute', marginTop: 100, display: 'flex',
+              alignItems: 'center', width: window.width
+          }}>
+              <Text>{this.props.registerSpec.phone}</Text>
+            </View>
+            <View style={{
+              height: 80,
+              width: window.width,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <SmsVerifyInput
+              placeholder=""
+              label="VerifyCode"
+              maxLength={4}
+              inputStyle={{justifyContent: 'center', alignItems: 'center'}}
+              value={this.state.verifyCode}
+              keyboardType="phone-pad"
+              onChangeText={verifyCode => {
+                this.props.regVerifyCode(verifyCode);
+                this.setState({ verifyCode }, this.updateButton);
+              }}
+            />
+            </View>
             <TouchableHighlight onPress={this.onResendRequest}>
-              <Text style={{textAlign: 'center'}}>
+              <Text style={{textAlign: 'center', marginTop: 10}}>
                尚未收到驗證碼，再傳送一次
               </Text>
             </TouchableHighlight>
@@ -183,7 +197,9 @@ class VerifyCode extends Component {
               >
               <Text style={this.state.nextButtonText}>繼續</Text>
             </TouchableHighlight>
-          </View>);
+          </View>
+          </TouchableWithoutFeedback>
+        );
   }
 }
 

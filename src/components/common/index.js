@@ -17,3 +17,4 @@ export * from './NoLabelUnderlineInput';
 export * from './StudentCard';
 export * from './PleaseSelectCourseFirst';
 export * from './HoverableView';
+export * from './SmsVerifyInput';
