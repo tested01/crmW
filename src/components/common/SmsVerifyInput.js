@@ -96,8 +96,6 @@ const CodeRender = ({value}) => {
           </View>
         );
   }
-
-
 }
 
 const SmsVerifyInput = ({ value, onChangeText, placeholder, secureTextEntry, maxLength, keyboardType }) => {

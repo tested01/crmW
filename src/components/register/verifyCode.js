@@ -48,10 +48,10 @@ class VerifyCode extends Component {
     console.log('call updateButton');
     if(this.state.verifyCode.length == 4){
       this.setCurrentButtonStyle();
-      console.log('call updateButton true');
+
     }else{
       this.resetCurrentButtonStyle();
-      console.log('call updateButton false');
+      
     }
   }
   onResendRequest(){
@@ -135,7 +135,7 @@ class VerifyCode extends Component {
           //TODO: check the input code against Redux code
           //      and assign the check result to checkResult
           let checkResult = true;
-          console.log('reg------------------');
+
           if(checkResult){
             nextStep();
           }

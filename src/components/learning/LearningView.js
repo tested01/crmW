@@ -15,6 +15,7 @@ import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import LiteraryWork from './learningTab/literaryWork';
+import MemberList from './learningTab/memberList';
 import { GLOBLE } from '../common/Globle';
 import CourseSelector from '../CourseSelector';
 import { CONFIG } from '../../config';
@@ -26,6 +27,7 @@ import { CustomizedButton, PleaseSelectCourseFirst } from '../common';
 import StudentCard from '../common/StudentCard';
 import Notification from './learningTab/notification';
 import CourseInfo from './learningTab/courseInfo';
+//import { CourseCodeRender } from './learningTab/courseCodeRender';
 
 const window = Dimensions.get('window');
 
@@ -86,22 +88,20 @@ const styles = StyleSheet.create({
   }
 });
 
+
+
 class LearningView extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      index: 0,
+      index: 1,
       routes: [
         { key: '1', title: '班級資訊' },
         { key: '2', title: '教務通知' },
         { key: '3', title: '作品' },
         { key: '4', title: '成員' }
       ]
-
-
-      //
-      //classOperation: false
 
     };
 
@@ -266,12 +266,10 @@ class LearningView extends Component {
   }
 
   renderCourseInfo(){
+      return(
+        <CourseInfo />
+      );
 
-      if(this.props.currentCourse.code != ''){
-        //currentCourse={this.props.currentCourse}
-        return(
-          <CourseInfo />
-        );
 
 
         /*
@@ -320,16 +318,16 @@ class LearningView extends Component {
           );
        */
 
-      }else{
-        return (
-          <Text> 請先選擇班級 </Text>
-        );
-      }
-
 
   }
 
   renderMembers(){
+
+    return(
+      <MemberList />
+    );
+
+    /*
     let notLoadingYet = (this.props.currentCourse.code.length != 10);
     if(notLoadingYet){
       console.log('notLoadingYet');
@@ -362,7 +360,7 @@ class LearningView extends Component {
         </View>
       );
     }
-
+  */
   }
 
 /*
@@ -732,7 +730,7 @@ class LearningView extends Component {
         <TouchableHighlight onPress={this.joinCourseAPI}>
           <View style={{
             width: window.width-40,
-            height: 30,
+            height: 50,
             backgroundColor: '#F9C00C',
             borderRadius: 5,
             alignItems: 'center',
@@ -888,20 +886,32 @@ class LearningView extends Component {
         <Text style={{fontSize: 17}}> 輸入你想加入的班級代碼 </Text>
         <Text style={{fontSize: 14}}> 欲想了解班級代碼，可詢問班級老師</Text>
         </View>
-        <View>
+        <View style={{
+          height: 40,
+          width: window.width,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+        <View style={{position: 'absolute'}}>
+          <Text style={{color: 'black', fontSize: 20}}>{this.state.courseCode}</Text>
+
+        </View>
         <TextInput
           style={{height: 40,
             width: 300,
-            borderColor: 'gray',
             borderWidth: 1,
-            marginTop: 20
+            color: 'transparent',
+            alignSelf: 'center'
           }}
           autoFocus={true}
           keyboardType= 'numeric'
+          placeholderTextColor='transparent'
+          selectionColor='transparent'
+          backgroundColor='transparent'
           maxLength={10}
           onChangeText={(courseCode) => {
             this.setState({courseCode});
-            //console.log(this.state.courseCode);
             if(courseCode.length === 10){
               console.log('10~', courseCode);
               this.fetchOneCourses(courseCode);

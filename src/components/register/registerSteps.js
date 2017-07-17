@@ -145,11 +145,17 @@ class RegisterSteps extends Component {
   renderHeader() {
     if (this.state.step != 5){
       return(<View style={styles.headerStyle}>
-        <Icon.Button name="angle-left" backgroundColor="white" color="gray" onPress={this.previous}>
+        <Icon.Button
+          name="angle-left"
+          backgroundColor="white"
+          color="gray"
+          onPress={this.previous}
+          size={38}
+        >
         </Icon.Button>
         <Text> </Text>
-        <TouchableHighlight onPress={this.next}>
-                <Text style={{color: 'gray'}}> 繼續 </Text>
+        <TouchableHighlight onPress={()=>console.log('Deprecate Button: no action')}>
+                <Text style={{color: 'transparent'}}> 繼續 </Text>
         </TouchableHighlight>
       </View>);
     }else{
