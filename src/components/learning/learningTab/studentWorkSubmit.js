@@ -154,6 +154,7 @@ class StudentWorkSubmit extends Component{
     />
 
     */
+      console.log('currentMission...123', this.props.currentMission);
       return(
 
         <View style={{display: 'flex', flex: 1, backgroundColor: 'transparent'}}>
@@ -223,6 +224,8 @@ class StudentWorkSubmit extends Component{
                 //TODO: 點擊上傳 post 按鈕後, 需要能夠 預覽 post (利用 Modal)
                 //TODO: 確定送出後, 需要可以跳轉到該 post 個別頁面, 是可以修改的!
 
+
+
                 let body = {
                   detail: {
                     title: this.state.title
@@ -233,7 +236,7 @@ class StudentWorkSubmit extends Component{
                 };
 
 
-                 /* //start real post
+                  //start real post
 
                 fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
                   method: 'POST',
@@ -294,7 +297,7 @@ class StudentWorkSubmit extends Component{
                     console.log(error);
                   });
 
-                  */  //end real post
+                    //end real post
               }
             }
             style={{
@@ -331,6 +334,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     loginState: state.loginState,
+    currentMission: state.currentMission,
     currentImages: state.currentImages
   };
 }
