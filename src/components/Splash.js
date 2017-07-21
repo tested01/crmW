@@ -3,6 +3,7 @@ import {
   Text,
   View,
   Image,
+  StatusBar,
   TouchableOpacity,
   Dimensions
 } from 'react-native';
@@ -15,7 +16,7 @@ class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      AfterSplash: true, //false, //fixme2
+      AfterSplash: false, //false, //fixme2
       DragStartState: 0
     };
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
@@ -95,6 +96,11 @@ class Splash extends Component {
         }
       };
       return (
+        <View>
+        <StatusBar
+         backgroundColor="#fff"
+         barStyle="light-content" // Here is where you change the font-color
+        />
         <Swiper
         contentContainerStyle={styles.wrapper}
         onMomentumScrollEnd={this.onMomentumScrollEnd}
@@ -146,6 +152,7 @@ class Splash extends Component {
             </HoverableView>
           </View>
         </Swiper>
+        </View>
       );
     }
     render() {

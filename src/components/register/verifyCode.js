@@ -51,7 +51,7 @@ class VerifyCode extends Component {
 
     }else{
       this.resetCurrentButtonStyle();
-      
+
     }
   }
   onResendRequest(){
@@ -103,6 +103,7 @@ class VerifyCode extends Component {
     );
   }
   nextStepRegister(){
+    console.log('this.props.next();');
     this.props.next();
   }
   onHandleCont(){

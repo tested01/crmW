@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Dimensions,
+import { View, Text, Image, Dimensions, StatusBar,
          Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -37,20 +37,41 @@ class LoginingScreen extends Component {
     let currentTitleAppear = (noHeaderList.indexOf(this.props.selectedFeature.title) < 0);
     let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
     console.log(this.props.hideHeaderOperation.hide, 'this.props.hideHeader.hide');
+    if(this.props.selectedFeature.title=='我'){
+      return(
+        <StatusBar
+         backgroundColor="#fff"
+         barStyle="dark-content" // Here is where you change the font-color
+        />
+      )
+
+    }
     if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){
 
       if(currentHasRightButton){
         return(
-          <Header
-          headerText={this.props.selectedFeature.title}
-          buttonType='plus'
-          delegatedFunction={()=>this.joinCourse}
-          rightButton
-          />
+          <View>
+            <Header
+            headerText={this.props.selectedFeature.title}
+            buttonType='plus'
+            delegatedFunction={()=>this.joinCourse}
+            rightButton
+            />
+            <StatusBar
+             backgroundColor="#fff"
+             barStyle="light-content" // Here is where you change the font-color
+            />
+          </View>
         );
       }else{
         return(
-          <Header headerText={this.props.selectedFeature.title} />
+          <View>
+            <Header headerText={this.props.selectedFeature.title} />
+            <StatusBar
+             backgroundColor="#fff"
+             barStyle="light-content" // Here is where you change the font-color
+            />
+          </View>
         );
       }
 
@@ -77,6 +98,7 @@ class LoginingScreen extends Component {
         case true:
           return (
                   <View style={colorlessViewStyle}>
+
                     {this.conditionalHeaderRender()}
                     <Dashboard />
                  </View>);
@@ -93,6 +115,10 @@ class LoginingScreen extends Component {
           return (
                   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={viewStyle}>
+                    <StatusBar
+                     backgroundColor="#fff"
+                     barStyle="light-content" // Here is where you change the font-color
+                    />
                     <Image
                      style={{alignSelf: 'center', marginBottom: 20}}
                      source={require('../img/login/header.png')}

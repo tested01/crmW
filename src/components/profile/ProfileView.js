@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  StatusBar,
   StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -35,6 +36,7 @@ function renderButton(buttonTitle, handler, iconName, iconSize, color='black'){
       style={styles.optionsContainer}
       onPress={handler}>
       <View style={styles.option}>
+      
         <View style={styles.optionIconContainer}>
         </View>
         <View style={styles.optionTextContainer}>
