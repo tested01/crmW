@@ -430,7 +430,7 @@ class PhotoCard extends Component{
         </View>
         <View style={styles.footer}>
           <View styl={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>
-            <Icon.Button name="thumbs-o-up"
+            <Icon.Button name="thumbs-up"
               color={this.state.likeColor}
               backgroundColor='transparent'
               onPress={this.likeOrUnlike}
