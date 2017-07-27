@@ -21,6 +21,8 @@ export default function (state = defaultState, action) {
         return action.payload;
       case TABBAR.PROFILE.id:
         return action.payload;
+      case TABBAR.NOTIFICATION.id:
+        return action.payload;
       case TABBAR.ACTIVITY.id:
         return action.payload;
       default:

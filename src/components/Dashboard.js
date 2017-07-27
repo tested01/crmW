@@ -9,6 +9,7 @@ import ExhibitionView from './exhibition/ExhibitionView';
 import ActivityView from './activity/ActivityView';
 import ProfileView from './profile/ProfileView';
 import CourseView from './course/CourseView';
+import NotificationView from './notification/NotificationView';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Dashboard extends Component {
@@ -91,6 +92,20 @@ class Dashboard extends Component {
           selected={this.state.selectedTab === 'Exhibition'}
           >
             <ExhibitionView loginState={this.props.loginState}/>
+        </Icon.TabBarItem>
+
+        <Icon.TabBarItem
+          title="通知"
+          iconName="bell"
+          selectedIconName="bell"
+          onPress={() => {
+            this.setState({ selectedTab: 'Notification' });
+            this.props.selectTabBarItem(TABBAR.NOTIFICATION);
+            }
+          }
+          selected={this.state.selectedTab === 'Notification'}
+          >
+            <NotificationView loginState={this.props.loginState}/>
         </Icon.TabBarItem>
 
         <Icon.TabBarItem

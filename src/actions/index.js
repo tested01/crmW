@@ -9,6 +9,7 @@ export const TABBAR = {
   LEARNING: { id: 'LEARNING', text: '學習' },
   EXIBITION: { id: 'EXIBITION', text: '展演' },
   ACTIVITY: { id: 'ACTIVITY', text: '活動' },
+  NOTIFICATION: { id: 'NOTIFICATION', text: '通知'},
   PROFILE: { id: 'PROFILE', text: '我' }
 };
 
