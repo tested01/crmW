@@ -1,11 +1,48 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { NotificationItem } from './NotificationItem';
+import { CONFIG } from '../../config';
 
 class NotificationView extends Component{
+  componentWillMount(){
+
+  }
+  fetchNotifs(){
+
+    etch(CONFIG.API_BASE_URL.concat('/activity_notifications/'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+
+            console.log(json, 'notifs');
+
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
   render(){
-    return(<Text>我是小鼻仔</Text>);
+    return(
+      <ScrollView>
+        <NotificationItem></NotificationItem>
+      </ScrollView>
+    );
   }
 }
 
