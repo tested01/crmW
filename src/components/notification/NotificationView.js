@@ -12,9 +12,9 @@ class NotificationView extends Component{
 
   render(){
     return(
-      <ScrollView>
+      <View style={{ flex: 1 }}>
         <NotificationItem loginState={this.props.loginState}></NotificationItem>
-      </ScrollView>
+      </View>
     );
   }
 }

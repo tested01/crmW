@@ -1179,7 +1179,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.crmW;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.uShow;
 				PRODUCT_NAME = crmW;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1208,7 +1208,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.crmW;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.uShow;
 				PRODUCT_NAME = crmW;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

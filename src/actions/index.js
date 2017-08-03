@@ -54,6 +54,7 @@ export const EDIT_IMAGES = 'EDIT_IMAGES';
 export const CLEAR_IMAGES = 'CLEAR_IMAGES';
 
 export const UPDATE_EXHIBITION = 'UPDATE_EXHIBITION';
+export const UPDATE_COURSE_CONTEXT = 'UPDATE_COURSE_CONTEXT';
 //export const UPDATE_EXHIBITION_POSTS = 'UPDATE_EXHIBITION_POSTS';
 
 //SECTION: ExhibitionView update
@@ -462,5 +463,11 @@ export function clearImages(){
 
   return {
     type: CLEAR_IMAGES
+  };
+}
+
+export function updateCourseContext(){
+  return {
+    type: UPDATE_COURSE_CONTEXT
   };
 }

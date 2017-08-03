@@ -1,16 +1,11 @@
-//setCurrentMission
-
-import { CURRENT_MISSION
-      } from '../actions';
+import { UPDATE_COURSE_CONTEXT} from '../actions';
 const defaultStatus = {
 };
 
 export default function (state = defaultStatus, action) {
-
   if (action) {
     switch (action.type) {
-      case CURRENT_MISSION:
-        console.log(action, 'c mission ~');
+      case UPDATE_COURSE_CONTEXT:
         return action.payload;
       default:
         return state;

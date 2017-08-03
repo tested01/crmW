@@ -20,6 +20,7 @@ import {
   viewTask,
   endViewTask,
   recommendTask,
+  clearImages,
   endRecommendWork,
   submitWork,
   endSubmitWork,
@@ -77,12 +78,23 @@ class LiteraryWork extends Component{
     this.setInitMissionInfo = this.setInitMissionInfo.bind(this);
     this.setWorkPageIndex = this.setWorkPageIndex.bind(this);
     this.renderCourseWorksByTask = this.renderCourseWorksByTask.bind(this);
+    //this.setSubmittedYet = this.setSubmittedYet.bind(this);
+    this.renderDisplay = this.renderDisplay.bind(this);
   }
   componentWillMount(){
+    let initSubmittedYet = false;
+    if(this.props.currentMission.detail){
+      if(this.props.currentMission.detail.
+                          students.submitted
+                          .indexOf(this.props.loginState.id) > -1){
+                            initSubmittedYet = true;
+                          }
+    }
     this.state = {
       currentTaskId: 0, //the id of selecting task
       selectedIndex: 0,
-      studentSubmitStatus: 'Overview' //Overview, submitWork, courseWorks
+      studentSubmitStatus: 'Overview', //Overview, submitWork, courseWorks
+      submittedYet : initSubmittedYet
 
   };
   }
@@ -157,7 +169,7 @@ class LiteraryWork extends Component{
 
   //TODO: taskCard Factory
   taskCardFactory(){
-     
+
     //fetch missions based on currentCourse
     return (
       <View>
@@ -321,6 +333,53 @@ class LiteraryWork extends Component{
     );
   }
 
+  setSubmittedYet(bValue){
+    this.setState({submittedYet: bValue},
+      ()=>console.log('setSubmittedYet', bValue, this.state.submittedYet)
+    );
+
+  }
+
+  renderDisplay(){
+
+      let myEmail = this.props.loginState.email;
+
+      let teacher = this.props.currentMission.teacher;
+      let teacherFullName = teacher.lastName.concat(teacher.firstName);
+      if(this.props.currentMissionPosts.length > 0){
+        //filter
+        let myPost = this.props.currentMissionPosts.filter(function(el) {
+          return el.author.email === myEmail;
+        });
+        //FIXME: update delay: after image will show in a flash
+        return(
+          <PhotoCard
+            key={myPost[0]._id}
+            _id={myPost[0]._id}
+            post={myPost[0]}
+            resources={myPost[0].detail.resources}
+            loginState={this.props.loginState}
+            title={myPost[0].detail.title}
+            author={myPost[0].author.lastName.concat(myPost[0].author.firstName)}
+            publishDate={myPost[0].createdDate}
+            teacher={teacherFullName}
+          >
+          </PhotoCard>
+
+        );
+    }else{
+
+      return(
+        <Text></Text>
+      );
+    }
+
+}
+/*
+  renderSubmit(){
+
+  }*/
+
   renderSubmitWorkPageContent(){
       //TODO: check if student has post for the mission
       // If (s)he did, fetch the post and fill in the form
@@ -335,51 +394,19 @@ class LiteraryWork extends Component{
      let submittedYet = (this.props.currentMission.detail.
                          students.submitted
                          .indexOf(this.props.loginState.id) > -1);
+
       //PhotoCard
 
 
       if(this.state.selectedIndex === 0){
         if(submittedYet){
-
-          let myEmail = this.props.loginState.email;
-
-          let teacher = this.props.currentMission.teacher;
-          let teacherFullName = teacher.lastName.concat(teacher.firstName);
-          if(this.props.currentMissionPosts.length > 0){
-            //filter
-            let myPost = this.props.currentMissionPosts.filter(function(el) {
-              return el.author.email === myEmail;
-            });
-            //FIXME: update delay: after image will show in a flash
-            return(
-              <PhotoCard
-                key={myPost[0]._id}
-                _id={myPost[0]._id}
-                post={myPost[0]}
-                resources={myPost[0].detail.resources}
-                loginState={this.props.loginState}
-                title={myPost[0].detail.title}
-                author={myPost[0].author.lastName.concat(myPost[0].author.firstName)}
-                publishDate={myPost[0].createdDate}
-                teacher={teacherFullName}
-              >
-              </PhotoCard>
-
-            );
-
-          }else{
-
-            return(
-              <Text></Text>
-            );
-          }
-
-
+          return(this.renderDisplay());
         }else{
           return(
             <StudentWorkSubmit
             loginState={this.props.loginState}
             currentMission={this.props.currentMission}
+            resetLiteraryWork={this.resetLiteraryWork}
              />);
         }
       }
@@ -680,6 +707,7 @@ class LiteraryWork extends Component{
     if(this.props.loginState.role === 'student'){
       this.setState({studentSubmitStatus: 'Overview'});
       this.props.endSubmitWork();
+      this.props.clearImages();
     }
 
   }
@@ -920,6 +948,7 @@ function mapDispatchToProps(dispatch) {
     recommendTask,
     endRecommendWork,
     submitWork,
+    clearImages,
     endSubmitWork,
     hideHeader,
     setCurrentMission,

@@ -25,9 +25,7 @@ class PhotoGrid extends Component{
          borderColor: 'white',
          resizeMode: 'stretch'
        }} source={image} />
-
    );
-
  }
 
  renderVideo(videoP) {

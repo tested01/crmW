@@ -16,14 +16,17 @@ import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ImagePicker from 'react-native-image-crop-picker';
 
-import { GLOBLE } from '../../common/Globle';
+import { GLOBLE, CrmHeader } from '../../common';
 import { CONFIG } from '../../../config';
 import {
   addImages,
   editImages,
-  clearImages
+  clearImages,
+  setCurrentCourse,
+  setCurrentMissions
  } from '../../../actions';
 import PhotoGrid from './photoGrid';
+import OfflinePhotoCard from './offlinePhotoCard';
 
 
 const window = Dimensions.get('window');
@@ -61,6 +64,8 @@ class StudentWorkSubmit extends Component{
     this.showActionSheet = this.showActionSheet.bind(this);
     this.toggleSwitch = this.toggleSwitch.bind(this);
     this.setPostPreviewModalVisible = this.setPostPreviewModalVisible.bind(this);
+    this.uploadPost = this.uploadPost.bind(this);
+    this.updateCurrentCourse = this.updateCurrentCourse.bind(this);
 
     this.state = {
       title: '',
@@ -138,7 +143,135 @@ class StudentWorkSubmit extends Component{
   }
   //Before post submitting, users should preview their work
   setPostPreviewModalVisible(visible){
-    this.setState({postPreviewModalVisible: visible});
+    this.setState({postPreviewModalVisible: visible}, ()=>{console.log('visible', visible)});
+  }
+
+  updateCurrentCourse(currentCourseCode) {
+
+    fetch(CONFIG.API_BASE_URL.concat('/courses/').concat(currentCourseCode), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                this.props.setCurrentCourse(json.course);
+                                let currentCourseId = json.course._id;
+                                fetch(CONFIG.API_BASE_URL.concat('/missions/courses/').concat(currentCourseId), {
+                                  method: 'GET',
+                                  headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                    'x-auth': this.props.loginState.xAuth
+                                  }
+                                 })
+                                  .then((response) => {
+                                    if (response.status === 200) {
+
+                                      response.json().then(json => {
+                                                            //this.setState(Object.assign({}, this.state, json));
+
+                                                            this.props.setCurrentMissions(json.missions);
+                                                            //this.setState(Object.assign({}, this.state, {currentMissions: json.missions}));
+                                                          });
+
+                                    } else {
+                                      console.log(response.status);
+                                    }
+                                  })
+                                  .catch((error) => {
+                                    console.log(error);
+                                  });
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
+
+  uploadPost(body, setPostPreviewModalVisible, resetLiteraryWork){
+    //start real post
+   let courseCode = this.props.currentCourse.code;
+   let updateCurrentCourse = this.updateCurrentCourse;
+  fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'x-auth': this.props.loginState.xAuth //FIXME:teachauth
+      //'x-auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OGVjNzBkY2E5NTZhMjdiMTk5YmNkOTEiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNDkxODkwMzk3fQ._5J7xKENI4jsX8--0EtEnFV195SySjSfVyze_rcxewQ'
+    },
+    body: JSON.stringify(body)
+   })
+    .then((response) => {
+      if (response.status === 200) {
+        response.json().then(json => {
+                              //this.setState(Object.assign({}, this.state, json));
+
+                              //TODO: get the post id & upload the currentImage
+                              //this.props.currentImages
+                              //pass multiple images
+
+                              console.log(json, 'posted post...');
+
+                              let imgs = this.props.currentImages;
+                              let serverURL = CONFIG.API_BASE_URL.concat('/upload/photos')
+
+                              var xhr = new XMLHttpRequest();
+                              xhr.onreadystatechange = function()
+                              {
+                                console.log('ready~~~~~~~', typeof(xhr.readyState), xhr.readyState, xhr.status, (xhr.readyState == 1));
+                                  //if (xhr.readyState == 4 && xhr.status == 200)
+                                  if (xhr.readyState == 1)
+                                  {
+                                      //setPostPreviewModalVisible(false);
+                                      updateCurrentCourse(courseCode);
+                                      resetLiteraryWork();
+                                  }
+                              };
+                              let body = new FormData();
+                              let photos = imgs.map(
+                                function(img, index){
+                                  body.append('article', {
+                                      uri: img.path,
+                                      type: 'image/jpeg',
+                                      name: index.toString().concat('.jpg'),
+                                  });
+                                  return {
+                                      uri: img.path,
+                                      type: 'image/jpeg',
+                                      name: index.toString().concat('.jpg'),
+                                  };
+                                }
+                              );
+
+                              //body.append('authToken', 'secret');
+                              body.append('post_id', json._id);
+                              body.append('auth_id', json.author._id);
+                              xhr.open('POST', serverURL);
+                              xhr.send(body);
+                            });
+      } else {
+        console.log(response.status);
+        console.log(response);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+      //end real post
   }
 
   render(){
@@ -200,19 +333,74 @@ class StudentWorkSubmit extends Component{
                 visible={this.state.postPreviewModalVisible}
                 onRequestClose={() => {alert("Modal has been closed.")}}
                 >
-               <View style={{marginTop: 22}}>
+               <ScrollView style={{marginTop: 22}}>
                 <View>
+                <CrmHeader
+                  left="star"
+                  right="none"
+                  wordColor='transparent'
+                  theme='blue'
+                  leftPress={()=>{console.log('nothing')}}
+                  center={"作品繳交預覽畫面"}
+                />
+                <OfflinePhotoCard
+                  publishDate={Date.now()}
+                  author='std'
+                  teacher='tea'
+                  title='test'
+                  currentImages={this.props.currentImages}
+                />
 
-                  <Text> 這是預覽的 Modal, 要做 post 的 preview, 要接 確定上傳 的按鈕 => (start real post) </Text>
+                 <View style={{
+                   display: 'flex',
+                   flexDirection: 'row',
+                   justifyContent: 'space-around'
+                 }}>
 
-                  <TouchableHighlight onPress={() => {
-                    this.setPostPreviewModalVisible(!this.state.postPreviewModalVisible)
-                  }}>
-                    <Text>Hide Modal</Text>
-                  </TouchableHighlight>
+                    <TouchableHighlight onPress={() => {
+                      this.setPostPreviewModalVisible(!this.state.postPreviewModalVisible)
+                    }}>
+                      <View style={{backgroundColor: 'gray',
+                      height: 36,
+                      borderRadius: 8,
+                      width: window.width / 2 - 15,
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                        <Text style={{color: 'white'}}>取消</Text>
+                      </View>
+                    </TouchableHighlight>
+
+                    <TouchableHighlight onPress={() => {
+                      //this.setPostPreviewModalVisible(!this.state.postPreviewModalVisible)
+                      let body = {
+                        detail: {
+                          title: this.state.title
+                        },
+                        mission: this.props.currentMission.id,
+                        advisor: this.props.currentMission.teacher._id,
+                        openaccess: this.state.switchValue
+                      };
+                      this.uploadPost(body,
+                        this.setPostPreviewModalVisible,
+                        this.props.resetLiteraryWork
+                      );
+                    }}>
+                      <View style={{backgroundColor: 'green',
+                      height: 36,
+                      borderRadius: 8,
+                      width: window.width / 2 - 15,
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                        <Text style={{color: 'white'}}>確認上傳</Text>
+                      </View>
+                    </TouchableHighlight>
+
+                  </View>
 
                 </View>
-               </View>
+               </ScrollView>
           </Modal>
           <TouchableHighlight
             onPress={
@@ -226,18 +414,12 @@ class StudentWorkSubmit extends Component{
 
 
 
-                let body = {
-                  detail: {
-                    title: this.state.title
-                  },
-                  mission: this.props.currentMission.id,
-                  advisor: this.props.currentMission.teacher._id,
-                  openaccess: this.state.switchValue
-                };
 
+
+                //this.uploadPost(body); //real post
 
                   //start real post
-
+                /*
                 fetch(CONFIG.API_BASE_URL.concat('/posts/'), {
                   method: 'POST',
                   headers: {
@@ -291,12 +473,13 @@ class StudentWorkSubmit extends Component{
                                           });
                     } else {
                       console.log(response.status);
+                      console.log(response);
                     }
                   })
                   .catch((error) => {
                     console.log(error);
                   });
-
+                    */
                     //end real post
               }
             }
@@ -327,7 +510,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     addImages,
     editImages,
-    clearImages
+    clearImages,
+    setCurrentCourse,
+    setCurrentMissions
    }, dispatch);
 }
 
@@ -335,7 +520,8 @@ function mapStateToProps(state) {
   return {
     loginState: state.loginState,
     currentMission: state.currentMission,
-    currentImages: state.currentImages
+    currentImages: state.currentImages,
+    currentCourse: state.currentCourse
   };
 }
 
