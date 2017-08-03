@@ -8,6 +8,7 @@ import {
   Dimensions,
   TouchableHighlight,
   ActionSheetIOS,
+  Keyboard, TouchableWithoutFeedback,
   Modal,
   Switch
 } from 'react-native';
@@ -289,7 +290,7 @@ class StudentWorkSubmit extends Component{
     */
       console.log('currentMission...123', this.props.currentMission);
       return(
-
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{display: 'flex', flex: 1, backgroundColor: 'transparent'}}>
 
             <View style={{ borderBottomWidth: 1, margin: 8, borderColor: '#DFDFDF'}}>
@@ -499,6 +500,7 @@ class StudentWorkSubmit extends Component{
           </TouchableHighlight>
           <View style={{ width: 100, height: 60, backgroundColor: 'transparent'}}></View>
         </View>
+        </TouchableWithoutFeedback>
       );
 
   }
