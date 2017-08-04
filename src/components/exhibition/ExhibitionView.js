@@ -88,6 +88,8 @@ class ExhibitionView extends Component {
         console.log(this.props.exhibition, 'this.props.updateExhibition');
         this.updateNewPosts();
         this.updateHotPosts();
+        this.fetchuShowPosts();
+        this.fetchuStarPosts();
       },
       500
     );
@@ -267,7 +269,7 @@ _renderIcon = ({ route }) => {
     if(this.state.uStar){
 
       return(
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
         {this.state.uStar.map(
           (post) => this.renderPost(post)
         )}
@@ -339,7 +341,7 @@ renderClassRoom(){
     if(this.state.uShow){
 
       return(
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
         {this.state.uShow.map(
           (post) => this.renderPost(post)
         )}
