@@ -64,7 +64,7 @@ export default class Notification extends Component{
 
   }
   render(){
-      
+
       return (
         <View style={{display:'flex', flex: 1, justifyContent: 'flex-start'}}>
         <Modal
@@ -116,7 +116,7 @@ export default class Notification extends Component{
 
 
           }}>
-          <View style={{display: 'flex', backgroundColor: 'white',
+          <View style={{display: 'flex', backgroundColor: 'white', zIndex: 100,
                         borderBottomWidth: 1, borderColor: 'gray', height: 56}}>
             <View style={{flex: 1, justifyContent: 'center', margin: 5}}>
               <Text>{this.props.title}</Text>

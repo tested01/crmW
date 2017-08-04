@@ -110,6 +110,9 @@ class StudentWorkSubmit extends Component{
       width: 300,
       height: 400,
       cropping: true,
+      compressImageMaxWidth: 640,
+      compressImageMaxHeight: 480,
+      compressImageQuality: 0.7,
       mediaType: 'photo'
     }).then(image => {
       console.log(image);
@@ -125,6 +128,9 @@ class StudentWorkSubmit extends Component{
 
     ImagePicker.openPicker({
       multiple: true,
+      compressImageMaxWidth: 640,
+      compressImageMaxHeight: 480,
+      compressImageQuality: 0.7,
       mediaType: 'photo'
     }).then(images => {
       console.log(images);

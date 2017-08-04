@@ -16,7 +16,7 @@ class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      AfterSplash: false, //false, //fixme2
+      AfterSplash: true, //false, //fixme2
       DragStartState: 0
     };
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);

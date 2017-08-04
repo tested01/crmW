@@ -143,6 +143,8 @@ _renderIcon = ({ route }) => {
           //fetch the data and set it to redux
           this.updateNewPosts();
           this.updateHotPosts();
+          this.fetchuShowPosts();
+          this.fetchuStarPosts();
         },
         500
       );

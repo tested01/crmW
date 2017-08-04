@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Dimensions, StatusBar,
+import { View, Text, Image, Dimensions, StatusBar, 
          Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -26,6 +26,7 @@ import { GLOBLE } from './common/Globle';
  >
 </Icon.Button>
 */
+const window = Dimensions.get('window');
 class LoginingScreen extends Component {
   constructor(props){
     super(props);
@@ -120,7 +121,7 @@ class LoginingScreen extends Component {
                      barStyle="light-content" // Here is where you change the font-color
                     />
                     <Image
-                     style={{alignSelf: 'center', marginBottom: 20}}
+                     style={{alignSelf: 'center', marginBottom: 20, width: window.width}}
                      source={require('../img/login/header.png')}
                     />
 

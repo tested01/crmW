@@ -30,7 +30,7 @@ import CourseInfo from './learningTab/courseInfo';
 //import { CourseCodeRender } from './learningTab/courseCodeRender';
 
 const window = Dimensions.get('window');
-
+/*
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   }
 });
 
-
+*/
 
 class LearningView extends Component {
 
@@ -104,6 +104,72 @@ class LearningView extends Component {
       ]
 
     };
+
+    const device = {
+      width: window.width,
+      height: window.height
+    }
+    let fontSize = 14;
+    if(device.width < 321){
+      fontSize = 12;
+    }
+    this.styles = StyleSheet.create({
+      container: {
+        flex: 1
+      },
+      page: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      tabBar: {
+        backgroundColor: 'white',
+        elevation: 4,
+        shadowColor: 'black',
+        shadowOpacity: 0.1,
+        shadowRadius: StyleSheet.hairlineWidth,
+        shadowOffset: {
+          height: StyleSheet.hairlineWidth,
+        },
+        zIndex: 1,
+      },
+      label: {
+        backgroundColor: 'transparent',
+        color: 'gray',
+        fontSize,
+        margin: 2,
+      },
+      indicator: {
+        //backgroundColor: 'black'
+        backgroundColor: GLOBLE.COLOR.BLUE,
+        position: 'absolute',
+        left: 0,
+        bottom: 0,
+        right: 0,
+        height: 2,
+        zIndex: 2
+      },
+      circleButton: {
+        width: 100,
+        height: 100,
+        borderWidth: 3,
+        borderColor: 'red',
+        borderRadius: 100/2
+      },
+      viewStyle: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: GLOBLE.COLOR.BLUE,
+        alignItems: 'center',
+        height: 60,
+        paddingTop: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 2,
+        position: 'relative'
+      }
+    });
 
     this.role = this.props.loginState.role;
 
@@ -183,9 +249,9 @@ class LearningView extends Component {
     return (
       <TabBar
           {...props}
-          style={styles.tabBar}
-          labelStyle={styles.label}
-          indicatorStyle={styles.indicator}
+          style={this.styles.tabBar}
+          labelStyle={this.styles.label}
+          indicatorStyle={this.styles.indicator}
       />
     );
   };
@@ -289,7 +355,7 @@ class LearningView extends Component {
         };
 
         return (
-          <View style={[styles.page, { backgroundColor: 'white' }]} >
+          <View style={[this.styles.page, { backgroundColor: 'white' }]} >
           <Image
            style={{width: 80, height: 80, marginBottom: 5, marginTop: -80}}
            source={require('../../img/color-logo.png')}
@@ -351,7 +417,7 @@ class LearningView extends Component {
 
       // { listTeachers }
       return(
-        <View style={[styles.page, { backgroundColor: 'white',
+        <View style={[this.styles.page, { backgroundColor: 'white',
         flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
           <Text style={{color: 'gray'}}>共 {this.state.studentNum} 位成員</Text>
           <ScrollView>
@@ -390,7 +456,8 @@ class LearningView extends Component {
 */
   renderNotification(){
     return (
-          <ScrollView style={{marginTop: 10}}>
+          <ScrollView style={{marginTop: 20}}>
+            <View style={{width: window.width, height: 5}}/>
             {this.fetchAndBuildNotifications()}
           </ScrollView>
           );
@@ -422,7 +489,7 @@ class LearningView extends Component {
   }
 
   renderLiteraryWorks(){
-    //<View style={[styles.page, { backgroundColor: 'white' }]} ></View>
+    //<View style={[this.styles.page, { backgroundColor: 'white' }]} ></View>
     return (
 
         <LiteraryWork />
@@ -515,7 +582,7 @@ class LearningView extends Component {
           <View style={{ flex: 5, alignItems: 'center', justifyContent: 'center'}}>
             <TouchableHighlight onPress={this.joinClass}>
                 <Image
-                  style={styles.circleButton}
+                  style={this.styles.circleButton}
                   source={require('../../img/love-logo.png')}
                 />
               </TouchableHighlight>
@@ -530,7 +597,7 @@ class LearningView extends Component {
           <View style={{ flex: 5, alignItems: 'center', justifyContent: 'center'}}>
             <TouchableHighlight onPress={this.joinClass}>
                 <Image
-                  style={styles.circleButton}
+                  style={this.styles.circleButton}
                   source={require('../../img/love-logo.png')}
                 />
               </TouchableHighlight>
@@ -968,7 +1035,7 @@ class LearningView extends Component {
                 <View style={{ flex: 5, alignItems: 'stretch' }}>
                 <CourseSelector courses={this.state.courses} />
                 <TabViewAnimated
-                  style={styles.container}
+                  style={this.styles.container}
                   navigationState={this.state}
                   renderScene={this.renderScene}
                   renderHeader={this.renderHeader}
