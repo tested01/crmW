@@ -64,9 +64,9 @@ class ActivityView extends Component {
 
   renderHot(){
     return(
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text> hot </Text>
-      </View>
+      <ScrollView>
+        {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_01.png', '好讀找好文大賽')}
+      </ScrollView>
     );
   }
 

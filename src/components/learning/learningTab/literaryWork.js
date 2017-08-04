@@ -26,6 +26,8 @@ import {
   endSubmitWork,
   hideHeader,
   setCurrentMission,
+  setCurrentCourse,
+  setCurrentMissions,
   setCurrentMissionPosts
  } from '../../../actions';
 import { PleaseSelectCourseFirst, GLOBLE } from '../../common';
@@ -80,6 +82,7 @@ class LiteraryWork extends Component{
     this.renderCourseWorksByTask = this.renderCourseWorksByTask.bind(this);
     //this.setSubmittedYet = this.setSubmittedYet.bind(this);
     this.renderDisplay = this.renderDisplay.bind(this);
+    this.updateCurrentCourse = this.updateCurrentCourse.bind(this);
   }
   componentWillMount(){
     let initSubmittedYet = false;
@@ -97,6 +100,60 @@ class LiteraryWork extends Component{
       submittedYet : initSubmittedYet
 
   };
+  }
+  updateCurrentCourse(currentCourseCode) {
+
+    fetch(CONFIG.API_BASE_URL.concat('/courses/').concat(currentCourseCode), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                this.props.setCurrentCourse(json.course);
+                                let currentCourseId = json.course._id;
+                                fetch(CONFIG.API_BASE_URL.concat('/missions/courses/').concat(currentCourseId), {
+                                  method: 'GET',
+                                  headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                    'x-auth': this.props.loginState.xAuth
+                                  }
+                                 })
+                                  .then((response) => {
+                                    if (response.status === 200) {
+
+                                      response.json().then(json => {
+                                                            //this.setState(Object.assign({}, this.state, json));
+
+                                                            this.props.setCurrentMissions(json.missions);
+                                                            //this.setState(Object.assign({}, this.state, {currentMissions: json.missions}));
+                                                            console.log('course updated...');
+                                                          });
+
+                                    } else {
+                                      console.log(response.status);
+                                    }
+                                  })
+                                  .catch((error) => {
+                                    console.log(error);
+                                  });
+                              });
+
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
   setInitMissionInfo(taskName, startDate, endDate){
     console.log('setInitMissionInfo...');
@@ -551,6 +608,8 @@ class LiteraryWork extends Component{
   renderHeaderRight(){
     switch(this.props.literaryWorksState){
       case 'A_New_Task':
+        let updateCurrentCourse = this.updateCurrentCourse;
+        let courseCode = this.props.currentCourse.code;
         return(
           <TouchableHighlight onPress={()=>{
             console.log('##', this.state.taskName, this.state.startDate, this.state.endDate);
@@ -579,6 +638,7 @@ class LiteraryWork extends Component{
                                         //this.setState(Object.assign({}, this.state, json));
                                         //TODO: update current missions
                                         console.log('!!!mission added!!!');
+                                        updateCurrentCourse(courseCode);
                                       });
 
                 } else {
@@ -952,6 +1012,8 @@ function mapDispatchToProps(dispatch) {
     endSubmitWork,
     hideHeader,
     setCurrentMission,
+    setCurrentCourse,
+    setCurrentMissions,
     setCurrentMissionPosts
    }, dispatch);
 }
@@ -963,6 +1025,7 @@ function mapStateToProps(state) {
     currentCourse: state.currentCourse,
     currentMissions: state.currentMissions,
     currentMission: state.currentMission,
+    currentCourse: state.currentCourse,
     currentMissionPosts: state.currentMissionPosts
   };
 }
