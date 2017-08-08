@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { CONFIG } from '../../config';
 
 const timer = require('react-native-timer');
+const moment = require('moment');
 // width: 0 in cardText style is really weird, but it works
 //reference: dwilt's answer @ https://github.com/facebook/react-native/issues/1438
 const NotificationTypes = Object.freeze({
@@ -53,6 +54,9 @@ class NotificationItem extends Component{
     this.filterTeacherNotifs = this.filterTeacherNotifs.bind(this);
     this.filterStudentNotifs = this.filterStudentNotifs.bind(this);
     this.handleScrollNewest = this.handleScrollNewest.bind(this);
+    this.friendlyTimeFormatter = this.friendlyTimeFormatter.bind(this);
+    this.deltaTranslator = this.deltaTranslator.bind(this);
+    this.deltaThresholdcheck = this.deltaThresholdcheck.bind(this);
   }
   componentWillMount() {
     this.state = { notifications: []};
@@ -96,10 +100,60 @@ class NotificationItem extends Component{
       });
 
   }
-
+  // UTC -> CST (absolute time)
+  // Time delta
+  //
   friendlyTimeFormatter(time){
+    let date = moment(time.toString()).toDate();
+
+    let MM = date.getMonth() + 1;
+    let yyyy = date.getFullYear();
+    let dd = date.getDate();
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let formatedDate = `${yyyy}-${MM}-${dd} ${hh}:${mm}`;
+    console.log(yyyy,MM,dd,hh+8,mm);
+    let delta = moment(formatedDate, "YYYY-MM-DD hh:mm").fromNow();
+    console.log(this.deltaTranslator(delta), delta);
+    if(this.deltaThresholdcheck(delta)){
+      return formatedDate;
+    }else{
+      return this.deltaTranslator(delta);
+    }
+
+    //return moment(time.toString()).toDate().toString();
+  }
+  //Return true if the value is higher than threshold
+  deltaThresholdcheck(dateString){
+    let checkResult = false;
+    let monthLevel = (dateString.includes('months'));
+    let value = dateString.split(' ')[0];
+    console.log(value, '值');
+    if(monthLevel && (value > 2)){ //threshold = 2 months
+      checkResult = true;
+    }
+    return checkResult;
+  }
+  deltaTranslator(dateString){
+    //TODO: 設個 threshold, 則顯示日期不顯示 delta
+
+    //replace days to 天, ago to 前
+    let TranslatedDate =
+      dateString.replace('days', '天').
+      replace('hours', '小時').
+      replace('minutes', '分鐘').
+      replace('ago', '前').
+      replace('a minute', '1 分鐘').
+      replace('a day', '1 天').
+      replace('an hour', '1 小時').
+      replace(' ', '');
+
+    return TranslatedDate;
+
+
 
   }
+
   titleTemplate(teacher, course){
     return `${teacher}老師在${course}新增了1個作品繳交項目。`
   }
@@ -119,7 +173,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -133,7 +187,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -147,7 +201,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -161,7 +215,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -183,7 +237,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -197,7 +251,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -211,7 +265,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -225,7 +279,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -240,7 +294,7 @@ class NotificationItem extends Component{
               <Text style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{item.happenAt.toString()}</Text>
+              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
