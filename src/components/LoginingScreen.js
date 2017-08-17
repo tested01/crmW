@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Dimensions, StatusBar, 
+import { View, Text, Image, Dimensions, StatusBar,
          Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -121,7 +121,7 @@ class LoginingScreen extends Component {
                      barStyle="light-content" // Here is where you change the font-color
                     />
                     <Image
-                     style={{alignSelf: 'center', marginBottom: 20, width: window.width}}
+                     style={{alignSelf: 'center', marginTop: -20, width: window.width, resizeMode: 'contain'}}
                      source={require('../img/login/header.png')}
                     />
 

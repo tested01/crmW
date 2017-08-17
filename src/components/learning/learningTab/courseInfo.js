@@ -20,7 +20,7 @@ import { PleaseSelectCourseFirst, GLOBLE } from '../../common';
        alignItems: 'flex-end',
        borderBottomWidth: 1,
        borderColor: '#cccccc',
-       height: 56,
+       height: 36,
        width: window.width-40
      };
 

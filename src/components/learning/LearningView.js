@@ -626,7 +626,7 @@ class LearningView extends Component {
 
   }
   renderNewCourseHeader(headerTitle) {
-    const { viewStyle } = styles;
+    const { viewStyle } = this.styles;
     return (
       <View style={viewStyle}>
         <TouchableHighlight onPress={this.concealCreateCourse}>

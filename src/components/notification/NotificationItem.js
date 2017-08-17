@@ -127,9 +127,9 @@ class NotificationItem extends Component{
   deltaThresholdcheck(dateString){
     let checkResult = false;
     let monthLevel = (dateString.includes('months'));
+    let yearLevel = (dateString.includes('year'));
     let value = dateString.split(' ')[0];
-    console.log(value, '值');
-    if(monthLevel && (value > 2)){ //threshold = 2 months
+    if((monthLevel && (value > 2))||(yearLevel)){ //threshold = 2 months
       checkResult = true;
     }
     return checkResult;
