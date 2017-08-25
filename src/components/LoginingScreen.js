@@ -121,7 +121,7 @@ class LoginingScreen extends Component {
                      barStyle="light-content" // Here is where you change the font-color
                     />
                     <Image
-                     style={{alignSelf: 'center', marginTop: -20, width: window.width, resizeMode: 'contain'}}
+                     style={{alignSelf: 'center', marginTop: -20, width: window.width, resizeMode: 'stretch'}}
                      source={require('../img/login/header.png')}
                     />
 
