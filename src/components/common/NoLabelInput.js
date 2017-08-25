@@ -14,6 +14,7 @@ const NoLabelInput = ({ value, onChangeText, placeholder, secureTextEntry, maxLe
         value={value}
         maxLength={maxLength}
         keyboardType={keyboardType}
+        underlineColorAndroid={'transparent'}
         onChangeText={onChangeText}
       />
     </View>

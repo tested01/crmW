@@ -130,9 +130,9 @@ const styles = {
     color: 'red'
   },
   linkTextStyle: {
-    fontSize: 15,
+    fontSize: 15, //訪客
     alignSelf: 'center',
-    color: '#B3B3B3'
+    color: 'transparent' //#B3B3B3
   }
 };
 
