@@ -131,8 +131,7 @@ class Dashboard extends Component {
 // Anything returned from this function will end up as props
 // on the LoginForm container
 function mapDispatchToProps(dispatch) {
-  // Whenever loginSuccess is called, the result should be passed
-  // to all of our reducers
+  
   return bindActionCreators({ selectTabBarItem }, dispatch);
 }
 

@@ -36,7 +36,7 @@ function renderButton(buttonTitle, handler, iconName, iconSize, color='black'){
       style={styles.optionsContainer}
       onPress={handler}>
       <View style={styles.option}>
-      
+
         <View style={styles.optionIconContainer}>
         </View>
         <View style={styles.optionTextContainer}>
@@ -329,8 +329,7 @@ const styles = StyleSheet.create({
 // on the LoginForm container
 
 function mapDispatchToProps(dispatch) {
-  // Whenever loginSuccess is called, the result should be passed
-  // to all of our reducers
+  
   return bindActionCreators({ signOut }, dispatch);
 }
 

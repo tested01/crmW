@@ -443,8 +443,7 @@ renderClassRoom(){
 // on the LoginForm container
 
 function mapDispatchToProps(dispatch) {
-  // Whenever loginSuccess is called, the result should be passed
-  // to all of our reducers
+  
   return bindActionCreators({
     updateExhibition
    }, dispatch);
