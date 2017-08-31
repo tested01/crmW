@@ -99,11 +99,11 @@ class RegisterSteps extends Component {
                   console.log('reging...');
                   response.json().then(json => {
                                         console.log(json, json._id, 'reg_login_info');
-                                        this.props.loginSuccess(true, response.headers.get('x-auth'), this.props.registerSpec.email, this.props.registerSpec.role, json._id);
+                                        this.props.loginSuccess(true, response.headers.get('x-auth'), this.props.registerSpec.email, this.props.registerSpec.role, json._id, json);
 
                                       });
                 } else {
-                  this.props.loginSuccess(false, '', '');
+                  this.props.loginSuccess(false, '', '', '', '', '');
 
                   console.log('not reging...');
                   response.json().then(json => {
@@ -193,7 +193,7 @@ const styles = {
 // Anything returned from this function will end up as props
 // on the LoginForm container
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({ registeredRequest, registerRequest, loginSuccess }, dispatch);
 }
 

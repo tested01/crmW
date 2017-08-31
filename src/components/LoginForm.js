@@ -36,13 +36,13 @@ class LoginForm extends Component {
         if (response.status === 200) {
           console.log(response.headers.get('x-auth'));
           response.json().then((data) => {
-            this.props.loginSuccess(true, response.headers.get('x-auth'), data.email, data.role, data._id);
+            this.props.loginSuccess(true, response.headers.get('x-auth'), data.email, data.role, data._id, data);
 
           });
           this.onLoginSuccess();
         } else {
           this.onLoginFail();
-          this.props.loginSuccess(false, '', '');
+          this.props.loginSuccess(false, '', '', '', '', '');
           console.log(this.props.loginState);
         }
       })

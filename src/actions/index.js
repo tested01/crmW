@@ -303,7 +303,7 @@ export function regSchoolsList(regSchoolsList){
 }
 //SECTION: Register-related action creators end above
 
-export function loginSuccess(success = false, xAuth, email, role, id) {
+export function loginSuccess(success = false, xAuth, email, role, id, user) {
   // loginSuccess is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
 
@@ -314,7 +314,8 @@ export function loginSuccess(success = false, xAuth, email, role, id) {
       email,
       xAuth,
       role,
-      id
+      id,
+      user
     }
   };
 }
