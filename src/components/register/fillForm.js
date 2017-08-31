@@ -6,6 +6,7 @@ import { RegStyles } from './registerConf';
 import { NoLabelUnderlineInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { CONFIG } from '../../config.js';
 import { regFirstname, regLastname, regEmail, regPassword } from '../../actions/index';
 
 const window = Dimensions.get('window');
@@ -289,7 +290,46 @@ class FillForm extends Component {
     if(condition){
       //TODO: change the button color
 
-      this.props.next();
+      let nextStepFunction = this.props.next;
+      //
+      let body = {
+        email: this.props.registerSpec.email
+      };
+      fetch(CONFIG.API_BASE_URL.concat('/users/hasemail'), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+       })
+        .then((response) => {
+          if (response.status === 200) {
+
+            response.json().then(json => {
+                                  //, 或回到第一頁採取忘記密碼流程
+                                  if(json.result === true){
+                                    Alert.alert(
+                                      '此電子郵件已被使用',
+                                      '請檢查輸入的電子郵件是否正確',
+                                      [
+                                        {text: 'OK', onPress: () => console.log('error: no code')},
+                                      ],
+                                      { cancelable: false }
+                                    );
+                                  }else{
+                                  nextStepFunction();
+
+                                }
+                                  });
+          } else {
+            console.log(response.status);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
 
     }else{
       Alert.alert(

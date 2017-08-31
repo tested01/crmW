@@ -7,6 +7,7 @@ import { SmsVerifyInput, TransparentCardSection } from '../common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { regVerifyCode } from '../../actions/index';
+import { CONFIG } from '../../config.js';
 
 const window = Dimensions.get('window');
 const buttonHeight = window.height - 350;
@@ -57,6 +58,45 @@ class VerifyCode extends Component {
   onResendRequest(){
     this.setState(Object.assign({}, this.state, {resendCount: this.state.resendCount + 1}));
     console.log('resend....', this.state.resendCount, this.state.verifyCode);
+    fetch(CONFIG.API_BASE_URL.concat('/phone/').concat(this.props.registerSpec.phone), {
+      method: 'GET',
+      headers: {
+        }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                console.log('myPhone3', json);
+                                if(json.status == 'success'){
+                                  Alert.alert(
+                                    '請檢查簡訊',
+                                    '已重新發送, 請檢查簡訊, 並輸入收到的四位數驗證碼',
+                                    [
+                                      {text: 'OK', onPress: () => console.log('error: no code')},
+                                    ],
+                                    { cancelable: false }
+                                  );
+                                }else{
+                                  Alert.alert(
+                                    '簡訊要求太頻繁',
+                                    '請檢查簡訊, 或是回到上一步確認電話號碼是否輸入正確',
+                                    [
+                                      {text: 'OK', onPress: () => console.log('error: no code')},
+                                    ],
+                                    { cancelable: false }
+                                  );
+                                }
+
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
   setCurrentButtonStyle(){
     this.setState({
@@ -132,14 +172,57 @@ class VerifyCode extends Component {
             { cancelable: false }
           );
         }else{
-
+          //nextStep();
+          let body = {
+            phone: this.props.registerSpec.phone,
+            code: this.state.verifyCode
+          };
+          console.log('body2', body, JSON.stringify(body));
           //TODO: check the input code against Redux code
           //      and assign the check result to checkResult
-          let checkResult = true;
+          fetch(CONFIG.API_BASE_URL.concat('/phone/'), {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+           })
+            .then((response) => {
+              if (response.status === 200) {
 
-          if(checkResult){
-            nextStep();
-          }
+                response.json().then(json => {
+                                      console.log('myPhone2', json);
+                                      let checkResult = false;
+                                      if(json.status === 'match'){
+                                        checkResult = true;
+
+                                        console.log(checkResult);
+                                      }
+
+                                      if(checkResult){
+                                        nextStep();
+                                      }else{
+                                        Alert.alert(
+                                          '驗證碼錯誤',
+                                          '請檢查簡訊, 確認輸入正確的四位數驗證碼; 若沒收到簡訊, 可返回上一頁檢查是否輸入錯誤的電話號碼',
+                                          [
+                                            {text: 'OK', onPress: () => console.log('error: no code')},
+                                          ],
+                                          { cancelable: false }
+                                        );
+                                      }
+
+                                    });
+              } else {
+                console.log(response.status);
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+
+
 
         }
       }

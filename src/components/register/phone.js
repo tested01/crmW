@@ -190,7 +190,68 @@ class Phone extends Component {
     if(this.state.type){
       // if not first loading, type will not be undefined
       if(condition){
-        this.sendMsg();
+        //this.sendMsg();
+        let nextStepFunction = this.props.next;
+        //TODO: check if the phone has been used
+        console.log(this.state.value);
+
+        let body = {
+          phone: this.state.value
+        };
+
+        fetch(CONFIG.API_BASE_URL.concat('/users/hasphone'), {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+         })
+          .then((response) => {
+            if (response.status === 200) {
+
+              response.json().then(json => {
+                                    //, 或回到第一頁採取忘記密碼流程
+                                    if(json.result === true){
+                                      Alert.alert(
+                                        '此電話號碼已被使用',
+                                        '請檢查輸入的電話是否正確',
+                                        [
+                                          {text: 'OK', onPress: () => console.log('error: no code')},
+                                        ],
+                                        { cancelable: false }
+                                      );
+                                    }else{
+                                    nextStepFunction();
+                                    fetch(CONFIG.API_BASE_URL.concat('/phone/').concat(this.state.value), {
+                                      method: 'GET',
+                                      headers: {
+                                        }
+                                     })
+                                      .then((response) => {
+                                        if (response.status === 200) {
+
+                                          response.json().then(json => {
+                                                                //console.log('myPhone', json);
+                                                              });
+                                        } else {
+                                          console.log(response.status);
+                                        }
+                                      })
+                                      .catch((error) => {
+                                        console.log(error);
+                                      });
+
+                                  }
+                                    });
+            } else {
+              console.log(response.status);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
       }
     }else{
       // only active when first loading with previous redux data
@@ -247,6 +308,9 @@ class Phone extends Component {
           ref='phone'
           />
         </View>
+        <Text style={{textAlign: 'center'}}>
+        台灣的手機號碼請從9開始輸入
+        </Text>
         <TouchableHighlight
           style={this.state.nextButton}
           onPress={this.onHandleCont}
