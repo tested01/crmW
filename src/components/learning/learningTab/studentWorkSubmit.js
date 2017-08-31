@@ -10,6 +10,7 @@ import {
   ActionSheetIOS,
   Keyboard, TouchableWithoutFeedback,
   Modal,
+  Alert,
   Switch
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -294,7 +295,8 @@ class StudentWorkSubmit extends Component{
     />
 
     */
-      console.log('currentMission...123', this.props.currentMission);
+      console.log('currentMission...123456qq', this.props.currentMission);
+      console.log('loginState 0000000', this.props.loginState);
       return(
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{display: 'flex', flex: 1, backgroundColor: 'transparent'}}>
@@ -352,9 +354,14 @@ class StudentWorkSubmit extends Component{
                 />
                 <OfflinePhotoCard
                   publishDate={Date.now()}
-                  author='std'
-                  teacher='tea'
-                  title='test'
+                  author={
+                    'std'
+                  }
+                  teacher={
+                    this.props.currentMission.teacher.lastName +
+                    this.props.currentMission.teacher.firstName
+                  }
+                  title={this.state.title}
                   currentImages={this.props.currentImages}
                 />
 
@@ -412,16 +419,38 @@ class StudentWorkSubmit extends Component{
           <TouchableHighlight
             onPress={
               ()=>{
-                this.setPostPreviewModalVisible(true); //開啟預覽的 Modal
+                //TODO:檢查是否 title 跟 images 都有了
+                let hasTitle = this.state.title.length>0;
+                let hasImage = this.props.currentImages.length>0;
+
+                let errMsg = '';
+                if(!hasTitle){
+                  errMsg += '\n\n請為你的作品添加標題';
+                }
+                if(!hasImage){
+                  errMsg += '\n\n請為你的作品添加至少一張作文照片';
+                }
+
+                if(hasTitle && hasImage){
+                  this.setPostPreviewModalVisible(true); //開啟預覽的 Modal
+                }else{
+                  console.log(errMsg);
+                  Alert.alert(
+                    '作品資料尚未齊全',
+                    errMsg,
+                    [
+                      {text: 'OK', onPress: () =>console.log('error: code is too short')},
+                    ],
+                    { cancelable: false }
+                  );
+                }
+
+
 
                 //this.state.switchValue ==> 是否要公開文章
                 //上傳此 state, 且更新相對應 API 與 展演 最新 與 最熱門 的 pool
                 //TODO: 點擊上傳 post 按鈕後, 需要能夠 預覽 post (利用 Modal)
                 //TODO: 確定送出後, 需要可以跳轉到該 post 個別頁面, 是可以修改的!
-
-
-
-
 
                 //this.uploadPost(body); //real post
 
@@ -513,8 +542,7 @@ class StudentWorkSubmit extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-  // Whenever loginSuccess is called, the result should be passed
-  // to all of our reducers
+
   return bindActionCreators({
     addImages,
     editImages,
