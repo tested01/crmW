@@ -355,7 +355,8 @@ class StudentWorkSubmit extends Component{
                 <OfflinePhotoCard
                   publishDate={Date.now()}
                   author={
-                    'std'
+                    this.props.loginState.user.lastName +
+                    this.props.loginState.user.firstName
                   }
                   teacher={
                     this.props.currentMission.teacher.lastName +
