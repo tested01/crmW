@@ -43,7 +43,7 @@ class OfflinePhotoCard extends Component{
   }
   componentWillMount(){
     this.setState({userId: this.props.loginState.id}); //裡面有登入者的 id
-    this.setState({likeCount: 999}); //fake counts
+    this.setState({likeCount: 0}); //fake counts
     this.setState({modalDetailImages: false});
     this.setState({modalZoomImages: false})
 
@@ -472,7 +472,7 @@ class OfflinePhotoCard extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({
     clearImages
    }, dispatch);
