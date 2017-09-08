@@ -3,23 +3,32 @@ import { View, Text, Image, TouchableHighlight, ActionSheetIOS } from 'react-nat
 import Icon from 'react-native-vector-icons/Entypo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import ActionSheet from 'react-native-actionsheet';
 import { setCurrentCourse } from '../../actions/index';
 import { CONFIG } from '../../config';
+
 
 class StudentCard extends Component {
   constructor(props){
     super(props);
     this.memberDetail = this.memberDetail.bind(this);
+    this.title = '確認要移除成員嗎？';
+    /*
     this.DELETE_BUTTONS = [
       '移除成員',
       '取消'
-      ];
-    this.DESTRUCTIVE_INDEX = 3;
-    this.CANCEL_INDEX = 4;
+    ];*/
+    this.options = [
+      '移除成員',
+      '取消'
+    ];
+    this.DESTRUCTIVE_INDEX = 4;
+    this.CANCEL_INDEX = 0;
     this.showActionSheet = this.showActionSheet.bind(this);
+    this.handlePress = this.handlePress.bind(this);
     this.syncWithCurrentCourse = this.syncWithCurrentCourse.bind(this);
     this.isEditable = this.isEditable.bind(this);
-    this.state = { visible: true};
+    this.state = { visible: true, selected: ''};
     }
 
 
@@ -90,6 +99,28 @@ class StudentCard extends Component {
       });
   }
 
+  showActionSheet() {
+    this.ActionSheet.show();
+  }
+
+  handlePress(i) {
+    this.setState({
+      selected: i
+    })
+    if(this.options[i] === '移除成員'){
+      console.log('移除成員中.....');
+      let refineCourse =  Object.assign({}, this.props.currentCourse);
+      refineCourse = this.removeStudent(refineCourse, this.props.student._id);
+      this.deleteStudent(this.props.student._id, this.props.currentCourse);
+      this.props.setCurrentCourse(refineCourse);
+      this.props.refresh();
+      let visible = false;
+      this.setState({visible});
+      this.syncWithCurrentCourse();
+    }
+  }
+
+  /*
   showActionSheet(){
     ActionSheetIOS.showActionSheetWithOptions({
       options: this.DELETE_BUTTONS,
@@ -118,6 +149,8 @@ class StudentCard extends Component {
 
     });
   };
+
+  */
 
   removeStudent(course, sid){
     let index = course.members.students.indexOf(sid);
@@ -170,6 +203,13 @@ class StudentCard extends Component {
           justifyContent: 'space-between',
           margin: 5
         }}>
+          <ActionSheet
+            ref={o => this.ActionSheet = o}
+            title={this.title}
+            options={this.options}
+            cancelButtonIndex={this.CANCEL_INDEX}
+            onPress={this.handlePress}
+          />
           <View style={{
             flex: 1,
             flexDirection: 'row',
