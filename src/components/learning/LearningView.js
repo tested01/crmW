@@ -390,7 +390,7 @@ class LearningView extends Component {
   renderMembers(){
 
     return(
-      <MemberList />
+      <MemberList refreshStudentCount={this.refreshStudentCount}/>
     );
 
     /*
@@ -1093,7 +1093,7 @@ class LearningView extends Component {
 // on the LoginForm container
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({
     hideHeader,
     courseOperation,
