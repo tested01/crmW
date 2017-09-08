@@ -70,9 +70,8 @@ class StudentCard extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        //'x-auth': this.props.loginState.xAuth
-        'x-auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OGVjNzBkY2E5NTZhMjdiMTk5YmNkOTEiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNDkxODkwMzk3fQ._5J7xKENI4jsX8--0EtEnFV195SySjSfVyze_rcxewQ'
-      }
+        'x-auth': this.props.loginState.xAuth
+        }
      })
       .then((response) => {
         if (response.status === 200) {
@@ -206,7 +205,7 @@ class StudentCard extends Component {
 //export { StudentCard };
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({ setCurrentCourse }, dispatch);
 }
 
