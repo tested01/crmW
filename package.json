@@ -13,6 +13,7 @@
     "nexmo": "^2.0.2",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.3",
+    "react-native-actionsheet": "^2.2.2",
     "react-native-datepicker": "^1.4.7",
     "react-native-image-crop-picker": "^0.13.1",
     "react-native-image-pan-zoom": "^2.0.4",
