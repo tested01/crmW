@@ -290,7 +290,7 @@ class StudentCard extends Component{
         />
         <View style={styles.infoBox}>
          <Text>{name}</Text>
-         <Text style={{
+         <Text allowFontScaling={false} style={{
            color: 'gray',
            fontSize: 12
          }}>{title}</Text>
@@ -304,14 +304,14 @@ class StudentCard extends Component{
     if(selected){
       return(
         <View style={styles.flags}>
-          <Text style={{fontSize: 12, color: 'gray'}}>{this.props.publishDate}</Text>
+          <Text allowFontScaling={false} style={{fontSize: 12, color: 'gray'}}>{this.props.publishDate}</Text>
           <Icon name="bookmark" size={30} color="#F9C00C" />
         </View>
       );
     }else{
       return(
         <View style={styles.flags}>
-          <Text style={{fontSize: 12, color: 'gray'}}>{this.props.publishDate}</Text>
+          <Text allowFontScaling={false} style={{fontSize: 12, color: 'gray'}}>{this.props.publishDate}</Text>
           <Icon name="bookmark" size={30} color="white" />
         </View>
       );

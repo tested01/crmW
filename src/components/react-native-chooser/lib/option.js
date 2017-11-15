@@ -18,7 +18,7 @@ export default class Option extends Component {
     const { style, styleText} = this.props;
     return (
       <View style={[styles.item, style]}>
-        <Text style = {[styles.optionText, styleText]}> {this.props.children} </Text>
+        <Text allowFontScaling={false} style = {[styles.optionText, styleText]}> {this.props.children} </Text>
       </View>
     )
   }

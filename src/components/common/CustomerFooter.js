@@ -21,7 +21,7 @@ class CustomerFooter extends Component {
     const { textStyle, viewStyle } = styles;
     return (
       <View style={viewStyle}>
-        <Text onPress={this.props.onPress} style={textStyle}>
+        <Text allowFontScaling={false} onPress={this.props.onPress} style={textStyle}>
           {this.props.footerText}
         </Text>
       </View>

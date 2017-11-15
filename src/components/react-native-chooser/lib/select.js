@@ -73,7 +73,7 @@ export default class Select extends Component {
 				<TouchableWithoutFeedback onPress = {this.onPress.bind(this)}>
 					<View style = {[styles.selectBox, style]}>
 						<View style={styles.selectBoxContent}>
-							<Text style = {textStyle}>{this.state.defaultText}</Text>
+							<Text allowFontScaling={false} style = {textStyle}>{this.state.defaultText}</Text>
 							<Indicator direction={indicator} color={indicatorColor} size={indicatorSize} style={indicatorStyle} />
 						</View>
 					</View>

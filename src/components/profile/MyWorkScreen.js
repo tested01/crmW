@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   StyleSheet,
+  Platform,
   SegmentedControlIOS
 } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
@@ -58,9 +59,20 @@ class MyWorkScreen extends Component {
     super(props);
     this.renderMyWorkContent = this.renderMyWorkContent.bind(this);
     this.renderPosts = this.renderPosts.bind(this);
+    this.renderStarPosts = this.renderStarPosts.bind(this);
     this.renderScrollEndMsg = this.renderScrollEndMsg.bind(this);
+    this.handleChangeTab = this.handleChangeTab.bind(this);
+    this.fetchuStarPosts = this.fetchuStarPosts.bind(this);
   }
   componentWillMount(){
+    this.fetchuStarPosts();
+    this.state = {
+      index: 0,
+      routes: [
+        { key: '1', title: '個人作品' },
+        { key: '2', title: '聯合報之星' },
+      ]
+    };
     this.setState({selectedIndex: 0});
 
     fetch(CONFIG.API_BASE_URL.concat('/posts/me'), {
@@ -87,7 +99,33 @@ class MyWorkScreen extends Component {
       });
   }
 
+  handleChangeTab = (index) => {
+    this.setState({ index });
+  };
 
+  fetchuStarPosts(){
+    fetch(CONFIG.API_BASE_URL.concat('/stars/'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                this.setState({'uStar': json.posts});
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
 /*
 _renderIcon = ({ route }) => {
@@ -155,10 +193,51 @@ _renderIcon = ({ route }) => {
 
   }
 
-  renderMyWorkContent(){
-    if(this.state.selectedIndex === 0){
-      //TODO: fetch my post (/posts/me), this.props.loginState.xAuth
-      console.log(this.state.posts, 'my work state');
+
+  renderStarPosts(){
+    const loginState = this.props.loginState;
+    if(this.state.uStar){
+      const postLength = this.state.uStar.length;
+      return(this.state.uStar.map(
+        function(post, index){
+          let createdDate = post.createdDate;
+          let resources = post.detail.resources;
+          let end = (index==postLength-1)? true : false;
+          let teacher = post.advisor;
+          let teacherFullName = teacher.lastName.concat(teacher.firstName);
+          return (
+            <View key={post._id}>
+            <PhotoCard
+              _id={post._id}
+              post={post}
+              resources={resources}
+              loginState={loginState}
+              title={post.detail.title}
+              author={post.author.lastName.concat(post.author.firstName)}
+              publishDate={createdDate}
+              teacher={teacherFullName}
+            >
+            </PhotoCard>
+            {this.renderScrollEndMsg(end)}
+            </View>
+
+          );
+        }.bind(this)
+      ));
+    }else{
+      return (<Text> 載入中...</Text>);
+    }
+
+  }
+  /*
+
+  */
+
+  renderHeader = (props) => <TabBar {...props} />;
+
+  renderScene = ({ route }) => {
+    switch (route.key) {
+    case '1':
       return(
         <ScrollView>
           {
@@ -167,39 +246,94 @@ _renderIcon = ({ route }) => {
 
         </ScrollView>
       );
+    case '2':
+      return(
 
-    }
+        <ScrollView>
+          {
+           this.renderStarPosts()
+          }
 
-    if(this.state.selectedIndex === 1){
+        </ScrollView>
+
+        );
+    default:
       return(
         <View>
-          <Text>star</Text>
+          <Text></Text>
         </View>
         );
     }
+  };
+
+  renderMyWorkContent(){
+
+      if(this.state.selectedIndex === 0){
+        //TODO: fetch my post (/posts/me), this.props.loginState.xAuth
+        console.log(this.state.posts, 'my work state');
+        return(
+          <ScrollView>
+            {
+             this.renderPosts()
+            }
+
+          </ScrollView>
+        );
+
+      }
+
+      if(this.state.selectedIndex === 1){
+        return(
+          <ScrollView>
+            {
+             this.renderStarPosts()
+            }
+
+          </ScrollView>
+          );
+      }
+
   }
 
 
   render() {
-    return (
-      <View style={{display: 'flex', flex: 1}}>
-        <SegmentedControlIOS
-              values={['個人作品', '聯合報之星']}
-              selectedIndex={this.state.selectedIndex}
-              style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
-              onChange={(event) => {
-                this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-              }}
-            />
+    if(Platform.OS === 'android'){
+      return (
+        <View style={{display: 'flex', flex: 1}}>
+          <TabViewAnimated
+            style={{flex: 1}}
+            navigationState={this.state}
+            renderScene={this.renderScene}
+            renderHeader={this.renderHeader}
+            onRequestChangeTab={this.handleChangeTab}
+          />
 
-          <View style={{flex: 1}}>
-            {
-              this.renderMyWorkContent()
-            }
           </View>
-        </View>
 
-    );
+      );
+    }else{
+
+      return (
+        <View style={{display: 'flex', flex: 1}}>
+          <SegmentedControlIOS
+                values={['個人作品', '聯合報之星']}
+                selectedIndex={this.state.selectedIndex}
+                style={{ width: 280, marginTop: 10, marginBottom: 10, alignSelf: 'center'}}
+                onChange={(event) => {
+                  this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+                }}
+              />
+
+            <View style={{flex: 1}}>
+              {
+                this.renderMyWorkContent()
+              }
+            </View>
+          </View>
+
+      );
+    }
+
   }
 }
 

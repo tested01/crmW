@@ -451,7 +451,7 @@ class SchoolInfo extends Component {
     });
     return (
           <View>
-            <Text style={RegStyles.headerStyle}>
+            <Text allowFontScaling={false} style={RegStyles.headerStyle}>
             填寫學校資料
             </Text>
 
@@ -463,7 +463,7 @@ class SchoolInfo extends Component {
                 onChange={(option)=>{ this.setSchoolCity({schoolCity:option.label})}}>
 
                 <TextInput
-                    style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
+                    style={{borderWidth:1, borderColor:'#ccc', padding:10, height:40}}
                     editable={false}
                     placeholder="學校縣市"
                     value={this.state.schoolCity} />
@@ -478,7 +478,7 @@ class SchoolInfo extends Component {
                 onChange={(option)=>{ this.setSchoolType({schoolType:option.label})}}>
 
                 <TextInput
-                    style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
+                    style={{borderWidth:1, borderColor:'#ccc', padding:10, height:40}}
                     editable={false}
                     placeholder="學制"
                     value={this.state.schoolType} />
@@ -493,7 +493,7 @@ class SchoolInfo extends Component {
                 onChange={(option)=>{ this.setSchoolLevel({schoolLevel:option.label})}}>
 
                 <TextInput
-                    style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
+                    style={{borderWidth:1, borderColor:'#ccc', padding:10, height:40}}
                     editable={false}
                     placeholder="年級"
                     value={this.state.schoolLevel} />
@@ -508,7 +508,7 @@ class SchoolInfo extends Component {
                   onChange={(option)=>{ this.setSchoolName({schoolName:option.label})}}>
 
                   <TextInput
-                      style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
+                      style={{borderWidth:1, borderColor:'#ccc', padding:10, height:40}}
                       editable={false}
                       placeholder="校名"
                       value={this.state.schoolName} />
@@ -518,7 +518,7 @@ class SchoolInfo extends Component {
                 style={this.state.nextButton}
                 onPress={this.onHandleCont}
                 >
-                <Text style={this.state.nextButtonText}>繼續</Text>
+                <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
               </TouchableHighlight>
           </View>);
   }

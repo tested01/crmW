@@ -27,6 +27,16 @@ import { GLOBLE } from './common/Globle';
 </Icon.Button>
 */
 const window = Dimensions.get('window');
+const blockDashboard = {
+  height: 50,
+  display: 'none',
+  borderWidth: 0,
+  position: 'absolute',
+  backgroundColor: 'transparent',
+  zIndex: 20,
+  bottom: 0,
+  width: window.width
+}
 class LoginingScreen extends Component {
   constructor(props){
     super(props);
@@ -39,17 +49,22 @@ class LoginingScreen extends Component {
     let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
     console.log(this.props.hideHeaderOperation.hide, 'this.props.hideHeader.hide');
     if(this.props.selectedFeature.title=='我'){
+      //backgroundColor="#fff"
       return(
         <StatusBar
-         backgroundColor="#fff"
          barStyle="dark-content" // Here is where you change the font-color
         />
       )
 
     }
+    if(this.props.hideHeaderOperation.hide){
+      //Dashboard.hideTabBar();
+    }else{
+      //Dashboard.showTabBar();
+    }
     if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){
-
       if(currentHasRightButton){
+        //android statusbar backgroundColor="#fff"
         return(
           <View>
             <Header
@@ -59,17 +74,16 @@ class LoginingScreen extends Component {
             rightButton
             />
             <StatusBar
-             backgroundColor="#fff"
              barStyle="light-content" // Here is where you change the font-color
             />
           </View>
         );
       }else{
+        //backgroundColor="#fff"
         return(
           <View>
             <Header headerText={this.props.selectedFeature.title} />
             <StatusBar
-             backgroundColor="#fff"
              barStyle="light-content" // Here is where you change the font-color
             />
           </View>
@@ -97,6 +111,7 @@ class LoginingScreen extends Component {
       //console.log(this.props.loginState, 'init');
       switch (this.props.loginState.success) { //fixme2
         case true:
+          //  <View style={blockDashboard}></View>
           return (
                   <View style={colorlessViewStyle}>
 
@@ -113,11 +128,11 @@ class LoginingScreen extends Component {
 
           <BigHeader headerText="UShow" />
           */
+          //backgroundColor="#fff"
           return (
                   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={viewStyle}>
                     <StatusBar
-                     backgroundColor="#fff"
                      barStyle="light-content" // Here is where you change the font-color
                     />
                     <Image
@@ -164,7 +179,7 @@ const styles = {
 // Anything returned from this function will end up as props
 // on the LoginForm container
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({ signOut,
     registerRequest,
     selectTabBarItem,

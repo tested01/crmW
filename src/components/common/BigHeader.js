@@ -9,7 +9,7 @@ const BigHeader = (props) => {
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>{props.headerText}</Text>
+      <Text allowFontScaling={false} style={textStyle}>{props.headerText}</Text>
     </View>
   );
 };

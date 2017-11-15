@@ -43,7 +43,7 @@ class OfflinePhotoCard extends Component{
   }
   componentWillMount(){
     this.setState({userId: this.props.loginState.id}); //裡面有登入者的 id
-    this.setState({likeCount: 999}); //fake counts
+    this.setState({likeCount: 0}); //fake counts
     this.setState({modalDetailImages: false});
     this.setState({modalZoomImages: false})
 
@@ -218,7 +218,7 @@ class OfflinePhotoCard extends Component{
                     alignItems: 'center'
                   }}
                 >
-                  <Text style={{color: 'white', fontSize: scale(30)}}>
+                  <Text allowFontScaling={false} style={{color: 'white', fontSize: scale(30)}}>
                     { restPhotoNum.toString() }+
                   </Text>
                 </View>
@@ -364,8 +364,8 @@ class OfflinePhotoCard extends Component{
              }}
           />
           <View style={styles.headerText}>
-              <Text style={styles.authorName}> {this.props.author} </Text>
-              <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
+              <Text allowFontScaling={false} style={styles.authorName}> {this.props.author} </Text>
+              <Text allowFontScaling={false} style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
           </View>
           { this.renderFlags(isUShow, isUStar) }
         </View>
@@ -386,7 +386,7 @@ class OfflinePhotoCard extends Component{
               backgroundColor='transparent'
               onPress={this.likeOrUnlike}
             >
-              <Text style={{color: this.state.likeColor}}>{this.state.likeCount}</Text>
+              <Text allowFontScaling={false} style={{color: this.state.likeColor}}>{this.state.likeCount}</Text>
             </Icon.Button>
           </View>
         </View>
@@ -423,8 +423,8 @@ class OfflinePhotoCard extends Component{
                 />
 
                 <View style={styles.headerText}>
-                    <Text style={styles.authorName}> {this.props.author} </Text>
-                    <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
+                    <Text allowFontScaling={false} style={styles.authorName}> {this.props.author} </Text>
+                    <Text allowFontScaling={false} style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
                 </View>
                 { this.renderFlags(isUShow, isUStar) }
               </View>
@@ -472,7 +472,7 @@ class OfflinePhotoCard extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({
     clearImages
    }, dispatch);

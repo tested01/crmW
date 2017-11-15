@@ -6,10 +6,12 @@ import { View,
   Dimensions,
   ScrollView,
   TextInput,
+  Platform,
   SegmentedControlIOS
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-datepicker';
+import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
@@ -83,6 +85,9 @@ class LiteraryWork extends Component{
     //this.setSubmittedYet = this.setSubmittedYet.bind(this);
     this.renderDisplay = this.renderDisplay.bind(this);
     this.updateCurrentCourse = this.updateCurrentCourse.bind(this);
+    this.renderTab = this.renderTab.bind(this);
+    this.renderScene = this.renderScene.bind(this);
+    this.renderTeacherScene = this.renderTeacherScene.bind(this);
   }
   componentWillMount(){
     let initSubmittedYet = false;
@@ -97,7 +102,12 @@ class LiteraryWork extends Component{
       currentTaskId: 0, //the id of selecting task
       selectedIndex: 0,
       studentSubmitStatus: 'Overview', //Overview, submitWork, courseWorks
-      submittedYet : initSubmittedYet
+      submittedYet : initSubmittedYet,
+      index: 0,
+      routes: [
+        { key: '1', title: '作品繳交' },
+        { key: '2', title: '班級作品' },
+      ]
 
   };
   }
@@ -176,7 +186,7 @@ class LiteraryWork extends Component{
        backgroundColor='#e8e8e8'
        onPress={this.createNewTask}
        >
-       <Text style={{fontFamily: 'Arial', fontSize: 15, color: 'gray'}}>新增作品繳交項目</Text>
+       <Text allowFontScaling={false} style={{fontFamily: 'Arial', fontSize: 15, color: 'gray'}}>新增作品繳交項目</Text>
       </Icon.Button>
       </View>
     );
@@ -365,29 +375,83 @@ class LiteraryWork extends Component{
     //TODO: 把以下 selectedIndex 改成 redux state
     this.setState({selectedIndex: index});
   }
+
+
+  renderTab(){
+    if(Platform.OS === 'android'){
+      return(
+        <TabViewAnimated
+          style={{flex: 1}}
+          navigationState={this.state}
+          renderScene={this.renderScene}
+          renderHeader={this.renderHeader}
+          onRequestChangeTab={this.handleChangeTab}
+        />
+      );
+    }else{
+      return(
+        <SegmentedControlIOS
+              values={['作品繳交', '班級作品']}
+              selectedIndex={this.state.selectedIndex}
+              style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
+              onChange={(event) => {
+                this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+              }}
+            />
+      )
+    }
+
+  }
+
+    handleChangeTab = (index) => {
+      this.setState({ index });
+    };
+
   renderSubmitWorkPage(){
     let title = this.props.currentMission.title;
     console.log(this.props.currentMission, 'currentMission');
-    return (
-      <View style={{display: 'flex', flex: 1, backgroundColor: 'white'}}>
-      {this.renderSubmitWorkPageHeader(title)}
-      <SegmentedControlIOS
-            values={['作品繳交', '班級作品']}
-            selectedIndex={this.state.selectedIndex}
-            style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
-            onChange={(event) => {
-              this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-            }}
-          />
 
-        <View style={{flex: 1}}>
-          {
-            this.renderSubmitWorkPageContent()
-          }
+    //render by OS
+    if(Platform.OS === 'ios'){
+      return (
+        <View style={{display: 'flex', flex: 1, backgroundColor: 'white'}}>
+        {this.renderSubmitWorkPageHeader(title)}
+
+        <SegmentedControlIOS
+              values={['作品繳交', '班級作品']}
+              selectedIndex={this.state.selectedIndex}
+              style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
+              onChange={(event) => {
+                this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+              }}
+            />
+
+          <View style={{flex: 1}}>
+            {
+              this.renderSubmitWorkPageContent()
+            }
+          </View>
+
         </View>
+      );
+    }
+    if(Platform.OS === 'android'){
+      return (
+        <View style={{display: 'flex', flex: 1, backgroundColor: 'white'}}>
+        {this.renderSubmitWorkPageHeader(title)}
 
-      </View>
-    );
+        <TabViewAnimated
+          style={{flex: 1}}
+          navigationState={this.state}
+          renderScene={this.renderScene}
+          renderHeader={this.renderHeader}
+          onRequestChangeTab={this.handleChangeTab}
+        />
+
+        </View>
+      );
+    }
+
   }
 
   setSubmittedYet(bValue){
@@ -437,6 +501,87 @@ class LiteraryWork extends Component{
 
   }*/
 
+  renderHeader = (props) => <TabBar {...props} />;
+
+  renderScene = ({ route }) => {
+      //TODO: check if student has post for the mission
+      // If (s)he did, fetch the post and fill in the form
+
+
+      //To check if current user has submitted for this mission:
+      //----------------------------------------------------
+      //Intersect this.props.currentMission, current users,
+      // and this.props.currentMissionPosts
+
+
+     let submittedYet = (this.props.currentMission.detail.
+                         students.submitted
+                         .indexOf(this.props.loginState.id) > -1);
+      //this.state.selectedIndex
+      //PhotoCard
+      switch (route.key) {
+      case '1':
+        if(submittedYet){
+          return(this.renderDisplay());
+        }else{
+          return(
+            <StudentWorkSubmit
+            loginState={this.props.loginState}
+            currentMission={this.props.currentMission}
+            resetLiteraryWork={this.resetLiteraryWork}
+             />);
+        }
+      case '2':
+        return(
+          <View>
+           {this.renderCourseWorksByTask()}
+          </View>
+          );
+      default:
+        return (<Text></Text>);
+      }
+
+  }
+
+  renderTeacherScene = ({ route }) => {
+      //TODO: check if student has post for the mission
+      // If (s)he did, fetch the post and fill in the form
+
+
+      //To check if current user has submitted for this mission:
+      //----------------------------------------------------
+      //Intersect this.props.currentMission, current users,
+      // and this.props.currentMissionPosts
+
+
+     let submittedYet = (this.props.currentMission.detail.
+                         students.submitted
+                         .indexOf(this.props.loginState.id) > -1);
+      //this.state.selectedIndex
+      //PhotoCard
+      switch (route.key) {
+      case '1':
+        return(
+          <ScrollView>
+          <View style={{ flex: 1, alignItems: 'center' }}>
+              {this.renderC_Nth_Task_Content()}
+          </View>
+          </ScrollView>
+        );
+      case '2':
+        return(
+          <ScrollView>
+          <View>
+           {this.renderCourseWorksByTask()}
+          </View>
+          </ScrollView>
+          );
+      default:
+        return (<Text></Text>);
+      }
+
+  }
+
   renderSubmitWorkPageContent(){
       //TODO: check if student has post for the mission
       // If (s)he did, fetch the post and fill in the form
@@ -469,9 +614,10 @@ class LiteraryWork extends Component{
       }
 
       if(this.state.selectedIndex === 1){
+
         return(
           <View>
-          {this.renderCourseWorksByTask()}
+           {this.renderCourseWorksByTask()}
           </View>
           );
       }
@@ -542,7 +688,7 @@ class LiteraryWork extends Component{
          backgroundColor='transparent'
          onPress={this.resetLiteraryWork}
          />
-        <Text style={{ marginTop: 15, marginLeft: -35, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
+        <Text allowFontScaling={false} style={{ marginTop: 15, marginLeft: -35, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
           {headerTitle}
         </Text>
         <View style={{width: 30}}></View>
@@ -557,7 +703,7 @@ class LiteraryWork extends Component{
     return (
       <View style={viewStyle}>
         {this.renderHeaderLeft()}
-        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
+        <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
           {headerTitle}
         </Text>
         {this.renderHeaderRight()}
@@ -570,13 +716,13 @@ class LiteraryWork extends Component{
       case 'A_New_Task':
         return(
           <TouchableHighlight onPress={this.resetLiteraryWork}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
           </TouchableHighlight>
         );
       case 'B_Edit_Task':
         return(
           <TouchableHighlight onPress={this.resetLiteraryWork}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
           </TouchableHighlight>
         );
       case 'C_Nth_Task':
@@ -593,13 +739,13 @@ class LiteraryWork extends Component{
       case 'D_Recommend_Work':
         return(
           <TouchableHighlight onPress={()=>console.log('nothing')}>
-            <Text style={{ marginTop: 15, color: 'transparent', fontSize:30}}> no </Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'transparent', fontSize:30}}> no </Text>
           </TouchableHighlight>
         );
       default:
         return(
           <TouchableHighlight onPress={()=>console.log('unknown state')}>
-            <Text style={{ marginTop: 15, color: 'white'}}></Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}></Text>
           </TouchableHighlight>
         );
     }
@@ -651,7 +797,7 @@ class LiteraryWork extends Component{
             //return to original view
             this.resetLiteraryWork();
           }}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 新增 </Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 新增 </Text>
           </TouchableHighlight>
         );
       case 'B_Edit_Task':
@@ -721,7 +867,7 @@ class LiteraryWork extends Component{
 
 
           }}>
-            <Text style={{ marginTop: 15, color: 'white'}}> 完成 </Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 完成 </Text>
           </TouchableHighlight>
         );
       case 'C_Nth_Task':
@@ -731,7 +877,7 @@ class LiteraryWork extends Component{
               this.props.recommendTask();
             }
           }>
-            <Text style={{ marginTop: 15, color: 'white'}}> 選取 </Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 選取 </Text>
           </TouchableHighlight>
         );
       case 'D_Recommend_Work':
@@ -750,7 +896,7 @@ class LiteraryWork extends Component{
       default:
         return(
           <TouchableHighlight onPress={()=>console.log('unknown state')}>
-            <Text style={{ marginTop: 15, color: 'white'}}></Text>
+            <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}></Text>
           </TouchableHighlight>
         );
     }
@@ -793,6 +939,7 @@ class LiteraryWork extends Component{
         multiline={false}
         maxLength={100}
         placeholder={titleLabel}
+        underlineColorAndroid={'transparent'}
         onChangeText={(taskName) => {
           this.setState({taskName});
         }}
@@ -891,25 +1038,43 @@ class LiteraryWork extends Component{
   }
 
   renderC_Nth_Task(){
+    if(Platform.OS === 'android'){
+      return(
+        <View style={{flex: 1, backgroundColor: 'white' }}>
+          {this.renderNewTaskHeader(this.props.currentMission.title)}
+          <TabViewAnimated
+            style={{flex: 1}}
+            navigationState={this.state}
+            renderScene={this.renderTeacherScene}
+            renderHeader={this.renderHeader}
+            onRequestChangeTab={this.handleChangeTab}
+          />
 
-    return (
-      <View style={{flex: 1, backgroundColor: 'white' }}>
-        {this.renderNewTaskHeader(this.props.currentMission.title)}
-        <SegmentedControlIOS
-              values={['作品繳交', '班級作品']}
-              selectedIndex={this.state.selectedIndex}
-              style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
-              onChange={(event) => {
-                this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-              }}
-            />
-        <ScrollView>
-        <View style={{ flex: 1, alignItems: 'center' }}>
-            {this.renderC_Nth_Task_Content()}
         </View>
-        </ScrollView>
-      </View>
-    );
+      );
+    }
+
+    if(Platform.OS === 'ios'){
+      return(
+        <View style={{flex: 1, backgroundColor: 'white' }}>
+          {this.renderNewTaskHeader(this.props.currentMission.title)}
+          <SegmentedControlIOS
+                values={['作品繳交', '班級作品']}
+                selectedIndex={this.state.selectedIndex}
+                style={{ width: 280, marginTop: 10, alignSelf: 'center'}}
+                onChange={(event) => {
+                  this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+                }}
+              />
+          <ScrollView>
+          <View style={{ flex: 1, alignItems: 'center' }}>
+              {this.renderC_Nth_Task_Content()}
+          </View>
+          </ScrollView>
+        </View>
+      );
+    }
+
   }
 
   //selectedIndex
@@ -996,7 +1161,7 @@ class LiteraryWork extends Component{
 // on the LoginForm container
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({
     addNewTask,
     endAddNewTask,

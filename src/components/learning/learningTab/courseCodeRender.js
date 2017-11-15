@@ -37,7 +37,7 @@ class CourseCodeRender extends Component {
   }
 
   render(){
-    //<Text style={{fontSize: 35}}> {codeValue} </Text>
+    //<Text allowFontScaling={false} style={{fontSize: 35}}> {codeValue} </Text>
     if(this.props.codeValue){
 
       switch(this.props.codeValue.length){
@@ -63,7 +63,7 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlockGray}></View>
               <View style={styles.codeBlockGray}></View>
@@ -82,10 +82,10 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlockGray}></View>
               <View style={styles.codeBlockGray}></View>
@@ -103,13 +103,13 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
               </View>
               <View style={styles.codeBlockGray}></View>
               <View style={styles.codeBlockGray}></View>
@@ -126,16 +126,16 @@ class CourseCodeRender extends Component {
             return(
               <View style={styles.codeBlocks}>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
                 </View>
                 <View style={styles.codeBlockGray}></View>
                 <View style={styles.codeBlockGray}></View>
@@ -151,19 +151,19 @@ class CourseCodeRender extends Component {
             return(
               <View style={styles.codeBlocks}>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
                 </View>
                 <View style={styles.codeBlock}>
-                  <Text style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
+                  <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
                 </View>
                 <View style={styles.codeBlockGray}></View>
                 <View style={styles.codeBlockGray}></View>
@@ -178,22 +178,22 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
               </View>
               <View style={styles.codeBlockGray}></View>
               <View style={styles.codeBlockGray}></View>
@@ -207,25 +207,25 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
               </View>
               <View style={styles.codeBlockGray}></View>
               <View style={styles.codeBlockGray}></View>
@@ -238,28 +238,28 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[7]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[7]} </Text>
               <View style={styles.codeBlockGray}></View>
               <View style={styles.codeBlockGray}></View>
             </View>
@@ -270,31 +270,31 @@ class CourseCodeRender extends Component {
           return(
             <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[7]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[7]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[8]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[8]} </Text>
               </View>
               <View style={styles.codeBlockGray}></View>
             </View>
@@ -305,34 +305,34 @@ class CourseCodeRender extends Component {
             return(
               <View style={styles.codeBlocks}>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[0]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[1]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[2]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[3]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[4]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[5]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[6]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[7]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[7]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[8]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[8]} </Text>
               </View>
               <View style={styles.codeBlock}>
-                <Text style={{fontSize: FontSize}}> {this.props.codeValue[9]} </Text>
+                <Text allowFontScaling={false} style={{fontSize: FontSize}}> {this.props.codeValue[9]} </Text>
               </View>
               </View>
             );

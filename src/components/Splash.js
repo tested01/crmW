@@ -143,7 +143,7 @@ class Splash extends Component {
                 style={styles.ghostButton}
                 onPress={()=>this.setState({ AfterSplash: true })}>
 
-              <Text style={{
+              <Text allowFontScaling={false} style={{
                 color: 'white',
                 fontSize: 18,
                 fontWeight: 'bold'}}> 進入 uShow </Text>

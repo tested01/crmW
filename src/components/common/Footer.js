@@ -9,7 +9,7 @@ const Footer = (props) => {
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>{props.footerText}</Text>
+      <Text allowFontScaling={false} style={textStyle}>{props.footerText}</Text>
     </View>
   );
 };

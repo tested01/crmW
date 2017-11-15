@@ -14,7 +14,7 @@ class RegisterStep1 extends Component {
     };
     return (
       <View style={styles.viewStyle}>
-        <Text style={styles.textStyle}>
+        <Text allowFontScaling={false} style={styles.textStyle}>
           RegisterStep1
         </Text>
         <Button

@@ -21,7 +21,7 @@ const Header = (props) => {
     return (
       <View style={viewStyle}>
         <Text></Text>
-        <Text style={textStyleRefine}>{props.headerText}</Text>
+        <Text allowFontScaling={false} style={textStyleRefine}>{props.headerText}</Text>
         <Icon.Button
          name={props.buttonType}
          size={20}
@@ -36,7 +36,7 @@ const Header = (props) => {
     return (
       <View style={viewStyle}>
         <Text></Text>
-        <Text style={textStyle}>{props.headerText}</Text>
+        <Text allowFontScaling={false} style={textStyle}>{props.headerText}</Text>
         <Text></Text>
       </View>
     );

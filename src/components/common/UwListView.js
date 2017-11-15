@@ -19,7 +19,7 @@ class UwListView extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.optionsTitleText}>
+        <Text allowFontScaling={false} style={styles.optionsTitleText}>
           Resources
         </Text>
 
@@ -36,7 +36,7 @@ class UwListView extends Component {
               />
             </View>
             <View style={styles.optionTextContainer}>
-              <Text style={styles.optionText}>
+              <Text allowFontScaling={false} style={styles.optionText}>
                 Join us on Slack
               </Text>
             </View>
@@ -56,7 +56,7 @@ class UwListView extends Component {
               />
             </View>
             <View style={styles.optionTextContainer}>
-              <Text style={styles.optionText}>
+              <Text allowFontScaling={false} style={styles.optionText}>
                 Read the Expo documentation
               </Text>
             </View>

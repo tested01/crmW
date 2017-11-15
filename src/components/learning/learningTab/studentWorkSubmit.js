@@ -316,7 +316,7 @@ class StudentWorkSubmit extends Component{
             alignItems: 'center',
             margin: 5
           }}>
-            <Text style={{fontSize: 14, color: 'gray'}}> 主動公開於班級作品 </Text>
+            <Text allowFontScaling={false} style={{fontSize: 14, color: 'gray'}}> 主動公開於班級作品 </Text>
             <Switch onValueChange = {this.toggleSwitch} value = {this.state.switchValue}/>
           </View>
           <TouchableHighlight
@@ -382,7 +382,7 @@ class StudentWorkSubmit extends Component{
                       alignItems: 'center',
                       justifyContent: 'center'
                     }}>
-                        <Text style={{color: 'white'}}>取消</Text>
+                        <Text allowFontScaling={false} style={{color: 'white'}}>取消</Text>
                       </View>
                     </TouchableHighlight>
 
@@ -408,7 +408,7 @@ class StudentWorkSubmit extends Component{
                       alignItems: 'center',
                       justifyContent: 'center'
                     }}>
-                        <Text style={{color: 'white'}}>確認上傳</Text>
+                        <Text allowFontScaling={false} style={{color: 'white'}}>確認上傳</Text>
                       </View>
                     </TouchableHighlight>
 
@@ -532,7 +532,7 @@ class StudentWorkSubmit extends Component{
             }}
           >
 
-          <Text style={{color: 'white', lineHeight: 40, fontSize: 17}}>繳交</Text>
+          <Text allowFontScaling={false} style={{color: 'white', lineHeight: 40, fontSize: 17}}>繳交</Text>
           </TouchableHighlight>
           <View style={{ width: 100, height: 60, backgroundColor: 'transparent'}}></View>
         </View>

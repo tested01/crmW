@@ -155,24 +155,24 @@ class TaskCard extends Component{
       <View style={styles.taskCard}>
         <View style={styles.DateInfo}>
           <View style={{ flex: 1, alignSelf: 'flex-start'}}>
-            <Text style={{ fontSize: 16 }}> {this.props.title} </Text></View>
+            <Text allowFontScaling={false} style={{ fontSize: 16 }}> {this.props.title} </Text></View>
           <View>
-            <View><Text style={{ fontSize: 12 }}> 期限| </Text></View>
-            <View><Text style={{ fontSize: 12 }}> { this.props.duration } </Text></View>
+            <View><Text allowFontScaling={false} style={{ fontSize: 12 }}> 期限| </Text></View>
+            <View><Text allowFontScaling={false} style={{ fontSize: 12 }}> { this.props.duration } </Text></View>
           </View>
         </View>
         <View style={styles.stat}>
           <View style={styles.buttonWithLabel}>
             <View style={styles.buttonBlue}>
-            <Text style={{color: 'white', fontSize: 20}}> { this.props.submit } </Text>
+            <Text allowFontScaling={false} style={{color: 'white', fontSize: 20}}> { this.props.submit } </Text>
             </View>
-            <Text style={{color: 'gray' }}> 已繳交 </Text>
+            <Text allowFontScaling={false} style={{color: 'gray' }}> 已繳交 </Text>
           </View>
           <View style={styles.buttonWithLabel}>
             <View style={styles.button}>
-            <Text style={{color: 'white', fontSize: 20}}> { this.props.notYet } </Text>
+            <Text allowFontScaling={false} style={{color: 'white', fontSize: 20}}> { this.props.notYet } </Text>
             </View>
-            <Text style={{color: 'gray'}}> 未繳交 </Text>
+            <Text allowFontScaling={false} style={{color: 'gray'}}> 未繳交 </Text>
           </View>
           <View style={{alignSelf: 'flex-start'}}>
             <Icon.Button name="edit"

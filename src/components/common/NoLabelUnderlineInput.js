@@ -12,6 +12,7 @@ const NoLabelUnderlineInput = ({ value, onChangeText, placeholder, secureTextEnt
         autoCorrect={false}
         style={inputStyle}
         value={value}
+        underlineColorAndroid={'transparent'}
         keyboardType = {keyboardType}
         onChangeText={onChangeText}
         onEndEditing={onEndEditing}
@@ -36,10 +37,11 @@ const styles = {
   containerStyle: {
     borderBottomWidth: 2,
     borderColor: 'gray',
-    height: 40,
+    height: 45,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 };
 

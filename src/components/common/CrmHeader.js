@@ -93,7 +93,7 @@ class CrmHeader extends Component {
       { this.iconParser('left') }
       </View>
       <View >
-       <Text style={this.styles.textStyle}>{this.props.center}</Text>
+       <Text allowFontScaling={false} style={this.styles.textStyle}>{this.props.center}</Text>
       </View>
       <View>
       { this.iconParser('right') }

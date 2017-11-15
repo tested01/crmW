@@ -144,20 +144,18 @@ class SelectRole extends Component {
 
         flex: 3,
         flexDirection: 'column',
-
         justifyContent: 'space-between'
       },
       cotainerStyle: {
         flex: 1,
         flexDirection: 'row',
-
         justifyContent: 'space-around'
       },
       viewStyle: {
         height: 100,
         width: 100,
         borderRadius: 50,
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         justifyContent: 'center',
         alignItems: 'center'
       },
@@ -219,27 +217,29 @@ class SelectRole extends Component {
     return (
 
       <View style={{display: 'flex', flex: 3}}>
-        <Text style={RegStyles.headerStyle}>
+        <View style={{height: 200, width: window.width}}>
+        <Text allowFontScaling={false} style={RegStyles.headerStyle}>
           選擇身份
         </Text>
+        </View>
           <View style={styles.externalContainerStyle}>
 
           <View style={styles.cotainerStyle}>
-              <TouchableHighlight onPress={() => this.selectRole('teacher')}>
+              <TouchableHighlight style={{height: 150}} onPress={() => this.selectRole('teacher')}>
                 <Image
                   style={styles.viewStyle}
                   source={{uri: this.state.t_uri}}
                 />
               </TouchableHighlight>
 
-              <TouchableHighlight onPress={() => this.selectRole('student')}>
+              <TouchableHighlight style={{height: 150}} onPress={() => this.selectRole('student')}>
                 <Image
                   style={styles.viewStyle}
                   source={{uri: this.state.s_uri}}
                 />
               </TouchableHighlight>
 
-              <TouchableHighlight onPress={() => console.log('select parent')}>
+              <TouchableHighlight style={{height: 150}} onPress={() => console.log('select parent')}>
                 <Image
                   style={styles.viewStyle}
                   source={{uri: this.state.p_uri}}
@@ -248,15 +248,15 @@ class SelectRole extends Component {
            </View>
        </View>
        <View style={styles.cotainerStyle}>
-       <View style={styles.textViewStyle}><Text style={this.state.teacherTextStyle}>老師</Text></View>
-       <View style={styles.textViewStyle}><Text style={this.state.studentTextStyle}>學生</Text></View>
-       <View style={styles.textViewStyle}><Text style={{color:'gray'}}>家長</Text></View>
+       <View style={styles.textViewStyle}><Text allowFontScaling={false} style={this.state.teacherTextStyle}>老師</Text></View>
+       <View style={styles.textViewStyle}><Text allowFontScaling={false} style={this.state.studentTextStyle}>學生</Text></View>
+       <View style={styles.textViewStyle}><Text allowFontScaling={false} style={{color:'gray'}}>家長</Text></View>
        </View>
        <TouchableHighlight
         style={this.state.nextButton}
         onPress={this.onHandleCont}
        >
-         <Text style={this.state.nextButtonText}>繼續</Text>
+         <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
        </TouchableHighlight>
        </View>
 

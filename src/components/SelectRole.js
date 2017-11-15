@@ -44,9 +44,11 @@ class SelectRole extends Component {
 
     return (
       <View>
-        <Text style={styles.headerStyle}>
+        <View style={{height: 200, width: window.width}}>
+        <Text allowFontScaling={false} style={styles.headerStyle}>
           選擇身份
         </Text>
+        </View>
           <View style={styles.cotainerStyle}>
             <View style={styles.viewStyle}>
               <Text
@@ -59,7 +61,7 @@ class SelectRole extends Component {
 
             <Image
                 style={styles.viewStyle}
-                
+
                 source={{uri: 'https://raw.githubusercontent.com/tested01/materialFiles/master/07_App_0331/%E9%81%B8%E6%93%87%E8%BA%AB%E5%88%86/%E5%AD%B8%E7%94%9F.png'}}
               />
 

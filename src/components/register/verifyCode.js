@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, Dimensions, Alert,
-  Keyboard, TouchableWithoutFeedback, TextInput
+  Keyboard, TouchableWithoutFeedback, TextInput, Platform
  } from 'react-native';
 import { RegStyles } from './registerConf';
 import { SmsVerifyInput, TransparentCardSection } from '../common';
@@ -41,6 +41,7 @@ class VerifyCode extends Component {
     this.updateButton = this.updateButton.bind(this);
     this.onHandleCont = this.onHandleCont.bind(this);
     this.nextStepRegister = this.nextStepRegister.bind(this);
+    this.renderContinue = this.renderContinue.bind(this);
   }
   componentWillMount(){
     this.resetCurrentButtonStyle();
@@ -238,11 +239,32 @@ class VerifyCode extends Component {
     }
 
   }
+
+  renderContinue(){
+    if(Platform.OS === 'android'){
+      return(
+        <View style={{width: window.width, height: 200}}>
+        <TouchableHighlight
+          style={this.state.nextButton}
+          onPress={this.onHandleCont}
+          >
+          <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
+        </TouchableHighlight>
+        </View>
+      )
+    }else{
+      return(
+        <View></View>
+      );
+    }
+
+  }
+
   render() {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>
-            <Text style={RegStyles.headerStyle}>
+            <Text allowFontScaling={false} style={RegStyles.headerStyle} >
             輸入4位數驗證碼
             </Text>
             <View style={{
@@ -271,15 +293,16 @@ class VerifyCode extends Component {
             />
             </View>
             <TouchableHighlight onPress={this.onResendRequest}>
-              <Text style={{textAlign: 'center', marginTop: 10}}>
+              <Text allowFontScaling={false} style={{textAlign: 'center', marginTop: 10}}>
                尚未收到驗證碼，再傳送一次
               </Text>
             </TouchableHighlight>
+            {this.renderContinue()}
             <TouchableHighlight
               style={this.state.nextButton}
               onPress={this.onHandleCont}
               >
-              <Text style={this.state.nextButtonText}>繼續</Text>
+              <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
             </TouchableHighlight>
           </View>
           </TouchableWithoutFeedback>

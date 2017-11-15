@@ -41,7 +41,7 @@ class MemberList extends Component{
       return(
         <View style={[styles.page, { backgroundColor: 'white',
         flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
-          <Text style={{color: 'gray'}}>共 {this.props.currentCourse.members.students.length} 位成員</Text>
+          <Text allowFontScaling={false} style={{color: 'gray'}}>共 {this.props.currentCourse.members.students.length} 位成員</Text>
           <ScrollView>
           { listStudents }
           </ScrollView>

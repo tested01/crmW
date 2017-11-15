@@ -11,6 +11,7 @@ const GLOBLE = {
 
   },
   HEADER_FONTSIZE: 16,
+  ALLOW_FONT_SCALING: false,
   formatDateString: function(mongoDate, split){
     let dateObj = new Date(mongoDate);
     let month = String(dateObj.getMonth() + 1);
@@ -26,7 +27,7 @@ const GLOBLE = {
   formatDateTimeString: function(mongoDate, split){
 
     let dateObj = new Date(mongoDate);
-    
+
     let month = String(dateObj.getMonth() + 1);
     let day = String(dateObj.getDate());
     let year = String(dateObj.getFullYear());

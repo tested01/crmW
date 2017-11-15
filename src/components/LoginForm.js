@@ -110,13 +110,13 @@ class LoginForm extends Component {
           />
         </TransparentCardSection>
 
-        <Text style={styles.errorTextStyle}>
+        <Text allowFontScaling={false} style={styles.errorTextStyle}>
           {this.state.error}
         </Text>
         <TransparentCardSection>
           {this.renderButton()}
         </TransparentCardSection>
-        <Text style={styles.linkTextStyle}> 訪客進入 </Text>
+        <Text allowFontScaling={false} style={styles.linkTextStyle}> 訪客進入 </Text>
 
       </MaterialCard>
     );

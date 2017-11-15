@@ -98,7 +98,7 @@ class StudentOption extends Component{
         />
         <View style={styles.infoBox}>
          <Text>{name}</Text>
-         <Text style={{
+         <Text allowFontScaling={false} style={{
            color: 'gray',
            fontSize: 12
          }}>{title}</Text>
@@ -111,7 +111,7 @@ class StudentOption extends Component{
 
       return(
         <View style={styles.flags}>
-          <Text style={{fontSize: 12, color: 'gray'}}>3/23 14:00</Text>
+          <Text allowFontScaling={false} style={{fontSize: 12, color: 'gray'}}>3/23 14:00</Text>
           <Icon name="bookmark" size={30} color="white" />
         </View>
       );

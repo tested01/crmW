@@ -28,7 +28,7 @@ const CodeRender = ({value}) => {
       borderColor: 'gray'
     }
   };
-  //<Text style={{fontSize: 35}}> {value} </Text>
+  //<Text allowFontScaling={false} style={{fontSize: 35}}> {value} </Text>
   switch(value.length){
     case 0:
       return(
@@ -43,7 +43,7 @@ const CodeRender = ({value}) => {
       return(
         <View style={styles.codeBlocks}>
           <View style={styles.codeBlock}>
-            <Text style={{fontSize: FontSize}}> {value[0]} </Text>
+            <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[0]} </Text>
           </View>
           <View style={styles.codeBlockGray}></View>
           <View style={styles.codeBlockGray}></View>
@@ -54,10 +54,10 @@ const CodeRender = ({value}) => {
       return(
         <View style={styles.codeBlocks}>
           <View style={styles.codeBlock}>
-            <Text style={{fontSize: FontSize}}> {value[0]} </Text>
+            <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[0]} </Text>
           </View>
           <View style={styles.codeBlock}>
-            <Text style={{fontSize: FontSize}}> {value[1]} </Text>
+            <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[1]} </Text>
           </View>
           <View style={styles.codeBlockGray}></View>
           <View style={styles.codeBlockGray}></View>
@@ -67,13 +67,13 @@ const CodeRender = ({value}) => {
       return(
         <View style={styles.codeBlocks}>
           <View style={styles.codeBlock}>
-            <Text style={{fontSize: FontSize}}> {value[0]} </Text>
+            <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[0]} </Text>
           </View>
           <View style={styles.codeBlock}>
-            <Text style={{fontSize: FontSize}}> {value[1]} </Text>
+            <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[1]} </Text>
           </View>
           <View style={styles.codeBlock}>
-            <Text style={{fontSize: FontSize}}> {value[2]} </Text>
+            <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[2]} </Text>
           </View>
           <View style={styles.codeBlockGray}></View>
         </View>
@@ -82,16 +82,16 @@ const CodeRender = ({value}) => {
         return(
           <View style={styles.codeBlocks}>
             <View style={styles.codeBlock}>
-              <Text style={{fontSize: FontSize}}> {value[0]} </Text>
+              <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[0]} </Text>
             </View>
             <View style={styles.codeBlock}>
-              <Text style={{fontSize: FontSize}}> {value[1]} </Text>
+              <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[1]} </Text>
             </View>
             <View style={styles.codeBlock}>
-              <Text style={{fontSize: FontSize}}> {value[2]} </Text>
+              <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[2]} </Text>
             </View>
             <View style={styles.codeBlock}>
-              <Text style={{fontSize: FontSize}}> {value[3]} </Text>
+              <Text allowFontScaling={false} style={{fontSize: FontSize}}> {value[3]} </Text>
             </View>
           </View>
         );
@@ -114,7 +114,8 @@ const SmsVerifyInput = ({ value, onChangeText, placeholder, secureTextEntry, max
         style={styles.inputStyle}
         value={value}
         autoFocus={true}
-        selectionColor="transparent"
+        underlineColorAndroid={'transparent'}
+        selectionColor={"transparent"}
         maxLength={maxLength}
         keyboardType={keyboardType}
         onChangeText={onChangeText}

@@ -118,12 +118,12 @@ class WorkCard extends Component{
           <View style={styles.thumbnail}/>
             <View style={{display: 'flex', justifyContent: 'space-around'}}>
               <View style={{marginLeft: 4}}>
-                <Text style={{fontSize: 14}}>
+                <Text allowFontScaling={false} style={{fontSize: 14}}>
                    {this.props.title}
                 </Text>
               </View>
               <View style={{marginLeft: 4}}>
-                <Text style={{fontSize: 12}}>
+                <Text allowFontScaling={false} style={{fontSize: 12}}>
                    {this.props.subtitle}
                 </Text>
               </View>
@@ -142,7 +142,7 @@ class WorkCard extends Component{
           margin: 2
         }}>
 
-            <Text style={{color: 'white'}}>{st.submitText}</Text>
+            <Text allowFontScaling={false} style={{color: 'white'}}>{st.submitText}</Text>
 
           </View>
         </TouchableHighlight>
@@ -157,7 +157,7 @@ class WorkCard extends Component{
           margin: 2
           }}>
 
-            <Text style={{color: 'white'}}>{hcw.courseWorkText}</Text>
+            <Text allowFontScaling={false} style={{color: 'white'}}>{hcw.courseWorkText}</Text>
 
           </View>
         </TouchableHighlight>

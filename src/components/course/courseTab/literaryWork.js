@@ -11,7 +11,7 @@ function mockItem() {
     <View
      style={{width: 80, height: 80, backgroundColor: 'gray'}}
     />
-    <Text style={{  fontSize: 12, lineHeight: 80, textAlign: 'left'}}> 第 n 次作品 </Text>
+    <Text allowFontScaling={false} style={{  fontSize: 12, lineHeight: 80, textAlign: 'left'}}> 第 n 次作品 </Text>
     <View style={{ height: 30, marginTop: 20, borderWidth: 1 }}>
     <Button
       onPress={() => console.log('ww')}

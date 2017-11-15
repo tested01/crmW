@@ -18,6 +18,8 @@ import { CONFIG } from '../../config';
 import MyWorkScreen from './MyWorkScreen';
 import { signOut } from '../../actions';
 
+const {height, width} = Dimensions.get('window');
+
 const config = {
   headerSize: 100
 };
@@ -40,7 +42,7 @@ function renderButton(buttonTitle, handler, iconName, iconSize, color='black'){
         <View style={styles.optionIconContainer}>
         </View>
         <View style={styles.optionTextContainer}>
-          <Text style={{
+          <Text allowFontScaling={false} style={{
             fontSize: 15,
             marginLeft: 30,
             color: color
@@ -92,7 +94,11 @@ class ProfileView extends Component {
   }
   renderEditButton(buttonTitle, value, editable=true, handler){
    return (
-
+    /*
+    paddingHorizontal: 1,
+    paddingVertical: 1
+    //underlineColorAndroid={'rgba(0,0,0,0)'}  Android textInput's underline
+    */
      <TouchableOpacity
        style={styles.optionsContainer}
        onPress={handler}>
@@ -100,26 +106,34 @@ class ProfileView extends Component {
          flexDirection: 'row',
          justifyContent: 'space-between',
          backgroundColor: 'white',//rgba(0,0,0,0.02)
-         paddingHorizontal: 15,
-         paddingVertical: 15
+         marginTop: 5,
+         marginBottom: 5
        }}>
-         <View style={{flex: 2}}>
-           <Text style={{fontSize: 15}}>
+         <View style={{flex: 2, height: 50, justifyContent: 'center', marginLeft: 10}}>
+           <Text allowFontScaling={false} style={{fontSize: 15}}>
              {buttonTitle}
            </Text>
          </View>
+         <View style={{width: width - 150, justifyContent: 'flex-end'}}>
          <TextInput
-           style={{height: 30, flex: 5.5, textAlign: 'right', color: 'gray'}}
+           style={{
+             height: 30,
+             flex: 5.5,
+             textAlign: 'right',
+             color: 'gray'
+           }}
+           underlineColorAndroid={'rgba(0,0,0,0)'}
            onChangeText={handler}
            value={value}
            editable={editable}
          />
+         </View>
          <Icon
            name="angle-right"
            size={30}
            color='gray'
            backgroundColor='transparent'
-           style={{ marginLeft: 20, alignSelf: 'flex-end', flex: 0.5}}
+           style={{ marginLeft: 20, alignSelf: 'center', flex: 0.5}}
            />
        </View>
 
@@ -139,7 +153,7 @@ class ProfileView extends Component {
           style={{ marginLeft: 20, marginTop: 15}}
           onPress={this.backToProfile}
           />
-        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}> {headerTitle} </Text>
+        <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}> {headerTitle} </Text>
         <Text>  </Text>
       </View>
     );
@@ -174,7 +188,6 @@ class ProfileView extends Component {
     }, 'angle-right', 30, 'red');
   }
   renderProfile() {
-      var {height, width} = Dimensions.get('window');
       let fullName = '';
       if(this.state.lastName){
         fullName = this.state.lastName.concat(this.state.firstName)
@@ -209,7 +222,7 @@ class ProfileView extends Component {
                   source={require('../../img/love-logo.png')}
         />
 
-        <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 16}}> { fullName } </Text>
+        <Text allowFontScaling={false} style={{textAlign: 'center', fontWeight: 'bold', fontSize: 16}}> { fullName } </Text>
 
         </View>
         </View>
@@ -329,7 +342,7 @@ const styles = StyleSheet.create({
 // on the LoginForm container
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({ signOut }, dispatch);
 }
 

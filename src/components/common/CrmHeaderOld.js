@@ -41,9 +41,9 @@ class CrmHeaderOld extends Component {
         /*return (  <Icon.Button name="angle-right"  onPress={handler}>
                   </Icon.Button>);*/
       default:
-        return (<Text style={textStyle}>{prop}</Text>);
+        return (<Text allowFontScaling={false} style={textStyle}>{prop}</Text>);
         /*return (<TouchableHighlight onPress={handler}>
-                <Text style={textStyle}>{prop}</Text>
+                <Text allowFontScaling={false} style={textStyle}>{prop}</Text>
                 </TouchableHighlight>);*/
     }
   }

@@ -170,10 +170,10 @@ class NotificationItem extends Component{
           <Icon name={'user-plus'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -184,10 +184,10 @@ class NotificationItem extends Component{
           <Icon name={'pencil'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -198,10 +198,10 @@ class NotificationItem extends Component{
           <Icon name={'thumbs-up'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -212,10 +212,10 @@ class NotificationItem extends Component{
           <Icon name={'star'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -234,10 +234,10 @@ class NotificationItem extends Component{
           <Icon name={'user-plus'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -248,10 +248,10 @@ class NotificationItem extends Component{
           <Icon name={'pencil'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -262,10 +262,10 @@ class NotificationItem extends Component{
           <Icon name={'thumbs-up'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -276,10 +276,10 @@ class NotificationItem extends Component{
           <Icon name={'file-text-o'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -291,10 +291,10 @@ class NotificationItem extends Component{
           <Icon name={'star'} size={30} color="#00B9F1" style={{margin: 3}}/>
           <View style={styles.cardText}>
             <View>
-              <Text style={styles.cardHeader}>{item.data.message}</Text>
+              <Text allowFontScaling={false} style={styles.cardHeader}>{item.data.message}</Text>
             </View>
             <View>
-              <Text style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
+              <Text allowFontScaling={false} style={styles.cardTime}>{this.friendlyTimeFormatter(item.happenAt)}</Text>
             </View>
           </View>
         </View>
@@ -342,14 +342,23 @@ class NotificationItem extends Component{
     { this.renderNotificationItems('thumbs-up', '鄭興華對你的旅遊作品按讚。', 2)}
     { this.renderNotificationItems('star', '你的旅遊作品被推薦為聯合報之星。', 3)}
     */
-    return(
-       <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
-         { this.state.notifications.map(
-           (item, index)=>this.renderNotificationItems(item, index)
-         )
-           }
-       </ScrollView>
-    )
+    if(this.state.notifications.length == 0){
+      return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text>尚未有通知 ~</Text>
+        </View>
+      )
+    }else{
+      return(
+         <ScrollView style={{ flex: 1 }} onScroll={this.handleScrollNewest}>
+           { this.state.notifications.map(
+             (item, index)=>this.renderNotificationItems(item, index)
+           )
+             }
+         </ScrollView>
+      )
+    }
+
   }
 }
 

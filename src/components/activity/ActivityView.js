@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet,
   ScrollView,
+  WebView,
   Text,
   Image,
   Dimensions,
@@ -14,6 +15,7 @@ import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { hideHeader } from '../../actions/index';
 import { GLOBLE } from '../common/Globle';
+import { CONFIG } from '../../config';
 const window = Dimensions.get('window');
 var actId = 0;
 const styles = StyleSheet.create({
@@ -43,72 +45,167 @@ class ActivityView extends Component {
     this.renderActivityDetail = this.renderActivityDetail.bind(this);
     this.leftDetail = this.leftDetail.bind(this);
     this.enterDetail = this.enterDetail.bind(this);
-
+    this.fetchActivities = this.fetchActivities.bind(this);
+    this.renderNewest = this.renderNewest.bind(this);
+    this.isCurrentSelectedActivity = this.isCurrentSelectedActivity.bind(this);
+    this.getDateString = this.getDateString.bind(this);
   }
   componentWillMount(){
     this.state = {
       index: 0,
+      url: '',
       routes: [
         { key: '1', title: '最新' },
         { key: '2', title: '熱門' },
       ],
       inDetail: false
     };
+    this.fetchActivities();
+  }
+
+  fetchActivities(){
+    fetch(CONFIG.API_BASE_URL.concat('/activities'), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-auth': this.props.loginState.xAuth
+      }
+     })
+      .then((response) => {
+        if (response.status === 200) {
+
+          response.json().then(json => {
+                                //this.setState(Object.assign({}, this.state, json));
+                                json.map((act)=>{
+                                  console.log('act:', act, act.happenAt.toString().split('T')[0]);
+                                })
+                                this.setState(Object.assign({}, this.state, {'activities': json}));
+                              });
+        } else {
+          console.log(response.status);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleChangeTab = (index) => {
     this.setState({ index });
+
   };
 
   renderHeader = (props) => <TabBar {...props} />;
 
   renderHot(){
-    return(
-      <ScrollView>
-        {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_01.png', '好讀找好文大賽')}
-      </ScrollView>
-    );
+    if(this.state.activities){
+      return(
+        <ScrollView>
+           { this.state.activities.filter((activity)=>{
+             if(activity.viewers.length >=0){
+               return true;
+             }else{
+               return false;
+             }
+           })
+             .map((activity)=>{
+             return(
+               this.renderActivityCard(activity)
+             )
+           }) }
+           <Text></Text>
+        </ScrollView>
+      );
+    }else{
+      return(<Text>載入中</Text>)
+    }
   }
 
   renderNewest(){
-      return(
-        <ScrollView>
-          {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_01.png', '好讀找好文大賽')}
-          {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_02.png', '楚才盃')}
-        </ScrollView>
-      );
+    /*
+    {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_01.png', '好讀找好文大賽')}
+    {this.renderActivityCard('http://stevenwu.no-ip.org/activitys/act_02.png', '楚才盃')}
+    */
+      if(this.state.activities){
+        return(
+          <ScrollView>
+             { this.state.activities.map((activity)=>{
+               return(
+                 this.renderActivityCard(activity)
+               )
+             }) }
+             <Text></Text>
+          </ScrollView>
+        );
+      }else{
+        return(<Text>載入中</Text>)
+      }
+
+  }
+
+  /*
+  Example of javascript find
+  --
+    function isPrime(element, index, array) {
+    var start = 2;
+    while (start <= Math.sqrt(element)) {
+      if (element % start++ < 1) {
+        return false;
+      }
+    }
+    return element > 1;
+  }
+
+  console.log([4, 6, 8, 12].find(isPrime)); // undefined, not found
+  console.log([4, 5, 8, 12].find(isPrime)); // 5
+  */
+ isCurrentSelectedActivity(element, index, array) {
+    console.log('this.state.activityId1', this.state.activityId);
+    if(element._id == this.state.activityId){
+      return true
+    }else{
+      return false
+    }
   }
   renderActivityDetail(){
     this.props.hideHeader(true);
-    if(actId == 1){
+      //{this.renderActivityCard(this.state.activityId)}
+    let currentActivity = this.state.activities.find(this.isCurrentSelectedActivity);
+    console.log('currentActivity', currentActivity);
       return(
         <View>
         {this.renderActivityHeader(this.state.title)}
-        {this.renderActivityCard(this.state.activityId)}
-        <Text>詳細資訊請至官網 </Text>
+        <View style={{marginTop: 5, height: window.height - 60 , width: window.width, borderWidth: 0}}>
+        <WebView
+          source={{uri: currentActivity.webpage}}
+          style={{marginTop: 0}}>
+        </WebView>
+        </View>
         </View>
       );
-    }
 
-    if(actId == 2){
-      return(
-        <View>
-        {this.renderActivityHeader(this.state.title)}
-        {this.renderActivityCard(this.state.activityId)}
-        <Text>詳細資訊請至官網 </Text>
-        </View>
-      );
-    }
 
   }
 
   enterDetail(){
     this.setState({inDetail: true});
   }
-  renderActivityCard(activityId, title){
-    actId = 1;
+  getDateString(time1, time2){
+    if(time2){
+      return time1.toString().split('T')[0] + '~' + time2.toString().split('T')[0];;
+    }
+
+    return time1.toString().split('T')[0];
+
+  }
+  renderActivityCard(activity){
+
+
       return (
-        <View style={{
+        <View
+          key={activity._id}
+          style={{
           display: 'flex',
           alignItems: 'center',
           borderWidth:0.8,
@@ -119,15 +216,16 @@ class ActivityView extends Component {
           borderRadius: 5,
           justifyContent: 'flex-start'
          }}>
-         <TouchableHighlight value='5' onPress={()=>
+         <TouchableHighlight value='5'  onPress={()=>
            {
              this.enterDetail();
-             this.setState({activityId});
-             this.setState({title});
+             this.setState({activityId: activity._id});
+             console.log('this.state.activityId2', activity);
+             this.setState({title: activity.title});
            }
          }>
          {<Image
-         source={{uri:activityId}}
+         source={{uri:activity.thumbnail}}
          fadeDuration={0}
          style={{resizeMode: 'contain',
                  width: window.width - 10,
@@ -144,8 +242,8 @@ class ActivityView extends Component {
           marginBottom: 3,
           marginLeft: 3
         }}>
-        <Text style={{}}>{title}</Text>
-        <Text style={{ color: 'gray'}}>2017/02/12~2017/03/31</Text>
+        <Text allowFontScaling={false} style={{}}>{activity.title}</Text>
+        <Text allowFontScaling={false} style={{ color: 'gray'}}>{this.getDateString(activity.happenAt, activity.endAt)}</Text>
         </View>
         </View>
       );
@@ -157,7 +255,7 @@ class ActivityView extends Component {
     return (
       <View style={viewStyle}>
         {this.renderActivityHeaderLeft()}
-        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
+        <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}>
           {headerTitle}
         </Text>
         {this.renderActivityHeaderRight()}
@@ -175,7 +273,7 @@ class ActivityView extends Component {
       size={30}
       backgroundColor='transparent'
       color="white"
-      onPress={()=>this.leftDetail()}
+      onPress={this.leftDetail}
        />
     );
   }

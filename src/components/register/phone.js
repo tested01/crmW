@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   Dimensions,
+  Platform,
   Alert,
   Keyboard, TouchableWithoutFeedback,
   TouchableHighlight } from 'react-native';
@@ -25,13 +26,13 @@ class Phone extends Component {
     this.renderInfo = this.renderInfo.bind(this);
     this.onHandleCont = this.onHandleCont.bind(this);
     this.sendMsgCallback = this.sendMsgCallback.bind(this);
-    this.sendMsgCallback = this.sendMsgCallback.bind(this);
     this.checkReduxInfo = this.checkReduxInfo.bind(this);
     this.sendMsg = this.sendMsg.bind(this);
     this.resetCurrentButtonStyle = this.resetCurrentButtonStyle.bind(this);
     this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
     this.updateButton = this.updateButton.bind(this);
     this.fetchCode = this.fetchCode.bind(this);
+    this.renderContinue = this.renderContinue.bind(this);
     //cmd: nexmo setup ee13e258 d4ea91c43db3cb86
   }
 
@@ -124,7 +125,9 @@ class Phone extends Component {
     */
 
     let nextStep = this.props.next;
+    nextStep();
 
+    /*
     Alert.alert(
       '電話格式正確, 因為簡訊試用 API 限制較多, 先以此模擬',
       passMsg,
@@ -133,6 +136,7 @@ class Phone extends Component {
       ],
       { cancelable: false }
     );
+    */
   }
 
   setCurrentButtonStyle(){
@@ -282,17 +286,37 @@ class Phone extends Component {
     }
   }
 
+  renderContinue(){
+    if(Platform.OS === 'android'){
+      return(
+        <View style={{width: window.width, height: 200}}>
+        <TouchableHighlight
+          style={this.state.nextButton}
+          onPress={this.onHandleCont}
+          >
+          <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
+        </TouchableHighlight>
+        </View>
+      )
+    }else{
+      return(
+        <View></View>
+      );
+    }
+
+  }
+
   render() {
     /*
     <TouchableHighlight
     onPress={this.renderInfo}>
-    <Text style={{fontSize: 5}}> phone info </Text>
+    <Text allowFontScaling={false} style={{fontSize: 5}}> phone info </Text>
     </TouchableHighlight>
     */
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View>
-        <Text style={RegStyles.headerStyle}>
+        <Text allowFontScaling={false} style={RegStyles.headerStyle}>
         輸入手機進行驗證
         </Text>
         <View style={styles.container}>
@@ -308,15 +332,17 @@ class Phone extends Component {
           ref='phone'
           />
         </View>
-        <Text style={{textAlign: 'center'}}>
+        <Text allowFontScaling={false} style={{textAlign: 'center'}}>
         台灣的手機號碼請從9開始輸入
         </Text>
+       {this.renderContinue()}
         <TouchableHighlight
           style={this.state.nextButton}
           onPress={this.onHandleCont}
           >
-          <Text style={this.state.nextButtonText}>繼續</Text>
+          <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
         </TouchableHighlight>
+
       </View>
       </TouchableWithoutFeedback>
     );

@@ -7,7 +7,10 @@ import { View,
   TouchableHighlight,
   TextInput,
   Dimensions,
-  Alert
+  Alert,
+  KeyboardAvoidingView,
+  Keyboard,
+  TouchableWithoutFeedback
    } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import { connect } from 'react-redux';
@@ -419,7 +422,7 @@ class LearningView extends Component {
       return(
         <View style={[this.styles.page, { backgroundColor: 'white',
         flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
-          <Text style={{color: 'gray'}}>共 {this.state.studentNum} 位成員</Text>
+          <Text allowFontScaling={false} style={{color: 'gray'}}>共 {this.state.studentNum} 位成員</Text>
           <ScrollView>
           { listStudents }
           </ScrollView>
@@ -586,7 +589,7 @@ class LearningView extends Component {
                   source={require('../../img/love-logo.png')}
                 />
               </TouchableHighlight>
-              <Text style={{ marginTop: 20 }}>
+              <Text allowFontScaling={false} style={{ marginTop: 20 }}>
               加入班級，擁有更多學習！
               </Text>
               <View style={{ height: window.height/5 , width:20 }}></View>
@@ -601,7 +604,7 @@ class LearningView extends Component {
                   source={require('../../img/love-logo.png')}
                 />
               </TouchableHighlight>
-              <Text style={{ marginTop: 20 }}>
+              <Text allowFontScaling={false} style={{ marginTop: 20 }}>
               建立班級，讓教學更便利！
               </Text>
               <View style={{ height: window.height/5 , width:20 }}></View>
@@ -617,7 +620,7 @@ class LearningView extends Component {
     if(this.role === 'teacher'){
       return(
         <TouchableHighlight onPress={this.createCourse}>
-          <Text style={{ marginTop: 15, color: 'white'}}> 建立 </Text>
+          <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 建立 </Text>
           </TouchableHighlight>
         );
     }else{
@@ -630,9 +633,9 @@ class LearningView extends Component {
     return (
       <View style={viewStyle}>
         <TouchableHighlight onPress={this.concealCreateCourse}>
-          <Text style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
+          <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white'}}> 取消 </Text>
         </TouchableHighlight>
-        <Text style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}> {headerTitle} </Text>
+        <Text allowFontScaling={false} style={{ marginTop: 15, color: 'white', fontSize: GLOBLE.HEADER_FONTSIZE}}> {headerTitle} </Text>
         {this.renderNewCourseCreateButton()}
       </View>
     );
@@ -778,7 +781,7 @@ class LearningView extends Component {
       return(<View style={{
         alignItems: 'center',
         justifyContent: 'flex-start',
-        height: 100
+        height: 250
       }}>
       <Image
       style={{
@@ -804,7 +807,7 @@ class LearningView extends Component {
             justifyContent: 'center',
             margin: 5
           }}>
-          <Text style={{textAlign: 'center', color: 'white'}}>加入</Text>
+          <Text allowFontScaling={false} style={{textAlign: 'center', color: 'white'}}>加入</Text>
           </View>
         </TouchableHighlight>
 
@@ -875,7 +878,11 @@ class LearningView extends Component {
   }
   teacherCreateCourse(){
     return(
-      <View style={{flex:1,
+      <KeyboardAvoidingView
+      behavior="padding"
+      >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={{
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginTop: 25
@@ -899,13 +906,14 @@ class LearningView extends Component {
         {this.renderCourseTitle()}
         <TextInput
           style={{height: 40,
-            width: 150,
+            width: 250,
             marginLeft: 20,
             fontSize: 16
           }}
           autoFocus={true}
           keyboardType= 'default'
-          maxLength={150}
+          maxLength={250}
+          underlineColorAndroid={'transparent'}
           placeholder='班級名稱'
           placeholderTextColor='gray'
           onChangeText={(courseName) => {
@@ -940,18 +948,21 @@ class LearningView extends Component {
         </View>
         {this.renderCourseAndJoinButton()}
       </View>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+
     );
   }
   studentJoinCourse(){
     return(
-      <View style={{flex:1,
+      <View style={{
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginTop: 25
       }}>
         <View style={{height: 50}}>
-        <Text style={{fontSize: 17}}> 輸入你想加入的班級代碼 </Text>
-        <Text style={{fontSize: 14}}> 欲想了解班級代碼，可詢問班級老師</Text>
+        <Text allowFontScaling={false} style={{fontSize: 17}}> 輸入你想加入的班級代碼 </Text>
+        <Text allowFontScaling={false} style={{fontSize: 14}}> 欲想了解班級代碼，可詢問班級老師</Text>
         </View>
         <View style={{
           height: 40,
@@ -961,7 +972,7 @@ class LearningView extends Component {
           alignItems: 'center'
         }}>
         <View style={{position: 'absolute'}}>
-          <Text style={{color: 'black', fontSize: 20}}>{this.state.courseCode}</Text>
+          <Text allowFontScaling={false} style={{color: 'black', fontSize: 20}}>{this.state.courseCode}</Text>
 
         </View>
         <TextInput
@@ -975,8 +986,8 @@ class LearningView extends Component {
           keyboardType= 'numeric'
           placeholderTextColor='transparent'
           selectionColor='transparent'
-          backgroundColor='transparent'
           maxLength={10}
+          underlineColorAndroid={'transparent'}
           onChangeText={(courseCode) => {
             this.setState({courseCode});
             if(courseCode.length === 10){
@@ -986,6 +997,7 @@ class LearningView extends Component {
               //set the state
               //render below
               // -> /courses/:CourseCode
+              //textinput's backgroundColor='transparent' remove for android
             }
           }}
         value={this.state.courseCode}
@@ -1093,7 +1105,7 @@ class LearningView extends Component {
 // on the LoginForm container
 
 function mapDispatchToProps(dispatch) {
-  
+
   return bindActionCreators({
     hideHeader,
     courseOperation,

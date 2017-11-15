@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, Dimensions, Alert,
+import {
+  View, Text, TouchableHighlight, Dimensions, Alert, Platform,
   Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView
  } from 'react-native';
 import { RegStyles } from './registerConf';
@@ -11,6 +12,7 @@ import { regFirstname, regLastname, regEmail, regPassword } from '../../actions/
 
 const window = Dimensions.get('window');
 const buttonHeight = window.height - 150;
+const androidButtonHeight = window.height - 50;
 const styles = {
   nextButton: {
     position: 'absolute',
@@ -21,6 +23,7 @@ const styles = {
     width: 320,
     height: 50,
     marginTop: window.height - 150,
+    marginBottom: 50,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center'
@@ -34,6 +37,7 @@ class FillForm extends Component {
     this.setCurrentButtonStyle = this.setCurrentButtonStyle.bind(this);
     this.resetCurrentButtonStyle = this.resetCurrentButtonStyle.bind(this);
     this.changePasswordConfirmOffFocus = this.changePasswordConfirmOffFocus.bind(this);
+    this.renderContinue = this.renderContinue.bind(this);
 
     this.state = {
       email: '',
@@ -60,6 +64,7 @@ class FillForm extends Component {
           width: 320,
           height: 50,
           marginTop: buttonHeight,
+          marginBottom: 50,
           alignSelf: 'center',
           alignItems: 'center',
           justifyContent: 'center'
@@ -79,6 +84,7 @@ class FillForm extends Component {
           width: 320,
           height: 50,
           marginTop: buttonHeight,
+          marginBottom: 50,
           alignSelf: 'center',
           alignItems: 'center',
           justifyContent: 'center'
@@ -250,6 +256,7 @@ class FillForm extends Component {
         width: 320,
         height: 50,
         marginTop: buttonHeight,
+        marginBottom: 50,
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center'
@@ -272,6 +279,7 @@ class FillForm extends Component {
         width: 320,
         height: 50,
         marginTop: buttonHeight,
+        marginBottom: 50,
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center'
@@ -342,11 +350,49 @@ class FillForm extends Component {
       );
     }
   }
+  renderContinue(){
+    if(Platform.OS === 'android'){
+      return(
+        <View style={{width: window.width, height: 200}}>
+        <TouchableHighlight
+          style={this.state.nextButton}
+          onPress={this.onHandleCont}
+          >
+          <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
+        </TouchableHighlight>
+        </View>
+      )
+    }else{
+      return(
+        <View></View>
+      );
+    }
+
+  }
+  renderContinueIos(){
+    if(Platform.OS === 'ios'){
+      return(
+        <View style={{width: window.width, height: 150}}>
+        <TouchableHighlight
+          style={this.state.nextButton}
+          onPress={this.onHandleCont}
+          >
+          <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
+        </TouchableHighlight>
+        </View>
+      )
+    }else{
+      return(
+        <View></View>
+      );
+    }
+
+  }
   render() {
     /*
 
     <TransparentCardSection>
-    <Text style={{fontSize: 14, color: 'gray'}}>
+    <Text allowFontScaling={false} style={{fontSize: 14, color: 'gray'}}>
      {'請再輸入一次密碼確認'}
     </Text>
     </TransparentCardSection>
@@ -369,11 +415,11 @@ class FillForm extends Component {
       >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View>
-      <Text style={RegStyles.headerStyle}>
+      <Text allowFontScaling={false} style={RegStyles.headerStyle}>
       填寫帳號資料
       </Text>
       <TransparentCardSection>
-      <Text style={{fontSize: 14, color: 'gray'}}>
+      <Text allowFontScaling={false} style={{fontSize: 14, color: 'gray'}}>
        {'電子郵件'}
       </Text>
       </TransparentCardSection>
@@ -387,7 +433,7 @@ class FillForm extends Component {
       />
       </TransparentCardSection>
       <TransparentCardSection>
-      <Text style={{fontSize: 14, color: 'gray'}}>
+      <Text allowFontScaling={false} style={{fontSize: 14, color: 'gray'}}>
        {'英數密碼(6 ~ 20字)'}
       </Text>
       </TransparentCardSection>
@@ -406,7 +452,7 @@ class FillForm extends Component {
 
       </TransparentCardSection>
       <TransparentCardSection>
-      <Text style={{fontSize: 14, color: 'gray'}}>
+      <Text allowFontScaling={false} style={{fontSize: 14, color: 'gray'}}>
        {'真實姓名'}
       </Text>
       </TransparentCardSection>
@@ -433,22 +479,32 @@ class FillForm extends Component {
       </TransparentCardSection>
       <TransparentCardSection>
 
-        <Text style={{fontSize: 14, color: 'gray'}}>
+        <Text allowFontScaling={false} style={{fontSize: 14, color: 'gray'}}>
          {'為了你的使用權利及安全，請務必填寫真實姓名。'}
         </Text>
+
+      {this.renderContinue()}
+
       </TransparentCardSection>
+
+
       <TouchableHighlight
         style={this.state.nextButton}
         onPress={this.onHandleCont}
         >
-        <Text style={this.state.nextButtonText}>繼續</Text>
+        <Text allowFontScaling={false} style={this.state.nextButtonText}>繼續</Text>
       </TouchableHighlight>
+
+
       </View>
       </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     );
   }
 }
+/*
+
+*/
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ regFirstname, regLastname, regEmail, regPassword }, dispatch);

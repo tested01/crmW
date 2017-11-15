@@ -84,7 +84,7 @@ export default class Notification extends Component{
               center='教務通知'
 
             />
-            <Text style={{margin: 15, fontSize: 15}}>{this.state.detailTitle}</Text>
+            <Text allowFontScaling={false} style={{margin: 15, fontSize: 15}}>{this.state.detailTitle}</Text>
             <View style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -92,8 +92,8 @@ export default class Notification extends Component{
               height: 25,
               margin: 5
             }}>
-            <Text style={{}}>{this.state.detailSubtitle}</Text>
-            <Text style={{color: 'gray'}}>{this.state.notificationTime}</Text>
+            <Text allowFontScaling={false} style={{}}>{this.state.detailSubtitle}</Text>
+            <Text allowFontScaling={false} style={{color: 'gray'}}>{this.state.notificationTime}</Text>
             </View>
             <View
             style={{margin: 5, height: window.height-165}}
@@ -128,8 +128,8 @@ export default class Notification extends Component{
               alignItems: 'flex-end',
               margin: 5
             }}>
-            <Text style={{color: 'gray', fontSize: 12}}>{this.props.subtitle}</Text>
-            <Text style={{color: 'gray', fontSize: 12}}>{GLOBLE.formatDateString(this.props.createdDate, '/')}</Text>
+            <Text allowFontScaling={false} style={{color: 'gray', fontSize: 12}}>{this.props.subtitle}</Text>
+            <Text allowFontScaling={false} style={{color: 'gray', fontSize: 12}}>{GLOBLE.formatDateString(this.props.createdDate, '/')}</Text>
             </View>
           </View>
           </TouchableHighlight>

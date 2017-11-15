@@ -238,11 +238,11 @@ class PhotoCard extends Component{
               flexDirection: 'row'
             }}>
               <Image
-                style={{width: window.width/2, height: window.width/2}}
+                style={{width: window.width/2, height: window.width/2, padding: 2}}
                 source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
               />
               <Image
-                style={{width: window.width/2, height: window.width/2}}
+                style={{width: window.width/2, height: window.width/2, padding: 2}}
                 source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
               />
             </View>
@@ -251,12 +251,12 @@ class PhotoCard extends Component{
               flexDirection: 'row'
             }}>
               <Image
-                style={{width: window.width/2, height: window.width/2}}
+                style={{width: window.width/2, height: window.width/2, padding: 2}}
                 source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
               />
 
               <Image
-                style={{width: window.width/2, height: window.width/2}}
+                style={{width: window.width/2, height: window.width/2, padding: 2}}
                 source={{uri: CONFIG.API_BASE_URL + resources[3].uri}}>
                 <View
                   style={{
@@ -267,7 +267,7 @@ class PhotoCard extends Component{
                     alignItems: 'center'
                   }}
                 >
-                  <Text style={{color: 'white', fontSize: scale(30)}}>
+                  <Text allowFontScaling={false} style={{color: 'white', fontSize: scale(30)}}>
                     { restPhotoNum.toString() }+
                   </Text>
                 </View>
@@ -288,11 +288,11 @@ class PhotoCard extends Component{
         return(
           <View>
             <Image
-              style={{width: window.width, height: window.width/2}}
+              style={{width: window.width, height: window.width/2, padding: 2}}
               source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
             />
             <Image
-              style={{width: window.width, height: window.width/2}}
+              style={{width: window.width, height: window.width/2, padding: 2}}
               source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
             />
           </View>
@@ -302,7 +302,7 @@ class PhotoCard extends Component{
         return(
           <View style={{display: 'flex'}}>
               <Image
-                style={{width: window.width, height: window.width/2}}
+                style={{width: window.width, height: window.width/2, padding: 2}}
                 source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
               />
               <View style={{
@@ -310,11 +310,11 @@ class PhotoCard extends Component{
                 flexDirection: 'row'
               }}>
                 <Image
-                  style={{width: window.width/2, height: window.width/2}}
+                  style={{width: window.width/2, height: window.width/2, padding: 2}}
                   source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
                 />
                 <Image
-                  style={{width: window.width/2, height: window.width/2}}
+                  style={{width: window.width/2, height: window.width/2, padding: 2}}
                   source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
                 />
               </View>
@@ -329,11 +329,11 @@ class PhotoCard extends Component{
                 flexDirection: 'row'
               }}>
                 <Image
-                  style={{width: window.width/2, height: window.width/2}}
+                  style={{width: window.width/2, height: window.width/2, padding: 2}}
                   source={{uri: CONFIG.API_BASE_URL + resources[0].uri}}
                 />
                 <Image
-                  style={{width: window.width/2, height: window.width/2}}
+                  style={{width: window.width/2, height: window.width/2, padding: 2}}
                   source={{uri: CONFIG.API_BASE_URL + resources[1].uri}}
                 />
               </View>
@@ -342,11 +342,11 @@ class PhotoCard extends Component{
                 flexDirection: 'row'
               }}>
                 <Image
-                  style={{width: window.width/2, height: window.width/2}}
+                  style={{width: window.width/2, height: window.width/2, padding: 2}}
                   source={{uri: CONFIG.API_BASE_URL + resources[2].uri}}
                 />
                 <Image
-                  style={{width: window.width/2, height: window.width/2}}
+                  style={{width: window.width/2, height: window.width/2, padding: 2}}
                   source={{uri: CONFIG.API_BASE_URL + resources[3].uri}}
                 />
               </View>
@@ -413,8 +413,8 @@ class PhotoCard extends Component{
              }}
           />
           <View style={styles.headerText}>
-              <Text style={styles.authorName}> {this.props.author} </Text>
-              <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
+              <Text allowFontScaling={false} style={styles.authorName}> {this.props.author} </Text>
+              <Text allowFontScaling={false} style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
           </View>
           { this.renderFlags(isUShow, isUStar) }
         </View>
@@ -435,7 +435,7 @@ class PhotoCard extends Component{
               backgroundColor='transparent'
               onPress={this.likeOrUnlike}
             >
-              <Text style={{color: this.state.likeColor}}>{this.state.likeCount}</Text>
+              <Text allowFontScaling={false} style={{color: this.state.likeColor}}>{this.state.likeCount}</Text>
             </Icon.Button>
           </View>
         </View>
@@ -472,8 +472,8 @@ class PhotoCard extends Component{
                 />
 
                 <View style={styles.headerText}>
-                    <Text style={styles.authorName}> {this.props.author} </Text>
-                    <Text style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
+                    <Text allowFontScaling={false} style={styles.authorName}> {this.props.author} </Text>
+                    <Text allowFontScaling={false} style={styles.subtitle}> {publishDate.concat(' 指導老師 ').concat(this.props.teacher)} </Text>
                 </View>
                 { this.renderFlags(isUShow, isUStar) }
               </View>

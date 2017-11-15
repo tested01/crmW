@@ -4,11 +4,13 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import Splash from './components/Splash';
 import reducers from './reducers';
+import { Text } from 'react-native';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 class App extends Component {
   render() {
+    Text.defaultProps.allowFontScaling=false; //fix the font size
     return (
       <Provider store={createStoreWithMiddleware(reducers)}>
         <Splash />

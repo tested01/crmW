@@ -155,7 +155,7 @@ class RegisterSteps extends Component {
         </Icon.Button>
         <Text> </Text>
         <TouchableHighlight onPress={()=>console.log('Deprecate Button: no action')}>
-                <Text style={{color: 'transparent'}}> 繼續 </Text>
+                <Text allowFontScaling={false} style={{color: 'transparent'}}> 繼續 </Text>
         </TouchableHighlight>
       </View>);
     }else{
