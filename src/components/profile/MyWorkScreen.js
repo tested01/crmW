@@ -104,10 +104,12 @@ class MyWorkScreen extends Component {
   };
 
   fetchuStarPosts(){
-    fetch(CONFIG.API_BASE_URL.concat('/stars/'), {
+    //change from stars API to mystars  API
+    fetch(CONFIG.API_BASE_URL.concat('/mystars/'), {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
+        'x-auth': this.props.loginState.xAuth,
         'Content-Type': 'application/json'
       }
      })
@@ -116,6 +118,8 @@ class MyWorkScreen extends Component {
 
           response.json().then(json => {
                                 //this.setState(Object.assign({}, this.state, json));
+                                console.log('uStar log...');
+                                console.log(json);
                                 this.setState({'uStar': json.posts});
                               });
         } else {
