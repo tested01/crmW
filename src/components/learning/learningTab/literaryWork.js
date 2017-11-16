@@ -171,7 +171,7 @@ class LiteraryWork extends Component{
     this.startDate = startDate;
     this.endDate = endDate;
     this.setState({taskName});
-    console.log(this.taskName, this.startDate, this.endDate, 'tn');
+    //console.log(this.taskName, this.startDate, this.endDate, 'tn');
     this.setState({startDate});
     this.setState({endDate});
   }
@@ -194,23 +194,23 @@ class LiteraryWork extends Component{
   createNewTask(){
     //hide original headerText
     //change the literaryWork state
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '課務');
     this.props.addNewTask();
   }
 
   editTask(){
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '課務');
     this.props.editTask();
   }
 
   viewTask(){
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '課務');
     this.props.viewTask();
   }
 
 
   submitWork(){
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '學習');
     this.setState({studentSubmitStatus: 'submitWork'});
     this.setState({selectedIndex: 0});
     this.props.submitWork();
@@ -226,7 +226,7 @@ class LiteraryWork extends Component{
     });
   }
   courseWorksSync(){
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '課務');
     this.setState({studentSubmitStatus: 'courseWorks'});
     console.log(this.state.selectedIndex, 'selectedIndex');
     this.props.submitWork();
@@ -904,13 +904,15 @@ class LiteraryWork extends Component{
 
   //回到本頁初始狀態
   resetLiteraryWork(){
-    this.props.hideHeader(false);
+
     if(this.props.loginState.role === 'teacher'){
+      this.props.hideHeader(false, '課務');
       this.props.endAddNewTask();
       this.props.endEditTask();
       this.props.endViewTask();
     }
     if(this.props.loginState.role === 'student'){
+      this.props.hideHeader(false, '學習');
       this.setState({studentSubmitStatus: 'Overview'});
       this.props.endSubmitWork();
       this.props.clearImages();

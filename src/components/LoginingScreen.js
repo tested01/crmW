@@ -46,6 +46,7 @@ class LoginingScreen extends Component {
     var noHeaderList = ['我']; //hide the header
     var rightButtonList = ['學習','課務'];
     let currentTitleAppear = (noHeaderList.indexOf(this.props.selectedFeature.title) < 0);
+    console.log('currentHideHeaders', this.props.hideHeaderOperation.headerTitles);
     let currentHasRightButton = (rightButtonList.indexOf(this.props.selectedFeature.title) >= 0);
     console.log(this.props.hideHeaderOperation.hide, 'this.props.hideHeader.hide');
     if(this.props.selectedFeature.title=='我'){
@@ -62,7 +63,15 @@ class LoginingScreen extends Component {
     }else{
       //Dashboard.showTabBar();
     }
-    if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){
+    /*
+    A: seletedFeature.title
+    B: currentHideHeaders
+
+    if A belong to B => hide the header
+    if A not belong to B => show the header
+    */
+    //if(currentTitleAppear && !(this.props.hideHeaderOperation.hide)){ //refactor this line to below
+    if(currentTitleAppear && !this.props.hideHeaderOperation.headerTitles.includes(this.props.selectedFeature.title)){
       if(currentHasRightButton){
         //android statusbar backgroundColor="#fff"
         return(
@@ -94,7 +103,7 @@ class LoginingScreen extends Component {
   }
   joinCourse(){
     this.props.courseOperation(true);
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '學習');
   }
   render() {
     const { viewStyle, blockStyle, colorlessViewStyle } = styles;

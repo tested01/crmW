@@ -182,11 +182,16 @@ export function regRole(role) {
     }
   };
 }
-
-export function hideHeader(hide) {
+//TODO: refactoring to contain hide header list
+export function hideHeader(hide, headerTitle) {
+  //console.log('hide header', hide, headerTitle);
+  //The corresponding reducer do the following tasks:
+  // when 'hide' is true, add headerTitle to the hideList
+  // when 'hide' is false, remove it from the hideList
   return {
     type: HIDE_HEADER,
     payload: {
+      headerTitle,
       hide
     }
   };

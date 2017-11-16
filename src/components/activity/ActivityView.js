@@ -169,7 +169,7 @@ class ActivityView extends Component {
     }
   }
   renderActivityDetail(){
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '活動');
       //{this.renderActivityCard(this.state.activityId)}
     let currentActivity = this.state.activities.find(this.isCurrentSelectedActivity);
     console.log('currentActivity', currentActivity);
@@ -264,7 +264,7 @@ class ActivityView extends Component {
   }
   leftDetail(){
     this.setState({inDetail: false});
-    this.props.hideHeader(false);
+    this.props.hideHeader(false, '活動');
   }
   renderActivityHeaderLeft(){
     return(

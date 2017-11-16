@@ -229,7 +229,7 @@ class LearningView extends Component {
 
   joinClass(){
     this.props.courseOperation(true);
-    this.props.hideHeader(true);
+    this.props.hideHeader(true, '學習');
   }
 
   refreshStudentCount(){
@@ -744,7 +744,7 @@ class LearningView extends Component {
     console.log('concealCreateCourse');
     //this.setState({classOperation: false});
     this.props.courseOperation(false);
-    this.props.hideHeader(false);
+    this.props.hideHeader(false, '課務');
   }
 
   createCourseAPI(body){
@@ -762,7 +762,7 @@ class LearningView extends Component {
 
           response.json().then(json => {
                                 //this.setState(Object.assign({}, this.state, json));
-                                this.props.hideHeader(false); //call this when exit 建立班級
+                                this.props.hideHeader(false, '課務'); //call this when exit 建立班級
                                 this.props.courseOperation(false);
                                 this.updateCourses(this.props.loginState.xAuth);
                               });
@@ -837,7 +837,7 @@ class LearningView extends Component {
           response.json().then(json => {
 
                                 this.props.courseOperation(false);
-                                this.props.hideHeader(false);
+                                this.props.hideHeader(false, '學習');
                                 this.updateCourses(this.props.loginState.xAuth); //update
 
                               });
