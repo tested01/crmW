@@ -29,11 +29,11 @@ class MemberList extends Component{
         key={student._id}
         student={student}
         currentCourse={this.props.currentCourse}
-        refresh={this.refreshStudentCount}
+        refresh={this.props.refresh}
         />
       );
       let w = this.props.currentCourse._creator;
-      const listTeachers = [ <StudentCard key='{student._id}' teacher student={w}/> ];
+      //const listTeachers = [ <StudentCard key='{student._id}' teacher student={w}/> ];
 
       //StudentCard
 
