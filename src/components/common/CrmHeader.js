@@ -26,7 +26,7 @@ class CrmHeader extends Component {
         justifyContent: 'space-between',
         backgroundColor: this.tColor,
         alignItems: 'center',
-        height: 50,
+        height: 56,
         paddingTop: 0,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },

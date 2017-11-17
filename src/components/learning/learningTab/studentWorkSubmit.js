@@ -113,7 +113,7 @@ class StudentWorkSubmit extends Component{
       cropping: true,
       compressImageMaxWidth: 640,
       compressImageMaxHeight: 480,
-      compressImageQuality: 0.7,
+      compressImageQuality: 0.9,
       mediaType: 'photo'
     }).then(image => {
       console.log(image);
@@ -131,7 +131,7 @@ class StudentWorkSubmit extends Component{
       multiple: true,
       compressImageMaxWidth: 640,
       compressImageMaxHeight: 480,
-      compressImageQuality: 0.7,
+      compressImageQuality: 0.9,
       mediaType: 'photo'
     }).then(images => {
       console.log(images);

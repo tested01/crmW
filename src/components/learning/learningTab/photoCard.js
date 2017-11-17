@@ -39,6 +39,7 @@ class PhotoCard extends Component{
     this.renderThumbnails = this.renderThumbnails.bind(this);
   }
   componentWillMount(){
+    this.setState({modalZoomIndex: 0});
     this.setState({post: this.props.post});
     this.setState({whoLikes: this.props.post.likes.users}); //點贊的人有哪些
     this.setState({userId: this.props.loginState.id}); //裡面有登入者的 id
@@ -154,9 +155,10 @@ class PhotoCard extends Component{
   closeZoomImages(){
     this.setState({modalZoomImages: false});
   }
-  openZoomImages(){
-    console.log('openZoomImages...');
-    this.setState({modalZoomImages: true});
+  openZoomImages(indexId){
+    console.log('openZoomImages...', indexId);
+    this.setState({modalZoomIndex: indexId}, ()=>this.setState({modalZoomImages: true}));
+
   }
   //render the image viewer, which can zoom in&out
   renderZoomImages(){
@@ -197,7 +199,7 @@ class PhotoCard extends Component{
           if(index == resourcesSize - 1){
             return(
            <View key={index}>
-           <TouchableHighlight  onPress={this.openZoomImages}>
+           <TouchableHighlight  onPress={()=>this.openZoomImages(index)}>
               <Image
               style={{width: window.width - 20, height: window.width - 20, margin: 10}}
               source={{uri: CONFIG.API_BASE_URL + img.uri}}
@@ -212,7 +214,7 @@ class PhotoCard extends Component{
         }else{
           return(
 
-            <TouchableHighlight key={index} onPress={this.openZoomImages}>
+            <TouchableHighlight key={index} onPress={()=>this.openZoomImages(index)}>
               <Image
               style={{width: window.width - 20, height: window.width - 20, margin: 10}}
               source={{uri: CONFIG.API_BASE_URL + img.uri}}
@@ -445,7 +447,7 @@ class PhotoCard extends Component{
           visible={this.state.modalDetailImages}
           onRequestClose={() => {alert("Modal has been closed.")}}
           >
-         <View style={{marginTop: 22}}>
+         <View style={{marginTop: 0}}>
           <View>
             <CrmHeader
               left="angle-left"
@@ -495,7 +497,7 @@ class PhotoCard extends Component{
            visible={this.state.modalZoomImages}
            onRequestClose={() => {alert("Modal has been closed.")}}
            >
-           <View style={{marginTop: 22}}>
+           <View style={{marginTop: 0}}>
              <CrmHeader
                left='close'
                wordColor='white'
@@ -508,11 +510,9 @@ class PhotoCard extends Component{
              />
              </View>
 
-             <ImageViewer imageUrls={this.imageUrlList()}/>
+             <ImageViewer imageUrls={this.imageUrlList()} index={this.state.modalZoomIndex}/>
          </Modal>
         </Modal>
-
-
 
       </View>
 
