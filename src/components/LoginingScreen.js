@@ -74,6 +74,7 @@ class LoginingScreen extends Component {
     if(currentTitleAppear && !this.props.hideHeaderOperation.headerTitles.includes(this.props.selectedFeature.title)){
       if(currentHasRightButton){
         //android statusbar backgroundColor="#fff"
+        console.log('this.props.selectedFeature.title', this.props.selectedFeature.title);
         return(
           <View>
             <Header
@@ -89,6 +90,7 @@ class LoginingScreen extends Component {
         );
       }else{
         //backgroundColor="#fff"
+        console.log('this.props.selectedFeature.title2', this.props.selectedFeature);
         return(
           <View>
             <Header headerText={this.props.selectedFeature.title} />
@@ -104,6 +106,7 @@ class LoginingScreen extends Component {
   joinCourse(){
     this.props.courseOperation(true);
     this.props.hideHeader(true, '學習');
+    this.props.hideHeader(true, '課務');
   }
   render() {
     const { viewStyle, blockStyle, colorlessViewStyle } = styles;

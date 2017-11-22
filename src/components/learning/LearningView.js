@@ -743,8 +743,11 @@ class LearningView extends Component {
   concealCreateCourse(){
     console.log('concealCreateCourse');
     //this.setState({classOperation: false});
+    //TODO: students should be handled too
     this.props.courseOperation(false);
+
     this.props.hideHeader(false, '課務');
+    this.props.hideHeader(false, '學習');
   }
 
   createCourseAPI(body){
