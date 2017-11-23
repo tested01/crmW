@@ -393,7 +393,9 @@ class LearningView extends Component {
   renderMembers(){
 
     return(
-      <MemberList refresh={this.refreshStudentCount} />
+
+      <MemberList refreshStudentCount={this.refreshStudentCount}/>
+
     );
 
     /*

@@ -14,15 +14,31 @@ const styles = StyleSheet.create({
 });
 
 class MemberList extends Component{
-
+  constructor(props){
+    super(props);
+    this.refreshStudentCount = this.refreshStudentCount.bind(this);
+    //this.setCount = this.setCount.bind(this);
+  }
+  componentWillMount() {
+    //this.state.currentMemberCount = this.props.currentCourse.members.students.length;
+  }
+  /*
+  setCount(count){
+    this.setState({currentMemberCount: count});
+  }*/
+  refreshStudentCount(){
+    //let count = this.state.currentMemberCount - 1;
+    //this.setState({currentMemberCount: count});
+  }
   render(){
     let notLoadingYet = (this.props.currentCourse.code.length != 10);
     if(notLoadingYet){
       console.log('notLoadingYet');
       return (<PleaseSelectCourseFirst />)
     }else{
+      //this.setCount(this.props.currentCourse.members.students.length);
       const currentStudents = this.props.currentCourse.members.students;
-      console.log(currentStudents);
+
 
       const listStudents = currentStudents.map((student) =>
         <StudentCard
@@ -41,7 +57,9 @@ class MemberList extends Component{
       return(
         <View style={[styles.page, { backgroundColor: 'white',
         flex: 1, flexDirection: 'column', alignItems: 'stretch' }]} >
-          <Text allowFontScaling={false} style={{color: 'gray'}}>共 {this.props.currentCourse.members.students.length} 位成員</Text>
+
+          <Text allowFontScaling={false} style={{color: 'gray'}}>共有 {this.props.currentCourse.memberLength} 位成員</Text>
+
           <ScrollView>
           { listStudents }
           </ScrollView>

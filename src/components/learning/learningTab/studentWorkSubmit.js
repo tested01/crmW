@@ -13,6 +13,7 @@ import {
   Alert,
   Switch
 } from 'react-native';
+import ActionSheet from 'react-native-actionsheet';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -53,7 +54,7 @@ var BUTTONS = [
 const CAMERA_INDEX = 0;
 const GALLERY_INDEX = 1;
 const CANCEL_INDEX = 2;
-
+const astitle = '選取相對應的動作以取得相片';
 class StudentWorkSubmit extends Component{
 
 
@@ -64,6 +65,7 @@ class StudentWorkSubmit extends Component{
     this.uploadImageFromImagePicker = this.uploadImageFromImagePicker.bind(this);
     this.uploadImageFromCamera = this.uploadImageFromCamera.bind(this);
     this.showActionSheet = this.showActionSheet.bind(this);
+    this.handlePress = this.handlePress.bind(this)
     this.toggleSwitch = this.toggleSwitch.bind(this);
     this.setPostPreviewModalVisible = this.setPostPreviewModalVisible.bind(this);
     this.uploadPost = this.uploadPost.bind(this);
@@ -73,15 +75,39 @@ class StudentWorkSubmit extends Component{
       title: '',
       clicked: 'none',
       switchValue: true,
-      postPreviewModalVisible: false
+      postPreviewModalVisible: false,
+      selected: ''
     };
 
   }
+  handlePress(i) {
+    this.setState({
+      selected: i
+    });
+    this.setState({ clicked: BUTTONS[i] });
+    console.log(BUTTONS[i]);
+    if(i === CAMERA_INDEX){
+      this.uploadImageFromCamera();
+    }
+    if(i === GALLERY_INDEX){
+      this.uploadImageFromImagePicker();
+    }
+    if(i === CANCEL_INDEX){
+      ImagePicker.clean().then(() => {
+        console.log('removed all tmp images from tmp directory');
+      }).catch(e => {
+        alert(e);
+      });
+    }
+  }
+
   toggleSwitch(value){
     this.setState({ switchValue: value });
 
   }
   showActionSheet(){
+    this.ActionSheet.show();
+    /*
     ActionSheetIOS.showActionSheetWithOptions({
       options: BUTTONS,
       cancelButtonIndex: CANCEL_INDEX,
@@ -103,6 +129,7 @@ class StudentWorkSubmit extends Component{
         });
       }
     });
+    */
   }
 
   uploadImageFromCamera(){
@@ -535,6 +562,13 @@ class StudentWorkSubmit extends Component{
           <Text allowFontScaling={false} style={{color: 'white', lineHeight: 40, fontSize: 17}}>繳交</Text>
           </TouchableHighlight>
           <View style={{ width: 100, height: 60, backgroundColor: 'transparent'}}></View>
+          <ActionSheet
+            ref={o => this.ActionSheet = o}
+            title={astitle}
+            options={BUTTONS}
+            cancelButtonIndex={CANCEL_INDEX}
+            onPress={this.handlePress}
+          />
         </View>
         </TouchableWithoutFeedback>
       );
