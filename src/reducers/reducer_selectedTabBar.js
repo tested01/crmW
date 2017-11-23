@@ -9,9 +9,10 @@ const defaultState = {
 };
 
 export default function (state = defaultState, action) {
-
   if (action) {
+    console.log(action, state, 'wwww123');
     switch (action.type) {
+
       case TABBAR.COURSE.id:
         return action.payload;
       case TABBAR.LEARNING.id:
@@ -25,7 +26,6 @@ export default function (state = defaultState, action) {
       case TABBAR.ACTIVITY.id:
         return action.payload;
       default:
-
         return state;
     }
   }

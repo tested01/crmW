@@ -1,5 +1,6 @@
 //HIDE_HEADER
-import { HIDE_HEADER
+import { HIDE_HEADER,
+         CLEAN_HIDE_HEADER,
       } from '../actions';
 const defaultStatus = {
   hide: false,
@@ -41,7 +42,19 @@ export default function (state = defaultStatus, action) {
           hide,
           headerTitles : newHeaderTitles
         }
+      case 'CLEAN_HIDE_HEADER':
+        return {
+          hide: false,
+          headerTitles: []
+        };
+      case 'SIGN_OUT':
+        console.log('sign_out_hide...123');
+        return {
+          hide: false,
+          headerTitles: []
+        };
       default:
+        console.log(action.type, state, 'sign_out_hide...456')
         return state;
     }
   }

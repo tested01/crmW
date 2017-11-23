@@ -36,7 +36,7 @@ const appReducer = combineReducers({
 // reference: https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
 const rootReducer = (state, action) => {
   if (action.type === 'SIGN_OUT') {
-    state = undefined
+    state = undefined;
   }
 
   return appReducer(state, action)

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginSuccess } from '../actions/index';
+import { loginSuccess, cleanHideHeader } from '../actions/index';
 import { CustomizedButton, MaterialCard, TransparentCardSection, NoLabelInput, Spinner } from './common';
 import { CONFIG } from '../config';
 
@@ -36,6 +36,7 @@ class LoginForm extends Component {
         if (response.status === 200) {
           console.log(response.headers.get('x-auth'));
           response.json().then((data) => {
+            this.props.cleanHideHeader();
             this.props.loginSuccess(true, response.headers.get('x-auth'), data.email, data.role, data._id, data);
 
           });
@@ -141,7 +142,7 @@ const styles = {
 // on the LoginForm container
 function mapDispatchToProps(dispatch) {
 
-  return bindActionCreators({ loginSuccess }, dispatch);
+  return bindActionCreators({ loginSuccess, cleanHideHeader }, dispatch);
 }
 
 function mapStateToProps(state) {

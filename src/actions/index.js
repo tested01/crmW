@@ -31,6 +31,7 @@ export const REG_VERIFYCODE = 'REG_VERIFYCODE';
 export const REG_SCHOOLSLIST = 'REG_SCHOOLSLIST';
 
 export const HIDE_HEADER = 'HIDE_HEADER';
+export const CLEAN_HIDE_HEADER = 'CLEAN_HIDE_HEADER';
 export const COURSE_OPERATION = 'COURSE_OPERATION';
 //literaryWork related actions (start)
 export const ADD_NEW_TASK = 'ADD_NEW_TASK';
@@ -197,6 +198,18 @@ export function hideHeader(hide, headerTitle) {
   };
 }
 
+
+
+export function cleanHideHeader() {
+  //clean hide list
+  console.log('cleanHideHeader');
+  return {
+    type: CLEAN_HIDE_HEADER,
+    payload: {
+    }
+  };
+}
+
 export function courseOperation(open) {
   return {
     type: COURSE_OPERATION,
@@ -311,7 +324,6 @@ export function regSchoolsList(regSchoolsList){
 export function loginSuccess(success = false, xAuth, email, role, id, user) {
   // loginSuccess is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
-
   return {
     type: LOGIN_SUCCESS,
     payload: {
@@ -329,7 +341,6 @@ export function loginSuccess(success = false, xAuth, email, role, id, user) {
 export function signOut(success = false, xAuth) {
   // signOut is an ActionCreator, it needs
   // to return an action, an object with a 'type' property
-
   return {
     type: SIGN_OUT,
     payload: {
