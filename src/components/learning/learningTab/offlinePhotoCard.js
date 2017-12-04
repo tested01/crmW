@@ -6,6 +6,7 @@ import {
   Dimensions,
   Image,
   Modal,
+  Platform,
   ScrollView
  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -40,6 +41,7 @@ class OfflinePhotoCard extends Component{
     this.openZoomImages = this.openZoomImages.bind(this);
     this.imageUrlList = this.imageUrlList.bind(this);
     this.renderThumbnails = this.renderThumbnails.bind(this);
+    this.deviceSpecificMarginTop = this.deviceSpecificMarginTop.bind(this);
   }
   componentWillMount(){
     this.setState({userId: this.props.loginState.id}); //裡面有登入者的 id
@@ -50,6 +52,13 @@ class OfflinePhotoCard extends Component{
     this.setState({like: false});
     this.setState({likeColor: 'gray'});
 
+  }
+  deviceSpecificMarginTop(){
+    if(Platform.OS === 'android'){
+      return 0;
+    }else{
+      return 22;
+    }
   }
   likeOrUnlike(){
     if(this.state.like){
@@ -396,7 +405,7 @@ class OfflinePhotoCard extends Component{
           visible={this.state.modalDetailImages}
           onRequestClose={() => {alert("Modal has been closed.")}}
           >
-         <View style={{marginTop: 22}}>
+         <View style={{marginTop: this.deviceSpecificMarginTop()}}>
           <View>
             <CrmHeader
               left="angle-left"
@@ -446,7 +455,7 @@ class OfflinePhotoCard extends Component{
            visible={this.state.modalZoomImages}
            onRequestClose={() => {alert("Modal has been closed.")}}
            >
-           <View style={{marginTop: 22}}>
+           <View style={{marginTop: this.deviceSpecificMarginTop()}}>
              <CrmHeader
                left='close'
                wordColor='white'

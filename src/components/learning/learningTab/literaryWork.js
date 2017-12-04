@@ -221,12 +221,12 @@ class LiteraryWork extends Component{
   });
   */
   courseWorks(){
+    this.props.hideHeader(true, '學習');
     this.setState({selectedIndex: 1}, function () {
       this.courseWorksSync();
     });
   }
   courseWorksSync(){
-    this.props.hideHeader(true, '課務');
     this.setState({studentSubmitStatus: 'courseWorks'});
     console.log(this.state.selectedIndex, 'selectedIndex');
     this.props.submitWork();

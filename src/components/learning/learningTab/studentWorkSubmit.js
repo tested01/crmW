@@ -11,6 +11,7 @@ import {
   Keyboard, TouchableWithoutFeedback,
   Modal,
   Alert,
+  Platform,
   Switch
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
@@ -70,7 +71,7 @@ class StudentWorkSubmit extends Component{
     this.setPostPreviewModalVisible = this.setPostPreviewModalVisible.bind(this);
     this.uploadPost = this.uploadPost.bind(this);
     this.updateCurrentCourse = this.updateCurrentCourse.bind(this);
-
+    this.deviceSpecificMarginTop = this.deviceSpecificMarginTop.bind(this);
     this.state = {
       title: '',
       clicked: 'none',
@@ -309,6 +310,14 @@ class StudentWorkSubmit extends Component{
       //end real post
   }
 
+  deviceSpecificMarginTop(){
+    if(Platform.OS === 'android'){
+      return 0;
+    }else{
+      return 22;
+    }
+  }
+
   render(){
     /*
 
@@ -322,8 +331,7 @@ class StudentWorkSubmit extends Component{
     />
 
     */
-      console.log('currentMission...123456qq', this.props.currentMission);
-      console.log('loginState 0000000', this.props.loginState);
+
       return(
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={{display: 'flex', flex: 1, backgroundColor: 'transparent'}}>
@@ -332,6 +340,7 @@ class StudentWorkSubmit extends Component{
               <TextInput
                 style={{ height: 40 }}
                 placeholder='作品名稱...'
+                underlineColorAndroid={'transparent'}
                 onChangeText={(title) => this.setState({title})}
                 value={this.state.title}
               />
@@ -369,7 +378,7 @@ class StudentWorkSubmit extends Component{
                 visible={this.state.postPreviewModalVisible}
                 onRequestClose={() => {alert("Modal has been closed.")}}
                 >
-               <ScrollView style={{marginTop: 22}}>
+               <ScrollView style={{marginTop: this.deviceSpecificMarginTop()}}>
                 <View>
                 <CrmHeader
                   left="star"

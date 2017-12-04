@@ -6,6 +6,7 @@ import {
   Modal,
   WebView,
   Dimensions,
+  Platform,
   TouchableHighlight } from 'react-native';
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -39,6 +40,7 @@ export default class Notification extends Component{
     this.setModalVisible = this.setModalVisible.bind(this);
     this.closeDetail=this.closeDetail.bind(this);
     this.renderWebView=this.renderWebView.bind(this);
+    this.deviceSpecificMarginTop = this.deviceSpecificMarginTop.bind(this);
   }
 
   setModalVisible(visible) {
@@ -63,6 +65,14 @@ export default class Notification extends Component{
 
 
   }
+
+  deviceSpecificMarginTop(){
+    if(Platform.OS == 'android'){
+      return 0;
+    }else{
+      return 22;
+    }
+  }
   render(){
 
       return (
@@ -73,7 +83,7 @@ export default class Notification extends Component{
           visible={this.state.modalDetail}
           onRequestClose={() => {alert("Modal has been closed.")}}
           >
-         <View style={{marginTop: 22}}>
+         <View style={{marginTop: this.deviceSpecificMarginTop()}}>
           <View>
             <CrmHeader
               left='angle-left'
